@@ -6,4 +6,4 @@ A collection of mixed-purpose user objects for Grasshopper - given "as is" (no w
 
 Installation: copy the Co-de-iT folder in your User Object folder, new items should appear in the "Extra" tab.
 
-(c) Co-de-iT 2017 - [www.co-de-it.com](www.co-de-it.com)
+(c) Co-de-iT 2017 - [www.co-de-it.com](http://www.co-de-it.com)
