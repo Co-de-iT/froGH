@@ -2,7 +2,7 @@
 photo (c) Darwin Wigget
 
 # froGH
-Ah... that should have been "for GH" but we're so lazy that we misspelled....  
+Ah... that should have been "for GH" but we're so lazy that we misspelled and didn't bother correcting....  
 Anyway, here's a collection of mixed-purpose user objects for Grasshopper - given "as is" (no warranty, no support) - use at your own risk (but know that we use them too... so they shouldn't explode at least)
 
 ### Description
