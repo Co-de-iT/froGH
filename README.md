@@ -2,7 +2,8 @@
 photo (c) Darwin Wigget
 
 # froGH
-A collection of mixed-purpose user objects for Grasshopper - given "as is" (no warranty, no support) - use at your own risk (but know that we use them too... so they shouldn't explode at least)
+Ah... that should have been "for GH" but we're so lazy that we misspelled....  
+Anyway, here's a collection of mixed-purpose user objects for Grasshopper - given "as is" (no warranty, no support) - use at your own risk (but know that we use them too... so they shouldn't explode at least)
 
 ### Description
 **froGH** is a sparse collection of user objects (some clusters and some C# coded components) born out of necessity or play in our daily Grasshopper experience. You might find them useful (or not). This repo is intended mainly for us, in order to make a more systematic collection, but meanwhile... why not share the code?  
