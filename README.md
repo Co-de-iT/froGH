@@ -16,7 +16,7 @@ copy the Co-de-iT folder in your User Object folder, new items should appear in 
 *If some component displays as diagonal stripes with a triangular icon right click over the icon and select "Internalize" - these components work anyway but at least you will see input and output parameters' names.*
 
 #### Implementations
-. Example files
+. Example files  
 . Better Consistency and graphics
 
 (c) Co-de-iT 2017 - [www.co-de-it.com](http://www.co-de-it.com)
