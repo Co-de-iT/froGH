@@ -6,4 +6,6 @@ A collection of mixed-purpose user objects for Grasshopper - given "as is" (no w
 
 Installation: copy the Co-de-iT folder in your User Object folder, new items should appear in the "Extra" tab.
 
+NOTE: if some component display as diagonal stripes with a triangular icon right click over the icon and select "Internalize" - these components work anyway but at least you will see input and output parameters' names.
+
 (c) Co-de-iT 2017 - [www.co-de-it.com](http://www.co-de-it.com)
