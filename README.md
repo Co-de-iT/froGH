@@ -14,7 +14,7 @@ Again: **no support is given** so use at your own risk and understanding. If you
 copy the Co-de-iT folder in your User Object folder, new items should appear in the "Extra" tab.
 
 #### Known Bugs
-*"wrong" componet display*  
+*"wrong" component display*  
 *If some component displays as diagonal stripes with a triangular icon right click over the icon and select "Internalize" - these components work anyway but at least you will see input and output parameters' names.*
 
 #### Implementations
