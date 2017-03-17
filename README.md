@@ -1,6 +1,9 @@
 ![froGH](https://raw.githubusercontent.com/Co-de-iT/froGH/master/media/frog-and-grasshopper-darwin-wiggett.jpg)
 photo (c) Darwin Wigget
 
+> “More fun than a frog in a glass of milk.” 
+> ― Bob Weir
+
 # froGH
 Ah... that should have been "for GH" but we're so lazy that we misspelled and didn't bother correcting.  
 Anyway, here's a collection of mixed-purpose user objects for Grasshopper - given "as is" (no warranty, no support) - use at your own risk (but know that we use them too... so they shouldn't explode at least)
@@ -8,16 +11,18 @@ Anyway, here's a collection of mixed-purpose user objects for Grasshopper - give
 ### Description
 **froGH** is a sparse collection of user objects (some clusters and some C# coded components) born out of necessity or play in our daily Grasshopper experience. You might find them useful (or not). This repo is intended mainly for us, in order to make a more systematic collection, but meanwhile... why not share the code?  
 
-Again: **no support is given** so use at your own risk and understanding. If you mess things up using **froGH**, you're on your own.  
+Again: _**no support is given**_ so use at your own risk and understanding. If you mess things up using **froGH**, you're on your own.  
   
 On the other hand, if you have any ideas on how to improve things, please let us know at info[at]co-de-it.com - and feel free to improve upon yourself, but play nice and give proper attribution (see license).
-
+  
+![froGH panel](https://raw.githubusercontent.com/Co-de-iT/froGH/master/media/froGH%20panel.PNG)
+  
 ### Installation
-copy the froGH folder in your User Object folder, new items will appear in the **froGH** tab.
+copy the **froGH** folder in your User Object folder, new items will appear in the **froGH** tab.
 
 #### Known Bugs
 *"wrong" component display*  
-*If some component displays as diagonal stripes with a triangular icon right click over the icon and select "Internalize" - these components work anyway but at least you will see input and output parameters' names.*  
+*This shouldn't happen anymore, yet... if some component displays as diagonal stripes with a triangular icon right click over the icon and select "Internalize" - these components work anyway but at least you will see input and output parameters' names.*  
   
 #### Implementations
 . Example files  
