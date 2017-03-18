@@ -21,8 +21,7 @@ On the other hand, if you have any ideas on how to improve things, please let us
 copy the **froGH** folder in your User Object folder, new items will appear in the **froGH** tab.
 
 #### Known Bugs
-*"wrong" component display*  
-*This shouldn't happen anymore, yet... if some component displays as diagonal stripes with a triangular icon right click over the icon and select "Internalize" - these components work anyway but at least you will see input and output parameters' names.*  
+None so far
   
 #### Implementations
 . Example files  
