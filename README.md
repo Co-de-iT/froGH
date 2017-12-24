@@ -23,7 +23,7 @@ On the other hand, if you have any ideas on how to improve things, please let us
 copy the **froGH** folder in your User Object folder, new items will appear in the **froGH** tab.
 
 #### Known Bugs
-None so far
+. "double shift" component does not work with groups
   
 #### Implementations
 . Example files  
