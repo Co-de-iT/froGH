@@ -22,8 +22,13 @@ On the other hand, if you have any ideas on how to improve things, please let us
 ### Installation
 copy the **froGH** folder in your User Object folder, new items will appear in the **froGH** tab.
 
+### Dependencies
+**froGH** requires previous installation of the following plug-ins:
+. [MeshEdit](https://www.food4rhino.com/app/meshedit)
+. [WeaverBird](http://www.giuliopiacentino.com/weaverbird/) (check [this post](https://discourse.mcneel.com/t/weaverbird-for-rhino-6/54055/9) on how to install WeaverBird in Rhino 6)
+
 #### Known Bugs
-. "double shift" component does not work with groups
+. there are no bugs, only features! ;P Just kidding.... if you find something mail us
   
 #### Implementations
 . Example files  
