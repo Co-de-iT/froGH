@@ -20,7 +20,7 @@ On the other hand, if you have any ideas on how to improve things, please let us
 ![froGH panel](https://raw.githubusercontent.com/Co-de-iT/froGH/master/media/froGH%20panel.PNG)
   
 ### Installation
-copy the **froGH** folder in your User Object folder, new items will appear in the **froGH** tab.
+Download the latest .zip file from the [releases](https://github.com/Co-de-iT/froGH/releases) (alpha version has more features but not all of them have been tested and have no custom icon) copy the **froGH** folder in your User Object folder, new items will appear in the **froGH** tab.
 
 #### Dependencies
 **froGH** requires previous installation of the following plug-ins:  
