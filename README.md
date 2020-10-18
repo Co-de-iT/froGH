@@ -1,8 +1,8 @@
 ![froGH](https://raw.githubusercontent.com/Co-de-iT/froGH/master/media/frog-and-grasshopper-darwin-wiggett.jpg)
 photo (c) Darwin Wigget
 
-> “More fun than a frog in a glass of milk.” 
-> ― Bob Weir
+> “Frogs have it made, they get to eat what bugs them.” 
+> ― Anonymous
 
 # froGH
 Ah... that should have been "for GH" but we're so lazy that we misspelled and didn't bother correcting.  
@@ -15,7 +15,7 @@ Please note: froGH relies on other GH plugins, so if you realize you miss some p
 
 Again: _**no support is given**_ so use at your own risk and understanding. If you mess things up using **froGH**, you're on your own.  
   
-On the other hand, if you have any ideas on how to improve things, please let us know at info[at]co-de-it.com - and feel free to improve upon yourself, but play nice and give proper attribution (see license).
+On the other hand, if you have any ideas on how to improve things, please let us know at info[at]co-de-it.com - and feel free to improve upon it yourself, but play nice and give proper attribution (see license).
   
 ![froGH panel](https://raw.githubusercontent.com/Co-de-iT/froGH/master/media/froGH%20panel.PNG)
   
@@ -39,4 +39,4 @@ froGH by Co-de-iT is licensed under a [Creative Commons Attribution 4.0 Internat
 
 Some of the code is from the amazing people in the Grasshopper community: David Rutten (the man himself), Giulio Piacentino (yeah, that other man), James Ramsden and Peter Fotiadis - these people are all named where their code was used in the various components. If you are one of them and think we did you a disservice, let us know how to attribute properly to you! Other than that.... the rest of the code is by us at Co-de-iT.  
   
-Co-de-iT 2017 - [www.co-de-it.com](http://www.co-de-it.com)
+Co-de-iT 2017-2020 - [www.co-de-it.com](http://www.co-de-it.com)

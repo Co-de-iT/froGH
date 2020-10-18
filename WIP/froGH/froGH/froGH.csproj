@@ -56,12 +56,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdaptiveFillet.cs" />
     <Compile Include="AutoStopToggle.cs" />
+    <Compile Include="BakeAttributesEnhanced.cs" />
     <Compile Include="CenteredDomain.cs" />
     <Compile Include="Clusterizer.cs" />
     <Compile Include="DeconstructBlockFromID.cs" />
     <Compile Include="DeconstructDot.cs" />
     <Compile Include="DirectoryReader.cs" />
+    <Compile Include="DivideCurveByTangentAngle.cs" />
     <Compile Include="Double Shift.cs" />
     <Compile Include="FrenetSerretFrame.cs" />
     <Compile Include="GHFilePathInfo.cs" />
@@ -72,6 +75,7 @@
     <Compile Include="froGHInfo.cs" />
     <Compile Include="IndexesFromList.cs" />
     <Compile Include="IndexesFromNumber.cs" />
+    <Compile Include="IsPolylineClockwise.cs" />
     <Compile Include="LoadSTLBinaryFile.cs" />
     <Compile Include="MassBoolean.cs" />
     <Compile Include="ObjectLayer.cs" />
@@ -89,6 +93,8 @@
     <Compile Include="SaveStringToFile.cs" />
     <Compile Include="SerialBranchPath.cs" />
     <Compile Include="SortPointsByAngle.cs" />
+    <Compile Include="SurfaceQuadTreeByCurvature.cs" />
+    <Compile Include="SurfaceQuadTreeByCurve.cs" />
     <Compile Include="SymmetricDomain.cs" />
     <Compile Include="Topologizer.cs" />
     <Compile Include="TopologyInverter.cs" />
