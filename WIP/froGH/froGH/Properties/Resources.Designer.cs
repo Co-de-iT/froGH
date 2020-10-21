@@ -783,6 +783,16 @@ namespace froGH.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Toggle_Autostop_GH {
+            get {
+                object obj = ResourceManager.GetObject("Toggle_Autostop_GH", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Topologizer_GH {
             get {
                 object obj = ResourceManager.GetObject("Topologizer_GH", resourceCulture);

@@ -21,9 +21,10 @@ namespace froGH
         /// new tabs/panels will automatically be created.
         /// </summary>
         public froGHComponent()
-          : base("froGH", "Nickname",
-              "Description",
-              "froGH", "AAA")
+          : base("froGH", "Kermit",
+              "Here's some simple advice:\nAlways be yourself.\nNever take yourself too seriously.\nAnd beware of advice from experts, pigs and members of Parliament.\nKermit The Frog" +
+                "\n\nAh... It should have been 'for GH' but... spelling\nfroGH is a sparse collection of (in)utilities for Grasshopper\n\n(c) Co-de-iT 2020\nhttps://github.com/Co-de-iT/froGH",
+              "froGH", "_")
         {
         }
 

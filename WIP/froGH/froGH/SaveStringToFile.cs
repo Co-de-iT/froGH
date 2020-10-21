@@ -10,6 +10,8 @@ namespace froGH
 {
     public class SaveStringToFile : GH_Component
     {
+        private bool pending = false;
+
         /// <summary>
         /// Initializes a new instance of the SaveStringToFile class.
         /// </summary>
@@ -28,7 +30,7 @@ namespace froGH
             pManager.AddTextParameter("String", "S", "String to save (as List)", GH_ParamAccess.list);
             pManager.AddTextParameter("File Path", "P", "File absolute path", GH_ParamAccess.item);
             pManager.AddTextParameter("File Name", "F", "Filename and extension", GH_ParamAccess.item);
-            pManager.AddBooleanParameter("Save trigger", "S", "Activate saving - attach a button and click to save", GH_ParamAccess.item, false);
+            pManager.AddBooleanParameter("Save trigger", "s", "Activate saving - attach a button and click to save", GH_ParamAccess.item, false);
         }
 
         /// <summary>
@@ -53,13 +55,21 @@ namespace froGH
             bool save = false;
             DA.GetData(3, ref save);
 
-            if (!save) return;
+            if (!save && !pending) return;
+
+            if (!pending)
+            {
+                pending = true;
+                return;
+            }
+
+            pending = false;
 
             if (!Directory.Exists(dir)) Directory.CreateDirectory(dir);
 
             String target = dir + file;
 
-            System.IO.File.WriteAllLines(target, S.ToArray());
+            File.WriteAllLines(target, S.ToArray());
         }
 
         /// <summary>
