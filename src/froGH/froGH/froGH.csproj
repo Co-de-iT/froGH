@@ -1,0 +1,440 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7627BBBE-1D08-4500-8927-73020C842CEF}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>froGH</RootNamespace>
+    <AssemblyName>froGH</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Eto, Version=2.5.0.0, Culture=neutral, PublicKeyToken=552281e97c755530, processorArchitecture=MSIL">
+      <HintPath>..\packages\RhinoCommon.6.13.19058.371\lib\net45\Eto.dll</HintPath>
+    </Reference>
+    <Reference Include="GH_IO, Version=6.13.19058.370, Culture=neutral, PublicKeyToken=6a29997d2e6b4f97, processorArchitecture=MSIL">
+      <HintPath>..\packages\Grasshopper.6.13.19058.371\lib\net45\GH_IO.dll</HintPath>
+    </Reference>
+    <Reference Include="Grasshopper, Version=6.13.19058.370, Culture=neutral, PublicKeyToken=dda4f5ec2cd80803, processorArchitecture=MSIL">
+      <HintPath>..\packages\Grasshopper.6.13.19058.371\lib\net45\Grasshopper.dll</HintPath>
+    </Reference>
+    <Reference Include="Rhino.UI, Version=6.13.19058.370, Culture=neutral, PublicKeyToken=552281e97c755530, processorArchitecture=MSIL">
+      <HintPath>..\packages\RhinoCommon.6.13.19058.371\lib\net45\Rhino.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="RhinoCommon, Version=6.13.19058.370, Culture=neutral, PublicKeyToken=552281e97c755530, processorArchitecture=MSIL">
+      <HintPath>..\packages\RhinoCommon.6.13.19058.371\lib\net45\RhinoCommon.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AdaptiveFillet.cs" />
+    <Compile Include="CameraControl.cs" />
+    <Compile Include="CameraReport.cs" />
+    <Compile Include="COMPortWriter.cs" />
+    <Compile Include="CustomMaterial.cs" />
+    <Compile Include="CustomMeshVerticesDisplay.cs" />
+    <Compile Include="ExportCurvesToAI.cs" />
+    <Compile Include="ExtractMeshFace.cs" />
+    <Compile Include="FastMeshFromPolyline.cs" />
+    <Compile Include="MC_EdgeProximityMap.cs" />
+    <Compile Include="MC_EdgeProximitySingle.cs" />
+    <Compile Include="MC_FaceProximityMap.cs" />
+    <Compile Include="MC_FaceProximitySingle.cs" />
+    <Compile Include="MC_VertexProximityMap.cs" />
+    <Compile Include="MC_VertexProximitySingle.cs" />
+    <Compile Include="MeshBridge.cs" />
+    <Compile Include="MeshClosestVertexIndex.cs" />
+    <Compile Include="MeshDenoising.cs" />
+    <Compile Include="MeshExtractEdgeToleranceMultiple.cs" />
+    <Compile Include="MeshExtractEdgeToleranceSingle.cs" />
+    <Compile Include="MeshFacesToVerticesValues.cs" />
+    <Compile Include="MeshIsocurves.cs" />
+    <Compile Include="MeshPointOrientation.cs" />
+    <Compile Include="MeshPseudoCurvature.cs" />
+    <Compile Include="MeshRebuildNormals.cs" />
+    <Compile Include="MeshReport.cs" />
+    <Compile Include="MeshSubdFaces.cs" />
+    <Compile Include="MeshToCSSnippet.cs" />
+    <Compile Include="MeshUnlooper.cs" />
+    <Compile Include="MeshVerticesToFacesValues.cs" />
+    <Compile Include="MeshWiresDisplay.cs" />
+    <Compile Include="NamedViewsToC4D.cs" />
+    <Compile Include="OrientToCamera.cs" />
+    <Compile Include="PointCloudDisplay.cs" />
+    <Compile Include="PolylinesMeshLoft.cs" />
+    <Compile Include="ReduceMesh.cs" />
+    <Compile Include="SaveGHFile.cs" />
+    <Compile Include="SpaceFillingPolyGen.cs" />
+    <Compile Include="ToggleAutostop.cs" />
+    <Compile Include="BakeAttributesEnhanced.cs" />
+    <Compile Include="CenteredDomain.cs" />
+    <Compile Include="Clusterizer.cs" />
+    <Compile Include="DeconstructBlockFromID.cs" />
+    <Compile Include="DeconstructDot.cs" />
+    <Compile Include="DirectoryReader.cs" />
+    <Compile Include="DivideCurveByTangentAngle.cs" />
+    <Compile Include="Double Shift.cs" />
+    <Compile Include="FrenetSerretFrame.cs" />
+    <Compile Include="GHFilePathInfo.cs" />
+    <Compile Include="Flapper.cs" />
+    <Compile Include="FontList.cs" />
+    <Compile Include="FontParser.cs" />
+    <Compile Include="froGHComponent.cs" />
+    <Compile Include="froGHInfo.cs" />
+    <Compile Include="IndexesFromList.cs" />
+    <Compile Include="IndexesFromNumber.cs" />
+    <Compile Include="IsPolylineClockwise.cs" />
+    <Compile Include="LoadSTLBinaryFile.cs" />
+    <Compile Include="MassBoolean.cs" />
+    <Compile Include="ObjectLayer.cs" />
+    <Compile Include="Orient3Points.cs" />
+    <Compile Include="PathGenerator.cs" />
+    <Compile Include="PlaneFromLPolyline.cs" />
+    <Compile Include="PointsInSphere.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ReadFileFromURL.cs" />
+    <Compile Include="SaveStringToFile.cs" />
+    <Compile Include="SerialBranchPath.cs" />
+    <Compile Include="SortPointsByAngle.cs" />
+    <Compile Include="SurfaceQuadTreeByCurvature.cs" />
+    <Compile Include="SurfaceQuadTreeByCurve.cs" />
+    <Compile Include="SymmetricDomain.cs" />
+    <Compile Include="Topologizer.cs" />
+    <Compile Include="TopologyInverter.cs" />
+    <Compile Include="Trilateration.cs" />
+    <Compile Include="SignedVectorAngle.cs" />
+    <Compile Include="Turntable.cs" />
+    <Compile Include="ViewCaptureToFile.cs" />
+    <Compile Include="WeightedRandomChoice.cs" />
+    <Compile Include="WeightedSpheresDisplay.cs" />
+    <Compile Include="ZoomToObject.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="Resources\double shift_red_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FSFrame_red_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GHFileDir_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Indexes from List_2_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Indexes from number_2_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Is Polyline Clockwise_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\load binary STL_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Load from Web_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MassBool_2_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Mesh bridge_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Mesh Closest Vertex Index_3_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Mesh curvature_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Mesh de-noising_2_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Mesh Edge Proximity Map_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Mesh Edge Proximity Single_2_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Mesh Extract Face_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Mesh Face Proximity Map_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Mesh Face Proximity Single_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Mesh Isocurves_2_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Mesh Rebuild Normals_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Mesh report_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Mesh side_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Mesh to C# snippet_4_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Mesh unlooper_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Mesh Vertex Proximity Map_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Mesh Vertex Proximity Single_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Mesh Vertices Display_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Mesh Wires Display_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ObjLayer_2_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Orient_to_Cam_3_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\orient3P_2_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PathGen_4_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Plane from L Polyline_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Points within sphere_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\polymesh loft_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Read Dir_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\reduce Mesh_1_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\saveAsGH_2_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SeqTreeBranch_2_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sort points by angle_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SPFPolyhedra_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\String2File_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Surface Quadtree_1_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Symmetric Domain_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Topologizer_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Topology Inverter_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Trilateration_3.1_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\vals f2v_4_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\vals v2f_3_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\vector angle sign_4_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\View Capture to File_2_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Weighted Random Choice_3_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Write to COM port_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Zoom to Object_3_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Adaptive Fillet_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Bake att ++_3-1_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Bake att ++_4_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Camera report_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Camera to C4D_2_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Centered Domain_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Clusterizer_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\control camera_3_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\curvature 4tree_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\curve 4tree_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Custom curve display_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Custom Material_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Custom PointCloud Display_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Custom Sphere Display_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Deconstruct Block from ID_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Deconstruct Dot_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Divide Curve by tangent angle_2_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\divide mesh quad face_bn_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Export to AI_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Extract mesh edges angle - multiple_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Extract mesh edges angle - multiple-2_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Extract mesh edges angle_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Extrude mesh curve_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fast mesh_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Flapper_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\font list_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\font parser_2_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\kermit_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Toggle Autostop_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Turntable_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\froGH_GH.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>Copy "$(TargetPath)" "$(TargetDir)$(ProjectName).gha"
+Erase "$(TargetPath)"</PostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <FallbackCulture>en-US</FallbackCulture>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <StartProgram>C:\Program Files\Rhino 6\System\Rhino.exe</StartProgram>
+    <StartArguments>
+    </StartArguments>
+    <StartAction>Program</StartAction>
+  </PropertyGroup>
+  <Import Project="..\packages\RhinoCommon.6.13.19058.371\build\net45\RhinoCommon.targets" Condition="Exists('..\packages\RhinoCommon.6.13.19058.371\build\net45\RhinoCommon.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\RhinoCommon.6.13.19058.371\build\net45\RhinoCommon.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\RhinoCommon.6.13.19058.371\build\net45\RhinoCommon.targets'))" />
+    <Error Condition="!Exists('..\packages\Grasshopper.6.13.19058.371\build\net45\Grasshopper.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Grasshopper.6.13.19058.371\build\net45\Grasshopper.targets'))" />
+  </Target>
+  <Import Project="..\packages\Grasshopper.6.13.19058.371\build\net45\Grasshopper.targets" Condition="Exists('..\packages\Grasshopper.6.13.19058.371\build\net45\Grasshopper.targets')" />
+</Project>
