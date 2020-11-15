@@ -15,7 +15,7 @@ NOTE: _**no support is given**_ so use at your own risk and understanding. Examp
   
 On the other hand, if you have any ideas on how to improve things, please let us know at info[at]co-de-it.com - and feel free to improve upon it yourself, but play nice and give proper attribution (see license).
   
-![froGH panel](https://raw.githubusercontent.com/Co-de-iT/froGH/master/media/froGH%20panel.PNG)
+![froGH panel](https://raw.githubusercontent.com/Co-de-iT/froGH/master/media/froGH%202.0%20panel.png)
   
 ### Installation
 Download the latest .zip file from the [releases](https://github.com/Co-de-iT/froGH/releases) - **_the 2.0 beta version is suggested_**.  
