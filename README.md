@@ -1,6 +1,8 @@
-![froGH](https://raw.githubusercontent.com/Co-de-iT/froGH/master/media/frog-and-grasshopper-darwin-wiggett.jpg)
-photo (c) Darwin Wigget
-
+<center>
+<img src="https://github.com/Co-de-iT/froGH/blob/master/media/froGH%20logo.png?raw=true" alt="froGH" style="width:300px;"/>
+</center>
+  
+  
 > “Frogs have it made, they get to eat what bugs them.” 
 > ― Anonymous
 
