@@ -1,8 +1,5 @@
-<center>
-<img src="https://github.com/Co-de-iT/froGH/blob/master/media/froGH%20logo.png?raw=true" alt="froGH" style="width:300px;"/>
-</center>
-  
-  
+![froGH](https://github.com/Co-de-iT/froGH/blob/master/media/froGH%20logo.png?raw=true)
+
 > “Frogs have it made, they get to eat what bugs them.” 
 > ― Anonymous
 
