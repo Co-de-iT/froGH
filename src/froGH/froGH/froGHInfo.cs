@@ -55,4 +55,17 @@ namespace froGH
             }
         }
     }
+
+    /// <summary>
+    /// Add Category icon
+    /// </summary>
+    public class froGHCategoryIcon : GH_AssemblyPriority
+    {
+        public override GH_LoadingInstruction PriorityLoad()
+        {
+            Grasshopper.Instances.ComponentServer.AddCategoryIcon("froGH", Resources.froGH_category);
+            Grasshopper.Instances.ComponentServer.AddCategorySymbolName("froGH", 'f');
+            return GH_LoadingInstruction.Proceed;
+        }
+    }
 }
