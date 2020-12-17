@@ -18,8 +18,8 @@ On the other hand, if you have any ideas on how to improve things, please let us
   
 ### Installation
 Download the latest .zip file from the [releases](https://github.com/Co-de-iT/froGH/releases) - **_the 2.0 beta version is suggested_**.  
-. **_version 2.0 beta_**: unzip and copy the **froGH.gha** file in your _Grasshopper/Libraries_ folder  
-. **_earlier versions_**: copy the **froGH** folder in your _Grasshopper/User Object_ folder, new items will appear in the **froGH** tab.
+- **_version 2.0 beta_**: unzip and copy the **froGH.gha** file in your _Grasshopper/Libraries_ folder  
+- **_earlier versions_**: copy the **froGH** folder in your _Grasshopper/User Object_ folder, new items will appear in the **froGH** tab.
   
   
 ##### Dependencies (pre 2.0 beta ONLY)
