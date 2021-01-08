@@ -17,14 +17,9 @@ On the other hand, if you have any ideas on how to improve things, please let us
 ![froGH panel](https://raw.githubusercontent.com/Co-de-iT/froGH/master/media/froGH%202.0%20panel.png)
   
 ### Installation
-Download the latest .zip file from the [releases](https://github.com/Co-de-iT/froGH/releases) - **_the 2.0 beta version is suggested_**.  
-- **_version 2.0 beta_**: unzip and copy the **froGH.gha** file in your _Grasshopper/Libraries_ folder  
-- **_earlier versions_**: copy the **froGH** folder in your _Grasshopper/User Object_ folder, new items will appear in the **froGH** tab.
-  
-  
-##### Dependencies (pre 2.0 beta ONLY)
-Earlier **froGH** versions (pre 2.0 beta) require the previous installation of the [MeshEdit](https://www.food4rhino.com/app/meshedit) and [WeaverBird](http://www.giuliopiacentino.com/weaverbird/) plug-ins. (check [this post](https://discourse.mcneel.com/t/weaverbird-for-rhino-6/54055/9) on how to install WeaverBird in Rhino 6).  
-  
+Download the latest .zip file from the [releases](https://github.com/Co-de-iT/froGH/releases).
+- **_version 2.0.1 beta_**: unzip and copy the **froGH.gha** file in your _Grasshopper/Libraries_ folder  
+   
 #### Known Bugs
 . there are no bugs, only features! ;P Just kidding.... if you find something mail us
   
@@ -37,4 +32,4 @@ froGH by Co-de-iT is licensed under a [Creative Commons Attribution 4.0 Internat
 
 Some of the code is from the amazing people in the Grasshopper community: David Rutten (the man himself), Giulio Piacentino (yeah, that other man), James Ramsden, Mateusz Zwierzycki, and Peter Fotiadis - these people are all named where their code was used in the various components. If you are one of them and think we did you a disservice, let us know how to attribute properly to you! Other than that.... the rest of the code is by us at Co-de-iT.  
   
-Co-de-iT 2017-2020 - [www.co-de-it.com](http://www.co-de-it.com)
+Co-de-iT 2017-2021 - [www.co-de-it.com](http://www.co-de-it.com)

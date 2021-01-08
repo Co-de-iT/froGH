@@ -45,7 +45,7 @@ namespace froGH
             if (!(M.IsValid) || M == null) return;
 
             string eol = Environment.NewLine;
-            string snippet = "Mesh mesh = new Mesh()" + eol + eol;
+            string snippet = "Mesh mesh = new Mesh();" + eol + eol;
 
             snippet += "Point3d[] vertices = new Point3d[]{";
 

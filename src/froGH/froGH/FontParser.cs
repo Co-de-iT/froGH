@@ -33,7 +33,7 @@ namespace froGH
             pManager.AddNumberParameter("Sampling Precision", "sp", "Sampling Precision\nUsually a value between 100-250 is ok", GH_ParamAccess.item, 250);
             pManager.AddPlaneParameter("Base Plane", "P", "Plane for orienting Text", GH_ParamAccess.item, Plane.WorldXY);
             pManager.AddIntegerParameter("Justification", "J", "text justification (0-8) - attach a value list for autovalues", GH_ParamAccess.item, 0);
-           
+
             for (int i = 2; i < pManager.ParamCount; i++)
                 pManager[i].Optional = true;
         }
@@ -191,7 +191,7 @@ namespace froGH
                 {
                     if (stroke != null && stroke.Count > 1)
                     {
-                        if (close) stroke.Add(stroke[0]); // close polyline if necessary
+                        if (close && !stroke.IsClosed) stroke.Add(stroke[0]); // close polyline if necessary
                         strokes.Add(stroke);
                     }
                     stroke = new Polyline();
@@ -201,7 +201,7 @@ namespace froGH
                 // add last stroke to the list
                 if (i == pts.Length - 1)
                 {
-                    if (close) stroke.Add(stroke[0]); // and close it if necessary
+                    if (close && !stroke.IsClosed) stroke.Add(stroke[0]); // and close it if necessary
                     strokes.Add(stroke);
                 }
             }
