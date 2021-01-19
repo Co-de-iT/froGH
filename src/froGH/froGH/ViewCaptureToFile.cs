@@ -35,6 +35,7 @@ namespace froGH
             pManager.AddBooleanParameter("Capture", "c", "Activate Capture", GH_ParamAccess.item, false);
             pManager.AddGenericParameter("Trigger", "T", "Attach any value - if Capture is True, the value change will trigger a view capture", GH_ParamAccess.item);
 
+            pManager[2].Optional = true;
             pManager[3].Optional = true;
             pManager[4].Optional = true;
             pManager[5].Optional = true;

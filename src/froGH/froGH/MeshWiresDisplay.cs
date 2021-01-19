@@ -72,7 +72,7 @@ namespace froGH
         protected override void BeforeSolveInstance()
         {
             _clip = BoundingBox.Empty;
-            _mesh = null;
+            _mesh = new Mesh();
         }
 
         //Return a BoundingBox that contains all the geometry you are about to draw.

@@ -30,9 +30,11 @@ namespace froGH
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
             pManager.AddPointParameter("Points", "P", "Points to Display", GH_ParamAccess.list);
-            pManager.AddIntegerParameter("Size", "S", "Display size in pixels (one value for all points)", GH_ParamAccess.item, 1);
+            pManager.AddColourParameter("Colors", "C", "Colors - one color per point or a single color for all points", GH_ParamAccess.list);
+            pManager.AddIntegerParameter("Size", "S", "Display size in pixels (single value for all points)", GH_ParamAccess.item, 1);
 
             pManager[1].Optional = true;
+            pManager[2].Optional = true;
         }
 
         /// <summary>
@@ -54,13 +56,26 @@ namespace froGH
 
             if (P == null || P.Count == 0) return;
 
+            List<Color> colors = new List<Color>();
+            if (!DA.GetDataList(1, colors))
+                foreach (Point3d p in P)
+                    colors.Add(Color.Black);
+            if (colors.Count < P.Count)
+            {
+                Color singleCol = colors[0];
+                colors.Clear();
+                foreach (Point3d p in P)
+                    colors.Add(singleCol);
+            }
+
             int s = 1;
-            DA.GetData(1, ref s);
+            DA.GetData(2, ref s);
 
             if (s < 1) return;
 
             _size = s;
-            _cloud = new PointCloud(P);
+            _cloud = new PointCloud();
+            _cloud.AddRange(P, colors);
             _clip = _cloud.GetBoundingBox(false);
         }
 
@@ -70,7 +85,7 @@ namespace froGH
         protected override void BeforeSolveInstance()
         {
             _clip = BoundingBox.Empty;
-            _cloud = null;
+            _cloud = new PointCloud();
         }
 
         //Return a BoundingBox that contains all the geometry you are about to draw.
@@ -82,8 +97,8 @@ namespace froGH
         //Draw all wires and points in this method.
         public override void DrawViewportWires(IGH_PreviewArgs args)
         {
-            if (_cloud == null)
-                return;
+            //if (_cloud == null)
+            //    return;
             args.Display.DrawPointCloud(_cloud, _size);
         }
 

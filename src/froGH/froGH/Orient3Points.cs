@@ -12,7 +12,7 @@ namespace froGH
         /// Initializes a new instance of the Orient3Points class.
         /// </summary>
         public Orient3Points()
-          : base("Orient 3 Points", "f_C3PO",
+          : base("Orient 3 Points_DEPRECATED", "f_C3PO",
               "Orient objects by sets of 3 points",
               "froGH", "Geometry")
         {
@@ -80,7 +80,7 @@ namespace froGH
         /// </summary>
         public override GH_Exposure Exposure
         {
-            get { return GH_Exposure.secondary; }
+            get { return GH_Exposure.hidden; }
         }
 
         /// <summary>

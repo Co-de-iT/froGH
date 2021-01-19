@@ -27,7 +27,7 @@ namespace froGH
         /// </summary>
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
-            pManager.AddMeshParameter("Mesh", "M", "The Input Mesh to process", GH_ParamAccess.item);
+            pManager.AddMeshParameter("Mesh", "M", "The Mesh to process", GH_ParamAccess.item);
         }
 
         /// <summary>
@@ -48,53 +48,66 @@ namespace froGH
             if (!DA.GetData(0, ref M)) return;
             if (!M.IsValid || M == null) return;
 
-            Mesh val = M;
+            Mesh mesh = M;
 
             string text = "";
-            bool flag = true;
+            bool printable = true;
             text = "- Details -\n";
-            if (val.DisjointMeshCount == 1)
-                text += "Mesh is a single piece. \n";
+            if (mesh.DisjointMeshCount == 1)
+                text += "Mesh is a single piece.\n";
             else
-                text += "Mesh is composed of " + val.DisjointMeshCount.ToString() + " disjoint piece(s). \n";
+                text += "Mesh is composed of " + mesh.DisjointMeshCount.ToString() + " disjoint piece(s). \n";
 
-            Polyline[] m_nakedEdges = val.GetNakedEdges();
+            Polyline[] m_nakedEdges = mesh.GetNakedEdges();
             if (m_nakedEdges == null)
             {
-                text += "Mesh has 0 naked edges. \n";
+                text += "Mesh has 0 naked edges.\n";
             }
             else
             {
                 _curve.AddRange(m_nakedEdges);
-                text += "Mesh has " + m_nakedEdges.Length.ToString() + " naked edges. \n";
-                flag = false;
+                text += "Mesh has " + m_nakedEdges.Length.ToString() + " naked edges.\n";
+                printable = false;
             }
-            bool flag2 = default(bool);
-            bool flag3 = default(bool);
-            if (val.IsManifold(true, out flag2, out flag3))
+            bool isOriented = default(bool);
+            bool hasBoundary = default(bool);
+            if (mesh.IsManifold(true, out isOriented, out hasBoundary))
             {
-                text += "Mesh is manifold. \n";
+                text += "Mesh is manifold.\n";
             }
             else
             {
-                text += "Mesh is non-manifold. \n";
-                flag = false;
+                text += "Mesh is non-manifold.\n";
+                printable = false;
             }
-            if (val.SolidOrientation() == 1)
+            switch (mesh.SolidOrientation())
             {
-                text += "Mesh is solid. \n";
+                case 0:
+                    text += "Mesh is not solid.\n";
+                    printable = false;
+                    break;
+                case 1:
+                    text += "Mesh is solid.\n";
+                    break;
+                case -1:
+                    text += "Mesh is solid, but normals point inward\n";
+                    break;
             }
-            else if (val.SolidOrientation() == 0)
-            {
-                text += "Mesh is not solid. \n";
-                flag = false;
-            }
-            else
-            {
-                val.Flip(true, true, true);
-                text += "Mesh is solid. (normals have been flipped) \n";
-            }
-            text = ((!flag) ? ("Mesh is INVALID.\n\n" + text) : ("Mesh is VALID.\n\n" + text));
+            //if (mesh.SolidOrientation() == 1)
+            //{
+            //    text += "Mesh is solid.\n";
+            //}
+            //else if (mesh.SolidOrientation() == 0)
+            //{
+            //    text += "Mesh is not solid.\n";
+            //    //flag = false;
+            //}
+            //else
+            //{
+            //    //mesh.Flip(true, true, true);
+            //    text += "Mesh is solid, but normals point inward\n";
+            //}
+            text = ((!printable) ? ("Mesh is VALID, but NON PRINTABLE.\n\n" + text) : ("Mesh is VALID and PRINTABLE.\n\n" + text));
             text = "- Overview -\n" + text;
 
             DA.SetData(0, text);
