@@ -80,6 +80,7 @@
     <Compile Include="MeshExtractEdgeToleranceSingle.cs" />
     <Compile Include="MeshFacesToVerticesValues.cs" />
     <Compile Include="MeshIsocurves.cs" />
+    <Compile Include="MeshOffsetWeighted.cs" />
     <Compile Include="MeshPointOrientation.cs" />
     <Compile Include="MeshPseudoCurvature.cs" />
     <Compile Include="MeshRebuildNormals.cs" />
@@ -95,6 +96,7 @@
     <Compile Include="PolylinesMeshLoft.cs" />
     <Compile Include="ReduceMesh.cs" />
     <Compile Include="SaveGHFile.cs" />
+    <Compile Include="SlidersDisplay.cs" />
     <Compile Include="SpaceFillingPolyGen.cs" />
     <Compile Include="ToggleAutostop.cs" />
     <Compile Include="BakeAttributesEnhanced.cs" />
@@ -409,6 +411,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\froGH_category.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Mesh Offset Weighted_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sliders Display_GH.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

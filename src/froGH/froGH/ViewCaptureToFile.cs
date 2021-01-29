@@ -27,7 +27,7 @@ namespace froGH
         {
             pManager.AddTextParameter("File Path", "P", "File absolute path", GH_ParamAccess.item);
             pManager.AddTextParameter("File Name", "F", "Filename and extension", GH_ParamAccess.item);
-            pManager.AddTextParameter("Viewport Name", "V", "Name of the Rhino Viewport to capture", GH_ParamAccess.item);
+            pManager.AddTextParameter("Viewport Name", "V", "Name of the Rhino Viewport to capture\nleave empty for current view", GH_ParamAccess.item);
             pManager.AddTextParameter("Image size", "S", "Image size in pixels, WxH (ex. 1920x1080)\nleave empty for viewport resolution", GH_ParamAccess.item, "");
             pManager.AddBooleanParameter("Grid", "g", "Show Grid", GH_ParamAccess.item, false);
             pManager.AddBooleanParameter("Axes", "A", "Show Axes", GH_ParamAccess.item, false);

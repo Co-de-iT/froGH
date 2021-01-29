@@ -18,7 +18,7 @@ On the other hand, if you have any ideas on how to improve things, please let us
   
 ### Installation
 Download the latest .zip file from the [releases](https://github.com/Co-de-iT/froGH/releases).
-- **_version 2.0.2 beta_**: unzip and copy the **froGH.gha** file in your _Grasshopper/Libraries_ folder  
+- **_version 2.1.0 beta_**: unzip and copy the **froGH.gha** file in your _Grasshopper/Libraries_ folder  
    
 #### Known Bugs
 . there are no bugs, only features! ;P Just kidding.... if you find something mail us

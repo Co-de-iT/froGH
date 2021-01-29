@@ -553,6 +553,16 @@ namespace froGH.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Mesh_Offset_Weighted_GH {
+            get {
+                object obj = ResourceManager.GetObject("Mesh_Offset_Weighted_GH", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Mesh_Rebuild_Normals_GH {
             get {
                 object obj = ResourceManager.GetObject("Mesh_Rebuild_Normals_GH", resourceCulture);
@@ -746,6 +756,16 @@ namespace froGH.Properties {
         internal static System.Drawing.Bitmap SeqTreeBranch_2_GH {
             get {
                 object obj = ResourceManager.GetObject("SeqTreeBranch_2_GH", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Sliders_Display_GH {
+            get {
+                object obj = ResourceManager.GetObject("Sliders_Display_GH", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

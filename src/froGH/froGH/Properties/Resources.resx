@@ -265,6 +265,9 @@
   <data name="Mesh_Isocurves_2_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Mesh Isocurves_2_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Mesh_Offset_Weighted_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Mesh Offset Weighted_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Mesh_Rebuild_Normals_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Mesh Rebuild Normals_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -324,6 +327,9 @@
   </data>
   <data name="SeqTreeBranch_2_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SeqTreeBranch_2_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Sliders_Display_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sliders Display_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Sort_points_by_angle_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Sort points by angle_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
