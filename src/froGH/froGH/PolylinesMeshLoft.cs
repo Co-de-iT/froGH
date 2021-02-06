@@ -23,7 +23,7 @@ namespace froGH
         /// </summary>
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
-            pManager.AddCurveParameter("Polylines", "P", "Closed Polylines", GH_ParamAccess.list);
+            pManager.AddCurveParameter("Polylines", "P", "Polylines to loft", GH_ParamAccess.list);
             pManager.AddBooleanParameter("Closed", "C", "Close loft", GH_ParamAccess.item, false);
 
             pManager[1].Optional = true;

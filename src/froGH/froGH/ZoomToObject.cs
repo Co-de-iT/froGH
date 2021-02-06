@@ -26,7 +26,7 @@ namespace froGH
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
             pManager.AddGeometryParameter("Geometry", "G", "Geometry to frame", GH_ParamAccess.list);
-            pManager.AddNumberParameter("Inflate", "i", "Inflate Geometry Bounding Box (zooms out)", GH_ParamAccess.item, 1.0);
+            pManager.AddNumberParameter("Inflate", "i", "Inflate Geometry Bounding Box (zooms out), >= 0", GH_ParamAccess.item, 1.0);
             pManager.AddBooleanParameter("Activate", "a", "Activate Zoom", GH_ParamAccess.item, false);
 
             pManager[1].Optional = true;

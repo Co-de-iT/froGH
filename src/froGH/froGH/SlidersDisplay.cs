@@ -35,11 +35,11 @@ namespace froGH
         /// </summary>
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
-            pManager.AddGenericParameter("Sliders", "S", "Plug Sliders directly here, one by one, in order\ndo not use intermediate components such as merge", GH_ParamAccess.list);
+            pManager.AddGenericParameter("Sliders", "Sl", "Plug Sliders directly here, one by one, in order\ndo not use intermediate components such as merge", GH_ParamAccess.list);
             pManager.AddPlaneParameter("Orientation Plane", "P", "Orientation Plane\nPlane origin is the Top-Left corner", GH_ParamAccess.item, Plane.WorldXY);
             pManager.AddNumberParameter("Slider Length", "l", "Length of Slider Display Line", GH_ParamAccess.item, 10.0);
             pManager.AddTextParameter("Text Font", "F", "Text Font\nleave empty for default interface Font", GH_ParamAccess.item);
-            pManager.AddNumberParameter("Text Size", "s", "Text size", GH_ParamAccess.item, 1.0);
+            pManager.AddNumberParameter("Text Size", "S", "Text size", GH_ParamAccess.item, 1.0);
             pManager.AddColourParameter("Base Color", "bC", "Base color", GH_ParamAccess.item, Color.DarkGray);
             pManager.AddColourParameter("Highlight Color", "hC", "Highlight color", GH_ParamAccess.item, Color.Black);
 

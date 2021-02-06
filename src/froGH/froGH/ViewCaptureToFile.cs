@@ -28,12 +28,13 @@ namespace froGH
             pManager.AddTextParameter("File Path", "P", "File absolute path", GH_ParamAccess.item);
             pManager.AddTextParameter("File Name", "F", "Filename and extension", GH_ParamAccess.item);
             pManager.AddTextParameter("Viewport Name", "V", "Name of the Rhino Viewport to capture\nleave empty for current view", GH_ParamAccess.item);
-            pManager.AddTextParameter("Image size", "S", "Image size in pixels, WxH (ex. 1920x1080)\nleave empty for viewport resolution", GH_ParamAccess.item, "");
+            pManager.AddTextParameter("Image size", "WxH", "Image size in pixels, WxH (ex. 1920x1080)\nleave empty for viewport resolution", GH_ParamAccess.item, "");
+            pManager.AddNumberParameter("Scale", "S", "Image size multiplier\nex. 1920x1080 * 1.2 = 2304x1296", GH_ParamAccess.item, 1.0);
             pManager.AddBooleanParameter("Grid", "g", "Show Grid", GH_ParamAccess.item, false);
             pManager.AddBooleanParameter("Axes", "A", "Show Axes", GH_ParamAccess.item, false);
             pManager.AddBooleanParameter("Widget", "W", "Show XYZ Widget", GH_ParamAccess.item, false);
-            pManager.AddBooleanParameter("Capture", "c", "Activate Capture", GH_ParamAccess.item, false);
-            pManager.AddGenericParameter("Trigger", "T", "Attach any value - if Capture is True, the value change will trigger a view capture", GH_ParamAccess.item);
+            pManager.AddBooleanParameter("Capture", "C", "Activate Capture", GH_ParamAccess.item, false);
+            pManager.AddGenericParameter("Trigger", "t", "Attach any value - if Capture is True, the value change will trigger a view capture", GH_ParamAccess.item);
 
             pManager[2].Optional = true;
             pManager[3].Optional = true;
@@ -42,6 +43,7 @@ namespace froGH
             pManager[6].Optional = true;
             pManager[7].Optional = true;
             pManager[8].Optional = true;
+            pManager[9].Optional = true;
         }
 
         /// <summary>
@@ -116,22 +118,30 @@ namespace froGH
             Size sz;
             string size = "";
             DA.GetData(3, ref size);
+            double scale = 1.0;
+            DA.GetData(4, ref scale);
+
+            Rhino.Display.RhinoView view = Rhino.RhinoDoc.ActiveDoc.Views.Find(VP, false);
 
             if (!string.IsNullOrWhiteSpace(size))
             {
-                res = size.Split(new[] { 'x' }).Select(x => Convert.ToInt32(x)).ToArray();
-                sz = new Size(res[0], res[1]);
+                res = size.Split(new[] { 'x' }).Select(x => (int)(Convert.ToInt32(x) * scale)).ToArray();
+            }
+            else
+            {
+                res = new int[2];
+                res[0] = (int)(view.Size.Width * scale);
+                res[1] = (int)(view.Size.Height * scale);
             }
 
+            sz = new Size(res[0], res[1]);
 
-
-            Rhino.Display.RhinoView view = Rhino.RhinoDoc.ActiveDoc.Views.Find(VP, false);
             Bitmap image;
 
             bool grid = false, axes = false, widget = false;
-            DA.GetData(4, ref grid);
-            DA.GetData(5, ref axes);
-            DA.GetData(6, ref widget);
+            DA.GetData(5, ref grid);
+            DA.GetData(6, ref axes);
+            DA.GetData(7, ref widget);
 
             if (res.Length == 1)
                 image = view.CaptureToBitmap(grid, widget, axes);

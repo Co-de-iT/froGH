@@ -24,7 +24,7 @@ namespace froGH
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
             pManager.AddIntegerParameter("Path Type", "P", "Path type:\n0 desktop\n1 documents\n2 GH file path\n3 C:\nConnect a value list for automatic list generation", GH_ParamAccess.item);
-            pManager.AddTextParameter("Subdir", "S", "Custom subdirectory - optional", GH_ParamAccess.item);
+            pManager.AddTextParameter("Subdir", "D", "Custom subdirectory - optional", GH_ParamAccess.item);
             
             pManager[1].Optional = true;
         }

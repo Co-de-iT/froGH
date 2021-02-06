@@ -29,11 +29,11 @@ namespace froGH
             pManager.AddGeometryParameter("Geometry", "G", "Geometry for turntable", GH_ParamAccess.list);
             pManager.AddNumberParameter("Distance Multiplier", "d", "Zoom in/out", GH_ParamAccess.item, 1);
             pManager.AddIntervalParameter("Lens range", "L", "Lens range, ex. 21 to 120", GH_ParamAccess.item, new Interval(21, 120));
-            pManager.AddNumberParameter("Lens interpolation parameter", "l", "0-1 parameter for the lens range", GH_ParamAccess.item);
+            pManager.AddNumberParameter("Lens interpolation parameter", "Li", "0-1 parameter for the lens range", GH_ParamAccess.item);
             pManager.AddIntegerParameter("Direction", "D", "0 CCW,  CW", GH_ParamAccess.item, 0);
             pManager.AddNumberParameter("Adjust start point", "t", "Adjust start point in turntable trajectory\n0-1 parameter", GH_ParamAccess.item, 0);
-            pManager.AddNumberParameter("Camera tilt shift", "cT", "Slide camera along plane Z axis", GH_ParamAccess.item, 0);
-            pManager.AddNumberParameter("Target tilt shift", "tT", "Slide target along camera plane Z axis", GH_ParamAccess.item, 0);
+            pManager.AddNumberParameter("Camera tilt shift", "Ct", "Slide camera along plane Z axis", GH_ParamAccess.item, 0);
+            pManager.AddNumberParameter("Target tilt shift", "Tt", "Slide target along camera plane Z axis", GH_ParamAccess.item, 0);
             pManager.AddNumberParameter("Animation parameter", "at", "Use a 0-1 slider to move around\nAnimate the slider to save animation frames", GH_ParamAccess.item);
             pManager.AddBooleanParameter("Activate", "a", "Take control or release it back to Rhino\nuse a Toggle", GH_ParamAccess.item, false);
 

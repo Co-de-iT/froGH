@@ -23,8 +23,8 @@ namespace froGH
         /// </summary>
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
-            pManager.AddPointParameter("Sphere Center", "C", "Center Point of the search Sphere", GH_ParamAccess.item);
-            pManager.AddPointParameter("Points to Search", "P", "List of Points to search", GH_ParamAccess.list);
+            pManager.AddPointParameter("Sphere Center", "P", "Point to search from", GH_ParamAccess.item);
+            pManager.AddPointParameter("Cloud to Search", "C", "Cloud of Points to search", GH_ParamAccess.list);
             pManager.AddNumberParameter("Search Radius", "R", "Search Radius", GH_ParamAccess.item);
 
         }

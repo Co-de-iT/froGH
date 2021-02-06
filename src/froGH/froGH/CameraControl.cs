@@ -26,10 +26,10 @@ namespace froGH
         /// </summary>
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
-            pManager.AddPointParameter("Location", "L", "Camera location", GH_ParamAccess.item);
-            pManager.AddPointParameter("Target", "T", "Target point", GH_ParamAccess.item);
-            pManager.AddNumberParameter("Lens", "l", "Lens", GH_ParamAccess.item, 35);
-            pManager.AddVectorParameter("Up Vector", "up", "Up Vector", GH_ParamAccess.item, Vector3d.ZAxis);
+            pManager.AddPointParameter("Location", "C", "Camera location", GH_ParamAccess.item);
+            pManager.AddPointParameter("Target", "T", "Target location", GH_ParamAccess.item);
+            pManager.AddNumberParameter("Lens", "L", "Lens", GH_ParamAccess.item, 35);
+            pManager.AddVectorParameter("Up Vector", "u", "Up Vector", GH_ParamAccess.item, Vector3d.ZAxis);
             pManager.AddBooleanParameter("Activate", "a", "Take control or release it back to Rhino\nuse a Toggle", GH_ParamAccess.item, false);
 
             pManager[2].Optional = true;

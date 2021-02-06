@@ -33,10 +33,10 @@ namespace froGH
         /// </summary>
         protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)
         {
-            pManager.AddPointParameter("Location", "L", "Camera location", GH_ParamAccess.item);
-            pManager.AddPointParameter("Target", "T", "Target point", GH_ParamAccess.item);
-            pManager.AddNumberParameter("Lens", "l", "Lens", GH_ParamAccess.item);
-            pManager.AddVectorParameter("Up Vector", "up", "Up Vector", GH_ParamAccess.item);
+            pManager.AddPointParameter("Location", "C", "Camera location", GH_ParamAccess.item);
+            pManager.AddPointParameter("Target", "T", "Target location", GH_ParamAccess.item);
+            pManager.AddNumberParameter("Lens", "L", "Lens", GH_ParamAccess.item);
+            pManager.AddVectorParameter("Up Vector", "u", "Up Vector", GH_ParamAccess.item);
             pManager.AddPlaneParameter("Near Clipping Plane", "nCP", "Camera Frustum near clipping plane", GH_ParamAccess.item);
             pManager.AddPlaneParameter("Far Clipping Plane", "fCP", "Camera Frustum far clipping plane", GH_ParamAccess.item);
 

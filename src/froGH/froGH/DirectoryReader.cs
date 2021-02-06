@@ -25,7 +25,7 @@ namespace froGH
         /// </summary>
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
-            pManager.AddTextParameter("Directory Path", "D", "Path to the directory to read", GH_ParamAccess.item);
+            pManager.AddTextParameter("Directory Path", "P", "Path to the directory to read", GH_ParamAccess.item);
         }
 
         /// <summary>
