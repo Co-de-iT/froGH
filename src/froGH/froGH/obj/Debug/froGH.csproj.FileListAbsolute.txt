@@ -8,9 +8,9 @@ C:\Users\aless\Documents\Co-de-iT\@ code\GH code\@ froGH\froGH\froGH\obj\Debug\f
 C:\Users\aless\Documents\Co-de-iT\@ code\GH code\@ froGH\froGH\froGH\obj\Debug\froGH.pdb
 C:\Users\aless\Documents\@ code\GH code\@ froGH\froGH\froGH\bin\froGH.dll
 C:\Users\aless\Documents\@ code\GH code\@ froGH\froGH\froGH\bin\froGH.pdb
-C:\Users\aless\Documents\@ code\GH code\@ froGH\froGH\froGH\obj\Debug\froGH.csprojAssemblyReference.cache
 C:\Users\aless\Documents\@ code\GH code\@ froGH\froGH\froGH\obj\Debug\froGH.Properties.Resources.resources
 C:\Users\aless\Documents\@ code\GH code\@ froGH\froGH\froGH\obj\Debug\froGH.csproj.GenerateResource.cache
 C:\Users\aless\Documents\@ code\GH code\@ froGH\froGH\froGH\obj\Debug\froGH.csproj.CoreCompileInputs.cache
 C:\Users\aless\Documents\@ code\GH code\@ froGH\froGH\froGH\obj\Debug\froGH.dll
 C:\Users\aless\Documents\@ code\GH code\@ froGH\froGH\froGH\obj\Debug\froGH.pdb
+C:\Users\aless\Documents\@ code\GH code\@ froGH\froGH\froGH\obj\Debug\froGH.csproj.AssemblyReference.cache

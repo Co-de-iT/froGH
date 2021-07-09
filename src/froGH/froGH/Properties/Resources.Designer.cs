@@ -143,6 +143,16 @@ namespace froGH.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Create_RTree_GH {
+            get {
+                object obj = ResourceManager.GetObject("Create_RTree_GH", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap curvature_4tree_GH {
             get {
                 object obj = ResourceManager.GetObject("curvature_4tree_GH", resourceCulture);
@@ -713,6 +723,16 @@ namespace froGH.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap PointsInSphereRTree_GH {
+            get {
+                object obj = ResourceManager.GetObject("PointsInSphereRTree_GH", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap polymesh_loft_GH {
             get {
                 object obj = ResourceManager.GetObject("polymesh_loft_GH", resourceCulture);
@@ -736,6 +756,16 @@ namespace froGH.Properties {
         internal static System.Drawing.Bitmap reduce_Mesh_1_GH {
             get {
                 object obj = ResourceManager.GetObject("reduce_Mesh_1_GH", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap RTreeClosestPoint_GH {
+            get {
+                object obj = ResourceManager.GetObject("RTreeClosestPoint_GH", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

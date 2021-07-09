@@ -58,94 +58,103 @@
     <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AdaptiveFillet.cs" />
-    <Compile Include="CameraControl.cs" />
-    <Compile Include="CameraReport.cs" />
-    <Compile Include="COMPortWriter.cs" />
-    <Compile Include="CustomMaterial.cs" />
-    <Compile Include="CustomMeshVerticesDisplay.cs" />
-    <Compile Include="ExportCurvesToAI.cs" />
-    <Compile Include="ExtractMeshFace.cs" />
-    <Compile Include="FastMeshFromPolyline.cs" />
-    <Compile Include="MC_EdgeProximityMap.cs" />
-    <Compile Include="MC_EdgeProximitySingle.cs" />
-    <Compile Include="MC_FaceProximityMap.cs" />
-    <Compile Include="MC_FaceProximitySingle.cs" />
-    <Compile Include="MC_VertexProximityMap.cs" />
-    <Compile Include="MC_VertexProximitySingle.cs" />
-    <Compile Include="MeshBridge.cs" />
-    <Compile Include="MeshClosestVertexIndex.cs" />
-    <Compile Include="MeshDenoising.cs" />
-    <Compile Include="MeshExtractEdgeToleranceMultiple.cs" />
-    <Compile Include="MeshExtractEdgeToleranceSingle.cs" />
-    <Compile Include="MeshFacesToVerticesValues.cs" />
-    <Compile Include="MeshIsocurves.cs" />
-    <Compile Include="MeshOffsetWeighted.cs" />
-    <Compile Include="MeshPointOrientation.cs" />
-    <Compile Include="MeshPseudoCurvature.cs" />
-    <Compile Include="MeshRebuildNormals.cs" />
-    <Compile Include="MeshReport.cs" />
-    <Compile Include="MeshSubdFaces.cs" />
-    <Compile Include="MeshToCSSnippet.cs" />
-    <Compile Include="MeshUnlooper.cs" />
-    <Compile Include="MeshVerticesToFacesValues.cs" />
-    <Compile Include="MeshWiresDisplay.cs" />
-    <Compile Include="NamedViewsToC4D.cs" />
-    <Compile Include="OrientToCamera.cs" />
-    <Compile Include="PointCloudDisplay.cs" />
-    <Compile Include="PolylinesMeshLoft.cs" />
-    <Compile Include="ReduceMesh.cs" />
-    <Compile Include="SaveGHFile.cs" />
-    <Compile Include="SlidersDisplay.cs" />
-    <Compile Include="SpaceFillingPolyGen.cs" />
-    <Compile Include="ToggleAutostop.cs" />
-    <Compile Include="BakeAttributesEnhanced.cs" />
-    <Compile Include="CenteredDomain.cs" />
-    <Compile Include="Clusterizer.cs" />
-    <Compile Include="DeconstructBlockFromID.cs" />
-    <Compile Include="DeconstructDot.cs" />
-    <Compile Include="DirectoryReader.cs" />
-    <Compile Include="DivideCurveByTangentAngle.cs" />
-    <Compile Include="Double Shift.cs" />
-    <Compile Include="FrenetSerretFrame.cs" />
-    <Compile Include="GHFilePathInfo.cs" />
-    <Compile Include="Flapper.cs" />
-    <Compile Include="FontList.cs" />
-    <Compile Include="FontParser.cs" />
+    <Compile Include="Data\CreateRTree.cs" />
+    <Compile Include="Geometry\PointsInSphereRTree.cs" />
+    <Compile Include="Geometry\RTreeClosestPoint.cs" />
+    <Compile Include="Geometry\TextToGeometry.cs" />
+    <Compile Include="Geometry\AdaptiveFillet.cs" />
+    <Compile Include="Utils\ClosestPointSearchData.cs" />
+    <Compile Include="Utils\SphereSearchData.cs" />
+    <Compile Include="Utils\enumRTreeType.cs" />
+    <Compile Include="Utils\GH_froGHRTree.cs" />
+    <Compile Include="View-Display\CameraControl.cs" />
+    <Compile Include="View-Display\CameraReport.cs" />
+    <Compile Include="File I-O\COMPortWriter.cs" />
+    <Compile Include="View-Display\CustomMaterial.cs" />
+    <Compile Include="View-Display\CustomMeshVerticesDisplay.cs" />
+    <Compile Include="File I-O\ExportCurvesToAI.cs" />
+    <Compile Include="Mesh\ExtractMeshFace.cs" />
+    <Compile Include="Mesh-Create\FastMeshFromPolyline.cs" />
+    <Compile Include="Mesh\MC_EdgeProximityMap.cs" />
+    <Compile Include="Mesh\MC_EdgeProximitySingle.cs" />
+    <Compile Include="Mesh\MC_FaceProximityMap.cs" />
+    <Compile Include="Mesh\MC_FaceProximitySingle.cs" />
+    <Compile Include="Mesh\MC_VertexProximityMap.cs" />
+    <Compile Include="Mesh\MC_VertexProximitySingle.cs" />
+    <Compile Include="Mesh-Create\MeshBridge.cs" />
+    <Compile Include="Mesh\MeshClosestVertexIndex.cs" />
+    <Compile Include="Mesh\MeshDenoising.cs" />
+    <Compile Include="Mesh\MeshExtractEdgeToleranceMultiple.cs" />
+    <Compile Include="Mesh\MeshExtractEdgeToleranceSingle.cs" />
+    <Compile Include="Mesh\MeshFacesToVerticesValues.cs" />
+    <Compile Include="Mesh\MeshIsocurves.cs" />
+    <Compile Include="Mesh-Create\MeshOffsetWeighted.cs" />
+    <Compile Include="Mesh\MeshPointOrientation.cs" />
+    <Compile Include="Mesh\MeshPseudoCurvature.cs" />
+    <Compile Include="Mesh\MeshRebuildNormals.cs" />
+    <Compile Include="Mesh\MeshReport.cs" />
+    <Compile Include="Mesh\MeshSubdFaces.cs" />
+    <Compile Include="Mesh\MeshToCSSnippet.cs" />
+    <Compile Include="Mesh\MeshUnlooper.cs" />
+    <Compile Include="Mesh\MeshVerticesToFacesValues.cs" />
+    <Compile Include="View-Display\MeshWiresDisplay.cs" />
+    <Compile Include="View-Display\NamedViewsToC4D.cs" />
+    <Compile Include="View-Display\OrientToCamera.cs" />
+    <Compile Include="View-Display\PointCloudDisplay.cs" />
+    <Compile Include="Mesh-Create\PolylinesMeshLoft.cs" />
+    <Compile Include="Mesh\ReduceMesh.cs" />
+    <Compile Include="File I-O\SaveGHFile.cs" />
+    <Compile Include="View-Display\SlidersDisplay.cs" />
+    <Compile Include="Mesh-Create\SpaceFillingPolyGen.cs" />
+    <Compile Include="Data\ToggleAutostop.cs" />
+    <Compile Include="Data\BakeAttributesEnhanced.cs" />
+    <Compile Include="Data\CenteredDomain.cs" />
+    <Compile Include="Topology\Clusterizer.cs" />
+    <Compile Include="Data\DeconstructBlockFromID.cs" />
+    <Compile Include="Data\DeconstructDot.cs" />
+    <Compile Include="File I-O\DirectoryReader.cs" />
+    <Compile Include="Geometry\DivideCurveByTangentAngle.cs" />
+    <Compile Include="Data\Double Shift.cs" />
+    <Compile Include="Geometry\FrenetSerretFrame.cs" />
+    <Compile Include="File I-O\GHFilePathInfo.cs" />
+    <Compile Include="Geometry\Flapper.cs" />
+    <Compile Include="Data\FontList.cs" />
+    <Compile Include="Geometry\H_FontParser_OLD.cs" />
     <Compile Include="froGHComponent.cs" />
     <Compile Include="froGHInfo.cs" />
-    <Compile Include="IndexesFromList.cs" />
-    <Compile Include="IndexesFromNumber.cs" />
-    <Compile Include="IsPolylineClockwise.cs" />
-    <Compile Include="LoadSTLBinaryFile.cs" />
-    <Compile Include="MassBoolean.cs" />
-    <Compile Include="ObjectLayer.cs" />
-    <Compile Include="Orient3Points.cs" />
-    <Compile Include="PathGenerator.cs" />
-    <Compile Include="PlaneFromLPolyline.cs" />
-    <Compile Include="PointsInSphere.cs" />
+    <Compile Include="Data\IndexesFromList.cs" />
+    <Compile Include="Data\IndexesFromNumber.cs" />
+    <Compile Include="Geometry\IsPolylineClockwise.cs" />
+    <Compile Include="File I-O\LoadSTLBinaryFile.cs" />
+    <Compile Include="Data\MassBoolean.cs" />
+    <Compile Include="Data\ObjectLayer.cs" />
+    <Compile Include="Geometry\H_Orient3Points.cs" />
+    <Compile Include="File I-O\PathGenerator.cs" />
+    <Compile Include="Geometry\PlaneFromLPolyline.cs" />
+    <Compile Include="Geometry\PointsInSphere.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="ReadFileFromURL.cs" />
-    <Compile Include="SaveStringToFile.cs" />
-    <Compile Include="SerialBranchPath.cs" />
-    <Compile Include="SortPointsByAngle.cs" />
-    <Compile Include="SurfaceQuadTreeByCurvature.cs" />
-    <Compile Include="SurfaceQuadTreeByCurve.cs" />
-    <Compile Include="SymmetricDomain.cs" />
-    <Compile Include="Topologizer.cs" />
-    <Compile Include="TopologyInverter.cs" />
-    <Compile Include="Trilateration.cs" />
-    <Compile Include="SignedVectorAngle.cs" />
-    <Compile Include="Turntable.cs" />
-    <Compile Include="ViewCaptureToFile.cs" />
-    <Compile Include="WeightedRandomChoice.cs" />
-    <Compile Include="WeightedSpheresDisplay.cs" />
-    <Compile Include="ZoomToObject.cs" />
+    <Compile Include="File I-O\ReadFileFromURL.cs" />
+    <Compile Include="File I-O\SaveStringToFile.cs" />
+    <Compile Include="Data\SerialBranchPath.cs" />
+    <Compile Include="Geometry\SortPointsByAngle.cs" />
+    <Compile Include="Geometry\SurfaceQuadTreeByCurvature.cs" />
+    <Compile Include="Geometry\SurfaceQuadTreeByCurve.cs" />
+    <Compile Include="Data\SymmetricDomain.cs" />
+    <Compile Include="Topology\Topologizer.cs" />
+    <Compile Include="Topology\TopologyInverter.cs" />
+    <Compile Include="Geometry\Trilateration.cs" />
+    <Compile Include="Geometry\SignedVectorAngle.cs" />
+    <Compile Include="View-Display\Turntable.cs" />
+    <Compile Include="View-Display\ViewCaptureToFile.cs" />
+    <Compile Include="Data\WeightedRandomChoice.cs" />
+    <Compile Include="View-Display\WeightedSpheresDisplay.cs" />
+    <Compile Include="View-Display\ZoomToObject.cs" />
+    <Compile Include="Utils\froGHRTree.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -417,6 +426,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Sliders Display_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PointsInSphereRTree_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RTreeClosestPoint_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Create RTree_GH.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

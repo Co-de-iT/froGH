@@ -142,6 +142,9 @@
   <data name="control_camera_3_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\control camera_3_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Create_RTree_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Create RTree_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="curvature_4tree_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\curvature 4tree_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -310,6 +313,9 @@
   <data name="Plane_from_L_Polyline_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Plane from L Polyline_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="PointsInSphereRTree_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PointsInSphereRTree_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Points_within_sphere_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Points within sphere_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -321,6 +327,9 @@
   </data>
   <data name="reduce_Mesh_1_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\reduce Mesh_1_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="RTreeClosestPoint_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\RTreeClosestPoint_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="saveAsGH_2_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\saveAsGH_2_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
