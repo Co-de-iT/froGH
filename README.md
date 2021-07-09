@@ -5,12 +5,10 @@
 
 # froGH
 Ah... that should have been "for GH" but we're so lazy that we misspelt and didn't bother correcting.  
-Anyway, here's a collection of mixed-purpose components for Grasshopper - given "as is" (no warranty, no support) - use at your own risk (but know that we use them too... so they shouldn't explode at least).
-
-### Description
+  
 **froGH** is a sparse collection of components born out of necessity or play in our daily Grasshopper experience. You might find them useful (or not). If you want to take a peek at the code, head for the **_src_** folder. 
 
-NOTE: _**no support is given**_ so use at your own risk and understanding. Example files are on their way, meanwhile... if you mess things up using **froGH**, you're on your own.  
+NOTE: _**no warranty or support is given**_ so use at your own risk and understanding (but know that we use them too... so they shouldn't explode at least). Example files are on their way, meanwhile... if you mess things up using **froGH**, you're on your own (but if you think you found a bug let us know).  
   
 On the other hand, if you have any ideas on how to improve things, please let us know at info[at]co-de-it.com - and feel free to improve upon it yourself, but play nice and give proper attribution (see license).
   
@@ -23,10 +21,10 @@ Suggested installation procedure is via the Rhino Package Manager. Type  `Packag
 #### Rhino 6
 Download the latest .zip file from the [releases](https://github.com/Co-de-iT/froGH/releases). Unzip and copy the **froGH.gha** file in your _Grasshopper/Libraries_ folder  
    
-#### Known Bugs
-. there are no bugs, only features! ;P Just kidding.... if you find something mail us
+### Known Bugs
+. there are no bugs, only features! ;P Just kidding.... if you find something let us know!
   
-#### Roadmap
+### Roadmap
 . Example files  
 . Documentation  
   
