@@ -26,13 +26,13 @@ namespace froGH
         /// </summary>
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
-            pManager.AddGeometryParameter("Objects", "G", "Geometry for baking", GH_ParamAccess.item);
+            pManager.AddGeometryParameter("Geometry", "G", "Geometry (object) for baking", GH_ParamAccess.item);
             pManager.AddTextParameter("Name", "N", "Object name", GH_ParamAccess.item);
             pManager.AddTextParameter("Layer Name", "L", "Destination Layer Name", GH_ParamAccess.item);
             pManager.AddColourParameter("Color", "C", "Object Color", GH_ParamAccess.item);
             pManager.AddGenericParameter("Material", "M", "Rendering Material", GH_ParamAccess.item);
             pManager.AddIntegerParameter("Group number", "gN", "Group Number", GH_ParamAccess.item);
-            pManager.AddBooleanParameter("Bake in Groups", "bG", "Bake objects in groups according to the group number for each object", GH_ParamAccess.item, false);
+            pManager.AddBooleanParameter("Bake in Groups", "bG", "Bake object in groups according to the group number for each object\nIf a group exists, object will be added to that group", GH_ParamAccess.item, false);
             pManager.AddBooleanParameter("Bake", "B", "Performs bake operation", GH_ParamAccess.item, false);
 
             pManager[1].Optional = true;

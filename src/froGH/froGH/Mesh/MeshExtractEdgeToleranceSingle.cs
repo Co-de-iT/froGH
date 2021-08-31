@@ -55,37 +55,36 @@ namespace froGH
             double A = 45.0;
             DA.GetData(1, ref A);
 
-            double num = A / 57.2958;
+            // convert angle to radians
+            double angRad = A / 57.2958;
 
-            ConcurrentBag<Line> list = new ConcurrentBag<Line>();
-            ConcurrentBag<Line> list2 = new ConcurrentBag<Line>();
+            ConcurrentBag<Line> internalEgdes = new ConcurrentBag<Line>();
+            ConcurrentBag<Line> nakedEdges = new ConcurrentBag<Line>();
 
 
             M.Normals.ComputeNormals();
             Rhino.Geometry.Collections.MeshTopologyEdgeList topologyEdges = M.TopologyEdges;
 
-            int num2 = topologyEdges.Count - 1;
             Parallel.For(0, topologyEdges.Count, i =>
-            //for (int i = 0; i <= num2; i++)
             {
                 int[] connectedFaces = topologyEdges.GetConnectedFaces(i);
                 if (connectedFaces.Length < 2)
-                    list2.Add(topologyEdges.EdgeLine(i));
+                    nakedEdges.Add(topologyEdges.EdgeLine(i));
                 
                 if (connectedFaces.Length == 2)
                 {
-                    Vector3f val2 = M.FaceNormals[connectedFaces[0]];
-                    Vector3f val3 = M.FaceNormals[connectedFaces[1]];
-                    double num3 = Vector3d.VectorAngle(new Vector3d((double)val2.X, (double)val2.Y, (double)val2.Z),
-                      new Vector3d((double)val3.X, (double)val3.Y, (double)val3.Z));
-                    if (num3 > num)
-                        list.Add(topologyEdges.EdgeLine(i));
+                    Vector3f face1Norm = M.FaceNormals[connectedFaces[0]];
+                    Vector3f face2Norm = M.FaceNormals[connectedFaces[1]];
+                    double currAng = Vector3d.VectorAngle(new Vector3d((double)face1Norm.X, (double)face1Norm.Y, (double)face1Norm.Z),
+                      new Vector3d((double)face2Norm.X, (double)face2Norm.Y, (double)face2Norm.Z));
+                    if (currAng >= angRad)
+                        internalEgdes.Add(topologyEdges.EdgeLine(i));
 
                 }
             });
 
-            DA.SetDataList(0, list);
-            DA.SetDataList(1, list2);
+            DA.SetDataList(0, internalEgdes);
+            DA.SetDataList(1, nakedEdges);
         }
 
         /// <summary>

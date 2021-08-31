@@ -51,6 +51,9 @@ namespace froGH
 
             Point3d[] tVerts;
 
+            // algorithm by Paul Bourke -1997 - http://paulbourke.net/geometry/polygonmesh/
+            // parallelization by Alessio Erioli
+
             for (int j = 0; j < i; j++)
             {
                 tVerts = new Point3d[M.Vertices.Count];

@@ -63,14 +63,14 @@ namespace froGH.Utils
             ClosestPointSearchData closestPointSearchData = e.Tag as ClosestPointSearchData;
             if (closestPointSearchData != null)
             {
-                Point3d val = closestPointSearchData.Points[e.Id];
+                Point3d samplePoint = closestPointSearchData.Points[e.Id];
                 Sphere searchSphere = e.SearchSphere;
-                double num = val.DistanceTo(searchSphere.Center);
-                if (closestPointSearchData.Index == -1 || num < closestPointSearchData.Distance)
+                double distToCenter = samplePoint.DistanceTo(searchSphere.Center);
+                if (closestPointSearchData.Index == -1 || distToCenter < closestPointSearchData.Distance)
                 {
                     searchSphere = e.SearchSphere;
-                    e.SearchSphere = new Sphere(searchSphere.Center, num);
-                    closestPointSearchData.Distance = num;
+                    e.SearchSphere = new Sphere(searchSphere.Center, distToCenter);
+                    closestPointSearchData.Distance = distToCenter;
                     closestPointSearchData.Index = e.Id;
                 }
             }

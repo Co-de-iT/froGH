@@ -13,7 +13,7 @@ namespace froGH
         /// </summary>
         public Trilateration()
           : base("Trilateration", "f_TriLat",
-              "Finds intersection of 3 spheres",
+              "Finds intersection of 3 spheres with algebraic method\n(faster than geometric intersection of solids)",
               "froGH", "Geometry")
         {
         }

@@ -86,10 +86,10 @@ namespace froGH.Geometry
                     }
                     else
                     {
-                        foreach (int item2 in fIndices)
+                        foreach (int foundIndex in fIndices)
                         {
-                            foundPts.Append(new GH_Point(fTree.Points[item2]), foundPath);
-                            foundInd.Append(new GH_Integer(item2), foundPath);
+                            foundPts.Append(new GH_Point(fTree.Points[foundIndex]), foundPath);
+                            foundInd.Append(new GH_Integer(foundIndex), foundPath);
                         }
                     }
 

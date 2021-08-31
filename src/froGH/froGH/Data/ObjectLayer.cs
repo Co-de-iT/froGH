@@ -53,7 +53,10 @@ namespace froGH
 
             int layerIndex = objAtt.LayerIndex;
 
-            string layer = Rhino.RhinoDoc.ActiveDoc.Layers[layerIndex].Name;
+            // Layers[layerIndex].Name only returns the layer name without path
+            // FullPath returns the full path in the format "TopLayer::SubLayer::SubSubLayer"
+            string layer = Rhino.RhinoDoc.ActiveDoc.Layers[layerIndex].FullPath;
+            
 
             DA.SetData(0, layer);
         }

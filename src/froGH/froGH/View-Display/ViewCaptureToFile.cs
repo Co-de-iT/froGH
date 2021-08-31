@@ -59,7 +59,10 @@ namespace froGH
         /// <param name="DA">The DA object is used to retrieve from inputs and store in outputs.</param>
         protected override void SolveInstance(IGH_DataAccess DA)
         {
-
+            /*
+             original code by David Rutten
+             adapted and extended by Alessio Erioli
+             */
             bool capture = false;
             DA.GetData("Capture", ref capture);
 

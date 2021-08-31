@@ -4,6 +4,7 @@ using System.Linq;
 using froGH.Properties;
 using Grasshopper.Kernel;
 using Rhino.Geometry;
+using System.Threading.Tasks;
 
 namespace froGH
 {
@@ -55,35 +56,28 @@ namespace froGH
             {
                 Polyline pp;
                 if (C[i].TryGetPolyline(out pp)) P.Add(pp);
-            }    
+            }
 
-            if (P.Count < 10000)
-            { // change the number if you want to change parallelization threshold
-                List<Mesh> m = new List<Mesh>();
+            Mesh[] outMeshes = new Mesh[P.Count];
+
+            if (P.Count < 10000) // change this number if you want to change parallelization threshold
+            { 
 
                 for (int i = 0; i < P.Count; i++)
                 {
-                    m.Add(Mesh.CreateFromClosedPolyline(P[i]));
+                    outMeshes[i] = Mesh.CreateFromClosedPolyline(P[i]);
                 }
-
-                DA.SetDataList(0, m);
 
             }
             else
             {
-
-
-                var mp = new System.Collections.Concurrent.ConcurrentDictionary<Polyline, Mesh>(Environment.ProcessorCount, P.Count);
-                foreach (Polyline p in P) mp[p] = new Mesh(); //initialise dictionary
-
-                System.Threading.Tasks.Parallel.ForEach(P, p =>
+                Parallel.For(0, P.Count, i =>
                 {
-                    mp[p] = Mesh.CreateFromClosedPolyline(p); //save your output here
-                }
-                  );
-
-                DA.SetDataList(0, mp.Values.ToList());
+                    outMeshes[i] = Mesh.CreateFromClosedPolyline(P[i]);
+                });
             }
+
+            DA.SetDataList(0, outMeshes);
         }
 
         /// <summary>

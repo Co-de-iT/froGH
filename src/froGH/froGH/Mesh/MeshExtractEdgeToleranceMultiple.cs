@@ -56,38 +56,38 @@ namespace froGH
             double A = 45.0;
             DA.GetData(1, ref A);
 
-            double num = A / 57.2958;
+            double angRad = A / 57.2958;
 
-            ConcurrentBag<Line> list = new ConcurrentBag<Line>();
-            ConcurrentBag<Line> list2 = new ConcurrentBag<Line>();
+            ConcurrentBag<Line> internalEdges = new ConcurrentBag<Line>();
+            ConcurrentBag<Line> nakedEdges = new ConcurrentBag<Line>();
 
 
             Parallel.ForEach(M, m =>
             {
                 m.Normals.ComputeNormals();
                 Rhino.Geometry.Collections.MeshTopologyEdgeList topologyEdges = m.TopologyEdges;
-                int num2 = topologyEdges.Count - 1;
-                for (int i = 0; i <= num2; i++)
+                int edgesCount = topologyEdges.Count - 1;
+                for (int i = 0; i <= edgesCount; i++)
                 {
                     int[] connectedFaces = topologyEdges.GetConnectedFaces(i);
                     if (connectedFaces.Length < 2)
-                        list2.Add(topologyEdges.EdgeLine(i));
+                        nakedEdges.Add(topologyEdges.EdgeLine(i));
 
                     if (connectedFaces.Length == 2)
                     {
-                        Vector3f val2 = m.FaceNormals[connectedFaces[0]];
-                        Vector3f val3 = m.FaceNormals[connectedFaces[1]];
-                        double num3 = Vector3d.VectorAngle(new Vector3d((double)val2.X, (double)val2.Y, (double)val2.Z),
-                          new Vector3d((double)val3.X, (double)val3.Y, (double)val3.Z));
-                        if (num3 > num)
-                            list.Add(topologyEdges.EdgeLine(i));
+                        Vector3f face1Norm = m.FaceNormals[connectedFaces[0]];
+                        Vector3f face2Norm = m.FaceNormals[connectedFaces[1]];
+                        double currAng = Vector3d.VectorAngle(new Vector3d((double)face1Norm.X, (double)face1Norm.Y, (double)face1Norm.Z),
+                          new Vector3d((double)face2Norm.X, (double)face2Norm.Y, (double)face2Norm.Z));
+                        if (currAng >= angRad)
+                            internalEdges.Add(topologyEdges.EdgeLine(i));
 
                     }
                 }
             });
 
-            DA.SetDataList(0, list);
-            DA.SetDataList(1, list2);
+            DA.SetDataList(0, internalEdges);
+            DA.SetDataList(1, nakedEdges);
         }
 
         /// <summary>

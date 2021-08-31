@@ -47,8 +47,7 @@ namespace froGH
         /// <param name="DA">The DA object is used to retrieve from inputs and store in outputs.</param>
         protected override void SolveInstance(IGH_DataAccess DA)
         {
-            // this doesn't work - check hot to cast to GUID and find dot by id
-            // but keep the possibility that input is of type TextDot
+
             IGH_Goo dotInput = null;
             TextDot dot = null;
             GH_Guid dotGuid;

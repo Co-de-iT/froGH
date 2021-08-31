@@ -24,7 +24,7 @@ namespace froGH
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
             pManager.AddMeshParameter("Closed Mesh strip", "M", "Closed Mesh strip", GH_ParamAccess.item);
-            pManager.AddNumberParameter("Displacement", "d", "Displacement for the added points to ensure the loop stays open", GH_ParamAccess.item, 0);
+            pManager.AddNumberParameter("Displacement", "d", "Displacement (rotation) applied to the added points to ensure the loop stays open", GH_ParamAccess.item, 0.001);
 
             pManager[1].Optional = true;
         }
@@ -54,9 +54,11 @@ namespace froGH
             //
             // first, let's check if the naked loops are 2
             Polyline[] nE = M.GetNakedEdges();
-            if (nE.Length != 2) return; // not a loop
-                                        //
-                                        // then, we'll check if they are closed
+
+            // return if not a loop (naked edges should be 2)
+            if (nE.Length != 2) return;
+
+            // then, we'll check if they are closed
             bool closed = true;
             foreach (Polyline p in nE)
             {
@@ -64,7 +66,6 @@ namespace froGH
             }
             if (!closed) return;
 
-            //
             // extra check: let's see if all faces are connected in a ring
             // if that is the case, the number of connected faces to the first face
             // will be equal to the total number of faces
@@ -76,16 +77,63 @@ namespace froGH
             M.RebuildNormals();
 
             Mesh m1 = M.DuplicateMesh();
-
             MeshFace f0 = m1.Faces[0];
-            Point3d p0 = m1.Vertices[f0.A];
-            Point3d p1 = m1.Vertices[f0.D];
-            p0 += (Vector3d)m1.Normals[f0.A] * d;
-            p1 += (Vector3d)m1.Normals[f0.D] * d;
+            int p0Ind, p1Ind;
+            Point3d p0, p1;
+            Vector3d rotEdge;
+            Point3d rotCentre;
 
-            m1.Vertices.Add(p0.X, p0.Y, p0.Z);
-            m1.Vertices.Add(p1.X, p1.Y, p1.Z);
-            m1.Faces.AddFace(m1.Vertices.Count - 2, f0.B, f0.C, m1.Vertices.Count - 1);
+            // set initial points indices to face vertices A and D
+            p0Ind = f0.A;
+            p1Ind = f0.D;
+
+            // find topology edge index
+            int tEdgeInd = m1.TopologyEdges.GetEdgeIndex(m1.TopologyVertices.TopologyVertexIndex(p0Ind), m1.TopologyVertices.TopologyVertexIndex(p1Ind));
+
+            // if the A-D edge is not naked 
+            if (m1.TopologyEdges.GetConnectedFaces(tEdgeInd).Length == 2)
+            {
+
+                p0 = m1.Vertices[p0Ind];
+                p1 = m1.Vertices[p1Ind];
+                rotEdge = m1.Vertices[f0.C] - m1.Vertices[f0.B];
+                rotCentre = m1.Vertices[f0.B];
+
+                // apply rotation to the new points
+                p0.Transform(Transform.Rotation(d, rotEdge, rotCentre));
+                p1.Transform(Transform.Rotation(d, rotEdge, rotCentre));
+
+                // apply displacements to the new points
+                //p0 += (Vector3d)m1.Normals[p0Ind] * d;
+                //p1 += (Vector3d)m1.Normals[p1Ind] * d;
+
+                m1.Vertices.Add(p0.X, p0.Y, p0.Z);
+                m1.Vertices.Add(p1.X, p1.Y, p1.Z);
+                m1.Faces.AddFace(m1.Vertices.Count - 2, f0.B, f0.C, m1.Vertices.Count - 1);
+            }
+            else // then pick A-B
+            {
+                p1Ind = f0.B;
+                p0 = m1.Vertices[p0Ind];
+                p1 = m1.Vertices[p1Ind];
+                rotEdge = m1.Vertices[f0.C] - m1.Vertices[f0.D];
+                rotCentre = m1.Vertices[f0.D];
+
+                // apply rotation to the new points
+                p0.Transform(Transform.Rotation(d, rotEdge, rotCentre));
+                p1.Transform(Transform.Rotation(d, rotEdge, rotCentre));
+
+
+                // apply displacements to the new points
+                //p0 += (Vector3d)m1.Normals[p0Ind] * d;
+                //p1 += (Vector3d)m1.Normals[p1Ind] * d;
+
+                m1.Vertices.Add(p0.X, p0.Y, p0.Z);
+                m1.Vertices.Add(p1.X, p1.Y, p1.Z);
+                // ... repeat process but with A-B edge
+                m1.Faces.AddFace(m1.Vertices.Count - 2, m1.Vertices.Count - 1, f0.C, f0.D);
+
+            }
             m1.Faces.DeleteFaces(new int[] { 0 });
 
             m1.RebuildNormals();
