@@ -32,6 +32,6 @@ Download the latest .zip file from the [releases](https://github.com/Co-de-iT/fr
 
 froGH by Co-de-iT is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/).  
 
-Some of the code in this plugin was created thanks to the help and support from the amazing people in the Grasshopper community: David Rutten (the man himself), Giulio Piacentino (yeah, that other man), Mateusz Zwierzycki, David Stasiuk, James Ramsden, Fraser Greenroyd, Peter Fotiadis, Ola Jaensson and others - citing directly those whose code we built ours directly upon. If you are one of them and think we did you a disservice, let us know how to attribute properly to you! Other than that.... the rest of the code is by us at Co-de-iT.  
+Some of the code in this plugin was created thanks to the help and support from the amazing people in the Grasshopper community: David Rutten (the man himself), Giulio Piacentino (yeah, that other man), Mateusz Zwierzycki, David Stasiuk, James Ramsden, Fraser Greenroyd, Peter Fotiadis, Ola Jaensson and others - citing in place those whose code we built ours directly upon. If you are one of them and think we did you a disservice, let us know how to attribute properly to you! Other than that.... the rest of the code is by us at Co-de-iT.  
   
 Co-de-iT 2017-2021 - [www.co-de-it.com](http://www.co-de-it.com)
