@@ -25,7 +25,7 @@ namespace froGH
         /// </summary>
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
-            pManager.AddTextParameter("File Path", "P", "File absolute path", GH_ParamAccess.item);
+            pManager.AddTextParameter("File Path", "P", "File absolute path\nPath MUST already exist", GH_ParamAccess.item);
             pManager.AddTextParameter("File Name", "F", "Filename and extension - for example screencap.png\nuse # to set the number of digits\nex screencap####.png > screencap_0000.png\nif omitted the default is 3 digits", GH_ParamAccess.item);
             pManager.AddTextParameter("Viewport Name", "V", "Name of the Rhino Viewport to capture\nleave empty for current view", GH_ParamAccess.item);
             pManager.AddTextParameter("Image size", "WxH", "Image size in pixels, WxH (ex. 1920x1080)\nleave empty for viewport resolution", GH_ParamAccess.item, "");
@@ -77,8 +77,8 @@ namespace froGH
             if (string.IsNullOrWhiteSpace(dir)) return;
             if (string.IsNullOrWhiteSpace(Name)) return;
 
-            // Make sure the directory ends with a \
-            if (dir.EndsWith(System.IO.Path.DirectorySeparatorChar.ToString()))
+            // Make sure the directory path ends with a \
+            if (!dir.EndsWith(System.IO.Path.DirectorySeparatorChar.ToString()))
                 dir += System.IO.Path.DirectorySeparatorChar;
 
             // Do not create directories, only use existing ones.

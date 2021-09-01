@@ -72,7 +72,6 @@ namespace froGH
             int[] mF = M.Faces.GetConnectedFacesToEdges(0, true);
             if (mF.Length != M.Faces.Count) return;
 
-            // M.GetNakedEdgePointStatus(); // this can be useful as well
             M.Weld(5);
             M.RebuildNormals();
 
@@ -103,10 +102,6 @@ namespace froGH
                 p0.Transform(Transform.Rotation(d, rotEdge, rotCentre));
                 p1.Transform(Transform.Rotation(d, rotEdge, rotCentre));
 
-                // apply displacements to the new points
-                //p0 += (Vector3d)m1.Normals[p0Ind] * d;
-                //p1 += (Vector3d)m1.Normals[p1Ind] * d;
-
                 m1.Vertices.Add(p0.X, p0.Y, p0.Z);
                 m1.Vertices.Add(p1.X, p1.Y, p1.Z);
                 m1.Faces.AddFace(m1.Vertices.Count - 2, f0.B, f0.C, m1.Vertices.Count - 1);
@@ -123,14 +118,8 @@ namespace froGH
                 p0.Transform(Transform.Rotation(d, rotEdge, rotCentre));
                 p1.Transform(Transform.Rotation(d, rotEdge, rotCentre));
 
-
-                // apply displacements to the new points
-                //p0 += (Vector3d)m1.Normals[p0Ind] * d;
-                //p1 += (Vector3d)m1.Normals[p1Ind] * d;
-
                 m1.Vertices.Add(p0.X, p0.Y, p0.Z);
                 m1.Vertices.Add(p1.X, p1.Y, p1.Z);
-                // ... repeat process but with A-B edge
                 m1.Faces.AddFace(m1.Vertices.Count - 2, m1.Vertices.Count - 1, f0.C, f0.D);
 
             }

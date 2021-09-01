@@ -12,8 +12,9 @@ namespace froGH
     {
         private BoundingBox _clip;
         private Mesh _mesh = new Mesh();
-        private Color _color;// = Color.White;
-        private int _width;// = 1;
+        private List<Mesh> _meshList = new List<Mesh>();
+        private Color _color;
+        private int _width;
 
         /// <summary>
         /// Initializes a new instance of the MeshWiresDisplay class.
@@ -30,7 +31,7 @@ namespace froGH
         /// </summary>
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
-            pManager.AddMeshParameter("Mesh", "M", "Mesh for edges display", GH_ParamAccess.item);
+            pManager.AddMeshParameter("Mesh", "M", "Meshes for edges display", GH_ParamAccess.list);
             pManager.AddColourParameter("Color", "C", "Edges color", GH_ParamAccess.item, Color.Black);
             pManager.AddIntegerParameter("Width", "W", "Edges width (in pixels)", GH_ParamAccess.item, 1);
 
@@ -51,19 +52,22 @@ namespace froGH
         /// <param name="DA">The DA object is used to retrieve from inputs and store in outputs.</param>
         protected override void SolveInstance(IGH_DataAccess DA)
         {
-            Mesh M = new Mesh();
+            List<Mesh> M = new List<Mesh>();
+            if (!DA.GetDataList(0, M)) return;
 
-            if (!DA.GetData(0, ref M)) return;
-
-            if (!M.IsValid || M == null) return;
+            for (int i = M.Count-1; i >= 0; i--)
+                if (!M[i].IsValid || M[i] == null)
+                    M.RemoveAt(i);
 
             Color C = Color.Black;
             int W = 1;
             DA.GetData(1, ref C);
             DA.GetData(2, ref W);
 
-            _clip = BoundingBox.Union(_clip, M.GetBoundingBox(false));
-            _mesh = M;
+            foreach (Mesh mesh in M)
+                _clip = BoundingBox.Union(_clip, mesh.GetBoundingBox(false));
+
+            _meshList = M;
             _color = C;
             _width = W;
         }
@@ -73,6 +77,7 @@ namespace froGH
         {
             _clip = BoundingBox.Empty;
             _mesh = new Mesh();
+            _meshList.Clear();
         }
 
         //Return a BoundingBox that contains all the geometry you are about to draw.
@@ -84,7 +89,8 @@ namespace froGH
         //Draw all wires and points in this method.
         public override void DrawViewportWires(IGH_PreviewArgs args)
         {
-            args.Display.DrawMeshWires(_mesh, _color, _width);
+            foreach (Mesh _m in _meshList)
+                args.Display.DrawMeshWires(_m, _color, _width);
         }
 
         /// <summary>

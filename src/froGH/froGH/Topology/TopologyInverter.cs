@@ -25,7 +25,7 @@ namespace froGH
         /// </summary>
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
-            pManager.AddIntegerParameter("Topology Data", "T", "Topological Data as Tree", GH_ParamAccess.tree);
+            pManager.AddIntegerParameter("Topology Data", "T", "List of correspondences\n{Ti}(e0, e1, ...en)\nTi - tree branch path index - index of the current element\n (e0 ... en) - tree branch content - indexes of connected elements", GH_ParamAccess.tree);
         }
 
         /// <summary>

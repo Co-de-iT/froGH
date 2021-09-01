@@ -137,6 +137,10 @@ namespace froGH
                         break;
                 }
 
+                mesh.UnifyNormals();
+                mesh.RebuildNormals();
+                mesh.Unweld(0, true);
+
             }
 
             Mesh BisymmetricHendecahedron()
@@ -162,7 +166,7 @@ namespace froGH
                 mesh.Faces.AddFace(9, 4, 3);
                 mesh.Faces.AddFace(7, 4, 1);
 
-                mesh.UnifyNormals();
+                //mesh.UnifyNormals();
 
                 mesh.Scale(scale);
 
@@ -217,8 +221,8 @@ namespace froGH
                 mesh.Faces.AddFace(11, 18, 3, 2); // W
                 mesh.Faces.AddFace(4, 19, 9, 5); // S
 
-                mesh.UnifyNormals();
-                mesh.RebuildNormals();
+                //mesh.UnifyNormals();
+                //mesh.RebuildNormals();
 
                 foreach (int[] cont in contours)
                 {
@@ -266,8 +270,8 @@ namespace froGH
                 mesh.Faces.AddFace(13, 7, 6, 12);
                 mesh.Faces.AddFace(2, 1, 13, 10);
 
-                mesh.UnifyNormals();
-                mesh.RebuildNormals();
+                //mesh.UnifyNormals();
+                //mesh.RebuildNormals();
                 mesh.Scale(scale * 0.5);
 
                 Transform orient;
@@ -308,8 +312,8 @@ namespace froGH
                 mesh.Faces.AddFace(2, 3, 7); // C D H
                 mesh.Faces.AddFace(2, 7, 1); // C H B
 
-                mesh.UnifyNormals();
-                mesh.RebuildNormals();
+                //mesh.UnifyNormals();
+                //mesh.RebuildNormals();
                 mesh.Scale(scale * 0.5);
                 Point3d center = mesh.GetBoundingBox(false).Center;
                 Plane cPlane = Plane.WorldZX;

@@ -30,9 +30,9 @@ namespace froGH
         /// </summary>
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
-            pManager.AddMeshParameter("Mesh", "M", "", GH_ParamAccess.item);
-            pManager.AddColourParameter("Color", "C", "", GH_ParamAccess.item, Color.Black);
-            pManager.AddIntegerParameter("Width", "W", "", GH_ParamAccess.item, 1);
+            pManager.AddMeshParameter("Mesh", "M", "Mesh for vertices display", GH_ParamAccess.item);
+            pManager.AddColourParameter("Color", "C", "Vertex color", GH_ParamAccess.item, Color.Black);
+            pManager.AddIntegerParameter("Width", "W", "Vertex width (in pixels)", GH_ParamAccess.item, 1);
 
             pManager[1].Optional = true;
             pManager[2].Optional = true;

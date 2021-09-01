@@ -36,9 +36,9 @@ namespace froGH
         protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)
         {
             pManager.AddPointParameter("Points", "P", "List of unique point nodes", GH_ParamAccess.list);
-            pManager.AddIntegerParameter("Line-Points data", "LP", "Indexes of start and end point of each line", GH_ParamAccess.tree);
-            pManager.AddIntegerParameter("Points connectivity", "PP", "Indexes of connected points to each unique point", GH_ParamAccess.tree);
-            pManager.AddIntegerParameter("Line Direction at each Point", "LD", "Direction of each line connected to a point\n1 outward, -1 inward", GH_ParamAccess.tree);
+            pManager.AddIntegerParameter("Line-Points data", "LP", "Indexes of start and end nodes for each connection", GH_ParamAccess.tree);
+            pManager.AddIntegerParameter("Point-2-Points connectivity", "PP", "Indexes of connected nodes to each unique node", GH_ParamAccess.tree);
+            pManager.AddIntegerParameter("Line Direction at each Point", "LD", "Connections direction at each node\n1 departing, -1 arriving", GH_ParamAccess.tree);
 
         }
 

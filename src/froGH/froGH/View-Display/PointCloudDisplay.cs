@@ -50,6 +50,7 @@ namespace froGH
         /// <param name="DA">The DA object is used to retrieve from inputs and store in outputs.</param>
         protected override void SolveInstance(IGH_DataAccess DA)
         {
+            // Based on code written by David Rutten
 
             List<Point3d> P = new List<Point3d>();
             if (!DA.GetDataList(0, P)) return;

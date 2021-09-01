@@ -56,7 +56,7 @@ namespace froGH
             DA.GetData(2, ref S);
 
             Mesh mesh = new Mesh();
-            Mesh mFace;// = new Mesh();
+            Mesh mFace;
 
             Point3d[][] pts = new Point3d[S + 1][];
             pts[0] = Pa.ToArray();
@@ -89,7 +89,11 @@ namespace froGH
 
             }
 
-            if (mesh != null) mesh.Weld(0.01);
+            if (mesh != null)
+            {
+                mesh.Weld(0.01);
+                mesh.RebuildNormals();
+            }
 
             DA.SetData(0, mesh);
         }

@@ -42,6 +42,11 @@ namespace froGH.Data
         /// <param name="DA">The DA object is used to retrieve from inputs and store in outputs.</param>
         protected override void SolveInstance(IGH_DataAccess DA)
         {
+            // The idea of using a fixed RTree (via a custom class) for faster search
+            // comes from the LunchBox plugin (it's actually implemented there already)
+            // I already had a component with dynamic RTree search by Sphere, it only made sense
+            // to me to complete the set. Plus, I had the chance to study and learn some new tricks!
+
             List<IGH_Goo> list = new List<IGH_Goo>();
             List<GH_froGHRTree> froGHtrees = new List<GH_froGHRTree>();
             List<Point3d> points = new List<Point3d>();

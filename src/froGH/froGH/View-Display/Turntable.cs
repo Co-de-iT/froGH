@@ -57,9 +57,6 @@ namespace froGH
             List<GeometryBase> G = new List<GeometryBase>();
             if (!DA.GetDataList(0, G)) return;
 
-            //Plane P = new Plane();
-            //DA.GetData(1, ref P);
-
             double distMult = 0.0;
             DA.GetData(1, ref distMult);
 
@@ -94,9 +91,10 @@ namespace froGH
                 return;
             }
 
-            BoundingBox bb = new BoundingBox();
-            foreach (GeometryBase gg in G)
-                bb.Union(gg.GetBoundingBox(false));
+            // add geometry to a Bounding Box
+            BoundingBox bb = BoundingBox.Empty;
+            for (int i = 0; i < G.Count; i++)
+                bb.Union(G[i].GetBoundingBox(false));
 
             double d = Math.Max(bb.Diagonal.X, bb.Diagonal.Y) * 2;
 
