@@ -25,7 +25,9 @@ namespace froGH
               "Mass boolean operator on a list of values",
               "froGH", "Data")
         {
-            Message = GetValue("Boolean Operator", "AND");
+            bOperator = GetValue("Boolean Operator", "AND");
+            UpdateMessage();
+            ExpireSolution(true);
         }
 
         /// <summary>
@@ -54,8 +56,6 @@ namespace froGH
             List<bool> values = new List<bool>();
             if (!DA.GetDataList(0, values)) return;
 
-            bOperator = GetValue("Boolean Operator", "AND");
-
             result = values[0];
 
             if (bOperator == "AND")
@@ -79,18 +79,41 @@ namespace froGH
 
         private void AND_Click(object sender, EventArgs e)
         {
-            RecordUndoEvent("bOperator");
+            RecordUndoEvent("AND");
             SetValue("Boolean Operator", "AND");
-            Message = GetValue("Boolean Operator", "AND");
+            bOperator = GetValue("Boolean Operator", "AND");
+            UpdateMessage();
             ExpireSolution(true);
         }
 
         private void OR_Click(object sender, EventArgs e)
         {
-            RecordUndoEvent("bOperator");
+            RecordUndoEvent("OR");
             SetValue("Boolean Operator", "OR");
-            Message = GetValue("Boolean Operator", "AND");
+            bOperator = GetValue("Boolean Operator", "AND");
+            UpdateMessage();
             ExpireSolution(true);
+        }
+
+        private void UpdateMessage()
+        {
+            Message = bOperator;
+        }
+
+        public override bool Write(GH_IWriter writer)
+        {
+            writer.SetString("BooleanOperator", bOperator);
+
+            return base.Write(writer);
+        }
+
+        public override bool Read(GH_IReader reader)
+        {
+            //bOperator = "AND";
+            reader.TryGetString("BooleanOperator", ref bOperator);
+            UpdateMessage();
+            //Message = bOperator;
+            return base.Read(reader);
         }
 
         /// <summary>

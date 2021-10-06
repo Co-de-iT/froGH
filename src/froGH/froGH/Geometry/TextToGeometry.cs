@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 using froGH.Properties;
+using GH_IO.Serialization;
 using Grasshopper.Kernel;
 using Rhino.DocObjects;
 using Rhino.Geometry;
@@ -11,7 +12,9 @@ namespace froGH.Fabrication
 {
     public class TextToGeometry : GH_Component
     {
-        string[][] justification = new string[][]{ new string[] { "TopLeft", "0" }, new string[] { "TopCenter", "1" }, new string[]{ "TopRight", "2" },
+        private string outputType;
+
+        private readonly string[][] justification = new string[][]{ new string[] { "TopLeft", "0" }, new string[] { "TopCenter", "1" }, new string[]{ "TopRight", "2" },
             new string[] { "MiddleLeft", "3" },  new string[] { "MiddleCenter", "4" }, new string[]{ "MiddleRight", "5" },
             new string[] { "BottomLeft", "6" }, new string[]{ "BottomCenter", "7" },   new string[]{ "BottomRight", "8" } };
 
@@ -23,7 +26,9 @@ namespace froGH.Fabrication
               "Converts text into geometry (Polylines, Curves or Surfaces)\nuse single-line fonts for best results in fabrication",
               "froGH", "Geometry")
         {
-            Message = GetValue("OutputType", "Polylines");
+            outputType = GetValue("TextOutputType", "Polylines");
+            UpdateMessage();
+            ExpireSolution(true);
         }
 
         /// <summary>
@@ -123,7 +128,7 @@ namespace froGH.Fabrication
             text.Transform(align);
 
             // get value of appended menu item
-            string outputType = GetValue("OutputType", "Polylines");
+            //string outputType = GetValue("OutputType", "Polylines");
             if (outputType == "Curves")
             {
                 Curve[] textCurves = text.CreateCurves(myStyle, !close); // 1.0,0.0);
@@ -156,34 +161,56 @@ namespace froGH.Fabrication
         public override void AppendAdditionalMenuItems(ToolStripDropDown menu)
         {
             Menu_AppendSeparator(menu);
-            ToolStripMenuItem toolStripMenuItem = Menu_AppendItem(menu, "Curves", Curves_Click, true, GetValue("OutputType", "Polylines") == "Curves");
-            ToolStripMenuItem toolStripMenuItem2 = Menu_AppendItem(menu, "Polylines", Polylines_Click, true, GetValue("OutputType", "Polylines") == "Polylines");
-            ToolStripMenuItem toolStripMenuItem3 = Menu_AppendItem(menu, "Surfaces", Surfaces_Click, true, GetValue("OutputType", "Polylines") == "Surfaces");
+            ToolStripMenuItem toolStripMenuItem = Menu_AppendItem(menu, "Curves", Curves_Click, true, GetValue("TextOutputType", "Polylines") == "Curves");
+            ToolStripMenuItem toolStripMenuItem2 = Menu_AppendItem(menu, "Polylines", Polylines_Click, true, GetValue("TextOutputType", "Polylines") == "Polylines");
+            ToolStripMenuItem toolStripMenuItem3 = Menu_AppendItem(menu, "Surfaces", Surfaces_Click, true, GetValue("TextOutputType", "Polylines") == "Surfaces");
             Menu_AppendSeparator(menu);
-        }
-
-        private void Polylines_Click(object sender, EventArgs e)
-        {
-            RecordUndoEvent("output mode");
-            SetValue("OutputType", "Polylines");
-            Message = GetValue("OutputType", "Polylines");
-            ExpireSolution(true);
         }
 
         private void Curves_Click(object sender, EventArgs e)
         {
-            RecordUndoEvent("output mode");
-            SetValue("OutputType", "Curves");
-            Message = GetValue("OutputType", "Polylines");
+            RecordUndoEvent("Curves");
+            SetValue("TextOutputType", "Curves");
+            outputType = GetValue("TextOutputType", "Polylines");
+            UpdateMessage();
+            ExpireSolution(true);
+        }
+
+        private void Polylines_Click(object sender, EventArgs e)
+        {
+            RecordUndoEvent("Polylines");
+            SetValue("TextOutputType", "Polylines");
+            outputType = GetValue("TextOutputType", "Polylines");
+            UpdateMessage();
             ExpireSolution(true);
         }
 
         private void Surfaces_Click(object sender, EventArgs e)
         {
-            RecordUndoEvent("output mode");
-            SetValue("OutputType", "Surfaces");
-            Message = GetValue("OutputType", "Polylines");
+            RecordUndoEvent("Surfaces");
+            SetValue("TextOutputType", "Surfaces");
+            outputType = GetValue("TextOutputType", "Polylines");
+            UpdateMessage();
             ExpireSolution(true);
+        }
+
+        private void UpdateMessage()
+        {
+            Message = outputType;
+        }
+
+        public override bool Write(GH_IWriter writer)
+        {
+            writer.SetString("TextOutputType", outputType);
+
+            return base.Write(writer);
+        }
+
+        public override bool Read(GH_IReader reader)
+        {
+            reader.TryGetString("TextOutputType", ref outputType);
+            UpdateMessage();
+            return base.Read(reader);
         }
 
         private void MapJustification(int just, out TextVerticalAlignment vertical, out TextHorizontalAlignment horizontal)
