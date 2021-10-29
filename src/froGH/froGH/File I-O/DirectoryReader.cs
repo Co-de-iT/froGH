@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using froGH.File_I_O;
 using froGH.Properties;
 using Grasshopper.Kernel;
-using Rhino.Geometry;
 
 namespace froGH
 {
@@ -15,7 +15,7 @@ namespace froGH
         /// </summary>
         public DirectoryReader()
           : base("Directory Reader", "f_DirRead",
-              "Returns the list of Files and subdirectories in a Directory",
+              "Returns the list of Files and subdirectories in a Directory\nDouble click the component to update",
              "froGH", "File I-O")
         {
         }
@@ -35,6 +35,11 @@ namespace froGH
         {
             pManager.AddTextParameter("File list", "F", "List of files in the directory", GH_ParamAccess.list);
             pManager.AddTextParameter("Subdir list", "D", "List of subdirs in the directory", GH_ParamAccess.list);
+        }
+
+        public override void CreateAttributes()
+        {
+            m_attributes = new DirectoryReader_Attributres(this);
         }
 
         /// <summary>

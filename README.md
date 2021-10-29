@@ -16,7 +16,7 @@ On the other hand, if you have any ideas on how to improve things (or you found 
   
 ### Installation
 #### Rhino 7
-Suggested installation procedure is via the Rhino Package Manager. Type  `PackageManager` in the command line and search for froGH. If you want to go old school, follow the Rhino 6 procedure below.
+Suggested installation procedure is via the Rhino Package Manager. Type `PackageManager` in the command line and search for froGH. If you want to go old school, follow the Rhino 6 procedure below.
 
 #### Rhino 6
 Download the latest .zip file from the [releases](https://github.com/Co-de-iT/froGH/releases). Unzip and copy the **froGH.gha** file in your _Grasshopper/Libraries_ folder  

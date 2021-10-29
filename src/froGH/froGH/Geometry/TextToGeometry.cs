@@ -125,6 +125,7 @@ namespace froGH.Fabrication
             myStyle.TextVerticalAlignment = vertical;
             myStyle.TextHorizontalAlignment = horizontal;
             myStyle.TextHeight = size;
+            myStyle.DrawForward = false;
             text.Transform(align);
 
             // get value of appended menu item

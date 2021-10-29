@@ -59,6 +59,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data\CreateRTree.cs" />
+    <Compile Include="File I-O\DirectoryReader_Attributres.cs" />
     <Compile Include="Geometry\PointsInSphereRTree.cs" />
     <Compile Include="Geometry\RTreeClosestPoint.cs" />
     <Compile Include="Geometry\TextToGeometry.cs" />
