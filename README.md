@@ -8,7 +8,7 @@ Ah... that should have been "for GH" but we're so lazy that we misspelt and didn
   
 **froGH** is a sparse collection of components born out of necessity or play in our daily Grasshopper experience. You might find them useful (or not). If you want to take a peek at the code, head for the **_src_** folder. 
 
-NOTE: _**no warranty or support is given**_ so use at your own risk and understanding (but know that we use them too... so they shouldn't explode at least). Example files are on their way, meanwhile... if you mess things up using **froGH**, you're on your own.  
+NOTE: _**no warranty or support is given**_ so use it at your own risk and understanding (but know that we use it too... so it shouldn't explode at least). If you mess things up using **froGH**, you're on your own.  
   
 On the other hand, if you have any ideas on how to improve things (or you found a bug), please let us know at info[at]co-de-it.com - and feel free to improve upon it yourself, but play nice and give proper attribution (see license).
   
