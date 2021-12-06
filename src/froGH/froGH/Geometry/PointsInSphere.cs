@@ -47,10 +47,11 @@ namespace froGH
         {
             Point3d center = new Point3d();
             DA.GetData(0, ref center);
+            if (center == null) return;
 
             List<Point3d> points = new List<Point3d>();
             DA.GetDataList(1, points);
-            if (points.Count == 0) return;
+            if (points == null || points.Count == 0) return;
 
             double radius = 1.0;
             DA.GetData(2, ref radius);

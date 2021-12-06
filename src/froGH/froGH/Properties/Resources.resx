@@ -136,6 +136,9 @@
   <data name="Centered_Domain_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Centered Domain_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="ClusterizeByDistance_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ClusterizeByDistance_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Clusterizer_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Clusterizer_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>

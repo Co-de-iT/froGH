@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Threading;
 using froGH.Properties;
 using Grasshopper.Kernel;
 using Rhino.Geometry;
@@ -63,6 +64,23 @@ namespace froGH
              original code by David Rutten
              adapted and extended by Alessio Erioli
              */
+
+            // get active document
+            GH_Document ghDoc = null;// = Grasshopper.Instances.ActiveCanvas.Document;
+            try
+            {
+                ghDoc = OnPingDocument();
+            }
+            catch
+            {
+                AddRuntimeMessage(GH_RuntimeMessageLevel.Warning, "Document not found");
+            }
+
+            if (ghDoc == null || !ghDoc.IsFilePathDefined) return;
+
+            // attempts to move this component at the top of the stack (to be executed last)
+            ghDoc.ArrangeObject(this, GH_Arrange.MoveToFront);
+
             bool capture = false;
             DA.GetData("Capture", ref capture);
 
@@ -157,10 +175,10 @@ namespace froGH
             DA.GetData(6, ref axes);
             DA.GetData(7, ref widget);
 
-            if (res.Length == 1)
-                image = view.CaptureToBitmap(grid, widget, axes);
-            else
-                image = view.CaptureToBitmap(new Size(res[0], res[1]), grid, widget, axes);
+            //if (res.Length == 1)
+            //    image = view.CaptureToBitmap(grid, widget, axes);
+            //else
+            image = view.CaptureToBitmap(new Size(res[0], res[1]), grid, widget, axes);
 
             image.Save(fileName);
             image.Dispose();

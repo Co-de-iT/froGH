@@ -15,7 +15,7 @@ namespace froGH.Geometry
         /// Initializes a new instance of the PointsInSphereRTree class.
         /// </summary>
         public PointsInSphereRTree()
-          : base("PointsInSphereRTree", "f_PtsSphRT",
+          : base("Points In Sphere (RTree)", "f_PtsSphRT",
               "Detects Points within a Sphere of given center and radius in a given RTree\nUse this for fixed search sets\nFor dynamic search sets use the other Points In Sphere",
               "froGH", "Geometry")
         {
@@ -52,12 +52,16 @@ namespace froGH.Geometry
             // to me to complete the set. Plus, I had the chance to study and learn some new tricks!
 
             GH_Structure<GH_Point> points = new GH_Structure<GH_Point>();
-            GH_Structure<GH_Number> indices = new GH_Structure<GH_Number>();
+            GH_Structure<GH_Number> radiuses = new GH_Structure<GH_Number>();
             GH_Structure<IGH_Goo> fTrees = new GH_Structure<IGH_Goo>();
 
             if (!DA.GetDataTree(0, out points)) return;
-            if (!DA.GetDataTree(1, out indices)) return;
+            if (!DA.GetDataTree(1, out radiuses)) return;
             if (!DA.GetDataTree(2, out fTrees)) return;
+
+            if (points == null) return;
+            if (radiuses == null) return;
+            if (fTrees == null) return;
 
             GH_Structure<GH_Point> foundPts = new GH_Structure<GH_Point>();
             GH_Structure<GH_Integer> foundInd = new GH_Structure<GH_Integer>();
@@ -65,7 +69,9 @@ namespace froGH.Geometry
             for (int i = 0; i < points.PathCount; i++)
             {
                 GH_Path path = points.Paths[i];
-                List<IGH_Goo> fTreeList = fTrees.Branches[fTrees.PathCount < i ? fTrees.PathCount - 1 : i];
+                List<IGH_Goo> fTreeList = fTrees.Branches[i < fTrees.PathCount - 1 ? i : fTrees.PathCount - 1];
+                // old condition - problematic when fTrees.PathCount = 1 and points.PathCount > 1
+                //List<IGH_Goo> fTreeList = fTrees.Branches[fTrees.PathCount < i ? fTrees.PathCount - 1 : i];
                 if (fTreeList.Count == 0)
                 {
                     AddRuntimeMessage(GH_RuntimeMessageLevel.Error, "No RTree for branch" + points.Paths[i].ToString());
@@ -77,13 +83,16 @@ namespace froGH.Geometry
                     return;
                 }
                 froGHRTree fTree = ((GH_froGHRTree)fTreeList[0]).Value;
-                List<GH_Number> indList = indices.Branches[indices.PathCount < i ? indices.PathCount - 1 : i];
+                List<GH_Number> radList = radiuses.Branches[i < radiuses.PathCount - 1 ? i : radiuses.PathCount - 1];
+                // old condition - problematic when radiuses.PathCount = 1 and points.PathCount > 1
+                //List<GH_Number> radList = radiuses.Branches[radiuses.PathCount < i ? radiuses.PathCount - 1 : i];
                 int count = 0;
                 foreach (GH_Point ghP in points.Branches[i])
                 {
+                    if (ghP == null) continue;
                     GH_Path foundPath = path.AppendElement(count);
                     // perform search
-                    List<int> fIndices = fTree.IndicesInSphere(ghP.Value, indList[indList.Count > count ? count : indList.Count - 1].Value);
+                    List<int> fIndices = fTree.IndicesInSphere(ghP.Value, radList[radList.Count > count ? count : radList.Count - 1].Value);
                     if (fIndices.Count == 0)
                     {
                         foundPts.AppendRange(new List<GH_Point>(), foundPath);

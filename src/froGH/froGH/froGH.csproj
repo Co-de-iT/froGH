@@ -60,6 +60,7 @@
   <ItemGroup>
     <Compile Include="Data\CreateRTree.cs" />
     <Compile Include="File I-O\DirectoryReader_Attributres.cs" />
+    <Compile Include="Geometry\ClusterByDistance.cs" />
     <Compile Include="Geometry\PointsInSphereRTree.cs" />
     <Compile Include="Geometry\RTreeClosestPoint.cs" />
     <Compile Include="Geometry\TextToGeometry.cs" />
@@ -418,12 +419,6 @@
     <None Include="Resources\Turntable_GH.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\froGH_GH.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\froGH_category.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\Mesh Offset Weighted_GH.png" />
   </ItemGroup>
   <ItemGroup>
@@ -437,6 +432,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Create RTree_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\froGH_category.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\froGH_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ClusterizeByDistance_GH.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

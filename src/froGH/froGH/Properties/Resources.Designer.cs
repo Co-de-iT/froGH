@@ -123,6 +123,16 @@ namespace froGH.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ClusterizeByDistance_GH {
+            get {
+                object obj = ResourceManager.GetObject("ClusterizeByDistance_GH", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Clusterizer_GH {
             get {
                 object obj = ResourceManager.GetObject("Clusterizer_GH", resourceCulture);
