@@ -63,12 +63,15 @@
     <Compile Include="Geometry\ClusterByDistance.cs" />
     <Compile Include="Geometry\PointsInSphereRTree.cs" />
     <Compile Include="Geometry\RTreeClosestPoint.cs" />
+    <Compile Include="Geometry\SmallestEnclosingCircleComponent.cs" />
     <Compile Include="Geometry\TextToGeometry.cs" />
     <Compile Include="Geometry\AdaptiveFillet.cs" />
+    <Compile Include="Mesh\ExtractMeshEdges.cs" />
     <Compile Include="Utils\ClosestPointSearchData.cs" />
     <Compile Include="Utils\SphereSearchData.cs" />
     <Compile Include="Utils\enumRTreeType.cs" />
     <Compile Include="Utils\GH_froGHRTree.cs" />
+    <Compile Include="Utils\Utilities.cs" />
     <Compile Include="View-Display\CameraControl.cs" />
     <Compile Include="View-Display\CameraReport.cs" />
     <Compile Include="File I-O\COMPortWriter.cs" />
@@ -441,6 +444,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\ClusterizeByDistance_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SmallestEnclosingCircle_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ExtractMeshFaces_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ExtractMeshEdges_GH.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

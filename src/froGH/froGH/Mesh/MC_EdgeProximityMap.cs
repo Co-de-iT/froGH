@@ -75,12 +75,29 @@ namespace froGH
                 // get connected edges at each endpoint
                 for (int j = 0; j < edgeEndPts.Length; j++)
                 {
-                    HashSet<int> connV = new HashSet<int>();
-                    int[] coV = M.TopologyVertices.ConnectedEdges(edgeEndPts[j]);
-                    foreach (int v in coV)
-                        connV.Add(v);
-                    connV.Remove(i);
-                    edges[i][j] = connV.ToArray();
+                    //HashSet<int> connV = new HashSet<int>();
+                    M.TopologyVertices.SortEdges(edgeEndPts[j]);
+                    int[] coEd = M.TopologyVertices.ConnectedEdges(edgeEndPts[j]);
+                    //foreach (int v in coV)
+                    //    connV.Add(v);
+                    //connV.Remove(i);
+                    List<int> connEdges = new List<int>();
+                    List<int> prevConnEdges = new List<int>();
+                    bool edgeFound = false;
+                    for (int k = 0; k < coEd.Length; k++)
+                    {
+                        if (coEd[k] == i)
+                        {
+                            edgeFound = true;
+                            continue;
+                        }
+                        if (edgeFound)
+                            connEdges.Add(coEd[k]);
+                        else prevConnEdges.Add(coEd[k]);
+                    }
+                    connEdges.AddRange(prevConnEdges);
+
+                    edges[i][j] = connEdges.ToArray();
                 }
 
                 // fill vertices array
@@ -90,26 +107,26 @@ namespace froGH
 
             });
 
-            DA.SetDataTree(0, ToDataTree(vertices));
-            DA.SetDataTree(1, ToDataTree(edges));
-            DA.SetDataTree(2, ToDataTree(faces));
+            DA.SetDataTree(0, ToDataTree(vertices, DA.Iteration));
+            DA.SetDataTree(1, ToDataTree(edges, DA.Iteration));
+            DA.SetDataTree(2, ToDataTree(faces, DA.Iteration));
 
         }
 
-        public DataTree<GH_Integer> ToDataTree(int[][] array)
+        public DataTree<GH_Integer> ToDataTree(int[][] array, int iter)
         {
             DataTree<GH_Integer> dt = new DataTree<GH_Integer>();
             for (int i = 0; i < array.Length; i++)
-                dt.AddRange(array[i].Select(x => new GH_Integer(x)), new GH_Path(i));
+                dt.AddRange(array[i].Select(x => new GH_Integer(x)), new GH_Path(iter, i));
             return dt;
         }
 
-        public DataTree<GH_Integer> ToDataTree(int[][][] array)
+        public DataTree<GH_Integer> ToDataTree(int[][][] array, int iter)
         {
             DataTree<GH_Integer> dt = new DataTree<GH_Integer>();
             for (int i = 0; i < array.Length; i++)
                 for (int j = 0; j < array[i].Length; j++)
-                    dt.AddRange(array[i][j].Select(x => new GH_Integer(x)), new GH_Path(i, j));
+                    dt.AddRange(array[i][j].Select(x => new GH_Integer(x)), new GH_Path(iter, i, j));
             return dt;
         }
 

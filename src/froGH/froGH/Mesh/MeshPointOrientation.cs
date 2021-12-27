@@ -59,7 +59,7 @@ namespace froGH
             for (int i = 0; i < P.Count; i++)
             {
                 mP = M.ClosestMeshPoint(P[i], 1000);
-                inside[i] = Vector3d.VectorAngle(faceNormals[mP.FaceIndex], P[i] - mP.Point) > 1;
+                inside[i] = Vector3d.VectorAngle(faceNormals[mP.FaceIndex], P[i] - mP.Point) > 1; // Huh... this should be  >= (Math.Pi * 0.5)
             }
 
             DA.SetDataList(0, inside);

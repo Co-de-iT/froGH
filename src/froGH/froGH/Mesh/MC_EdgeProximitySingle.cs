@@ -54,7 +54,7 @@ namespace froGH
 
             i = i % M.TopologyEdges.Count;
 
-            int[] vertices;// = new DataTree<GH_Integer>();
+            int[] edgeEndPts;// = new DataTree<GH_Integer>();
             DataTree<int> edges = new DataTree<int>();
             int[] faces;// = new DataTree<GH_Integer>();
 
@@ -63,25 +63,42 @@ namespace froGH
 
 
             // fill vertices data tree
-            vertices = new int[2];
+            edgeEndPts = new int[2];
 
             // topology edge > index of vertices at endpoints
-            vertices[0] = M.TopologyEdges.GetTopologyVertices(i).I;
-            vertices[1] = M.TopologyEdges.GetTopologyVertices(i).J;
+            edgeEndPts[0] = M.TopologyEdges.GetTopologyVertices(i).I;
+            edgeEndPts[1] = M.TopologyEdges.GetTopologyVertices(i).J;
 
             // fill edges data tree
             // get connected edges at each endpoint
-            for (int j = 0; j < vertices.Length; j++)
+            for (int j = 0; j < edgeEndPts.Length; j++)
             {
-                HashSet<int> connV = new HashSet<int>();
-                int[] coV = M.TopologyVertices.ConnectedEdges(vertices[j]);
-                foreach (int v in coV)
-                    connV.Add(v);
-                connV.Remove(i);
-                edges.AddRange(connV, new GH_Path(i, j));
+                //HashSet<int> connV = new HashSet<int>();
+                M.TopologyVertices.SortEdges(edgeEndPts[j]);
+                int[] coEd = M.TopologyVertices.ConnectedEdges(edgeEndPts[j]);
+                //foreach (int v in coV)
+                //    connV.Add(v);
+                //connV.Remove(i);
+                List<int> connEdges = new List<int>();
+                List<int> prevConnEdges = new List<int>();
+                bool edgeFound = false;
+                for (int k = 0; k < coEd.Length; k++)
+                {
+                    if (coEd[k] == i)
+                    {
+                        edgeFound = true;
+                        continue;
+                    }
+                    if (edgeFound)
+                        connEdges.Add(coEd[k]);
+                    else prevConnEdges.Add(coEd[k]);
+                }
+                connEdges.AddRange(prevConnEdges);
+
+                edges.AddRange(connEdges, new GH_Path(i, j));
             }
 
-            DA.SetDataList(0, vertices);
+            DA.SetDataList(0, edgeEndPts);
             DA.SetDataTree(1, edges);
             DA.SetDataList(2, faces);
         }

@@ -8,7 +8,7 @@ using Grasshopper.Kernel;
 using Rhino.DocObjects;
 using Rhino.Geometry;
 
-namespace froGH.Fabrication
+namespace froGH
 {
     public class TextToGeometry : GH_Component
     {

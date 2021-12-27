@@ -6,7 +6,7 @@ using Rhino.Geometry;
 using System;
 using System.Collections.Generic;
 
-namespace froGH.Data
+namespace froGH
 {
     public class CreateRTree : GH_Component
     {

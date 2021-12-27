@@ -11,7 +11,6 @@ namespace froGH
     public class MeshWiresDisplay : GH_Component
     {
         private BoundingBox _clip;
-        private Mesh _mesh = new Mesh();
         private List<Mesh> _meshList = new List<Mesh>();
         private Color _color;
         private int _width;
@@ -76,7 +75,6 @@ namespace froGH
         protected override void BeforeSolveInstance()
         {
             _clip = BoundingBox.Empty;
-            _mesh = new Mesh();
             _meshList.Clear();
         }
 

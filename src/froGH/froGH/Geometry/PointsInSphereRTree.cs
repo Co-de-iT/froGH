@@ -7,7 +7,7 @@ using Rhino.Geometry;
 using System;
 using System.Collections.Generic;
 
-namespace froGH.Geometry
+namespace froGH
 {
     public class PointsInSphereRTree : GH_Component
     {

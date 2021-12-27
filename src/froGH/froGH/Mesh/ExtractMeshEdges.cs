@@ -1,21 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 using froGH.Properties;
 using Grasshopper.Kernel;
+using Rhino.Geometry;
 
 namespace froGH
 {
-    public class DirectoryReader : GH_Component
+    public class ExtractMeshEdges : GH_Component
     {
         /// <summary>
-        /// Initializes a new instance of the DIrectoryReader class.
+        /// Initializes a new instance of the ExtractMeshEdges class.
         /// </summary>
-        public DirectoryReader()
-          : base("Directory Reader", "f_DirRead",
-              "Returns the list of Files and subdirectories in a Directory\nDouble click the component to update",
-             "froGH", "File I-O")
+        public ExtractMeshEdges()
+          : base("Extract Mesh Edges", "f_MEdges",
+              "Extract Mesh Edges as Lines",
+              "froGH", "Mesh")
         {
         }
 
@@ -24,7 +23,7 @@ namespace froGH
         /// </summary>
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
-            pManager.AddTextParameter("Directory Path", "P", "Path to the directory to read", GH_ParamAccess.item);
+            pManager.AddMeshParameter("Mesh", "M", "The Input Mesh to process", GH_ParamAccess.item);
         }
 
         /// <summary>
@@ -32,13 +31,9 @@ namespace froGH
         /// </summary>
         protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)
         {
-            pManager.AddTextParameter("File list", "F", "List of files in the directory", GH_ParamAccess.list);
-            pManager.AddTextParameter("Subdir list", "D", "List of subdirs in the directory", GH_ParamAccess.list);
-        }
-
-        public override void CreateAttributes()
-        {
-            m_attributes = new DirectoryReader_Attributres(this);
+            pManager.AddLineParameter("Edges", "E", "Mesh edges as lines", GH_ParamAccess.list);
+            pManager.AddBooleanParameter("Weld Status", "W", "True if edge is unwelded", GH_ParamAccess.list);
+            pManager.AddIntegerParameter("Edge status", "S", "Edge status:\n-1 isolated\n0 naked\n1 manifold\n2+ non manifold", GH_ParamAccess.list);
         }
 
         /// <summary>
@@ -47,19 +42,24 @@ namespace froGH
         /// <param name="DA">The DA object is used to retrieve from inputs and store in outputs.</param>
         protected override void SolveInstance(IGH_DataAccess DA)
         {
-            string D = null;
-            if (!DA.GetData(0, ref D)) return;
+            Mesh M = new Mesh();
+            if (!DA.GetData(0, ref M)) return;
+            if (!M.IsValid || M == null) return;
 
-            if (!Directory.Exists(D))
-                AddRuntimeMessage(GH_RuntimeMessageLevel.Error, "Directory does not exist");
+            Line[] edgeLines = new Line[M.TopologyEdges.Count];
+            bool[] weldedStatus = new bool[M.TopologyEdges.Count];
+            int[] nakedStatus = new int[M.TopologyEdges.Count];
 
-            List<string> F, S;
+            for (int i = 0; i < M.TopologyEdges.Count; i++)
+            {
+                edgeLines[i] = M.TopologyEdges.EdgeLine(i);
+                weldedStatus[i]=M.TopologyEdges.IsEdgeUnwelded(i);
+                nakedStatus[i] = M.TopologyEdges.GetConnectedFaces(i).Length-1;
+            }
 
-            F = Directory.GetFiles(D).Select(s => s.Remove(0, D.Length)).ToList();
-            S = Directory.GetDirectories(D).Select(s => s.Remove(0, D.Length)).ToList();
-
-            DA.SetDataList(0, F);
-            DA.SetDataList(1, S);
+            DA.SetDataList(0, edgeLines);
+            DA.SetDataList(1, weldedStatus);
+            DA.SetDataList(2, nakedStatus);
         }
 
         /// <summary>
@@ -80,7 +80,7 @@ namespace froGH
             {
                 //You can add image files to your project resources and access them like this:
                 // return Resources.IconForThisComponent;
-                return Resources.Read_Dir_GH;
+                return Resources.ExtractMeshEdges_GH;
             }
         }
 
@@ -89,7 +89,7 @@ namespace froGH
         /// </summary>
         public override Guid ComponentGuid
         {
-            get { return new Guid("fd1b969f-7ec2-4609-99e7-936dcc995997"); }
+            get { return new Guid("70AA9E8E-FFF2-4F6B-B5AE-04ECDD58D0B1"); }
         }
     }
 }

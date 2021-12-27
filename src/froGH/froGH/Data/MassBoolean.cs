@@ -55,6 +55,7 @@ namespace froGH
 
             List<bool> values = new List<bool>();
             if (!DA.GetDataList(0, values)) return;
+            if (values == null || values.Count == 0) return;
 
             result = values[0];
 

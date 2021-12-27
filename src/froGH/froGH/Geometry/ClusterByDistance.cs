@@ -9,7 +9,7 @@ using Grasshopper;
 using Grasshopper.Kernel.Data;
 using froGH.Properties;
 
-namespace froGH.Geometry
+namespace froGH
 {
     public class ClusterByDistance : GH_Component
     {

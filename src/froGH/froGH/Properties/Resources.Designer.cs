@@ -313,6 +313,26 @@ namespace froGH.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ExtractMeshEdges_GH {
+            get {
+                object obj = ResourceManager.GetObject("ExtractMeshEdges_GH", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ExtractMeshFaces_GH {
+            get {
+                object obj = ResourceManager.GetObject("ExtractMeshFaces_GH", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Extrude_mesh_curve_GH {
             get {
                 object obj = ResourceManager.GetObject("Extrude_mesh_curve_GH", resourceCulture);
@@ -526,16 +546,6 @@ namespace froGH.Properties {
         internal static System.Drawing.Bitmap Mesh_Edge_Proximity_Single_2_GH {
             get {
                 object obj = ResourceManager.GetObject("Mesh_Edge_Proximity_Single_2_GH", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Mesh_Extract_Face_GH {
-            get {
-                object obj = ResourceManager.GetObject("Mesh_Extract_Face_GH", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -806,6 +816,16 @@ namespace froGH.Properties {
         internal static System.Drawing.Bitmap Sliders_Display_GH {
             get {
                 object obj = ResourceManager.GetObject("Sliders_Display_GH", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SmallestEnclosingCircle_GH {
+            get {
+                object obj = ResourceManager.GetObject("SmallestEnclosingCircle_GH", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

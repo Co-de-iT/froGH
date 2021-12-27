@@ -2,7 +2,7 @@
 using Grasshopper.GUI.Canvas;
 using Grasshopper.Kernel.Attributes;
 
-namespace froGH.File_I_O
+namespace froGH
 {
     class DirectoryReader_Attributres : GH_ComponentAttributes
     {

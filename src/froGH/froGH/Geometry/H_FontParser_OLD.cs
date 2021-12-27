@@ -8,6 +8,7 @@ using Rhino.Geometry;
 
 namespace froGH
 {
+    [Obsolete]
     public class H_FontParser_OLD : GH_Component
     {
         string[][] justification = new string[][]{ new string[] { "TopLeft", "0" }, new string[] { "MiddleLeft", "1" }, new string[] { "BottomLeft", "2" }, new string[] { "TopCenter", "3" }, new string[] { "MiddleCenter", "4" },

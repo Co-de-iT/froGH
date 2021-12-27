@@ -85,17 +85,17 @@ namespace froGH
                 }
             });
 
-            DA.SetDataTree(0, ToDataTree(vertices));
-            DA.SetDataTree(1, ToDataTree(edges));
-            DA.SetDataTree(2, ToDataTree(faces));
+            DA.SetDataTree(0, ToDataTree(vertices, DA.Iteration));
+            DA.SetDataTree(1, ToDataTree(edges, DA.Iteration));
+            DA.SetDataTree(2, ToDataTree(faces, DA.Iteration));
 
         }
 
-        public DataTree<GH_Integer> ToDataTree(int[][] array)
+        public DataTree<GH_Integer> ToDataTree(int[][] array, int iter)
         {
             DataTree<GH_Integer> dt = new DataTree<GH_Integer>();
             for (int i = 0; i < array.Length; i++)
-                dt.AddRange(array[i].Select(x => new GH_Integer(x)), new GH_Path(i));
+                dt.AddRange(array[i].Select(x => new GH_Integer(x)), new GH_Path(iter, i));
             return dt;
         }
 

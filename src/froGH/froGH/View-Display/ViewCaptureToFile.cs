@@ -79,6 +79,7 @@ namespace froGH
             if (ghDoc == null || !ghDoc.IsFilePathDefined) return;
 
             // attempts to move this component at the top of the stack (to be executed last)
+            // see https://www.grasshopper3d.com/xn/detail/2985220:Comment:975472
             ghDoc.ArrangeObject(this, GH_Arrange.MoveToFront);
 
             bool capture = false;

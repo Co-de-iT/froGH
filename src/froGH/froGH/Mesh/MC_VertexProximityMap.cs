@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using froGH.Properties;
+using froGH.Utils;
 using Grasshopper;
 using Grasshopper.Kernel;
 using Grasshopper.Kernel.Data;
@@ -51,35 +52,40 @@ namespace froGH
             if (!DA.GetData(0, ref M)) return;
             if (!M.IsValid || M == null) return;
 
-            int[][] vertices = new int[M.Vertices.Count][];
-            int[][] edges = new int[M.Vertices.Count][];
-            int[][] faces = new int[M.Vertices.Count][];
+            int[][] verticesMap = new int[M.Vertices.Count][];
+            int[][] edgesMap = new int[M.Vertices.Count][];
+            int[][] facesMap = new int[M.Vertices.Count][];
 
             Parallel.For(0, M.Vertices.Count, i =>
             {
+                int[] vertices;
+                int[] edges;
+                int[] faces;
 
-                // fill faces array
-                faces[i] = M.Vertices.GetVertexFaces(i);
+                Utilities.GetVertexNeighbours(M, i, out vertices, out edges, out faces);
 
-                // fill edges array
-                edges[i] = M.TopologyVertices.ConnectedEdges(M.TopologyVertices.TopologyVertexIndex(i));
+                verticesMap[i] = vertices;
+                edgesMap[i] = edges;
+                facesMap[i] = faces;
 
-
-                // fill vertices array
-                vertices[i] = M.Vertices.GetConnectedVertices(i);
+                //// fill faces array
+                //facesMap[i] = M.TopologyVertices.ConnectedFaces(M.TopologyVertices.TopologyVertexIndex(i));
+                //// fill edges array
+                //edgesMap[i] = M.TopologyVertices.ConnectedEdges(M.TopologyVertices.TopologyVertexIndex(i));
+                //// fill vertices array
+                //verticesMap[i] = M.Vertices.GetConnectedVertices(i);
 
             });
-
-            DA.SetDataTree(0, ToDataTree(vertices));
-            DA.SetDataTree(1, ToDataTree(edges));
-            DA.SetDataTree(2, ToDataTree(faces));
+            DA.SetDataTree(0, ToDataTree(verticesMap, DA.Iteration));
+            DA.SetDataTree(1, ToDataTree(edgesMap, DA.Iteration));
+            DA.SetDataTree(2, ToDataTree(facesMap, DA.Iteration));
         }
 
-        public DataTree<GH_Integer> ToDataTree(int[][] array)
+        public DataTree<GH_Integer> ToDataTree(int[][] array, int iter)
         {
             DataTree<GH_Integer> dt = new DataTree<GH_Integer>();
             for (int i = 0; i < array.Length; i++)
-                dt.AddRange(array[i].Select(x => new GH_Integer(x)), new GH_Path(i));
+                dt.AddRange(array[i].Select(x => new GH_Integer(x)), new GH_Path(iter, i));
             return dt;
         }
 

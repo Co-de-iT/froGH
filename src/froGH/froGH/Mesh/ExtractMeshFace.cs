@@ -101,7 +101,7 @@ namespace froGH
             {
                 //You can add image files to your project resources and access them like this:
                 // return Resources.IconForThisComponent;
-                return Resources.Mesh_Extract_Face_GH;
+                return Resources.ExtractMeshFaces_GH;
             }
         }
 
