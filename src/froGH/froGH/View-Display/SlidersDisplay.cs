@@ -85,10 +85,36 @@ namespace froGH
             yOffset = basePlane.YAxis * (-th * 6);
 
             sliders = new List<Slider>();
+            Grasshopper.Kernel.Special.GH_NumberSlider slider;
 
+            // input through merge (test)
+            // see James Ramsden gh tips on how to place a new component (Merge) and control it 
+            // Merge is part of the Math components
+            //Grasshopper.Kernel.Components.GH_MergeGroupComponent merge = new Grasshopper.Kernel.Components.GH_MergeGroupComponent();
+            //merge.CreateAttributes();
+
+            //for (int i = 0; i < merge.Params.Input.Count; i++)
+            //{
+
+            //    try
+            //    {
+            //        slider = merge.Params.Input[i].Sources[0] as Grasshopper.Kernel.Special.GH_NumberSlider;
+            //    }
+            //    catch
+            //    {
+            //        continue;
+            //    }
+            //    basePlane.Origin = from;
+            //    slid = new Slider(slider, basePlane, fontFace, len, th, slider.NickName);
+            //    sliders.Add(slid);
+            //    _clip.Union(slid.GetBoundingBox());
+            //    from += yOffset;
+            //}
+
+            // for direct slider input
             for (int i = 0; i < Params.Input[0].Sources.Count; i++)
             {
-                Grasshopper.Kernel.Special.GH_NumberSlider slider = Params.Input[0].Sources[i] as Grasshopper.Kernel.Special.GH_NumberSlider;
+                slider = Params.Input[0].Sources[i] as Grasshopper.Kernel.Special.GH_NumberSlider;
                 basePlane.Origin = from;
                 slid = new Slider(slider, basePlane, fontFace, len, th, slider.NickName);
                 sliders.Add(slid);

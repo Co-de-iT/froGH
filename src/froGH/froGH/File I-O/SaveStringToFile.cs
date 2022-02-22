@@ -69,7 +69,33 @@ namespace froGH
 
             String target = dir + file;
 
-            File.WriteAllLines(target, S.ToArray());
+            WriteAllLinesCustom(target, S.ToArray());
+            //File.WriteAllLines(target, S.ToArray()); // this leaves an empty line at the bottom of the file (expected behaviour but not good for me)
+        }
+
+        // code found at: https://stackoverflow.com/questions/11689337/net-file-writealllines-leaves-empty-line-at-the-end-of-file/42034211
+        void WriteAllLinesCustom(string path, params string[] lines)
+        {
+            if (path == null)
+                throw new ArgumentNullException("path");
+            if (lines == null)
+                throw new ArgumentNullException("lines");
+
+            using (var stream = File.OpenWrite(path))
+            {
+                stream.SetLength(0);
+                using (var writer = new StreamWriter(stream))
+                {
+                    if (lines.Length > 0)
+                    {
+                        for (var i = 0; i < lines.Length - 1; i++)
+                        {
+                            writer.WriteLine(lines[i]);
+                        }
+                        writer.Write(lines[lines.Length - 1]);
+                    }
+                }
+            }
         }
 
         /// <summary>

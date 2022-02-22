@@ -59,8 +59,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data\CreateRTree.cs" />
+    <Compile Include="Data\DataTreeGraph.cs" />
     <Compile Include="File I-O\DirectoryReader_Attributres.cs" />
     <Compile Include="Geometry\ClusterByDistance.cs" />
+    <Compile Include="Geometry\LPolylineFromPlane.cs" />
     <Compile Include="Geometry\PointsInSphereRTree.cs" />
     <Compile Include="Geometry\RTreeClosestPoint.cs" />
     <Compile Include="Geometry\SmallestEnclosingCircleComponent.cs" />
@@ -453,6 +455,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\ExtractMeshEdges_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LPolylineFromPlane_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TreeGraph_GH.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

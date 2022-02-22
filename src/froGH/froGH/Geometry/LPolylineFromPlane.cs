@@ -6,14 +6,14 @@ using Rhino.Geometry;
 
 namespace froGH
 {
-    public class PlaneFromLPolyline : GH_Component
+    public class LPolylineFromPlane : GH_Component
     {
         /// <summary>
-        /// Initializes a new instance of the PlaneFromLPolyline class.
+        /// Initializes a new instance of the LPolylineFromPlane class.
         /// </summary>
-        public PlaneFromLPolyline()
-          : base("Plane From L Polyline", "f_PLP",
-              "Generates a plane from an L shaped polyline (X-O-Y order)",
+        public LPolylineFromPlane()
+          : base("L Polyline From Plane", "f_LPP",
+              "Generates an L shaped polyline (X-O-Y order) from a Plane",
               "froGH", "Geometry")
         {
         }
@@ -23,7 +23,10 @@ namespace froGH
         /// </summary>
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
-            pManager.AddCurveParameter("Polyline", "P", "The L-shaped Polyline", GH_ParamAccess.item);
+            pManager.AddPlaneParameter("Plane", "P", "Input Plane", GH_ParamAccess.item);
+            pManager.AddNumberParameter("Length", "l", "Length of polyline segments", GH_ParamAccess.item, 1);
+
+            pManager[1].Optional = true;
         }
 
         /// <summary>
@@ -31,7 +34,7 @@ namespace froGH
         /// </summary>
         protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)
         {
-            pManager.AddPlaneParameter("Plane", "P", "The corresponding Plane", GH_ParamAccess.item);
+            pManager.AddCurveParameter("Polyline", "P", "The L-shaped Polyline", GH_ParamAccess.item);
         }
 
         /// <summary>
@@ -40,15 +43,20 @@ namespace froGH
         /// <param name="DA">The DA object is used to retrieve from inputs and store in outputs.</param>
         protected override void SolveInstance(IGH_DataAccess DA)
         {
-            Polyline P = null;
-            Curve C = null;
-            if (!DA.GetData(0, ref C)) return;
-            C.TryGetPolyline(out P);
-            if (P == null || P.Count != 3) return;
+            Plane p = new Plane();
 
-            Plane Pl = new Plane(P[1], P[0], P[2]);
+            if (!DA.GetData(0, ref p)) return;
 
-            DA.SetData(0, Pl);
+            double length = 1;
+            DA.GetData(1, ref length);
+
+            Polyline poly = new Polyline();
+
+            poly.Add(p.Origin + p.XAxis * length);
+            poly.Add(p.Origin);
+            poly.Add(p.Origin + p.YAxis * length);
+
+            DA.SetData(0, poly);
         }
 
         /// <summary>
@@ -69,7 +77,7 @@ namespace froGH
             {
                 //You can add image files to your project resources and access them like this:
                 // return Resources.IconForThisComponent;
-                return Resources.Plane_from_L_Polyline_GH;
+                return Resources.LPolylineFromPlane_GH;
             }
         }
 
@@ -78,7 +86,7 @@ namespace froGH
         /// </summary>
         public override Guid ComponentGuid
         {
-            get { return new Guid("928ca0d9-e8e0-408f-a9c4-f20e3fa856fe"); }
+            get { return new Guid("3631ECF7-5231-42B5-81F6-D1725750A7A4"); }
         }
     }
 }

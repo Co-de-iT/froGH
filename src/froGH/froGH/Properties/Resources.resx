@@ -244,6 +244,9 @@
   <data name="Load_from_Web_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Load from Web_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="LPolylineFromPlane_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\LPolylineFromPlane_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="MassBool_2_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MassBool_2_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -372,6 +375,9 @@
   </data>
   <data name="Topology_Inverter_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Topology Inverter_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TreeGraph_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TreeGraph_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Trilateration_3_1_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Trilateration_3.1_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

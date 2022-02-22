@@ -25,7 +25,7 @@ namespace froGH
         /// </summary>
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
-            pManager.AddBooleanParameter("Run", "R", "Run the report\nUse a button for a one-shot retrieval, a toggle + timer for continuous data", GH_ParamAccess.item, false);
+            pManager.AddBooleanParameter("Run", "R", "Run the report\nUse a toggle for a one-shot update, a toggle + timer for continuous data", GH_ParamAccess.item, false);
         }
 
         /// <summary>
@@ -56,9 +56,10 @@ namespace froGH
                 //Get camera
                 //Get current viewport
                 vp = Rhino.RhinoDoc.ActiveDoc.Views.ActiveView.ActiveViewport;
-                //save camera  location and camera target
+
+                //save camera location and camera target
                 DA.SetData(0, vp.CameraLocation);
-                DA.SetData(1,  vp.CameraTarget);
+                DA.SetData(1, vp.CameraTarget);
                 DA.SetData(2, vp.Camera35mmLensLength);
                 DA.SetData(3, vp.CameraUp);
                 Plane fp, np;
