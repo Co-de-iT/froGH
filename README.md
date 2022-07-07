@@ -22,7 +22,7 @@ Suggested installation procedure is via the Rhino Package Manager. Type `Package
 Download the latest .zip file from the [releases](https://github.com/Co-de-iT/froGH/releases). Unzip and copy the **froGH.gha** file in your _Grasshopper/Libraries_ folder  
    
 ### Example Files
-Example Files are included in the latest release, but you can also pick them from the folder with the same name
+Example Files are in the dedicated folder of this repo
 
 ### Known Bugs
 'It's not a bug, it's a feature!' _(anonymous)_  
