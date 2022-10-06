@@ -1,5 +1,8 @@
 # Changelog
 
+### 2.2.4
+- corrected a bug in the  _**Space Filling Polyhedra Generator**_ component that generated inconsistent polyline directions for face contours
+
 ### 2.2.3
 - added _**Data Tree Graph**_ component
 
