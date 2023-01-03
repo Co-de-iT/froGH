@@ -14,7 +14,7 @@ namespace froGH
     {
         private BoundingBox _clip;
         private Mesh[] _mesh;
-        private Rhino.Display.DisplayMaterial _mat = new Rhino.Display.DisplayMaterial(Color.Black, Color.Black, Color.Black, Color.Black, 0.0, 0.0);
+        private Rhino.Display.DisplayMaterial _blackMatte = new Rhino.Display.DisplayMaterial(Color.Black, Color.Black, Color.Black, Color.Black, 0.0, 0.0);
 
         /// <summary>
         /// Initializes a new instance of the WeightedSpheresDisplay class.
@@ -55,13 +55,13 @@ namespace froGH
             if (!DA.GetDataList(0, P)) return;
             if (!DA.GetDataList(1, R)) return;
 
-            int res=0;
+            int res = 0;
             DA.GetData(2, ref res);
 
-            if (P == null || R == null || P.Count ==0 || P.Count != R.Count) return;
+            if (P == null || R == null || P.Count == 0 || P.Count != R.Count) return;
 
             //    int step;
-            Mesh bS;
+            Mesh blackSphere;
             // steps: 1, 2, 4, 8
             //       32, 16, 8, 4 as UV params
 
@@ -75,7 +75,7 @@ namespace froGH
             {
 
                 // if the list is not the first parameter then change Input[0] to the corresponding value
-                vList = (Grasshopper.Kernel.Special.GH_ValueList) Params.Input[2].Sources[0];
+                vList = (Grasshopper.Kernel.Special.GH_ValueList)Params.Input[2].Sources[0];
 
                 if (!vList.NickName.Equals("Resolution"))
                 {
@@ -103,18 +103,18 @@ namespace froGH
             switch (res)
             {
                 case 0:
-                    bS = MakeSphereBFr0();
+                    blackSphere = MakeSphereBFr0();
                     break;
                 case 1:
-                    bS = MakeSphereBFr1();
+                    blackSphere = MakeSphereBFr1();
                     break;
                 case 2:
-                    bS = MakeSphereBFr2();
+                    blackSphere = MakeSphereBFr2();
                     break;
                 case 3:
                     goto case 0;
                 default:
-                    bS = MakeSphereBFr1();
+                    blackSphere = MakeSphereBFr1();
                     break;
             }
 
@@ -123,10 +123,10 @@ namespace froGH
 
             Parallel.For(0, P.Count, i =>
             {
-                Mesh S1 = bS.DuplicateMesh();
-                S1.Scale((double)R[i]);
-                S1.Translate((Vector3d)(Point3d)P[i]);
-                _mesh[i] = S1;
+                Mesh sphere = blackSphere.DuplicateMesh();
+                sphere.Scale(R[i]);
+                sphere.Translate((Vector3d)P[i]);
+                _mesh[i] = sphere;
             }
             );
 
@@ -155,7 +155,7 @@ namespace froGH
             if (_mesh == null) return;
 
             foreach (Mesh m in _mesh)
-                args.Display.DrawMeshShaded(m, _mat);
+                args.Display.DrawMeshShaded(m, _blackMatte);
         }
 
         /// <summary>
@@ -523,20 +523,7 @@ namespace froGH
   new MeshFace(113, 112, 97)
   };
 
-        //LUTs for sin and cos operations
-        static double[] cos = new double[]{
-  1, 0.980785, 0.92388, 0.83147, 0.707107, 0.55557, 0.382683, 0.19509,
-  0, -0.19509, -0.382683, -0.55557, -0.707107, -0.83147, -0.92388, -0.980785,
-  -1, -0.980785, -0.92388, -0.83147, -0.707107, -0.55557, -0.382683, -0.19509,
-  0,  0.19509, 0.382683, 0.55557, 0.707107, 0.83147, 0.92388, 0.980785, 1};
-
-        static double[] sin = new double[] {
-  0, 0.19509, 0.382683, 0.55557, 0.707107, 0.83147, 0.92388, 0.980785,
-  1, 0.980785, 0.92388, 0.83147, 0.707107, 0.55557, 0.382683, 0.19509,
-  0, -0.19509, -0.382683, -0.55557, -0.707107, -0.83147, -0.92388, -0.980785,
-  -1, -0.980785, -0.92388, -0.83147, -0.707107, -0.55557, -0.382683, -0.19509, 0};
-
-        public Mesh MakeSphereBFr0()
+        private Mesh MakeSphereBFr0()
         {
             Mesh S = new Mesh();
             S.Vertices.AddVertices(mVerticesr0);
@@ -544,7 +531,7 @@ namespace froGH
             return S;
         }
 
-        public Mesh MakeSphereBFr1()
+        private Mesh MakeSphereBFr1()
         {
             Mesh S = new Mesh();
             S.Vertices.AddVertices(mVerticesr1);
@@ -552,74 +539,13 @@ namespace froGH
             return S;
         }
 
-        public Mesh MakeSphereBFr2()
+        private Mesh MakeSphereBFr2()
         {
             Mesh S = new Mesh();
             S.Vertices.AddVertices(mVerticesr2);
             S.Faces.AddFaces(mFacesr2);
             return S;
         }
-
-        public Mesh MakeSphereMesh(Point3d P, double R, int step)
-        {
-            // build vertices
-            Mesh S = new Mesh();
-            S.Vertices.Add(new Point3d(P.X, P.Y, P.Z - R));
-            for (int i = 8 + step; i < cos.Length - 8 - step; i += step)
-                for (int j = 0; j < cos.Length - step; j += step)
-                    S.Vertices.Add(new Point3d(P.X + cos[j] * R * cos[i], P.Y + sin[j] * R * cos[i], P.Z - sin[i] * R));
-            S.Vertices.Add(new Point3d(P.X, P.Y, P.Z + R));
-
-            // build quad faces
-            int U = 32 / step;
-            for (int i = 0; i < U / 2 - 2; i++)
-                for (int j = 0; j < U; j++)
-                    S.Faces.AddFace(i * U + j + 1, (i * U + (j + 1) % U) + 1, ((i + 1) % U) * U + (j + 1) % U + 1, ((i + 1) % U) * U + j + 1);
-
-            // build tri faces
-            int last = S.Vertices.Count - 1;
-            int start = last - U;
-
-            for (int i = 0; i < U; i++)
-            {
-                S.Faces.AddFace(0, (i + 1) % U + 1, i + 1);
-                S.Faces.AddFace(last, start + i, start + (i + 1) % U);
-            }
-
-            //S.Normals.ComputeNormals();
-            return S;
-        }
-
-        public Mesh MakeUnitSphereMesh(int step)
-        {
-            // build vertices
-            Mesh S = new Mesh();
-            S.Vertices.Add(new Point3d(0, 0, -1));
-            for (int i = 8 + step; i < cos.Length - 8 - step; i += step)
-                for (int j = 0; j < cos.Length - step; j += step)
-                    S.Vertices.Add(new Point3d(cos[j] * cos[i], sin[j] * cos[i], -sin[i]));
-            S.Vertices.Add(new Point3d(0, 0, 1));
-
-            // build quad faces
-            int U = 32 / step;
-            for (int i = 0; i < U / 2 - 2; i++)
-                for (int j = 0; j < U; j++)
-                    S.Faces.AddFace(i * U + j + 1, (i * U + (j + 1) % U) + 1, ((i + 1) % U) * U + (j + 1) % U + 1, ((i + 1) % U) * U + j + 1);
-
-            // build tri faces
-            int last = S.Vertices.Count - 1;
-            int start = last - U;
-
-            for (int i = 0; i < U; i++)
-            {
-                S.Faces.AddFace(0, (i + 1) % U + 1, i + 1);
-                S.Faces.AddFace(last, start + i, start + (i + 1) % U);
-            }
-
-            //S.Normals.ComputeNormals();
-            return S;
-        }
-
 
     }
 }

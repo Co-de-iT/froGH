@@ -68,13 +68,6 @@ namespace froGH
                 edgesMap[i] = edges;
                 facesMap[i] = faces;
 
-                //// fill faces array
-                //facesMap[i] = M.TopologyVertices.ConnectedFaces(M.TopologyVertices.TopologyVertexIndex(i));
-                //// fill edges array
-                //edgesMap[i] = M.TopologyVertices.ConnectedEdges(M.TopologyVertices.TopologyVertexIndex(i));
-                //// fill vertices array
-                //verticesMap[i] = M.Vertices.GetConnectedVertices(i);
-
             });
             DA.SetDataTree(0, ToDataTree(verticesMap, DA.Iteration));
             DA.SetDataTree(1, ToDataTree(edgesMap, DA.Iteration));

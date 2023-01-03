@@ -1,16 +1,24 @@
 ﻿using Rhino;
 using Rhino.Geometry;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 
 namespace froGH.Utils
 {
     public static class Utilities
     {
+        //LUTs for sin and cos operations
+        static double[] cos = new double[]{
+        1, 0.980785, 0.92388, 0.83147, 0.707107, 0.55557, 0.382683, 0.19509,
+        0, -0.19509, -0.382683, -0.55557, -0.707107, -0.83147, -0.92388, -0.980785,
+        -1, -0.980785, -0.92388, -0.83147, -0.707107, -0.55557, -0.382683, -0.19509,
+         0,  0.19509, 0.382683, 0.55557, 0.707107, 0.83147, 0.92388, 0.980785, 1};
+
+        static double[] sin = new double[] {
+        0, 0.19509, 0.382683, 0.55557, 0.707107, 0.83147, 0.92388, 0.980785,
+        1, 0.980785, 0.92388, 0.83147, 0.707107, 0.55557, 0.382683, 0.19509,
+        0, -0.19509, -0.382683, -0.55557, -0.707107, -0.83147, -0.92388, -0.980785,
+        -1, -0.980785, -0.92388, -0.83147, -0.707107, -0.55557, -0.382683, -0.19509, 0};
         public static void GetVertexNeighbours(Mesh M, int vertIndex, out int[] vertices, out int[] edges, out int[] faces)
         {
             vertices = null;
@@ -94,6 +102,66 @@ namespace froGH.Utils
 
                 faces = facesList.ToArray();
             }
+        }
+
+        public static Mesh MakeSphereMesh(Point3d P, double R, int step)
+        {
+            // build vertices
+            Mesh S = new Mesh();
+            S.Vertices.Add(new Point3d(P.X, P.Y, P.Z - R));
+            for (int i = 8 + step; i < cos.Length - 8 - step; i += step)
+                for (int j = 0; j < cos.Length - step; j += step)
+                    S.Vertices.Add(new Point3d(P.X + cos[j] * R * cos[i], P.Y + sin[j] * R * cos[i], P.Z - sin[i] * R));
+            S.Vertices.Add(new Point3d(P.X, P.Y, P.Z + R));
+
+            // build quad faces
+            int U = 32 / step;
+            for (int i = 0; i < U / 2 - 2; i++)
+                for (int j = 0; j < U; j++)
+                    S.Faces.AddFace(i * U + j + 1, (i * U + (j + 1) % U) + 1, ((i + 1) % U) * U + (j + 1) % U + 1, ((i + 1) % U) * U + j + 1);
+
+            // build tri faces
+            int last = S.Vertices.Count - 1;
+            int start = last - U;
+
+            for (int i = 0; i < U; i++)
+            {
+                S.Faces.AddFace(0, (i + 1) % U + 1, i + 1);
+                S.Faces.AddFace(last, start + i, start + (i + 1) % U);
+            }
+
+            //S.Normals.ComputeNormals();
+            return S;
+        }
+
+        public static Mesh MakeUnitSphereMesh(int step)
+        {
+            // build vertices
+            Mesh S = new Mesh();
+            S.Vertices.Add(new Point3d(0, 0, -1));
+            for (int i = 8 + step; i < cos.Length - 8 - step; i += step)
+                for (int j = 0; j < cos.Length - step; j += step)
+                    S.Vertices.Add(new Point3d(cos[j] * cos[i], sin[j] * cos[i], -sin[i]));
+            S.Vertices.Add(new Point3d(0, 0, 1));
+
+            // build quad faces
+            int U = 32 / step;
+            for (int i = 0; i < U / 2 - 2; i++)
+                for (int j = 0; j < U; j++)
+                    S.Faces.AddFace(i * U + j + 1, (i * U + (j + 1) % U) + 1, ((i + 1) % U) * U + (j + 1) % U + 1, ((i + 1) % U) * U + j + 1);
+
+            // build tri faces
+            int last = S.Vertices.Count - 1;
+            int start = last - U;
+
+            for (int i = 0; i < U; i++)
+            {
+                S.Faces.AddFace(0, (i + 1) % U + 1, i + 1);
+                S.Faces.AddFace(last, start + i, start + (i + 1) % U);
+            }
+
+            //S.Normals.ComputeNormals();
+            return S;
         }
     }
 }

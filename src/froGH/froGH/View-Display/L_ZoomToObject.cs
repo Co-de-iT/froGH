@@ -6,18 +6,20 @@ using Rhino.Geometry;
 
 namespace froGH
 {
-    public class ZoomToObject : GH_Component
+    [Obsolete]
+    public class L_ZoomToObject : GH_Component
     {
         Rhino.Display.RhinoViewport vp;
 
         /// <summary>
         /// Initializes a new instance of the ZoomToObject class.
         /// </summary>
-        public ZoomToObject()
+        public L_ZoomToObject()
           : base("Zoom To Object", "f_ZToObj",
               "Zoom Rhino camera to frame selected object(s)",
               "froGH", "View/Display")
-        { }
+        {
+        }
 
         /// <summary>
         /// Registers all the input parameters for this component.
@@ -25,7 +27,7 @@ namespace froGH
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
             pManager.AddGeometryParameter("Geometry", "G", "Geometry to frame", GH_ParamAccess.list);
-            pManager.AddNumberParameter("Zoom factor", "z", "Zoom factor\n< 0 to zoom out, > 0 to zoom in", GH_ParamAccess.item, 0.1);
+            pManager.AddNumberParameter("Inflate", "i", "Inflate Geometry Bounding Box (zooms out), >= 0", GH_ParamAccess.item, 1.0);
             pManager.AddBooleanParameter("Activate", "a", "Activate Zoom", GH_ParamAccess.item, false);
 
             pManager[1].Optional = true;
@@ -47,12 +49,12 @@ namespace froGH
         {
             List<GeometryBase> G = new List<GeometryBase>();
             if (!DA.GetDataList(0, G)) return;
-            double zoomFactor = 1.0;
-            DA.GetData(1, ref zoomFactor);
-            bool active = false;
-            DA.GetData(2, ref active);
+            double inflate = 1.0;
+            DA.GetData(1, ref inflate);
+            bool go = false;
+            DA.GetData(2, ref go);
 
-            if (!active || G == null) return;
+            if (!go || G == null) return;
 
             //Get current viewport
             vp = Rhino.RhinoDoc.ActiveDoc.Views.ActiveView.ActiveViewport;
@@ -64,12 +66,21 @@ namespace froGH
                 bTemp = G[i].GetBoundingBox(false);
                 bb.Union(bTemp);
             }
-            if (zoomFactor < 0.0)
-                bb.Inflate(bb.Diagonal.Length * -zoomFactor);
+            if (inflate > 0.0)
+                bb.Inflate(bb.Diagonal.Length * inflate);
 
             vp.ZoomBoundingBox(bb);
-            if (zoomFactor > 0.0)
-                vp.Magnify(zoomFactor + 1.0, false);
+            if (inflate < 0.0)
+                vp.Magnify(-(inflate-1.0), false);
+        }
+
+        /// <summary>
+        /// Exposure override for position in the Subcategory (options primary to septenary)
+        /// https://apidocs.co/apps/grasshopper/6.8.18210/T_Grasshopper_Kernel_GH_Exposure.htm
+        /// </summary>
+        public override GH_Exposure Exposure
+        {
+            get { return GH_Exposure.hidden; }
         }
 
         /// <summary>
@@ -90,7 +101,7 @@ namespace froGH
         /// </summary>
         public override Guid ComponentGuid
         {
-            get { return new Guid("77760196-57FD-4690-A0E3-F2B3A2B591A7"); }
+            get { return new Guid("714bc0b9-c7e7-4c97-9848-3cb333c724b6"); }
         }
     }
 }
