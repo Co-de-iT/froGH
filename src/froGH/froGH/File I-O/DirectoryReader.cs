@@ -36,11 +36,6 @@ namespace froGH
             pManager.AddTextParameter("Subdir list", "D", "List of subdirs in the directory", GH_ParamAccess.list);
         }
 
-        public override void CreateAttributes()
-        {
-            m_attributes = new DirectoryReader_Attributres(this);
-        }
-
         /// <summary>
         /// This is the method that actually does the work.
         /// </summary>
@@ -53,6 +48,9 @@ namespace froGH
             if (!Directory.Exists(D))
                 AddRuntimeMessage(GH_RuntimeMessageLevel.Error, "Directory does not exist");
 
+            // if missing, add the last \ character
+            if (D[D.Length - 1] != '\\') D += '\\';
+
             List<string> F, S;
 
             F = Directory.GetFiles(D).Select(s => s.Remove(0, D.Length)).ToList();
@@ -60,6 +58,11 @@ namespace froGH
 
             DA.SetDataList(0, F);
             DA.SetDataList(1, S);
+        }
+
+        public override void CreateAttributes()
+        {
+            m_attributes = new DirectoryReader_Attributes(this);
         }
 
         /// <summary>

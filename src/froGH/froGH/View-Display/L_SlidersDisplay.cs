@@ -1,14 +1,15 @@
-﻿using froGH.Properties;
-using Grasshopper.Kernel;
-using Grasshopper.Kernel.Parameters;
+﻿using Grasshopper.Kernel;
 using Rhino.Geometry;
 using System;
-using System.Collections.Generic;
 using System.Drawing;
+using System.Collections.Generic;
+using System.Linq;
+using froGH.Properties;
 
 namespace froGH
 {
-    public class SlidersDisplay : GH_Component, IGH_VariableParameterComponent
+    [Obsolete]
+    public class L_SlidersDisplay : GH_Component
     {
         BoundingBox _clip;
         Point3d from;
@@ -16,16 +17,16 @@ namespace froGH
         Plane basePlane;
         Color idle, active;
 
-        
+        Slider slid;
 
-        List<DisplaySlider> displaySliders;
+        List<Slider> sliders;
 
         /// <summary>
         /// Initializes a new instance of the SliderInterface class.
         /// </summary>
-        public SlidersDisplay()
+        public L_SlidersDisplay()
           : base("Slider Value display", "f_SlVDisp",
-              "Display Slider values on screen",
+              "Display Slider values on screen - OBSOLETE",
               "froGH", "View/Display")
         {
         }
@@ -35,20 +36,20 @@ namespace froGH
         /// </summary>
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
+            pManager.AddGenericParameter("Sliders", "Sl", "Plug Sliders directly here, one by one, in order\ndo not use intermediate components such as merge", GH_ParamAccess.list);
             pManager.AddPlaneParameter("Orientation Plane", "P", "Orientation Plane\nPlane origin is the Top-Left corner", GH_ParamAccess.item, Plane.WorldXY);
-            pManager.AddNumberParameter("Slider Length", "L", "Length of Slider Display Line", GH_ParamAccess.item, 10.0);
+            pManager.AddNumberParameter("Slider Length", "l", "Length of Slider Display Line", GH_ParamAccess.item, 10.0);
             pManager.AddTextParameter("Text Font", "F", "Text Font\nleave empty for default interface Font", GH_ParamAccess.item);
             pManager.AddNumberParameter("Text Size", "S", "Text size", GH_ParamAccess.item, 1.0);
             pManager.AddColourParameter("Base Color", "bC", "Base color", GH_ParamAccess.item, Color.DarkGray);
             pManager.AddColourParameter("Highlight Color", "hC", "Highlight color", GH_ParamAccess.item, Color.Black);
-            pManager.AddGenericParameter("Slider", "S0", "Plug a Slider component\nUse the zoomable interface to add inputs\nEmpty inputs are used as spacers", GH_ParamAccess.item);
 
-            pManager[0].Optional = true;
             pManager[1].Optional = true;
             pManager[2].Optional = true;
             pManager[3].Optional = true;
             pManager[4].Optional = true;
             pManager[5].Optional = true;
+            pManager[6].Optional = true;
         }
 
         /// <summary>
@@ -65,64 +66,56 @@ namespace froGH
         protected override void SolveInstance(IGH_DataAccess DA)
         {
 
+
             Plane P = Plane.WorldXY;
-            DA.GetData(0, ref P);
+            DA.GetData(1, ref P);
             if (P == null) P = Plane.WorldXY;
             from = P.Origin;
             double len = 0;
-            DA.GetData(1, ref len);
+            DA.GetData(2, ref len);
             string fontFace = "";
-            DA.GetData(2, ref fontFace);
+            DA.GetData(3, ref fontFace);
             double th = 0;
-            DA.GetData(3, ref th);
+            DA.GetData(4, ref th);
             idle = Color.DarkGray;
             active = Color.Black;
-            DA.GetData(4, ref idle);
-            DA.GetData(5, ref active);
+            DA.GetData(5, ref idle);
+            DA.GetData(6, ref active);
 
             basePlane = new Plane(P);
             yOffset = basePlane.YAxis * (-th * 6);
 
-            displaySliders = new List<DisplaySlider>();
+            sliders = new List<Slider>();
             Grasshopper.Kernel.Special.GH_NumberSlider slider;
 
-
-            DisplaySlider dSlider;
-
-            for (int i = 6; i < Params.Input.Count; i++)
+            // direct slider input
+            for (int i = 0; i < Params.Input[0].Sources.Count; i++)
             {
-                try
-                {
-                    slider = Params.Input[i].Sources[0] as Grasshopper.Kernel.Special.GH_NumberSlider;
-                }
-                catch
-                {
-                    from += yOffset;
-                    continue;
-                }
+                slider = Params.Input[0].Sources[i] as Grasshopper.Kernel.Special.GH_NumberSlider;
                 basePlane.Origin = from;
-                dSlider = new DisplaySlider(slider, basePlane, fontFace, len, th, slider.NickName);
-                displaySliders.Add(dSlider);
-                _clip.Union(dSlider.GetBoundingBox());
+                slid = new Slider(slider, basePlane, fontFace, len, th, slider.NickName);
+                sliders.Add(slid);
+                _clip.Union(slid.GetBoundingBox());
                 from += yOffset;
             }
         }
 
-        private class DisplaySlider
+        class Slider
         {
 
-            internal Plane plane;
-            internal double vMin, vMax, val, normVal;
-            internal Line range;
-            internal Line sValue;
-            internal string name;
-            internal string fontFace;
-            internal Rhino.Display.Text3d label;
-            internal Rhino.Display.Text3d tMin;
-            internal Rhino.Display.Text3d tMax;
-            internal Rhino.Display.Text3d tVal;
+            public Plane plane;
+            public double vMin, vMax, val, normVal;
+            public Line range;
+            public Line sValue;
+            public string name;
+            public string fontFace;
+            public Rhino.Display.Text3d label;
+            public Rhino.Display.Text3d tMin;
+            public Rhino.Display.Text3d tMax;
+            public Rhino.Display.Text3d tVal;
+            double textHeight;
 
-            internal DisplaySlider(Grasshopper.Kernel.Special.GH_NumberSlider slider, Plane p, string fontFace, double length, double textHeight, string name)
+            public Slider(Grasshopper.Kernel.Special.GH_NumberSlider slider, Plane p, string fontFace, double length, double textHeight, string name)
             {
                 plane = p;
                 vMin = (double)slider.Slider.Minimum;
@@ -134,6 +127,7 @@ namespace froGH
                 sValue = new Line(p.Origin, p.XAxis, length * normVal);
 
                 this.name = name;
+                this.textHeight = textHeight;
                 this.fontFace = fontFace;
 
                 label = new Rhino.Display.Text3d(name);
@@ -173,7 +167,7 @@ namespace froGH
                 tVal.Bold = true;
             }
 
-            internal BoundingBox GetBoundingBox()
+            public BoundingBox GetBoundingBox()
             {
                 BoundingBox box = BoundingBox.Empty;
                 box.Union(tMin.BoundingBox);
@@ -187,7 +181,6 @@ namespace froGH
         protected override void BeforeSolveInstance()
         {
             _clip = BoundingBox.Empty;
-            displaySliders = new List<DisplaySlider> ();
         }
 
         //Return a BoundingBox that contains all the geometry you are about to draw.
@@ -199,51 +192,14 @@ namespace froGH
         //Draw all wires and points in this method.
         public override void DrawViewportWires(IGH_PreviewArgs args)
         {
-            if (displaySliders == null) return;
-            foreach (DisplaySlider dSlider in displaySliders)
+            foreach (Slider slid in sliders)
             {
-                if (dSlider == null) continue;
-                args.Display.DrawLine(dSlider.range, idle, 1);
-                args.Display.DrawLine(dSlider.sValue, active, 5);
-                args.Display.Draw3dText(dSlider.label, active);
-                args.Display.Draw3dText(dSlider.tMin, active);
-                args.Display.Draw3dText(dSlider.tMax, active);
-                args.Display.Draw3dText(dSlider.tVal, active);
-            }
-        }
-
-        public bool CanInsertParameter(GH_ParameterSide side, int index)
-        {
-            return (side != GH_ParameterSide.Output) && index > 5;
-        }
-
-        public bool CanRemoveParameter(GH_ParameterSide side, int index)
-        {
-            return (side == GH_ParameterSide.Input) && (index > 6);
-        }
-
-        public IGH_Param CreateParameter(GH_ParameterSide side, int index)
-        {
-            Param_GenericObject param = new Param_GenericObject();
-
-            param.Name = $"S{Params.Input.Count - 6}";
-            param.NickName = param.Name;
-            param.Description = "Slider Input";
-            param.Optional = true;
-            return param;
-        }
-
-        public bool DestroyParameter(GH_ParameterSide side, int index)
-        {
-            return true;
-        }
-
-        public void VariableParameterMaintenance()
-        {
-            for (int i = 6; i < Params.Input.Count; i++)
-            {
-                Params.Input[i].Name = $"S{i - 6}";
-                Params.Input[i].NickName = Params.Input[i].Name;
+                args.Display.DrawLine(slid.range, idle, 1);
+                args.Display.DrawLine(slid.sValue, active, 5);
+                args.Display.Draw3dText(slid.label, active);
+                args.Display.Draw3dText(slid.tMin, active);
+                args.Display.Draw3dText(slid.tMax, active);
+                args.Display.Draw3dText(slid.tVal, active);
             }
         }
 
@@ -253,7 +209,7 @@ namespace froGH
         /// </summary>
         public override GH_Exposure Exposure
         {
-            get { return GH_Exposure.secondary; }
+            get { return GH_Exposure.hidden; }
         }
 
         /// <summary>
@@ -274,7 +230,7 @@ namespace froGH
         /// </summary>
         public override Guid ComponentGuid
         {
-            get { return new Guid("57ACDFF0-3B06-43CD-BCBD-E3EB75647885"); }
+            get { return new Guid("8c8224b8-085d-4d76-bb2e-a9992647c248"); }
         }
     }
 }

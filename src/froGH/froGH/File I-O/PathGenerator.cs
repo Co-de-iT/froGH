@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using froGH.Properties;
+using froGH.Utils;
 using Grasshopper.Kernel;
 using Rhino.Geometry;
 
@@ -99,7 +100,21 @@ namespace froGH
                     S = "Documents";
                     break;
                 case 2:
-                    GH_Document ghDoc = OnPingDocument();
+                    //GH_Document ghDoc = OnPingDocument();
+
+                    GH_Document ghDoc = null;// = Grasshopper.Instances.ActiveCanvas.Document;
+                    try
+                    {
+                        ghDoc = OnPingDocument();
+                    }
+                    catch
+                    {
+                        AddRuntimeMessage(GH_RuntimeMessageLevel.Warning, "Document not found");
+                    }
+
+                    Utilities.IsDocumentInCluster(ref ghDoc);
+
+                    //if (ghDoc == null || !ghDoc.IsFilePathDefined) return;
 
                     if (ghDoc.IsFilePathDefined)
                     {

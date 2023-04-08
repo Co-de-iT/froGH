@@ -4,27 +4,32 @@ using System;
 
 namespace froGH
 {
-    public class ToggleAutostop : GH_Component
+    public class Froggle : GH_Component
     {
+        // internal because it is used in the Froggle_Attributes
+        internal bool result;
         /// <summary>
-        /// Initializes a new instance of the AutoStopToggle class.
+        /// Initializes a new instance of the Frogger class.
         /// </summary>
-        public ToggleAutostop()
-          : base("Toggle Autostop", "f_TAS",
-              "Stops a Toggle (reverting its status from True to False) when a condition is met",
+        public Froggle()
+          : base("Froggle", "f_Fro",
+              "Like a Toggle, but flipped by a Button" +
+                "\nyou can also double click on the component to flip status" +
+                "\nBY DESIGN, it resets to False when opening a file containing it," +
+                "\nand the Froggle status flips only when a True value is input",
               "froGH", "Data")
         {
+            result = false;
+            Message = result.ToString();
         }
-
-        bool updated;
 
         /// <summary>
         /// Registers all the input parameters for this component.
         /// </summary>
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
-            pManager.AddBooleanParameter("Toggle", "T", "The Toggle to check", GH_ParamAccess.item);
-            pManager.AddBooleanParameter("Condition", "c", "The stopping condition", GH_ParamAccess.item);
+            pManager.AddBooleanParameter("Button", "B", "A button to start and stop the toggle", GH_ParamAccess.item);
+            pManager[0].Optional = true;
         }
 
         /// <summary>
@@ -32,6 +37,7 @@ namespace froGH
         /// </summary>
         protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)
         {
+            pManager.AddBooleanParameter("Toggle status", "T", "The toggle status (True or False)", GH_ParamAccess.item);
         }
 
         /// <summary>
@@ -40,24 +46,18 @@ namespace froGH
         /// <param name="DA">The DA object is used to retrieve from inputs and store in outputs.</param>
         protected override void SolveInstance(IGH_DataAccess DA)
         {
-            bool cond = false, T = false;
+            bool T = false;
             DA.GetData(0, ref T);
-            DA.GetData(1, ref cond);
+            if (T) result = !result;
 
-            if (!cond)
-            {
-                updated = false;
-                return;
-            }
+            Message= result.ToString();
 
-            var toggle = Params.Input[0].Sources[0] as Grasshopper.Kernel.Special.GH_BooleanToggle;
+            DA.SetData(0, result);
+        }
 
-            if (!updated || (updated && toggle.Value == true))
-            {
-                toggle.Value = false;
-                toggle.ExpireSolution(true);
-                updated = true;
-            }
+        public override void CreateAttributes()
+        {
+            m_attributes = new Froggle_Attributes(this);
         }
 
         /// <summary>
@@ -78,7 +78,7 @@ namespace froGH
             {
                 //You can add image files to your project resources and access them like this:
                 // return Resources.IconForThisComponent;
-                return Resources.Toggle_Autostop_GH;
+                return Resources.Froggle_GH;
             }
         }
 
@@ -87,7 +87,7 @@ namespace froGH
         /// </summary>
         public override Guid ComponentGuid
         {
-            get { return new Guid("1375e223-14af-441c-bf39-d7ebfdc1c984"); }
+            get { return new Guid("4F883D58-F651-4746-9758-6D5BE614C32F"); }
         }
     }
 }

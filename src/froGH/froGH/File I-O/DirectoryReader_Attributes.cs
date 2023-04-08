@@ -4,9 +4,9 @@ using Grasshopper.Kernel.Attributes;
 
 namespace froGH
 {
-    class DirectoryReader_Attributres : GH_ComponentAttributes
+    class DirectoryReader_Attributes : GH_ComponentAttributes
     {
-        public DirectoryReader_Attributres(DirectoryReader owner): base(owner)
+        public DirectoryReader_Attributes(DirectoryReader owner): base(owner)
         { }
 
         protected override void Layout()
@@ -20,8 +20,8 @@ namespace froGH
             GH_ObjectResponse result;
             if (flag)
             {
-                DirectoryReader fileToScript = (DirectoryReader)this.Owner;
-                fileToScript.ExpireSolution(true);
+                DirectoryReader component = (DirectoryReader)this.Owner;
+                component.ExpireSolution(true);
                 result = GH_ObjectResponse.Handled;// 3;
 
             }

@@ -37,7 +37,7 @@ namespace froGH
             pManager.AddBooleanParameter("Order Layers", "OL", "Order Layers option\nTrue to export Layers in their display order, False to export them by indices", GH_ParamAccess.item, true);
             pManager.AddTextParameter("File Path", "P", "File Path", GH_ParamAccess.item);
             pManager.AddTextParameter("File Name", "F", "File Name", GH_ParamAccess.item);
-            pManager.AddBooleanParameter("Export trigger", "E", "connect a Toggle and press it to export", GH_ParamAccess.item);
+            pManager.AddBooleanParameter("Export trigger", "E", "connect a Button or Toggle and set to True to export", GH_ParamAccess.item);
 
             for (int i = 3; i < 8; i++) pManager[i].Optional = true;
             pManager[10].Optional = true;

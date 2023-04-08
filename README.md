@@ -14,23 +14,26 @@ On the other hand, if you have any ideas on how to improve things (or you found 
   
 ![froGH panel](https://raw.githubusercontent.com/Co-de-iT/froGH/master/media/froGH%202.0%20panel.png)
   
-### Installation
-#### Rhino 7
+## Installation
+### Rhino 7
 Suggested installation procedure is via the Rhino Package Manager. Type `PackageManager` in the command line and search for froGH. If you want to go old school, follow the Rhino 6 procedure below.
 
-#### Rhino 6
+### Rhino 6
 Download the latest .zip file from the [releases](https://github.com/Co-de-iT/froGH/releases). Unzip and copy the **froGH.gha** file in your _Grasshopper/Libraries_ folder  
    
-### Example Files
+## Example Files
 Example Files are in the dedicated folder of this repo
 
-### Known Bugs
+## Known Bugs
 'It's not a bug, it's a feature!' _(anonymous)_  
   
 . ok, just kidding.... if you find something let us know!
   
-### Roadmap
+## Roadmap
 . Documentation  
+
+## Changelog
+See the [Changelog](/CHANGELOG/Changelog.md) page.
   
 -------
 

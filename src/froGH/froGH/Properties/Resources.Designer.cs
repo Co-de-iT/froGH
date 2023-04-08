@@ -383,6 +383,16 @@ namespace froGH.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Froggle_GH {
+            get {
+                object obj = ResourceManager.GetObject("Froggle_GH", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap froGH_category {
             get {
                 object obj = ResourceManager.GetObject("froGH_category", resourceCulture);

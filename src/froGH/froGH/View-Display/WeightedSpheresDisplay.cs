@@ -6,6 +6,9 @@ using Rhino.Geometry;
 using System.Threading.Tasks;
 using System.Drawing;
 using froGH.Properties;
+using Rhino;
+using Rhino.DocObjects;
+using Grasshopper.Kernel.Components;
 
 namespace froGH
 {
@@ -13,7 +16,9 @@ namespace froGH
     public class WeightedSpheresDisplay : GH_Component
     {
         private BoundingBox _clip;
-        private Mesh[] _mesh;
+        private Mesh[] _meshes;
+        private Mesh _mesh;
+        private readonly Mesh[] baseSpheres;
         private Rhino.Display.DisplayMaterial _blackMatte = new Rhino.Display.DisplayMaterial(Color.Black, Color.Black, Color.Black, Color.Black, 0.0, 0.0);
 
         /// <summary>
@@ -24,6 +29,7 @@ namespace froGH
               "Render-compatible Weighted Sphere Cloud display\nSuitable for volumetric scalar field display",
               "froGH", "View/Display")
         {
+            baseSpheres = new Mesh[] { MakeSphereBFr0(), MakeSphereBFr1(), MakeSphereBFr2() };
         }
 
         /// <summary>
@@ -85,7 +91,7 @@ namespace froGH
                     var item1 = new Grasshopper.Kernel.Special.GH_ValueListItem("Coarse", "0");
                     var item2 = new Grasshopper.Kernel.Special.GH_ValueListItem("Fine", "1");
                     var item3 = new Grasshopper.Kernel.Special.GH_ValueListItem("Extra-Fine", "2");
-                    var item4 = new Grasshopper.Kernel.Special.GH_ValueListItem("ARE YOU NUTS??!?", "3");
+                    var item4 = new Grasshopper.Kernel.Special.GH_ValueListItem("ARE YOU NUTS??!?", "0");
 
                     vList.ListItems.Add(item1);
                     vList.ListItems.Add(item2);
@@ -100,38 +106,21 @@ namespace froGH
                 // handles anything that is not a value list
             }
 
-            switch (res)
-            {
-                case 0:
-                    blackSphere = MakeSphereBFr0();
-                    break;
-                case 1:
-                    blackSphere = MakeSphereBFr1();
-                    break;
-                case 2:
-                    blackSphere = MakeSphereBFr2();
-                    break;
-                case 3:
-                    goto case 0;
-                default:
-                    blackSphere = MakeSphereBFr1();
-                    break;
-            }
+            blackSphere = baseSpheres[res % 3];
 
-            _mesh = new Mesh[P.Count];
-
+            _meshes = new Mesh[P.Count];
+            _mesh = new Mesh();
 
             Parallel.For(0, P.Count, i =>
             {
                 Mesh sphere = blackSphere.DuplicateMesh();
                 sphere.Scale(R[i]);
                 sphere.Translate((Vector3d)P[i]);
-                _mesh[i] = sphere;
-            }
-            );
+                _meshes[i] = sphere;
+            });
 
-            foreach (Mesh m in _mesh)
-                _clip = BoundingBox.Union(_clip, m.GetBoundingBox(false));
+            _mesh.Append(_meshes);
+            _clip = _mesh.GetBoundingBox(false);
         }
 
         /// <summary>
@@ -140,6 +129,7 @@ namespace froGH
         protected override void BeforeSolveInstance()
         {
             _clip = BoundingBox.Empty;
+            _meshes = null;
             _mesh = null;
         }
 
@@ -152,10 +142,17 @@ namespace froGH
         //Draw all meshes in this method.
         public override void DrawViewportMeshes(IGH_PreviewArgs args)
         {
-            if (_mesh == null) return;
+            if (_mesh == null || _meshes == null) return;
 
-            foreach (Mesh m in _mesh)
-                args.Display.DrawMeshShaded(m, _blackMatte);
+            args.Display.DrawMeshShaded(_mesh, _blackMatte);
+        }
+
+        public override void BakeGeometry(RhinoDoc doc, ObjectAttributes att, List<Guid> obj_ids)
+        {
+            if (att == null)
+                att = doc.CreateDefaultAttributes();
+
+            doc.Objects.AddMesh(_mesh, att);
         }
 
         /// <summary>

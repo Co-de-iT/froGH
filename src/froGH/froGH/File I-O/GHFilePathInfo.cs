@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using froGH.Properties;
+﻿using froGH.Properties;
 using Grasshopper.Kernel;
-using Rhino.Geometry;
+using System;
 
 namespace froGH
 {
@@ -50,6 +48,17 @@ namespace froGH
                AddRuntimeMessage(GH_RuntimeMessageLevel.Warning, "Document not found");
             }
 
+            // check if component is inside a cluster, taking care of nested clusters if necessary
+            // see: https://discourse.mcneel.com/t/how-to-differ-a-clustered-gh-scriptcomponents-inparam-from-a-clusterinput/61459/4
+            var owner = ghDoc.Owner;
+            var cluster = owner as Grasshopper.Kernel.Special.GH_Cluster;
+            while (cluster != null)
+            {
+                ghDoc = ghDoc.Owner.OwnerDocument();
+                owner = ghDoc.Owner;
+                cluster = owner as Grasshopper.Kernel.Special.GH_Cluster;
+            }
+
             if (ghDoc == null || !ghDoc.IsFilePathDefined) return;
 
             int nameLen = ghDoc.DisplayName.TrimEnd('*').Length + 3; // +3 accounts for the '.gh' extension
@@ -60,6 +69,11 @@ namespace froGH
 
             DA.SetData(0, F);
             DA.SetData(1, P);
+        }
+
+        public override void CreateAttributes()
+        {
+            m_attributes = new GHFilePathInfo_Attributes(this);
         }
 
         /// <summary>

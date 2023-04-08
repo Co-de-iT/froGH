@@ -25,7 +25,13 @@ namespace froGH
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
             pManager.AddPlaneParameter("Base Plane", "P", "Base Plane for Polyhedron", GH_ParamAccess.item, Plane.WorldXY);
-            pManager.AddIntegerParameter("Polyhedron type", "t", "0 Bysimmetric Hendecahedron\n1 Rhombic Dodecahedron\n2 Sphenoid Hendecahedron\n3 Truncated Octahedron", GH_ParamAccess.item, 0);
+            pManager.AddIntegerParameter("Polyhedron type", "t",
+                "0 Bysimmetric Hendecahedron" +
+                "\n1 Rhombic Dodecahedron" +
+                "\n2 Elongated Dodecahedron" +
+                "\n3 Sphenoid Hendecahedron" +
+                "\n4 Truncated Octahedron" +
+                "\n5 Gyrobifastigium", GH_ParamAccess.item, 0);
             pManager.AddNumberParameter("Scale", "s", "Polyhedron scale (center on base point)", GH_ParamAccess.item, 1);
 
             pManager[0].Optional = true;
@@ -76,13 +82,17 @@ namespace froGH
                     vList.NickName = "Polyhedron type";
                     var item1 = new Grasshopper.Kernel.Special.GH_ValueListItem("Bisymmetric Hendecahedron", "0");
                     var item2 = new Grasshopper.Kernel.Special.GH_ValueListItem("Rhombic Dodecahedron", "1");
-                    var item3 = new Grasshopper.Kernel.Special.GH_ValueListItem("Sphenoid Hendecahedron", "2");
-                    var item4 = new Grasshopper.Kernel.Special.GH_ValueListItem("Truncated Octahedron", "3");
+                    var item3 = new Grasshopper.Kernel.Special.GH_ValueListItem("Elongated Dodecahedron", "2");
+                    var item4 = new Grasshopper.Kernel.Special.GH_ValueListItem("Sphenoid Hendecahedron", "3");
+                    var item5 = new Grasshopper.Kernel.Special.GH_ValueListItem("Truncated Octahedron", "4");
+                    var item6 = new Grasshopper.Kernel.Special.GH_ValueListItem("Gyrobifastigium", "5");
 
                     vList.ListItems.Add(item1);
                     vList.ListItems.Add(item2);
                     vList.ListItems.Add(item3);
                     vList.ListItems.Add(item4);
+                    vList.ListItems.Add(item5);
+                    vList.ListItems.Add(item6);
 
                     vList.ListItems[0].Value.CastTo(out type);
                 }
@@ -126,13 +136,19 @@ namespace froGH
                     //faceContours = GetFaceContours(mesh);
                     //break;
                     case 2:
+                        ElongatedDodecahedron(out mesh, out faceContours);
+                        break;
+                    case 3:
                         mesh = SphenoidHendecahedron();
                         goto case 99;
                     //faceContours = GetFaceContours(mesh);
                     //break;
-                    case 3:
+                    case 4:
                         TruncatedOctahedron(out mesh, out faceContours);
                         break;
+                    case 5:
+                        mesh = Gyrobifastigium();
+                        goto case 99;
                     case 99:
                         ScaleAndOrient(mesh, scale, basePlane);
                         faceContours = GetFaceContours(mesh);
@@ -244,7 +260,34 @@ namespace froGH
                     f.Transform(scaleT);
                     f.Transform(orient);
                 }
+            }
 
+            List<Polyline> MakeContours(Mesh mesh, int[][] contours)
+            {
+                List<Polyline> faceContours = new List<Polyline>();
+                foreach (int[] cont in contours)
+                {
+                    Polyline pc = new Polyline();
+                    foreach (int i in cont) pc.Add(mesh.Vertices[i]);
+                    pc.Add(mesh.Vertices[cont[0]]);
+                    faceContours.Add(pc);
+                }
+
+                return faceContours;
+            }
+
+            void ScaleOrient(ref Mesh mesh, ref List<Polyline> faceContours)
+            {
+                Transform scaleT = Transform.Scale(new Point3d(), scale);
+                Transform orient = Transform.PlaneToPlane(Plane.WorldXY, basePlane);
+
+                mesh.Transform(scaleT);
+                mesh.Transform(orient);
+                foreach (Polyline f in faceContours)
+                {
+                    f.Transform(scaleT);
+                    f.Transform(orient);
+                }
             }
 
             Mesh RhombicDodecahedron()
@@ -279,6 +322,50 @@ namespace froGH
                 //mesh.Transform(orient);
 
                 return mesh;
+            }
+
+            void ElongatedDodecahedron(out Mesh mesh, out List<Polyline> faceContours)
+            {
+                mesh = new Mesh();
+                faceContours = new List<Polyline>();
+
+                Point3d[] vertices = new Point3d[] { new Point3d(-0.25, 0.25, -0.4079729), new Point3d(-9.758178E-09, 0.5, -0.2039729), new Point3d(0.25, -0.25, -0.4079729), new Point3d(0, 0, -0.6119729), new Point3d(0.25, 0.25, -0.4079729), new Point3d(0, -0.5, -0.204), new Point3d(-0.5, 3.439183E-08, -0.204), new Point3d(-0.25, -0.25, -0.4079729), new Point3d(-0.25, 0.25, 0.4076668), new Point3d(0.25, 0.25, 0.4080271), new Point3d(0, 0, 0.6120271), new Point3d(-0.25, -0.25, 0.4080271), new Point3d(-9.758178E-09, 0.5, 0.2040271), new Point3d(0.5, 0, -0.204), new Point3d(0.5, 0, 0.204), new Point3d(-0.5000001, -3.439183E-08, 0.204), new Point3d(0.25, -0.25, 0.4080271), new Point3d(0, -0.5, 0.204) };
+
+                mesh.Vertices.AddVertices(vertices);
+
+                mesh.Faces.AddFace(4, 3, 0, 1);
+                mesh.Faces.AddFace(2, 3, 4, 13);
+                mesh.Faces.AddFace(7, 6, 0, 3);
+                mesh.Faces.AddFace(2, 5, 7, 3);
+
+                mesh.Faces.AddFace(14, 16, 2, 13);
+                mesh.Faces.AddFace(17, 5, 2, 16);
+                mesh.Faces.AddFace(12, 1, 0, 8);
+                mesh.Faces.AddFace(0, 6, 15, 8);
+                mesh.Faces.AddFace(7, 5, 17, 11);
+                mesh.Faces.AddFace(15, 6, 7, 11);
+                mesh.Faces.AddFace(4, 1, 12, 9);
+                mesh.Faces.AddFace(14, 13, 4, 9);
+
+                mesh.Faces.AddFace(9, 12, 8, 10);
+                mesh.Faces.AddFace(16, 14, 9, 10);
+                mesh.Faces.AddFace(11, 10, 8, 15);
+                mesh.Faces.AddFace(16, 10, 11, 17);
+
+
+
+
+                int[][] contours =
+        new int[][]{new int[]{2,13,14,16,17,5},new int[]{4,1,12,9,14,13}, new int[]{0,6,15,8,12,1},  new int[]{7,5,17,11,15,6},// hex faces
+        new int[]{4, 3, 0, 1}, new int[]{2, 3, 4, 13}, new int[]{7, 6, 0, 3}, new int[]{2, 5, 7, 3},// quad faces bottom
+        new int[]{9, 12, 8, 10}, new int[]{16, 14, 9, 10}, new int[]{11, 10, 8, 15},  new int[]{16, 10, 11, 17}};// quad faces top
+
+                faceContours = MakeContours(mesh, contours);
+                ScaleOrient(ref mesh, ref faceContours);
+
+                mesh.UnifyNormals();
+                mesh.RebuildNormals();
+                mesh.Unweld(0, true);
             }
 
             Mesh SphenoidHendecahedron()
@@ -328,6 +415,34 @@ namespace froGH
 
                 //orient = Transform.PlaneToPlane(Plane.WorldZX, basePlane);
                 //mesh.Transform(orient);
+
+                return mesh;
+            }
+
+            // https://en.wikipedia.org/wiki/Gyrobifastigium
+            Mesh Gyrobifastigium()
+            {
+                Mesh mesh = new Mesh();
+
+                Point3d[] vertices = new Point3d[] { new Point3d(0.5, 0.5, 0), new Point3d(0.5, -0.5, 0),
+                    new Point3d(0, -0.5, 0.8660255), new Point3d(-0.5, -0.5, 0), new Point3d(0, 0.5, 0.8660255),
+                    new Point3d(-0.5, 0.5, 0), new Point3d(-0.5, 0, -0.8660255), new Point3d(0.5, 0, -0.8660255) };
+
+                mesh.Vertices.AddVertices(vertices);
+
+                mesh.Faces.AddFace(2, 1, 0, 4);
+                mesh.Faces.AddFace(1, 2, 3);
+                mesh.Faces.AddFace(4, 5, 3, 2);
+                mesh.Faces.AddFace(5, 4, 0);
+                mesh.Faces.AddFace(7, 0, 1);
+                mesh.Faces.AddFace(7, 6, 5, 0);
+                mesh.Faces.AddFace(7, 1, 3, 6);
+                mesh.Faces.AddFace(6, 3, 5);
+
+                mesh.UnifyNormals();
+                mesh.RebuildNormals();
+
+                mesh.Unweld(0, true);
 
                 return mesh;
             }

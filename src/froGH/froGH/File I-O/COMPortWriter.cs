@@ -128,10 +128,15 @@ namespace froGH
 
             if (save)
             {
+                message = "";
+                prt.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler( (sender, e) =>
+                { message = $"data sent to {prt.PortName}"; });
+                prt.ErrorReceived += new System.IO.Ports.SerialErrorReceivedEventHandler((sender, e) =>
+                { message = $"something's wrong on {prt.PortName}: {e}"; });
                 prt.Open();
                 prt.Write(S);
                 prt.Close();
-                message = "data sent to " + prt.PortName + "!";
+                //message = "data sent to " + prt.PortName + "!";
                 //prt.Open();
                 //Sp = port.ReadExisting();
                 //prt.Close();

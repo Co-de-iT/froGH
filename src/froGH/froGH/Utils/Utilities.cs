@@ -1,4 +1,5 @@
-﻿using Rhino;
+﻿using Grasshopper.Kernel;
+using Rhino;
 using Rhino.Geometry;
 using System.Collections.Generic;
 using System.Linq;
@@ -162,6 +163,30 @@ namespace froGH.Utils
 
             //S.Normals.ComputeNormals();
             return S;
+        }
+
+        /// <summary>
+        /// Checks if document is in a cluster - in that case looks for the root document and assigns it as the new <paramref name="ghDoc"/>
+        /// </summary>
+        /// <param name="ghDoc"></param>
+        /// <returns>True if <paramref name="ghDoc"/> is in a cluster</returns>
+        public static bool IsDocumentInCluster(ref GH_Document ghDoc)
+        {
+            // check if component is inside a cluster, taking care of nested clusters if necessary
+            // see: https://discourse.mcneel.com/t/how-to-differ-a-clustered-gh-scriptcomponents-inparam-from-a-clusterinput/61459/4
+            bool isInCluster = false;
+            //ghDoc = ghDocIn;
+            var owner = ghDoc.Owner;
+            var cluster = owner as Grasshopper.Kernel.Special.GH_Cluster;
+            while (cluster != null)
+            {
+                ghDoc = ghDoc.Owner.OwnerDocument();
+                owner = ghDoc.Owner;
+                cluster = owner as Grasshopper.Kernel.Special.GH_Cluster;
+                isInCluster = true;
+            }
+
+            return isInCluster;
         }
     }
 }
