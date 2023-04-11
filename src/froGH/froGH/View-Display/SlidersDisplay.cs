@@ -15,8 +15,8 @@ namespace froGH
         Vector3d yOffset;
         Plane basePlane;
         Color idle, active;
-
-        
+        int slidersStartIndex;
+        double yOffsetMultiplier;
 
         List<DisplaySlider> displaySliders;
 
@@ -28,6 +28,8 @@ namespace froGH
               "Display Slider values on screen",
               "froGH", "View/Display")
         {
+            slidersStartIndex = 6;
+            yOffsetMultiplier = 5.8;
         }
 
         /// <summary>
@@ -49,6 +51,7 @@ namespace froGH
             pManager[3].Optional = true;
             pManager[4].Optional = true;
             pManager[5].Optional = true;
+            pManager[6].WireDisplay = GH_ParamWireDisplay.hidden;
         }
 
         /// <summary>
@@ -69,19 +72,19 @@ namespace froGH
             DA.GetData(0, ref P);
             if (P == null) P = Plane.WorldXY;
             from = P.Origin;
-            double len = 0;
-            DA.GetData(1, ref len);
+            double sliderLength = 0;
+            DA.GetData(1, ref sliderLength);
             string fontFace = "";
             DA.GetData(2, ref fontFace);
-            double th = 0;
-            DA.GetData(3, ref th);
+            double textHeight = 0;
+            DA.GetData(3, ref textHeight);
             idle = Color.DarkGray;
             active = Color.Black;
             DA.GetData(4, ref idle);
             DA.GetData(5, ref active);
 
             basePlane = new Plane(P);
-            yOffset = basePlane.YAxis * (-th * 6);
+            yOffset = basePlane.YAxis * (-textHeight * yOffsetMultiplier);
 
             displaySliders = new List<DisplaySlider>();
             Grasshopper.Kernel.Special.GH_NumberSlider slider;
@@ -89,7 +92,7 @@ namespace froGH
 
             DisplaySlider dSlider;
 
-            for (int i = 6; i < Params.Input.Count; i++)
+            for (int i = slidersStartIndex; i < Params.Input.Count; i++)
             {
                 try
                 {
@@ -101,7 +104,7 @@ namespace froGH
                     continue;
                 }
                 basePlane.Origin = from;
-                dSlider = new DisplaySlider(slider, basePlane, fontFace, len, th, slider.NickName);
+                dSlider = new DisplaySlider(slider, basePlane, fontFace, sliderLength, textHeight, slider.NickName);
                 displaySliders.Add(dSlider);
                 _clip.Union(dSlider.GetBoundingBox());
                 from += yOffset;
@@ -112,7 +115,7 @@ namespace froGH
         {
 
             internal Plane plane;
-            internal double vMin, vMax, val, normVal;
+            internal double vMin, vMax, val, normalizedValue;
             internal Line range;
             internal Line sValue;
             internal string name;
@@ -121,6 +124,9 @@ namespace froGH
             internal Rhino.Display.Text3d tMin;
             internal Rhino.Display.Text3d tMax;
             internal Rhino.Display.Text3d tVal;
+            private const double labelMultiplier = 1.8;
+            private const double textValMultiplier = 1.2;
+            private const double textExMultiplier = 0.8;
 
             internal DisplaySlider(Grasshopper.Kernel.Special.GH_NumberSlider slider, Plane p, string fontFace, double length, double textHeight, string name)
             {
@@ -128,10 +134,10 @@ namespace froGH
                 vMin = (double)slider.Slider.Minimum;
                 vMax = (double)slider.Slider.Maximum;
                 val = (double)slider.CurrentValue;
-                normVal = (val - vMin) / (vMax - vMin);
+                normalizedValue = (val - vMin) / (vMax - vMin);
 
                 range = new Line(p.Origin, p.XAxis, length);
-                sValue = new Line(p.Origin, p.XAxis, length * normVal);
+                sValue = new Line(p.Origin, p.XAxis, length * normalizedValue);
 
                 this.name = name;
                 this.fontFace = fontFace;
@@ -140,7 +146,7 @@ namespace froGH
                 label.Height = textHeight;
 
                 Plane labPlane = new Plane(plane);
-                labPlane.Translate(p.YAxis * -(textHeight * 1.8));
+                labPlane.Translate(p.YAxis * -(textHeight * labelMultiplier));
                 label.TextPlane = labPlane;
 
                 tMin = new Rhino.Display.Text3d(Convert.ToString(vMin));
@@ -157,18 +163,20 @@ namespace froGH
 
                 tMin.Height = textHeight;
                 tMax.Height = textHeight;
-                tVal.Height = textHeight * 1.2;
+                tVal.Height = textHeight * textValMultiplier;
                 Plane tPlane = new Plane(plane);
-                tPlane.Translate(p.XAxis * -(textHeight * 0.8));
+                tPlane.Translate(p.XAxis * -(textHeight * textExMultiplier));
                 tMin.TextPlane = tPlane;
                 tPlane.Origin = p.Origin + p.XAxis * length;
-                tPlane.Translate(p.XAxis * (textHeight * 0.8));
+                tPlane.Translate(p.XAxis * (textHeight * textExMultiplier));
                 tMax.TextPlane = tPlane;
-                tPlane.Origin = p.Origin + p.XAxis * length * normVal;
+                tPlane.Origin = p.Origin + p.XAxis * length * normalizedValue;
                 tPlane.Translate(p.YAxis * textHeight);
                 tVal.TextPlane = tPlane;
                 tMin.HorizontalAlignment = Rhino.DocObjects.TextHorizontalAlignment.Right;
                 tMax.HorizontalAlignment = Rhino.DocObjects.TextHorizontalAlignment.Left;
+                tMin.VerticalAlignment = Rhino.DocObjects.TextVerticalAlignment.Top;
+                tMax.VerticalAlignment = Rhino.DocObjects.TextVerticalAlignment.Top;
                 tVal.HorizontalAlignment = Rhino.DocObjects.TextHorizontalAlignment.Center;
                 tVal.Bold = true;
             }
@@ -230,6 +238,7 @@ namespace froGH
             param.NickName = param.Name;
             param.Description = "Slider Input";
             param.Optional = true;
+            param.WireDisplay = GH_ParamWireDisplay.hidden;
             return param;
         }
 

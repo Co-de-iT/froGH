@@ -5,10 +5,24 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 ---
+## [2.2.7]
+### Added
+
+### Changed
+- _**Camera Report**_ can report data for Named Views or the current active view; update values for active view can be done with external toggle or by double-clicking the component
+- _**Slider Value display**_ by default Slider channels have hidden wires; some internal spacing parameters adjusted
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+
 ## [2.2.6]
 ### Added
 - _**Froggle**_: a special kind of toggle that flips status upon double-click or whenever an input that can be cast as True is detected on change or solution. Any False value will not change its status. In practice, you can attach a button and the Froggle will flip status at every button push, or attach a counter and have it flip status, or get creative (for example: try attaching a panel containing '1' and connect a trigger to the panel to have time-driven boolean alternates). By design, it also resets to False each time a file that contains this component is reopened.
-. _**Space-Filling Polyhedra Generator**_: added 2 more space-filling polyhedra: Elongated Dodecahedron and Gyrobifastigium.
+- _**Space-Filling Polyhedra Generator**_: added 2 more space-filling polyhedra: Elongated Dodecahedron and Gyrobifastigium.
 
 ### Changed
 - _**SaveGHFile**_ now outputs a boolean value upon successful save

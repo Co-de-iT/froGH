@@ -83,6 +83,8 @@
     <Compile Include="Utils\Utilities.cs" />
     <Compile Include="View-Display\CameraControl.cs" />
     <Compile Include="View-Display\CameraReport.cs" />
+    <Compile Include="View-Display\CameraReport_Attributes.cs" />
+    <Compile Include="View-Display\L_CameraReport.cs" />
     <Compile Include="File I-O\COMPortWriter.cs" />
     <Compile Include="View-Display\CustomMaterial.cs" />
     <Compile Include="View-Display\CustomMeshVerticesDisplay.cs" />
