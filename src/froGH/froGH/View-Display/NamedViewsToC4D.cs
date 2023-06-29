@@ -83,7 +83,7 @@ namespace froGH
                 dir = vp.CameraDirection;
                 up = vp.CameraUp;
 
-                // H (Heading)
+                // H (Heading) or Yaw
                 Vector3d flatDir = new Vector3d(dir.X, dir.Y, 0);
                 H = Vector3d.VectorAngle(Vector3d.XAxis, flatDir, Plane.WorldXY);
                 H = Math.Round((180 / Math.PI) * H - 90, 3);
@@ -95,7 +95,7 @@ namespace froGH
                 P = Math.Round((180 / Math.PI) * P - 90, 3);
                 nVData.Add(Convert.ToString(P));
 
-                // B (Bank)
+                // B (Bank) or Roll
                 Vector3d flatRot = Vector3d.CrossProduct(Vector3d.ZAxis, dir);
                 B = Vector3d.VectorAngle(up, flatRot);
                 B = Math.Round((180 / Math.PI) * B - 90, 3);

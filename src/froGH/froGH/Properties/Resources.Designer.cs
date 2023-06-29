@@ -933,6 +933,26 @@ namespace froGH.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Trans_2_ZYX_GH {
+            get {
+                object obj = ResourceManager.GetObject("Trans_2_ZYX_GH", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Trans_2_ZYZ_GH {
+            get {
+                object obj = ResourceManager.GetObject("Trans_2_ZYZ_GH", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap TreeGraph_GH {
             get {
                 object obj = ResourceManager.GetObject("TreeGraph_GH", resourceCulture);
@@ -1026,6 +1046,26 @@ namespace froGH.Properties {
         internal static System.Drawing.Bitmap Zoom_to_Object_3_GH {
             get {
                 object obj = ResourceManager.GetObject("Zoom_to_Object_3_GH", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ZYX_2_Trans_GH {
+            get {
+                object obj = ResourceManager.GetObject("ZYX_2_Trans_GH", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ZYZ_2_Trans_GH {
+            get {
+                object obj = ResourceManager.GetObject("ZYZ_2_Trans_GH", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

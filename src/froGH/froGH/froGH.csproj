@@ -69,13 +69,18 @@
     <Compile Include="File I-O\GHFilePathInfo_Attributres.cs" />
     <Compile Include="File I-O\DirectoryReader_Attributes.cs" />
     <Compile Include="Geometry\ClusterByDistance.cs" />
+    <Compile Include="Geometry\GetEulerAnglesZYX.cs" />
+    <Compile Include="Geometry\GetEulerAnglesZYZ.cs" />
     <Compile Include="Geometry\LPolylineFromPlane.cs" />
     <Compile Include="Geometry\PointsInSphereRTree.cs" />
+    <Compile Include="Geometry\RotationZYX.cs" />
+    <Compile Include="Geometry\RotationZYZ.cs" />
     <Compile Include="Geometry\RTreeClosestPoint.cs" />
     <Compile Include="Geometry\SmallestEnclosingCircleComponent.cs" />
     <Compile Include="Geometry\TextToGeometry.cs" />
     <Compile Include="Geometry\AdaptiveFillet.cs" />
     <Compile Include="Mesh\ExtractMeshEdges.cs" />
+    <Compile Include="Mesh\MeshPointInside.cs" />
     <Compile Include="Utils\ClosestPointSearchData.cs" />
     <Compile Include="Utils\SphereSearchData.cs" />
     <Compile Include="Utils\enumRTreeType.cs" />
@@ -105,7 +110,7 @@
     <Compile Include="Mesh\MeshFacesToVerticesValues.cs" />
     <Compile Include="Mesh\MeshIsocurves.cs" />
     <Compile Include="Mesh-Create\MeshOffsetWeighted.cs" />
-    <Compile Include="Mesh\MeshPointOrientation.cs" />
+    <Compile Include="Mesh\L_MeshPointOrientation.cs" />
     <Compile Include="Mesh\MeshPseudoCurvature.cs" />
     <Compile Include="Mesh\MeshRebuildNormals.cs" />
     <Compile Include="Mesh\MeshReport.cs" />
@@ -475,6 +480,27 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Froggle_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Rot_ZYX_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Rot_ZYZ_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Rot_from_ZYZ_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ZYZ_2_Trans_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ZYX_2_Trans_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Trans_2_ZYZ_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Trans_2_ZYX_GH.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

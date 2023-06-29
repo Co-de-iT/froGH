@@ -9,12 +9,13 @@ using Rhino.Geometry;
 
 namespace froGH
 {
-    public class MeshPointOrientation : GH_Component
+    [Obsolete]
+    public class L_MeshPointOrientation : GH_Component
     {
         /// <summary>
         /// Initializes a new instance of the MeshPointOrientation class.
         /// </summary>
-        public MeshPointOrientation()
+        public L_MeshPointOrientation()
           : base("Mesh Point Orientation", "f_MPOrient",
               "Tells on which side of an orientable mesh a given point is\nin case of a closed mesh, True corresponds to the point\nbeing inside of the mesh",
               "froGH", "Mesh")
@@ -74,50 +75,48 @@ namespace froGH
             {
                 Parallel.For(0, M.Faces.Count, i =>
                 {
-                    Vector3d vFn = Vector3d.Zero;
-                    int count = 3;
-
-                    vFn += M.Normals[M.Faces[i].A];
-                    vFn += M.Normals[M.Faces[i].B];
-                    vFn += M.Normals[M.Faces[i].C];
-                    if (M.Faces[i].IsQuad)
-                    {
-                        vFn += M.Normals[M.Faces[i].D];
-                        count++;
-                    }
-
-                    vFn /= count;
-
-                    fN[i] = vFn;
-
+                    FaceNormal(M, i);
                 });
             }
             else
             {
-                Vector3d vFn;
-                int count;
+                //Vector3d vFn;
+                //int count;
                 for (int i = 0; i < M.Faces.Count; i++)
                 {
-                    vFn = Vector3d.Zero;
-                    count = 3;
-
-                    vFn += M.Normals[M.Faces[i].A];
-                    vFn += M.Normals[M.Faces[i].B];
-                    vFn += M.Normals[M.Faces[i].C];
-                    if (M.Faces[i].IsQuad)
-                    {
-                        vFn += M.Normals[M.Faces[i].D];
-                        count++;
-                    }
-
-                    vFn /= count;
-
-                    fN[i] = vFn;
-
+                    FaceNormal(M, i);
                 }
             }
 
             return fN;
+        }
+
+        private Vector3d FaceNormal(Mesh M, int i)
+        {
+            Vector3d vFn = Vector3d.Zero;
+            int count = 3;
+
+            vFn += M.Normals[M.Faces[i].A];
+            vFn += M.Normals[M.Faces[i].B];
+            vFn += M.Normals[M.Faces[i].C];
+            if (M.Faces[i].IsQuad)
+            {
+                vFn += M.Normals[M.Faces[i].D];
+                count++;
+            }
+
+            vFn /= count;
+
+            return vFn;
+        }
+
+        /// <summary>
+        /// Exposure override for position in the Subcategory (options primary to septenary)
+        /// https://apidocs.co/apps/grasshopper/6.8.18210/T_Grasshopper_Kernel_GH_Exposure.htm
+        /// </summary>
+        public override GH_Exposure Exposure
+        {
+            get { return GH_Exposure.hidden; }
         }
 
         /// <summary>

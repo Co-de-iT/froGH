@@ -5,6 +5,19 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 ---
+## [2.2.8]
+### Added
+- _**Get Euler Angles ZYZ**_ and _**Get Euler Angles ZYX**_ components: they compute Euler angles for the rotation part of an affine rigid Transformation in the ZYZ and ZYX format respectively. ZYX Euler angles are also known as Yaw, Pitch and Roll.
+- _**Rotation from ZYZ Euler Angles**_ and _**Rotation from ZYX Euler Angles**_ components perform the inverse operation, computing a Rotation Transformation from Euler angles
+
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
 ## [2.2.7]
 ### Added
 
