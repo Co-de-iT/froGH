@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using Grasshopper.Kernel;
 using Rhino.Geometry;
 using System.Drawing;
-using System.Linq;
 using froGH.Properties;
 
 namespace froGH

@@ -25,7 +25,7 @@ namespace froGH
         {
             pManager.AddTextParameter("File Path", "P", "File absolute path\nPath MUST already exist", GH_ParamAccess.item);
             pManager.AddTextParameter("File Name", "F", "Filename and extension - for example screencap.png\nuse # to set the number of digits\nex screencap####.png > screencap_0000.png\nif omitted the default is 3 digits", GH_ParamAccess.item);
-            pManager.AddTextParameter("Viewport Name", "V", "Name of the Rhino Viewport to capture\nleave empty for current view", GH_ParamAccess.item);
+            pManager.AddTextParameter("Viewport Name", "V", "Name of the Rhino Viewport to capture\nleave empty for active viewport", GH_ParamAccess.item);
             pManager.AddTextParameter("Image size", "WxH", "Image size in pixels, WxH (ex. 1920x1080)\nleave empty for viewport resolution", GH_ParamAccess.item, "");
             pManager.AddNumberParameter("Scale", "S", "Image size multiplier\nex. 1920x1080 * 1.2 = 2304x1296", GH_ParamAccess.item, 1.0);
             pManager.AddBooleanParameter("Grid", "g", "Show Grid", GH_ParamAccess.item, false);
@@ -79,14 +79,6 @@ namespace froGH
             // see https://www.grasshopper3d.com/xn/detail/2985220:Comment:975472
             ghDoc.ArrangeObject(this, GH_Arrange.MoveToFront);
 
-            bool capture = false;
-            DA.GetData("Capture", ref capture);
-
-            if (!capture)
-            {
-                Message = "";
-                return;
-            }
             string dir = "", Name = "";
             if (!DA.GetData(0, ref dir)) return;
             if (!DA.GetData(1, ref Name)) return;
@@ -100,7 +92,7 @@ namespace froGH
             // Do not create directories, only use existing ones.
             if (!System.IO.Directory.Exists(dir))
             {
-                AddRuntimeMessage(GH_RuntimeMessageLevel.Warning, "Directory does not exist - use only existing directories");
+                AddRuntimeMessage(GH_RuntimeMessageLevel.Error, "Directory does not exist - use only existing directories");
                 return;
             }
 
@@ -138,6 +130,8 @@ namespace froGH
                         break;
                     }
                 }
+
+            // Get viewport
             string VP = "";
             DA.GetData(2, ref VP);
             if (string.IsNullOrWhiteSpace(VP)) VP = Rhino.RhinoDoc.ActiveDoc.Views.ActiveView.ActiveViewport.Name;
@@ -145,7 +139,6 @@ namespace froGH
             Message = VP;
 
             int[] res = new int[1];
-            Size sz;
             string size = "";
             DA.GetData(3, ref size);
             double scale = 1.0;
@@ -164,20 +157,22 @@ namespace froGH
                 res[1] = (int)(view.Size.Height * scale);
             }
 
-            sz = new Size(res[0], res[1]);
-
-            Bitmap image;
 
             bool grid = false, axes = false, widget = false;
             DA.GetData(5, ref grid);
             DA.GetData(6, ref axes);
             DA.GetData(7, ref widget);
 
-            //if (res.Length == 1)
-            //    image = view.CaptureToBitmap(grid, widget, axes);
-            //else
-            image = view.CaptureToBitmap(new Size(res[0], res[1]), grid, widget, axes);
+            bool capture = false;
+            DA.GetData("Capture", ref capture);
+            if (!capture)
+            {
+                Message = "";
+                return;
+            }
 
+            Bitmap image;
+            image = view.CaptureToBitmap(new Size(res[0], res[1]), grid, widget, axes);
             image.Save(fileName);
             image.Dispose();
 

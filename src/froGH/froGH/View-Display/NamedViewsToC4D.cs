@@ -35,7 +35,8 @@ namespace froGH
         /// </summary>
         protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)
         {
-            pManager.AddTextParameter("C4D Data", "C4D", "Named Views camera data in Cinema 4D format", GH_ParamAccess.tree);
+            pManager.AddTextParameter("C4D Data", "C4D", "Named Views camera data in Cinema 4D format\n" +
+                "View name, lens, X, Y, Z, Heading, Pitch, Bank", GH_ParamAccess.tree);
         }
 
         /// <summary>

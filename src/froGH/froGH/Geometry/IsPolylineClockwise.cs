@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using froGH.Properties;
+﻿using froGH.Properties;
 using Grasshopper.Kernel;
 using Rhino.Geometry;
+using System;
 
 namespace froGH
 {
@@ -13,7 +12,7 @@ namespace froGH
         /// </summary>
         public IsPolylineClockwise()
           : base("Is Polyline Clockwise", "f_PlCW",
-              "Determines if a Polyline direction is clockwise in its plane",
+              "Determines if a planar Polyline direction is clockwise",
               "froGH", "Geometry")
         {
         }
@@ -82,7 +81,7 @@ namespace froGH
             {
                 //You can add image files to your project resources and access them like this:
                 // return Resources.IconForThisComponent;
-                return Resources.Is_Polyline_Clockwise_GH;
+                return Resources.Is_Polyline_Clockwise_2_GH;
             }
         }
 

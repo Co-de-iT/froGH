@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using froGH.Properties;
+﻿using froGH.Properties;
 using Grasshopper.Kernel;
 using Rhino.Geometry;
+using System;
+using System.Threading.Tasks;
 
 namespace froGH
 {

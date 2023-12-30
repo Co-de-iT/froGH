@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using froGH.Properties;
+﻿using froGH.Properties;
 using Grasshopper.Kernel;
 using Grasshopper.Kernel.Types;
-using Rhino.Geometry;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace froGH
 {

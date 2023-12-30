@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using froGH.Properties;
 using Grasshopper.Kernel;
-using Rhino.Geometry;
 using System.Drawing;
 using Grasshopper.Kernel.Types;
 
@@ -97,7 +95,7 @@ namespace froGH
             material.ReflectionGlossiness = ReflectionGlossiness;
             material.Transparency = Transparency;
 
-            var renderMaterial = Rhino.Render.RenderMaterial.CreateBasicMaterial(material);
+            var renderMaterial = Rhino.Render.RenderMaterial.CreateBasicMaterial(material, Rhino.RhinoDoc.ActiveDoc);
             DA.SetData(0, new GH_Material(renderMaterial));
         }
 

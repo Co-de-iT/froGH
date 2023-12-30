@@ -1,21 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using froGH.Properties;
+﻿using froGH.Properties;
 using Grasshopper.Kernel;
-using Rhino.Geometry;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace froGH
 {
-    public class FontList : GH_Component
+    [Obsolete("Removed to avoid duplicates across plugins - use Human's component instead")]
+    public class L_ListDisplayModes : GH_Component
     {
         /// <summary>
-        /// Initializes a new instance of the FontList class.
+        /// Initializes a new instance of the DisplayModesList class.
         /// </summary>
-        public FontList()
-          : base("Font List", "f_FontL",
-              "Lists System Fonts",
+        public L_ListDisplayModes()
+          : base("List Display Modes", "f_ListDispModes",
+              "Get the list of Rhino Display Modes",
               "froGH", "Data")
         {
         }
@@ -32,7 +31,7 @@ namespace froGH
         /// </summary>
         protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)
         {
-            pManager.AddTextParameter("Fonts", "F", "List of System installed Fonts", GH_ParamAccess.list);
+            pManager.AddTextParameter("Display Modes", "D", "List of Rhino Display Modes", GH_ParamAccess.list);
         }
 
         /// <summary>
@@ -41,9 +40,8 @@ namespace froGH
         /// <param name="DA">The DA object is used to retrieve from inputs and store in outputs.</param>
         protected override void SolveInstance(IGH_DataAccess DA)
         {
-            List<string> fontNames = FontFamily.Families.Select(f => f.Name).ToList();
-
-            DA.SetDataList(0, fontNames);
+            List<string> displayModes = Rhino.Display.DisplayModeDescription.GetDisplayModes().Select(x => x.EnglishName).ToList();
+            DA.SetDataList(0, displayModes);
         }
 
         /// <summary>
@@ -52,7 +50,7 @@ namespace froGH
         /// </summary>
         public override GH_Exposure Exposure
         {
-            get { return GH_Exposure.tertiary; }
+            get { return GH_Exposure.hidden; }
         }
 
         /// <summary>
@@ -64,7 +62,7 @@ namespace froGH
             {
                 //You can add image files to your project resources and access them like this:
                 // return Resources.IconForThisComponent;
-                return Resources.font_list_GH;
+                return Resources.List_Display_Modes_GH;
             }
         }
 
@@ -73,7 +71,7 @@ namespace froGH
         /// </summary>
         public override Guid ComponentGuid
         {
-            get { return new Guid("d32d2a51-08d1-4635-bc77-222b4f327243"); }
+            get { return new Guid("C62D0DFA-9E8C-4429-98E3-26C8E4EBC7DE"); }
         }
     }
 }

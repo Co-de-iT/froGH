@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Runtime.ConstrainedExecution;
-using System.Threading.Tasks;
-using froGH.Properties;
+﻿using froGH.Properties;
 using GH_IO.Types;
 using Grasshopper.Kernel;
 using Rhino.Geometry;
+using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.Threading.Tasks;
 
 namespace froGH
 {

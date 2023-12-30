@@ -66,6 +66,7 @@
     <Compile Include="Data\DataTreeGraph.cs" />
     <Compile Include="Data\Froggle.cs" />
     <Compile Include="Data\Froggle_Attributes.cs" />
+    <Compile Include="Data\SelectRhinoObjects.cs" />
     <Compile Include="File I-O\GHFilePathInfo_Attributres.cs" />
     <Compile Include="File I-O\DirectoryReader_Attributes.cs" />
     <Compile Include="Geometry\ClusterByDistance.cs" />
@@ -79,14 +80,18 @@
     <Compile Include="Geometry\SmallestEnclosingCircleComponent.cs" />
     <Compile Include="Geometry\TextToGeometry.cs" />
     <Compile Include="Geometry\AdaptiveFillet.cs" />
+    <Compile Include="Mesh-Create\MeshOffsetExtended.cs" />
     <Compile Include="Mesh\ExtractMeshEdges.cs" />
     <Compile Include="Mesh\MeshPointInside.cs" />
+    <Compile Include="Mesh\MeshReport.cs" />
     <Compile Include="Utils\ClosestPointSearchData.cs" />
     <Compile Include="Utils\SphereSearchData.cs" />
     <Compile Include="Utils\enumRTreeType.cs" />
     <Compile Include="Utils\GH_froGHRTree.cs" />
     <Compile Include="Utils\Utilities.cs" />
-    <Compile Include="View-Display\CameraControl.cs" />
+    <Compile Include="View-Display\CameraControlAndZoom.cs" />
+    <Compile Include="Data\L_ListDisplayModes.cs" />
+    <Compile Include="View-Display\L_CameraControl.cs" />
     <Compile Include="View-Display\CameraReport.cs" />
     <Compile Include="View-Display\CameraReport_Attributes.cs" />
     <Compile Include="View-Display\L_CameraReport.cs" />
@@ -109,11 +114,11 @@
     <Compile Include="Mesh\MeshExtractEdgeToleranceSingle.cs" />
     <Compile Include="Mesh\MeshFacesToVerticesValues.cs" />
     <Compile Include="Mesh\MeshIsocurves.cs" />
-    <Compile Include="Mesh-Create\MeshOffsetWeighted.cs" />
+    <Compile Include="Mesh-Create\L_MeshOffsetWeighted.cs" />
     <Compile Include="Mesh\L_MeshPointOrientation.cs" />
     <Compile Include="Mesh\MeshPseudoCurvature.cs" />
     <Compile Include="Mesh\MeshRebuildNormals.cs" />
-    <Compile Include="Mesh\MeshReport.cs" />
+    <Compile Include="Mesh\L_MeshReport.cs" />
     <Compile Include="Mesh\MeshSubdFaces.cs" />
     <Compile Include="Mesh\MeshToCSSnippet.cs" />
     <Compile Include="Mesh\MeshUnlooper.cs" />
@@ -139,7 +144,7 @@
     <Compile Include="Geometry\FrenetSerretFrame.cs" />
     <Compile Include="File I-O\GHFilePathInfo.cs" />
     <Compile Include="Geometry\Flapper.cs" />
-    <Compile Include="Data\FontList.cs" />
+    <Compile Include="Data\L_FontList.cs" />
     <Compile Include="Geometry\H_FontParser_OLD.cs" />
     <Compile Include="froGHComponent.cs" />
     <Compile Include="froGHInfo.cs" />
@@ -177,7 +182,7 @@
     <Compile Include="View-Display\WeightedSpheresDisplay.cs" />
     <Compile Include="View-Display\L_ZoomToObject.cs" />
     <Compile Include="Utils\froGHRTree.cs" />
-    <Compile Include="View-Display\ZoomToObject.cs" />
+    <Compile Include="View-Display\LL_ZoomToObject.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -501,6 +506,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Trans_2_ZYX_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ZZ_placeholder_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Is Polyline Clockwise 2_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Select Objects from Rhino_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\List Display Modes_GH.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

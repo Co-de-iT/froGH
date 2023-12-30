@@ -6,14 +6,15 @@ using Rhino.Geometry;
 
 namespace froGH
 {
-    public class ZoomToObject : GH_Component
+    [Obsolete]
+    public class LL_ZoomToObject : GH_Component
     {
         Rhino.Display.RhinoViewport vp;
 
         /// <summary>
         /// Initializes a new instance of the ZoomToObject class.
         /// </summary>
-        public ZoomToObject()
+        public LL_ZoomToObject()
           : base("Zoom To Object", "f_ZToObj",
               "Zoom Rhino camera to frame selected object(s)",
               "froGH", "View/Display")
@@ -70,6 +71,15 @@ namespace froGH
             vp.ZoomBoundingBox(bb);
             if (zoomFactor > 0.0)
                 vp.Magnify(zoomFactor + 1.0, false);
+        }
+
+        /// <summary>
+        /// Exposure override for position in the Subcategory (options primary to septenary)
+        /// https://apidocs.co/apps/grasshopper/6.8.18210/T_Grasshopper_Kernel_GH_Exposure.htm
+        /// </summary>
+        public override GH_Exposure Exposure
+        {
+            get { return GH_Exposure.hidden; }
         }
 
         /// <summary>

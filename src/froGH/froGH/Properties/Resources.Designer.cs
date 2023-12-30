@@ -453,6 +453,16 @@ namespace froGH.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Is_Polyline_Clockwise_2_GH {
+            get {
+                object obj = ResourceManager.GetObject("Is_Polyline_Clockwise_2_GH", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Is_Polyline_Clockwise_GH {
             get {
                 object obj = ResourceManager.GetObject("Is_Polyline_Clockwise_GH", resourceCulture);
@@ -466,6 +476,16 @@ namespace froGH.Properties {
         internal static System.Drawing.Bitmap kermit_GH {
             get {
                 object obj = ResourceManager.GetObject("kermit_GH", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap List_Display_Modes_GH {
+            get {
+                object obj = ResourceManager.GetObject("List_Display_Modes_GH", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -823,6 +843,16 @@ namespace froGH.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Select_Objects_from_Rhino_GH {
+            get {
+                object obj = ResourceManager.GetObject("Select_Objects_from_Rhino_GH", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap SeqTreeBranch_2_GH {
             get {
                 object obj = ResourceManager.GetObject("SeqTreeBranch_2_GH", resourceCulture);
@@ -1066,6 +1096,16 @@ namespace froGH.Properties {
         internal static System.Drawing.Bitmap ZYZ_2_Trans_GH {
             get {
                 object obj = ResourceManager.GetObject("ZYZ_2_Trans_GH", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ZZ_placeholder_GH {
+            get {
+                object obj = ResourceManager.GetObject("ZZ_placeholder_GH", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

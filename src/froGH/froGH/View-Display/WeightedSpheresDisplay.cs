@@ -8,7 +8,6 @@ using System.Drawing;
 using froGH.Properties;
 using Rhino;
 using Rhino.DocObjects;
-using Grasshopper.Kernel.Components;
 
 namespace froGH
 {

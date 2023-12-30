@@ -5,6 +5,28 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 ---
+## [2.2.9]
+### Added
+- _**Select Rhino Objects**_ component: this component selects objects in Rhino by their GUID.
+- _**Camera Control And Zoom To Geometry**_ component: this component replaces both _**Camera Control**_ and _**Zoom To Object**_, adding new functionalities: it is now possible to choose the viewport to control, the display mode and the projection type (Perspective, Parallel, Two-point Perspective).
+- _**Mesh Offest Extended**_ component: this component replaces _**Mesh Offset Weighted**_, integrating different offset options from [a Daniel Piker sample code](https://discourse.mcneel.com/t/proper-mesh-offset/148952/8)
+
+### Changed
+- _**Mesh Point Inside**_ now uses the Mesh Winding Number (MWN) method - see Jacobson et al http://igl.ethz.ch/projects/winding-number/
+- _**Mesh Report**_ component has been thoroughly improved, noticeably with 2 outputs: one with the report text and the other with corresponding data (this will ease automation based on mesh data - for example do something if non-manifold edges or degenerate faces are detected). Other improvements: display of non-manifold edges, report is more thorough.
+- _**Is Polyline Clockwise**_ icon is now clearer
+- _**Froggle**_ and _**Toggle Autostop**_ have their own separate section inside the "Data" tab
+
+### Deprecated
+- _**Camera Control**_ and _**Zoom To Object**_ components (see Added)
+- _**Mesh Offset Weighted**_ component (see Added)
+
+### Removed
+- _**Font List**_ component: there is an already excellent version of this component in the Human plugin, so, to avoid redundancies and given that Human is a pretty handy and widespread plugin, I've decided to remove it.
+
+### Fixed
+- several code clean-ups for better clarity & compatibility with Rhino 8
+
 ## [2.2.8]
 ### Added
 - _**Get Euler Angles ZYZ**_ and _**Get Euler Angles ZYX**_ components: they compute Euler angles for the rotation part of an affine rigid Transformation in the ZYZ and ZYX format respectively. ZYX Euler angles are also known as Yaw, Pitch and Roll.
@@ -76,7 +98,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [2.2.3]
 ### Added
-- added _**Data Tree Graph**_ component
+- _**Data Tree Graph**_ component
 ### Changed
 
 ### Deprecated
@@ -88,7 +110,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [2.2.2]
 ### Added
-- added _**L-Plolyline from Plane**_ component
+- _**L-Plolyline from Plane**_ component
 ### Changed
 - changed Save String to File behavior (removed empty line at end of file)
 ### Deprecated
@@ -99,11 +121,17 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [2.2.1]
 ### Added
+- _**Smallest Enclosing Circle**_ component
+- _**Extract Mesh Edges**_ component
 
 ### Changed
-- Mesh topology components outputs now sorted by edge sequence
+- adjusted _**Extract Mesh Faces**_ icon for coherence and clarity
+- Mesh topology components outputs now sorted by topology edge sequence
+
 ### Deprecated
 
 ### Removed
 
 ### Fixed
+- added a check for null meshes in _**Extract Edge with Tolerance (multiple meshes)**_ - null meshes in the input list would cause the component to throw an error with no output
+- added a null check in _**Mass Boolean**_ - null data in an input tree branch would cause the component to throw an error with no output

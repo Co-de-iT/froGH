@@ -7,7 +7,6 @@ namespace froGH
 {
     public class CameraReport : GH_Component
     {
-
         /// <summary>
         /// Initializes a new instance of the CameraReport class.
         /// </summary>
@@ -26,7 +25,7 @@ namespace froGH
             pManager.AddTextParameter("View Name", "vN", "Enter a View Name for the report" +
                 "\nleave empty to use current View" +
                 "\ndouble click the component to update when using current View", GH_ParamAccess.item, "");
-            pManager.AddBooleanParameter("Update", "U", "Update Report\nUse a toggle for a one-shot update, a toggle + timer for continuous data", GH_ParamAccess.item, false);
+            pManager.AddBooleanParameter("Update", "U", "Update Report\nUse a button for a one-shot update, a toggle + timer for continuous data", GH_ParamAccess.item, false);
 
             pManager[1].Optional = true;
         }
@@ -55,14 +54,25 @@ namespace froGH
             DA.GetData(0, ref viewName);
             bool update = false;
             DA.GetData(1, ref update);
+            int viewIndex;
+            CameraData cameraData;
 
-            int viewIndex = Rhino.RhinoDoc.ActiveDoc.NamedViews.FindByName(viewName);
-
-            CameraData cameraData = new CameraData();
-
-            // if no named view is found use the active view
-            if (viewIndex == -1) cameraData = new CameraData(Rhino.RhinoDoc.ActiveDoc.Views.ActiveView.ActiveViewport);
-            else cameraData = new CameraData(Rhino.RhinoDoc.ActiveDoc.NamedViews[viewIndex].Viewport);
+            if (String.IsNullOrEmpty(viewName))
+                cameraData = new CameraData(Rhino.RhinoDoc.ActiveDoc.Views.ActiveView.ActiveViewport);
+            else
+            {
+                viewIndex = Rhino.RhinoDoc.ActiveDoc.NamedViews.FindByName(viewName);
+                if (viewIndex != -1)
+                    cameraData = new CameraData(Rhino.RhinoDoc.ActiveDoc.NamedViews[viewIndex].Viewport);
+                // if no named view is found search Views
+                else
+                {
+                    if (Rhino.RhinoDoc.ActiveDoc.Views.Find(viewName, false) != null)
+                        cameraData = new CameraData(Rhino.RhinoDoc.ActiveDoc.Views.Find(viewName, false).MainViewport);
+                    else
+                        cameraData = new CameraData(Rhino.RhinoDoc.ActiveDoc.Views.ActiveView.ActiveViewport);
+                }
+            }
 
             if (update) ExpireSolution(true);
 

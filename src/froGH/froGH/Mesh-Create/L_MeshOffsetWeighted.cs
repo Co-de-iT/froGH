@@ -2,18 +2,17 @@
 using Grasshopper.Kernel;
 using Rhino.Geometry;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace froGH
 {
-    public class MeshOffsetWeighted : GH_Component
+    [Obsolete]
+    public class L_MeshOffsetWeighted : GH_Component
     {
         /// <summary>
         /// Initializes a new instance of the MeshOffsetWeighted class.
         /// </summary>
-        public MeshOffsetWeighted()
-          : base("Mesh Offset Weighted", "f_MeshOffsetTheProperWayWhyIsThisNotTheNorm",
+        public L_MeshOffsetWeighted()
+          : base("Mesh Offset Weighted", "f_MeshOffsetWeighted",
               "Offsets a Mesh using weighted normals",
               "froGH", "Mesh-Create")
         {
@@ -50,32 +49,20 @@ namespace froGH
 
             if (!mesh.IsValid || mesh == null) return;
 
-            // compute normals if none are present
-            if (mesh.Normals.Count == 0)
-                mesh.RebuildNormals();
-            if (mesh.FaceNormals.Count == 0)
-                mesh.FaceNormals.ComputeFaceNormals();
-
+            // combine identical vertices
+            mesh.Vertices.CombineIdentical(true, true);
+            Mesh offset = mesh.DuplicateMesh();
+            // triangulate Mesh
+            mesh.Faces.ConvertQuadsToTriangles();
+            // compute Face normals
+            mesh.FaceNormals.ComputeFaceNormals();
 
             double dist = 0;
             DA.GetData(1, ref dist);
 
-            Mesh offset = new Mesh();
-            offset.CopyFrom(mesh);
-
-            Vector3d[] newNormals = new Vector3d[mesh.Vertices.Count];
             Point3d[] vertices = mesh.Vertices.ToPoint3dArray();
-
-            //initialize newNormals
-            for (int i = 0; i < newNormals.Length; i++)
-                newNormals[i] = Vector3d.Zero;
-
             // Compute new normals
-            //newNormals = ComputeWeightedNormalsTriangulate(mesh);
-            newNormals = ComputeWeightedNormals(mesh);
-
-            // Unitize newNormals
-            foreach (Vector3d n in newNormals) n.Unitize();
+            Vector3d[] newNormals = ComputeWeightedNormals(mesh);
 
             // offset Mesh
             for (int i = 0; i < offset.Vertices.Count; i++)
@@ -132,10 +119,10 @@ namespace froGH
         }
          */
 
-        Vector3d[] ComputeWeightedNormals(Mesh mesh)
+        private Vector3d[] ComputeWeightedNormals(Mesh mesh)
         {
             // triangulate Mesh
-            mesh.Faces.ConvertQuadsToTriangles();
+            // mesh.Faces.ConvertQuadsToTriangles();
 
             Vector3d[] weightedNormals = new Vector3d[mesh.Vertices.Count];
             Point3d A, B, C, D;
@@ -185,9 +172,6 @@ namespace froGH
         // test: this should follow the original algorithm more closely
         Vector3d[] ComputeWeightedNormalsTriangulate(Mesh mesh)
         {
-            // triangulate Mesh
-            mesh.Faces.ConvertQuadsToTriangles();
-
             Vector3d[] weightedNormals = new Vector3d[mesh.Vertices.Count];
             Point3d v1, v2, v3;
             double faceAngle, faceArea;
@@ -271,13 +255,14 @@ namespace froGH
             return Math.Abs(A.X * (B.Y - C.Y) + B.X * (C.Y - A.Y) + C.X * (A.Y - B.Y)) * 0.5;
         }
 
+
         /// <summary>
         /// Exposure override for position in the Subcategory (options primary to septenary)
         /// https://apidocs.co/apps/grasshopper/6.8.18210/T_Grasshopper_Kernel_GH_Exposure.htm
         /// </summary>
         public override GH_Exposure Exposure
         {
-            get { return GH_Exposure.tertiary; }
+            get { return GH_Exposure.hidden; }
         }
 
         /// <summary>

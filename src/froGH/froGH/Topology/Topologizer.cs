@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using froGH.Properties;
+﻿using froGH.Properties;
 using Grasshopper;
 using Grasshopper.Kernel;
 using Grasshopper.Kernel.Data;
 using Rhino.Geometry;
+using System;
+using System.Collections.Generic;
 
 namespace froGH
 {
@@ -26,8 +25,8 @@ namespace froGH
         /// </summary>
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
-            pManager.AddLineParameter("Lines network", "L", "Lines Network, connected at endpoints only", GH_ParamAccess.list);
-            pManager.AddIntegerParameter("Decimals", "d", "Number of decimals for connectiuon tolerance\n(3 is default and usually ok)", GH_ParamAccess.item, 3);
+            pManager.AddLineParameter("Lines network", "L", "Lines network, connected at endpoints only", GH_ParamAccess.list);
+            pManager.AddIntegerParameter("Decimals", "d", "Number of decimals for connection tolerance\n(3 is default and usually ok)", GH_ParamAccess.item, 3);
         }
 
         /// <summary>

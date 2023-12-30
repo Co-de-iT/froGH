@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Security.Permissions;
-using froGH.Properties;
+﻿using froGH.Properties;
 using Grasshopper.Kernel;
 using Rhino.Geometry;
+using System;
+using System.Collections.Generic;
 
 namespace froGH
 {
@@ -127,22 +126,15 @@ namespace froGH
                     case 0:
                         mesh = BisymmetricHendecahedron();
                         goto case 99;
-                    //ScaleAndOrient(mesh, scale, basePlane);
-                    //faceContours = GetFaceContours(mesh);
-                    //break;
                     case 1:
                         mesh = RhombicDodecahedron();
                         goto case 99;
-                    //faceContours = GetFaceContours(mesh);
-                    //break;
                     case 2:
                         ElongatedDodecahedron(out mesh, out faceContours);
                         break;
                     case 3:
                         mesh = SphenoidHendecahedron();
                         goto case 99;
-                    //faceContours = GetFaceContours(mesh);
-                    //break;
                     case 4:
                         TruncatedOctahedron(out mesh, out faceContours);
                         break;
@@ -150,7 +142,7 @@ namespace froGH
                         mesh = Gyrobifastigium();
                         goto case 99;
                     case 99:
-                        ScaleAndOrient(mesh, scale, basePlane);
+                        ScaleAndOrientMesh(mesh, scale, basePlane);
                         faceContours = GetFaceContours(mesh);
                         break;
                     default:
@@ -188,12 +180,6 @@ namespace froGH
                 mesh.Faces.AddFace(3, 4, 9);
                 mesh.Faces.AddFace(7, 4, 1);
 
-                //mesh.Scale(scale);
-
-                //Transform orient;
-                //orient = Transform.PlaneToPlane(Plane.WorldXY, basePlane);
-                //mesh.Transform(orient);
-
                 return mesh;
             }
 
@@ -210,12 +196,6 @@ namespace froGH
         new Point3d(0.25, 0, -0.5), new Point3d(0.5, 0, -0.25), new Point3d(0, 0.25, -0.5), new Point3d(0, 0.5, -0.25)};
 
                 mesh.Vertices.AddVertices(vertices);
-
-                int[][] contours =
-                  new int[][]{new int[]{0, 1, 2, 3, 4, 5},new int[]{0, 5, 9, 8, 7, 6}, new int[]{6,7,14,15,13,10},  new int[]{10,13,12,11,2,1},// hex faces up
-        new int[]{3,18,17,16,19,4},new int[]{9,19,16,20,21,8}, new int[]{14,21,20,22,23,15},  new int[]{12,23,22,17,18,11}, // hex faces down
-        new int[]{20,16,17,22}, new int[]{0, 6, 10, 1}, // quad faces bottom-top
-        new int[]{11, 18, 3, 2}, new int[]{8, 21, 14, 7}, new int[]{4, 19, 9, 5},  new int[]{15, 23, 12, 13}};// quad faces W-E-S-N
 
                 // hex faces
                 mesh.Faces.AddFace(0, 1, 2, 5);
@@ -242,52 +222,18 @@ namespace froGH
                 mesh.Faces.AddFace(11, 18, 3, 2); // W
                 mesh.Faces.AddFace(4, 19, 9, 5); // S
 
-                foreach (int[] cont in contours)
-                {
-                    Polyline pc = new Polyline();
-                    foreach (int i in cont) pc.Add(vertices[i]);
-                    pc.Add(vertices[cont[0]]);
-                    faceContours.Add(pc);
-                }
+                int[][] contours =
+  new int[][]{new int[]{0, 1, 2, 3, 4, 5},new int[]{0, 5, 9, 8, 7, 6}, new int[]{6,7,14,15,13,10},  new int[]{10,13,12,11,2,1},// hex faces up
+        new int[]{3,18,17,16,19,4},new int[]{9,19,16,20,21,8}, new int[]{14,21,20,22,23,15},  new int[]{12,23,22,17,18,11}, // hex faces down
+        new int[]{20,16,17,22}, new int[]{0, 6, 10, 1}, // quad faces bottom-top
+        new int[]{11, 18, 3, 2}, new int[]{8, 21, 14, 7}, new int[]{4, 19, 9, 5},  new int[]{15, 23, 12, 13}};// quad faces W-E-S-N
 
-                Transform scaleT = Transform.Scale(new Point3d(), scale);
-                Transform orient = Transform.PlaneToPlane(Plane.WorldXY, basePlane);
+                faceContours = MakeContours(mesh, contours);
+                ScaleAndOrientMeshAndContours(mesh, faceContours, scale, basePlane);
 
-                mesh.Transform(scaleT);
-                mesh.Transform(orient);
-                foreach (Polyline f in faceContours)
-                {
-                    f.Transform(scaleT);
-                    f.Transform(orient);
-                }
-            }
-
-            List<Polyline> MakeContours(Mesh mesh, int[][] contours)
-            {
-                List<Polyline> faceContours = new List<Polyline>();
-                foreach (int[] cont in contours)
-                {
-                    Polyline pc = new Polyline();
-                    foreach (int i in cont) pc.Add(mesh.Vertices[i]);
-                    pc.Add(mesh.Vertices[cont[0]]);
-                    faceContours.Add(pc);
-                }
-
-                return faceContours;
-            }
-
-            void ScaleOrient(ref Mesh mesh, ref List<Polyline> faceContours)
-            {
-                Transform scaleT = Transform.Scale(new Point3d(), scale);
-                Transform orient = Transform.PlaneToPlane(Plane.WorldXY, basePlane);
-
-                mesh.Transform(scaleT);
-                mesh.Transform(orient);
-                foreach (Polyline f in faceContours)
-                {
-                    f.Transform(scaleT);
-                    f.Transform(orient);
-                }
+                mesh.UnifyNormals();
+                mesh.RebuildNormals();
+                mesh.Unweld(0, true);
             }
 
             Mesh RhombicDodecahedron()
@@ -314,12 +260,6 @@ namespace froGH
                 mesh.Faces.AddFace(13, 12, 8, 10);
                 mesh.Faces.AddFace(13, 7, 6, 12);
                 mesh.Faces.AddFace(2, 1, 13, 10);
-
-                //mesh.Scale(scale * 0.5);
-
-                //Transform orient;
-                //orient = Transform.PlaneToPlane(Plane.WorldXY, basePlane);
-                //mesh.Transform(orient);
 
                 return mesh;
             }
@@ -352,16 +292,13 @@ namespace froGH
                 mesh.Faces.AddFace(11, 10, 8, 15);
                 mesh.Faces.AddFace(16, 10, 11, 17);
 
-
-
-
                 int[][] contours =
         new int[][]{new int[]{2,13,14,16,17,5},new int[]{4,1,12,9,14,13}, new int[]{0,6,15,8,12,1},  new int[]{7,5,17,11,15,6},// hex faces
         new int[]{4, 3, 0, 1}, new int[]{2, 3, 4, 13}, new int[]{7, 6, 0, 3}, new int[]{2, 5, 7, 3},// quad faces bottom
         new int[]{9, 12, 8, 10}, new int[]{16, 14, 9, 10}, new int[]{11, 10, 8, 15},  new int[]{16, 10, 11, 17}};// quad faces top
 
                 faceContours = MakeContours(mesh, contours);
-                ScaleOrient(ref mesh, ref faceContours);
+                ScaleAndOrientMeshAndContours(mesh, faceContours, scale, basePlane);
 
                 mesh.UnifyNormals();
                 mesh.RebuildNormals();
@@ -405,17 +342,6 @@ namespace froGH
                 mesh.Rotate(-Math.PI * 0.5, Vector3d.ZAxis, center);
                 mesh.Translate((Vector3d)(-center));
 
-                //mesh.Scale(scale * 0.5);
-                //Point3d center = mesh.GetBoundingBox(false).Center;
-                //Plane cPlane = Plane.WorldZX;
-                //cPlane.Rotate(Math.PI, Vector3d.YAxis);
-                //cPlane.Translate((Vector3d)center);
-
-                //Transform orient;
-
-                //orient = Transform.PlaneToPlane(Plane.WorldZX, basePlane);
-                //mesh.Transform(orient);
-
                 return mesh;
             }
 
@@ -447,6 +373,19 @@ namespace froGH
                 return mesh;
             }
 
+            List<Polyline> MakeContours(Mesh mesh, int[][] contours)
+            {
+                List<Polyline> faceContours = new List<Polyline>();
+                foreach (int[] cont in contours)
+                {
+                    Polyline pc = new Polyline();
+                    foreach (int i in cont) pc.Add(mesh.Vertices[i]);
+                    pc.Add(mesh.Vertices[cont[0]]);
+                    faceContours.Add(pc);
+                }
+
+                return faceContours;
+            }
 
             List<Polyline> GetFaceContours(Mesh mesh)
             {
@@ -476,13 +415,26 @@ namespace froGH
                 return faceContours;
             }
 
-            Mesh ScaleAndOrient(Mesh mesh, double scale, Plane basePlane)
+            void ScaleAndOrientMeshAndContours(Mesh mesh, List<Polyline> faceContours, double scale, Plane basePlane)
+            {
+                Transform scaleT = Transform.Scale(new Point3d(), scale);
+                Transform orient = Transform.PlaneToPlane(Plane.WorldXY, basePlane);
+
+                mesh.Transform(scaleT);
+                mesh.Transform(orient);
+                foreach (Polyline f in faceContours)
+                {
+                    f.Transform(scaleT);
+                    f.Transform(orient);
+                }
+            }
+
+            void ScaleAndOrientMesh(Mesh mesh, double scale, Plane basePlane)
             {
                 mesh.Scale(scale * 0.5);
                 Transform orient;
                 orient = Transform.PlaneToPlane(Plane.WorldXY, basePlane);
                 mesh.Transform(orient);
-                return mesh;
             }
         }
 

@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using froGH.Properties;
+﻿using froGH.Properties;
 using Grasshopper.Kernel;
 using Grasshopper.Kernel.Types;
-using Rhino.DocObjects;
 using Rhino.Geometry;
+using System;
+using System.Drawing;
 
 namespace froGH
 {
@@ -281,7 +279,7 @@ namespace froGH
         /// </summary>
         public override GH_Exposure Exposure
         {
-            get { return GH_Exposure.quarternary; }
+            get { return GH_Exposure.quinary; }
         }
 
         /// <summary>

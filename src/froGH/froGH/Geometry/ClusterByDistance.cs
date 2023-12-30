@@ -1,13 +1,12 @@
-﻿using System;
+﻿using froGH.Properties;
+using Grasshopper;
+using Grasshopper.Kernel;
+using Grasshopper.Kernel.Data;
+using Rhino.Collections;
+using Rhino.Geometry;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-
-using Grasshopper.Kernel;
-using Rhino.Geometry;
-using Rhino.Collections;
-using Grasshopper;
-using Grasshopper.Kernel.Data;
-using froGH.Properties;
 
 namespace froGH
 {

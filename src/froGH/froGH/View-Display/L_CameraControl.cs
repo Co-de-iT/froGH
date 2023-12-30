@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using froGH.Properties;
+﻿using froGH.Properties;
 using Grasshopper.Kernel;
 using Rhino.Geometry;
+using System;
 
 namespace froGH
 {
-    public class CameraControl : GH_Component
+    [Obsolete]
+    public class L_CameraControl : GH_Component
     {
         //To get and set camera properties
         Rhino.Display.RhinoViewport vp;
@@ -14,7 +14,7 @@ namespace froGH
         /// <summary>
         /// Initializes a new instance of the CameraControl class.
         /// </summary>
-        public CameraControl()
+        public L_CameraControl()
           : base("Camera Control", "f_CamCon",
               "Controls Rhino camera from Grasshopper",
               "froGH", "View/Display")
@@ -79,6 +79,15 @@ namespace froGH
                 vp.ChangeToPerspectiveProjection(true, lens);
             }
          
+        }
+
+        /// <summary>
+        /// Exposure override for position in the Subcategory (options primary to septenary)
+        /// https://apidocs.co/apps/grasshopper/6.8.18210/T_Grasshopper_Kernel_GH_Exposure.htm
+        /// </summary>
+        public override GH_Exposure Exposure
+        {
+            get { return GH_Exposure.hidden; }
         }
 
         /// <summary>

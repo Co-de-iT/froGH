@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Windows.Forms;
-using froGH.Properties;
+﻿using froGH.Properties;
 using GH_IO.Serialization;
 using Grasshopper.Kernel;
-using Grasshopper.Kernel.Data;
-using Grasshopper.Kernel.Types;
-using Rhino.Geometry;
+using System;
+using System.Collections.Generic;
+using System.Windows.Forms;
 
 namespace froGH
 {

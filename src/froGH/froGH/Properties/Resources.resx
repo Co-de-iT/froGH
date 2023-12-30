@@ -235,11 +235,17 @@
   <data name="Indexes_from_number_2_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Indexes from number_2_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Is_Polyline_Clockwise_2_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Is Polyline Clockwise 2_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Is_Polyline_Clockwise_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Is Polyline Clockwise_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="kermit_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\kermit_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="List_Display_Modes_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\List Display Modes_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="load_binary_STL_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\load binary STL_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -346,6 +352,9 @@
   <data name="saveAsGH_2_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\saveAsGH_2_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Select_Objects_from_Rhino_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Select Objects from Rhino_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="SeqTreeBranch_2_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SeqTreeBranch_2_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -420,5 +429,8 @@
   </data>
   <data name="ZYZ_2_Trans_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ZYZ_2_Trans_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ZZ_placeholder_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ZZ_placeholder_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

@@ -79,9 +79,10 @@ namespace froGH
                 if (inters && nGen >= 1)
                 { // if intersection happened and nGens>=1 (last loop)
                   // divide surface
-                  //Surface[] Ss = sTrim(ref S);
-                    Surface[] Ss = sDiv(ref S); // this seems a tad faster
-                                                // loop through surfaces
+                    Surface[] Ss = sTrim(ref S);
+                    // this seems a tad faster but does not work on Rhino 8
+                    //Surface[] Ss = sDiv(ref S);
+                    // loop through surfaces
                     foreach (Surface Sdiv in Ss)
                     {
                         // call recursive subsurf
