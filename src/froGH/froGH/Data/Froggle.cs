@@ -9,7 +9,7 @@ namespace froGH
         // internal because it is used in the Froggle_Attributes
         internal bool result;
         /// <summary>
-        /// Initializes a new instance of the Frogger class.
+        /// Initializes a new instance of the Froggle class.
         /// </summary>
         public Froggle()
           : base("Froggle", "f_Fro",

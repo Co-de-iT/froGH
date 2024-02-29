@@ -215,22 +215,22 @@ namespace froGH
 
         DataTree<Point3d> ConvertToTree(List<Cluster> clusters)
         {
-            DataTree<Point3d> clustersTree = new DataTree<Point3d>();
+            DataTree<Point3d> clustersPointsTree = new DataTree<Point3d>();
 
             for (int i = 0; i < clusters.Count; i++)
-                clustersTree.AddRange(clusters[i].points, new GH_Path(i));
+                clustersPointsTree.AddRange(clusters[i].points, new GH_Path(i));
 
-            return clustersTree;
+            return clustersPointsTree;
         }
 
         DataTree<int> ConvertIndToTree(List<Cluster> clusters)
         {
-            DataTree<int> clustersTree = new DataTree<int>();
+            DataTree<int> clustersIndexesTree = new DataTree<int>();
 
             for (int i = 0; i < clusters.Count; i++)
-                clustersTree.AddRange(clusters[i].indexes, new GH_Path(i));
+                clustersIndexesTree.AddRange(clusters[i].indexes, new GH_Path(i));
 
-            return clustersTree;
+            return clustersIndexesTree;
         }
 
         /// <summary>

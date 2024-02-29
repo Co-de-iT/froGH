@@ -100,25 +100,6 @@ namespace froGH
                     for (int i = 0; i < justification.Length; i++)
                         vList.ListItems.Add(new Grasshopper.Kernel.Special.GH_ValueListItem(justification[i][0], justification[i][1]));
 
-                    //var item1 = new Grasshopper.Kernel.Special.GH_ValueListItem("TopLeft", "0");
-                    //var item2 = new Grasshopper.Kernel.Special.GH_ValueListItem("MiddleLeft", "1");
-                    //var item3 = new Grasshopper.Kernel.Special.GH_ValueListItem("BottomLeft", "2");
-                    //var item4 = new Grasshopper.Kernel.Special.GH_ValueListItem("TopCenter", "3");
-                    //var item5 = new Grasshopper.Kernel.Special.GH_ValueListItem("MiddleCenter", "4");
-                    //var item6 = new Grasshopper.Kernel.Special.GH_ValueListItem("BottomCenter", "5");
-                    //var item7 = new Grasshopper.Kernel.Special.GH_ValueListItem("TopRight", "6");
-                    //var item8 = new Grasshopper.Kernel.Special.GH_ValueListItem("MiddleRight", "7");
-                    //var item9 = new Grasshopper.Kernel.Special.GH_ValueListItem("BottomRight", "8");
-                    //vList.ListItems.Add(item1);
-                    //vList.ListItems.Add(item2);
-                    //vList.ListItems.Add(item3);
-                    //vList.ListItems.Add(item4);
-                    //vList.ListItems.Add(item5);
-                    //vList.ListItems.Add(item6);
-                    //vList.ListItems.Add(item7);
-                    //vList.ListItems.Add(item8);
-                    //vList.ListItems.Add(item9);
-
                     vList.ListItems[0].Value.CastTo(out J);
                 }
             }

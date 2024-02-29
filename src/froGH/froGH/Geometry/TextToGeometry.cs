@@ -24,9 +24,39 @@ namespace froGH
               "Converts text into geometry (Polylines, Curves or Surfaces)\nuse single-line fonts for best results in fabrication",
               "froGH", "Geometry")
         {
+            Params.ParameterSourcesChanged += new GH_ComponentParamServer.ParameterSourcesChangedEventHandler(ParamSourceChanged);
             outputType = GetValue("TextOutputType", "Polylines");
             UpdateMessage();
             ExpireSolution(true);
+        }
+
+        // this autolist method is from: https://discourse.mcneel.com/t/automatic-update-of-valuelist-only-when-connected/152879/6?u=ale2x72
+        // works much better as it does not clog the solver with exceptions if a list of numercal values is connected
+        private void ParamSourceChanged(object sender, GH_ParamServerEventArgs e)
+        {
+            if ((e.ParameterSide == GH_ParameterSide.Input) && (e.ParameterIndex == 6))
+            {
+                foreach (IGH_Param source in e.Parameter.Sources)
+                {
+                    if (source is Grasshopper.Kernel.Special.GH_ValueList)
+                    {
+                        Grasshopper.Kernel.Special.GH_ValueList vList = source as Grasshopper.Kernel.Special.GH_ValueList;
+
+                        if (!vList.NickName.Equals("Justification"))
+                        {
+                            vList.ClearData();
+                            vList.ListItems.Clear();
+                            vList.NickName = "Justification";
+
+                            for (int i = 0; i < justification.Length; i++)
+                                vList.ListItems.Add(new Grasshopper.Kernel.Special.GH_ValueListItem(justification[i][0], justification[i][1]));
+
+                            vList.ListMode = Grasshopper.Kernel.Special.GH_ValueListMode.DropDown; // change this for a different mode (DropDown is the default)
+                            vList.ExpireSolution(true);
+                        }
+                    }
+                }
+            }
         }
 
         /// <summary>
@@ -74,36 +104,6 @@ namespace froGH
             DA.GetData(5, ref basePlane);
             int J = 0;
             DA.GetData(6, ref J);
-
-            // __________________ autoList part __________________
-
-            // variable for the list
-            Grasshopper.Kernel.Special.GH_ValueList vList;
-            // tries to cast input as list
-            try
-            {
-
-                // if the list is not the first parameter then change Input[6] to the corresponding value
-                vList = Params.Input[6].Sources[0] as Grasshopper.Kernel.Special.GH_ValueList;
-
-                // check if the list must be created
-
-                if (!vList.NickName.Equals("Justification"))
-                {
-                    vList.ClearData();
-                    vList.ListItems.Clear();
-                    vList.NickName = "Justification";
-
-                    for (int i = 0; i < justification.Length; i++)
-                        vList.ListItems.Add(new Grasshopper.Kernel.Special.GH_ValueListItem(justification[i][0], justification[i][1]));
-
-                    vList.ListItems[0].Value.CastTo(out J);
-                }
-            }
-            catch
-            {
-                // handles anything that is not a value list
-            }
 
             // Align transformation
             Transform align = Transform.PlaneToPlane(Plane.WorldXY, basePlane);

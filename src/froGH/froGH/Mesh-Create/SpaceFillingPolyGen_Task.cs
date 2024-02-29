@@ -1,21 +1,26 @@
 ﻿using froGH.Properties;
+using froGH.Utils;
 using Grasshopper.Kernel;
 using Rhino.Geometry;
 using System;
-using froGH.Utils;
+using System.Threading.Tasks;
 
 namespace froGH
 {
-    public class SpaceFillingPolyGen : GH_Component
+    /// <summary>
+    /// First attempt at a Task-Capable component - see: https://developer.rhino3d.com/guides/grasshopper/programming-task-capable-component/
+    /// Works, but for this case it does not boost performance as I hoped - so I kept the regular version
+    /// </summary>
+    public class SpaceFillingPolyGen_Task : GH_TaskCapableComponent<SpaceFillingPolyGen_Task.SolveResults>
     {
-        private readonly PolyHedra polyHedra;
+        private PolyHedra polyHedra;
 
         /// <summary>
         /// Initializes a new instance of the SpaceFillingPolyGen class.
         /// </summary>
-        public SpaceFillingPolyGen()
-          : base("Space-Filling Polyhedra Generator", "f_SPHGen",
-              "Creates a space filling Polyhedron",
+        public SpaceFillingPolyGen_Task()
+          : base("Space-Filling Polyhedra Generator - Parallel", "f_SPHGen_P",
+              "Creates a space filling Polyhedron\nTask-Capable Component",
               "froGH", "Mesh-Create")
         {
             polyHedra = new PolyHedra();
@@ -88,7 +93,32 @@ namespace froGH
         {
             pManager.AddMeshParameter("Mesh", "M", "The Polyhedron as Mesh", GH_ParamAccess.item);
             pManager.AddCurveParameter("Face Polylines", "P", "Face contours as polylines", GH_ParamAccess.list);
-            //pManager.AddCurveParameter("Face Polylines class", "Pc", "Face contours as polylines", GH_ParamAccess.list);
+        }
+
+        public class SolveResults
+        {
+            public Mesh mesh { get; set; }
+            public Polyline[] faceContours { get; set; }
+        }
+
+        public static SolveResults ComputeSpaceFillingPolyhedra(PolyHedra polyHedra, Plane plane, int type, double scale)
+        {
+            SolveResults result = new SolveResults();
+            result.mesh = polyHedra.GetMesh(type);
+            result.faceContours = polyHedra.GetFaceContours(type);
+
+            Transform scaleT = Transform.Scale(new Point3d(), scale);
+            Transform orient = Transform.PlaneToPlane(Plane.WorldXY, plane);
+
+            result.mesh.Transform(scaleT);
+            result.mesh.Transform(orient);
+            foreach (Polyline f in result.faceContours)
+            {
+                f.Transform(scaleT);
+                f.Transform(orient);
+            }
+
+            return result;
         }
 
         /// <summary>
@@ -97,34 +127,57 @@ namespace froGH
         /// <param name="DA">The DA object is used to retrieve from inputs and store in outputs.</param>
         protected override void SolveInstance(IGH_DataAccess DA)
         {
-            Plane P = new Plane();
-            int type = 0;
-            double scale = 1.0;
-            DA.GetData(0, ref P);
-            DA.GetData(1, ref type);
-            type %= polyHedra.allMeshes.Length;
-            DA.GetData(2, ref scale);
-
-            if (!P.IsValid || P == null) P = Plane.WorldXY;
-            if (scale == 0.0) scale = 1.0;
-
-            //polyHedra.GetPolyhedra(type, out Mesh mesh, out Polyline[] faceContours);
-            Mesh mesh = polyHedra.GetMesh(type);
-            Polyline[] faceContours = polyHedra.GetFaceContours(type);
-
-            Transform scaleT = Transform.Scale(new Point3d(), scale);
-            Transform orient = Transform.PlaneToPlane(Plane.WorldXY, P);
-
-            mesh.Transform(scaleT);
-            mesh.Transform(orient);
-            foreach (Polyline f in faceContours)
+            // input data (in parallel mode)
+            if (InPreSolve)
             {
-                f.Transform(scaleT);
-                f.Transform(orient);
+                Plane P = new Plane();
+                int type = 0;
+                double scale = 1.0;
+                DA.GetData(0, ref P);
+                DA.GetData(1, ref type);
+                DA.GetData(2, ref scale);
+
+                if (!P.IsValid || P == null) P = Plane.WorldXY;
+                if (scale == 0.0) scale = 1.0;
+
+                // Queue up the task
+                Task<SolveResults> task = Task.Run(() => ComputeSpaceFillingPolyhedra(polyHedra, P, type, scale), CancelToken);
+                TaskList.Add(task);
+                return;
             }
 
-            DA.SetData(0, mesh);
-            DA.SetDataList(1, faceContours);
+            // usual process if component is not in parallel computing mode
+            // Basically all the "old" SolveInstance goes here (except for output)
+            if (!GetSolveResults(DA, out SolveResults result))
+            {
+                Plane P = new Plane();
+                int type = 0;
+                double scale = 1.0;
+                DA.GetData(0, ref P);
+                DA.GetData(1, ref type);
+                DA.GetData(2, ref scale);
+
+                if (!P.IsValid || P == null) P = Plane.WorldXY;
+                if (scale == 0.0) scale = 1.0;
+
+                result = ComputeSpaceFillingPolyhedra(polyHedra, P, type, scale);
+            }
+
+            // output data
+            if (result != null)
+            {
+                DA.SetData(0, result.mesh);
+                DA.SetDataList(1, result.faceContours);
+            }
+        }
+
+        /// <summary>
+        /// Exposure override for position in the Subcategory (options primary to septenary)
+        /// https://apidocs.co/apps/grasshopper/6.8.18210/T_Grasshopper_Kernel_GH_Exposure.htm
+        /// </summary>
+        public override GH_Exposure Exposure
+        {
+            get { return GH_Exposure.hidden; }
         }
 
         /// <summary>
@@ -145,7 +198,7 @@ namespace froGH
         /// </summary>
         public override Guid ComponentGuid
         {
-            get { return new Guid("76e4284b-40c8-4712-9235-0de1acb3e7e2"); }
+            get { return new Guid("DD75BE28-0A9A-497B-A5BA-CB90F13E0F1E"); }
         }
     }
 }

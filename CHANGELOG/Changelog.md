@@ -5,6 +5,20 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 ---
+## [2.2.10]
+### Added
+- _**Orient on Grid**_ component (under *Geometry*): this component orients a list of objects on a grid. Grid cell size is automatically computed from the larges X and Y dimensions of the object's bounding boxes (aligned with the World XY plane). Works also with groups and blocks.
+### Changed
+- _**Space Filling Polyhedra**_ component: doubled the size of the *Bisymmetric Hendecahedron* to make it similar to the other Polyhedra; changed the way code behaves to improve performance when generating multiple geometries
+
+### Deprecated
+
+### Removed
+
+### Fixed
+- _**Space Filling Polyhedra**_ component: fixed some points coordinates to remove imprecisions
+- general checks for compatibility with Rhino 8
+
 ## [2.2.9]
 ### Added
 - _**Select Rhino Objects**_ component: this component selects objects in Rhino by their GUID.

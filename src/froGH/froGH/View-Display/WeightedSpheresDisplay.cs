@@ -38,7 +38,7 @@ namespace froGH
         {
             pManager.AddPointParameter("Points", "P", "Points to Display", GH_ParamAccess.list);
             pManager.AddNumberParameter("Radius", "R", "Radiuses (one value for each point)", GH_ParamAccess.list);
-            pManager.AddIntegerParameter("Resolution", "r", "0 - coarse, 1 - fine, 2 - extra-fine - attach a value list for autovalue", GH_ParamAccess.item, 0);
+            pManager.AddIntegerParameter("Resolution", "r", "0 - coarse, 1 - fine, 2 - extra-fine", GH_ParamAccess.item, 0);
 
         }
 
@@ -69,41 +69,6 @@ namespace froGH
             Mesh blackSphere;
             // steps: 1, 2, 4, 8
             //       32, 16, 8, 4 as UV params
-
-
-            // __________________ autoList __________________
-
-            // variable for the list
-            Grasshopper.Kernel.Special.GH_ValueList vList;
-            // tries to cast input as list
-            try
-            {
-
-                // if the list is not the first parameter then change Input[0] to the corresponding value
-                vList = (Grasshopper.Kernel.Special.GH_ValueList)Params.Input[2].Sources[0];
-
-                if (!vList.NickName.Equals("Resolution"))
-                {
-                    vList.ClearData();
-                    vList.ListItems.Clear();
-                    vList.NickName = "Resolution";
-                    var item1 = new Grasshopper.Kernel.Special.GH_ValueListItem("Coarse", "0");
-                    var item2 = new Grasshopper.Kernel.Special.GH_ValueListItem("Fine", "1");
-                    var item3 = new Grasshopper.Kernel.Special.GH_ValueListItem("Extra-Fine", "2");
-                    var item4 = new Grasshopper.Kernel.Special.GH_ValueListItem("ARE YOU NUTS??!?", "0");
-
-                    vList.ListItems.Add(item1);
-                    vList.ListItems.Add(item2);
-                    vList.ListItems.Add(item3);
-                    vList.ListItems.Add(item4);
-
-                    vList.ListItems[0].Value.CastTo(out res);
-                }
-            }
-            catch
-            {
-                // handles anything that is not a value list
-            }
 
             blackSphere = baseSpheres[res % 3];
 

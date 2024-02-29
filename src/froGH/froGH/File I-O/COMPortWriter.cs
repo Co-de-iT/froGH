@@ -14,6 +14,43 @@ namespace froGH
               "Sends data to a COM port",
               "froGH", "File I-O")
         {
+            Params.ParameterSourcesChanged += new GH_ComponentParamServer.ParameterSourcesChangedEventHandler(ParamSourceChanged);
+        }
+
+        // this autolist method is from: https://discourse.mcneel.com/t/automatic-update-of-valuelist-only-when-connected/152879/6?u=ale2x72
+        // works much better as it does not clog the solver with exceptions if a list of numercal values is connected
+        private void ParamSourceChanged(object sender, GH_ParamServerEventArgs e)
+        {
+            if ((e.ParameterSide == GH_ParameterSide.Input) && (e.ParameterIndex == 3))
+            {
+                foreach (IGH_Param source in e.Parameter.Sources)
+                {
+                    if (source is Grasshopper.Kernel.Special.GH_ValueList)
+                    {
+                        Grasshopper.Kernel.Special.GH_ValueList vList = source as Grasshopper.Kernel.Special.GH_ValueList;
+                        string listNickName = "parity";
+                        if (!vList.NickName.Equals(listNickName))
+                        {
+                            vList.ClearData();
+                            vList.ListItems.Clear();
+                            vList.NickName = listNickName;
+                            var item1 = new Grasshopper.Kernel.Special.GH_ValueListItem("Even", "0");
+                            var item2 = new Grasshopper.Kernel.Special.GH_ValueListItem("Mark", "1");
+                            var item3 = new Grasshopper.Kernel.Special.GH_ValueListItem("None", "2");
+                            var item4 = new Grasshopper.Kernel.Special.GH_ValueListItem("Odd", "3");
+                            var item5 = new Grasshopper.Kernel.Special.GH_ValueListItem("Space", "4");
+                            vList.ListItems.Add(item1);
+                            vList.ListItems.Add(item2);
+                            vList.ListItems.Add(item3);
+                            vList.ListItems.Add(item4);
+                            vList.ListItems.Add(item5);
+
+                            vList.ListMode = Grasshopper.Kernel.Special.GH_ValueListMode.DropDown; // change this for a different mode (DropDown is the default)
+                            vList.ExpireSolution(true);
+                        }
+                    }
+                }
+            }
         }
 
         /// <summary>
@@ -48,10 +85,10 @@ namespace froGH
             if (!DA.GetData(0, ref S)) return;
             string port = "";
             if (!DA.GetData(1, ref port)) return;
-            int B = 0, par = 0, bit = 0;
+            int B = 0, parityType = 0, bitRate = 0;
             if (!DA.GetData(2, ref B)) return;
-            if (!DA.GetData(3, ref par)) return;
-            if (!DA.GetData(4, ref bit)) return;
+            if (!DA.GetData(3, ref parityType)) return;
+            if (!DA.GetData(4, ref bitRate)) return;
 
             bool save = false;
             DA.GetData(5, ref save);
@@ -59,47 +96,10 @@ namespace froGH
             string message = "";
 
             string eol = Environment.NewLine;
-            // __________________ autoList part __________________
-
-            // variable for the list
-            Grasshopper.Kernel.Special.GH_ValueList vList;
-            // tries to cast input as list
-            try
-            {
-
-                string listNickName = "parity";
-
-                // if the list is not the first parameter then change Input[0] to the corresponding value
-                vList = (Grasshopper.Kernel.Special.GH_ValueList) Params.Input[2].Sources[0];
-
-                // check if the list must be created
-                if (!vList.NickName.Equals(listNickName))
-                {
-                    vList.ClearData();
-                    vList.ListItems.Clear();
-                    vList.NickName = listNickName;
-                    var item1 = new Grasshopper.Kernel.Special.GH_ValueListItem("Even", "0");
-                    var item2 = new Grasshopper.Kernel.Special.GH_ValueListItem("Mark", "1");
-                    var item3 = new Grasshopper.Kernel.Special.GH_ValueListItem("None", "2");
-                    var item4 = new Grasshopper.Kernel.Special.GH_ValueListItem("Odd", "3");
-                    var item5 = new Grasshopper.Kernel.Special.GH_ValueListItem("Space", "4");
-                    vList.ListItems.Add(item1);
-                    vList.ListItems.Add(item2);
-                    vList.ListItems.Add(item3);
-                    vList.ListItems.Add(item4);
-                    vList.ListItems.Add(item5);
-
-                    vList.ListItems[2].Value.CastTo(out par);
-                }
-            }
-            catch
-            {
-                // handles anything that is not a value list
-            }
 
             // set parity
             System.IO.Ports.Parity parity = new System.IO.Ports.Parity();
-            switch (par)
+            switch (parityType)
             {
                 case 0:
                     parity = System.IO.Ports.Parity.Even;
@@ -122,27 +122,23 @@ namespace froGH
             }
 
             // initialize port
-            System.IO.Ports.SerialPort prt = new System.IO.Ports.SerialPort(port, B, parity, bit);
+            System.IO.Ports.SerialPort serialPort = new System.IO.Ports.SerialPort(port, B, parity, bitRate);
 
             if (save)
             {
                 message = "";
-                prt.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler( (sender, e) =>
-                { message = $"data sent to {prt.PortName}"; });
-                prt.ErrorReceived += new System.IO.Ports.SerialErrorReceivedEventHandler((sender, e) =>
-                { message = $"something's wrong on {prt.PortName}: {e}"; });
-                prt.Open();
-                prt.Write(S);
-                prt.Close();
-                //message = "data sent to " + prt.PortName + "!";
-                //prt.Open();
-                //Sp = port.ReadExisting();
-                //prt.Close();
+                serialPort.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler( (sender, e) =>
+                { message = $"data sent to {serialPort.PortName}"; });
+                serialPort.ErrorReceived += new System.IO.Ports.SerialErrorReceivedEventHandler((sender, e) =>
+                { message = $"something's wrong on {serialPort.PortName}: {e}"; });
+                serialPort.Open();
+                serialPort.Write(S);
+                serialPort.Close();
             }
             else
             {
 
-                message = "press send button to send data to:" + eol + prt.PortName + " " + prt.BaudRate + " " + prt.Parity + " " + prt.DataBits;
+                message = "press send button to send data to:" + eol + serialPort.PortName + " " + serialPort.BaudRate + " " + serialPort.Parity + " " + serialPort.DataBits;
             }
 
             DA.SetData(0, message);

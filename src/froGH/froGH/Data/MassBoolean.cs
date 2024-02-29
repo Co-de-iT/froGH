@@ -10,7 +10,6 @@ namespace froGH
     public class MassBoolean : GH_Component
     {
 
-        //private int type;
         private bool result;
         private string bOperator;
 
@@ -107,10 +106,8 @@ namespace froGH
 
         public override bool Read(GH_IReader reader)
         {
-            //bOperator = "AND";
             reader.TryGetString("BooleanOperator", ref bOperator);
             UpdateMessage();
-            //Message = bOperator;
             return base.Read(reader);
         }
 

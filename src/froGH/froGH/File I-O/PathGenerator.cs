@@ -15,6 +15,41 @@ namespace froGH
               "Generates a path based on local directories such as Desktop, Documents, GH file path",
               "froGH", "File I-O")
         {
+            Params.ParameterSourcesChanged += new GH_ComponentParamServer.ParameterSourcesChangedEventHandler(ParamSourceChanged);
+        }
+
+        // this autolist method is from: https://discourse.mcneel.com/t/automatic-update-of-valuelist-only-when-connected/152879/6?u=ale2x72
+        // works much better as it does not clog the solver with exceptions if a list of numercal values is connected
+        private void ParamSourceChanged(object sender, GH_ParamServerEventArgs e)
+        {
+            if ((e.ParameterSide == GH_ParameterSide.Input) && (e.ParameterIndex == 0))
+            {
+                foreach (IGH_Param source in e.Parameter.Sources)
+                {
+                    if (source is Grasshopper.Kernel.Special.GH_ValueList)
+                    {
+                        Grasshopper.Kernel.Special.GH_ValueList vList = source as Grasshopper.Kernel.Special.GH_ValueList;
+
+                        if (!vList.NickName.Equals("Path Type"))
+                        {
+                            vList.ClearData();
+                            vList.ListItems.Clear();
+                            vList.NickName = "Path Type";
+                            var item1 = new Grasshopper.Kernel.Special.GH_ValueListItem("Desktop", "0");
+                            var item2 = new Grasshopper.Kernel.Special.GH_ValueListItem("Documents", "1");
+                            var item3 = new Grasshopper.Kernel.Special.GH_ValueListItem("GH file path", "2");
+                            var item4 = new Grasshopper.Kernel.Special.GH_ValueListItem("C:", "3");
+                            vList.ListItems.Add(item1);
+                            vList.ListItems.Add(item2);
+                            vList.ListItems.Add(item3);
+                            vList.ListItems.Add(item4);
+
+                            vList.ListMode = Grasshopper.Kernel.Special.GH_ValueListMode.DropDown; // change this for a different mode (DropDown is the default)
+                            vList.ExpireSolution(true);
+                        }
+                    }
+                }
+            }
         }
 
         /// <summary>
@@ -22,9 +57,10 @@ namespace froGH
         /// </summary>
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
-            pManager.AddIntegerParameter("Path Type", "P", "Path type:\n0 desktop\n1 documents\n2 GH file path\n3 C:\nConnect a value list for automatic list generation", GH_ParamAccess.item);
+            pManager.AddIntegerParameter("Path Type", "P", "Path type:\n0 desktop\n1 documents\n2 GH file path\n3 C:\nConnect a value list for automatic list generation", GH_ParamAccess.item, 0);
             pManager.AddTextParameter("Subdir", "D", "Custom subdirectory - optional", GH_ParamAccess.item);
             
+            pManager[0].Optional = true;
             pManager[1].Optional = true;
         }
 
@@ -48,44 +84,9 @@ namespace froGH
             DA.GetData(0, ref type);
             DA.GetData(1, ref subDir);
 
-            String S = "";
-            String root = "";
-            String end = "\\";
-            String eol = Environment.NewLine;
-
-            // __________________ autoList part __________________
-
-            // variable for the list
-            Grasshopper.Kernel.Special.GH_ValueList vList;
-            // tries to cast input as list
-            try
-            {
-
-                // if the list is not the first parameter then change Input[0] to the corresponding value
-                vList = (Grasshopper.Kernel.Special.GH_ValueList) Params.Input[0].Sources[0];
-
-                if (!vList.NickName.Equals("Path Type"))
-                {
-                    vList.ClearData();
-                    vList.ListItems.Clear();
-                    vList.NickName = "Path Type";
-                    var item1 = new Grasshopper.Kernel.Special.GH_ValueListItem("Desktop", "0");
-                    var item2 = new Grasshopper.Kernel.Special.GH_ValueListItem("Documents", "1");
-                    var item3 = new Grasshopper.Kernel.Special.GH_ValueListItem("GH file path", "2");
-                    var item4 = new Grasshopper.Kernel.Special.GH_ValueListItem("C:", "3");
-                    vList.ListItems.Add(item1);
-                    vList.ListItems.Add(item2);
-                    vList.ListItems.Add(item3);
-                    vList.ListItems.Add(item4);
-
-                    vList.ListItems[0].Value.CastTo(out type);
-                }
-            }
-            catch
-            {
-                // handles anything that is not a value list
-            }
-
+            string S = "";
+            string root = "";
+            string end = "\\";
 
             switch (type)
             {
@@ -98,8 +99,6 @@ namespace froGH
                     S = "Documents";
                     break;
                 case 2:
-                    //GH_Document ghDoc = OnPingDocument();
-
                     GH_Document ghDoc = null;// = Grasshopper.Instances.ActiveCanvas.Document;
                     try
                     {
@@ -111,8 +110,6 @@ namespace froGH
                     }
 
                     Utilities.IsDocumentInCluster(ref ghDoc);
-
-                    //if (ghDoc == null || !ghDoc.IsFilePathDefined) return;
 
                     if (ghDoc.IsFilePathDefined)
                     {

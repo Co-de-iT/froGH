@@ -2,6 +2,7 @@
 using Grasshopper.Kernel;
 using Rhino.Geometry;
 using System;
+using System.Data;
 
 namespace froGH
 {
@@ -21,6 +22,74 @@ namespace froGH
                 "https://discourse.mcneel.com/t/proper-mesh-offset/148952/8",
               "froGH", "Mesh-Create")
         {
+            Params.ParameterSourcesChanged += new GH_ComponentParamServer.ParameterSourcesChangedEventHandler(ParamSourceChanged);
+        }
+
+        // this autolist method is from: https://discourse.mcneel.com/t/automatic-update-of-valuelist-only-when-connected/152879/6?u=ale2x72
+        // works much better as it does not clog the solver with exceptions if a list of numercal values is connected
+        private void ParamSourceChanged(object sender, GH_ParamServerEventArgs e)
+        {
+            string nickName;
+            if ((e.ParameterSide == GH_ParameterSide.Input) && (e.ParameterIndex == 2))
+            {
+                
+                foreach (IGH_Param source in e.Parameter.Sources)
+                {
+                    if (source is Grasshopper.Kernel.Special.GH_ValueList)
+                    {
+                        nickName = "Distance Type";
+                        Grasshopper.Kernel.Special.GH_ValueList distTypeList = source as Grasshopper.Kernel.Special.GH_ValueList;
+
+                        if (!distTypeList.NickName.Equals(nickName))
+                        {
+                            distTypeList.ClearData();
+                            distTypeList.ListItems.Clear();
+                            distTypeList.NickName = nickName;
+                            var item1 = new Grasshopper.Kernel.Special.GH_ValueListItem("Face-Face at least", "0");
+                            var item2 = new Grasshopper.Kernel.Special.GH_ValueListItem("Face-Face at most", "1");
+                            var item3 = new Grasshopper.Kernel.Special.GH_ValueListItem("Face-Face average", "2");
+                            var item4 = new Grasshopper.Kernel.Special.GH_ValueListItem("Vertex-vertex constant", "3");
+
+                            distTypeList.ListItems.Add(item1);
+                            distTypeList.ListItems.Add(item2);
+                            distTypeList.ListItems.Add(item3);
+                            distTypeList.ListItems.Add(item4);
+
+                            distTypeList.ListMode = Grasshopper.Kernel.Special.GH_ValueListMode.DropDown; // change this for a different mode (DropDown is the default)
+                            distTypeList.ExpireSolution(true);
+                        }
+                    }
+                }
+            }
+            if ((e.ParameterSide == GH_ParameterSide.Input) && (e.ParameterIndex == 3))
+            {
+
+                foreach (IGH_Param source in e.Parameter.Sources)
+                {
+                    if (source is Grasshopper.Kernel.Special.GH_ValueList)
+                    {
+                        nickName = "Direction Type";
+                        Grasshopper.Kernel.Special.GH_ValueList dirTypeList = source as Grasshopper.Kernel.Special.GH_ValueList;
+
+                        if (!dirTypeList.NickName.Equals(nickName))
+                        {
+                            dirTypeList.ClearData();
+                            dirTypeList.ListItems.Clear();
+                            dirTypeList.NickName = nickName;
+                            var item1 = new Grasshopper.Kernel.Special.GH_ValueListItem("Average of Face Normals", "0");
+                            var item2 = new Grasshopper.Kernel.Special.GH_ValueListItem("Angle weighted average of Face Normals", "1");
+                            var item3 = new Grasshopper.Kernel.Special.GH_ValueListItem("Angle + area weighted average of Face Normals", "2");
+
+                            dirTypeList.ListItems.Add(item1);
+                            dirTypeList.ListItems.Add(item2);
+                            dirTypeList.ListItems.Add(item3);
+
+                            dirTypeList.ListMode = Grasshopper.Kernel.Special.GH_ValueListMode.DropDown; // change this for a different mode (DropDown is the default)
+                            dirTypeList.ExpireSolution(true);
+                        }
+                    }
+                }
+            }
         }
 
         /// <summary>
@@ -82,73 +151,6 @@ namespace froGH
 
             DA.GetData("Distance Type", ref distType);
             DA.GetData("Direction Type", ref dirType);
-
-            // __________________ distance type autoList __________________
-
-            // variable for the list
-            Grasshopper.Kernel.Special.GH_ValueList distTypeList;
-            // tries to cast input as list
-            string nickName = "Distance Type";
-            try
-            {
-                // if the list is not the first parameter then change Input[0] to the corresponding value
-                distTypeList = (Grasshopper.Kernel.Special.GH_ValueList)Params.Input[2].Sources[0];
-
-                if (!distTypeList.NickName.Equals(nickName))
-                {
-                    distTypeList.ClearData();
-                    distTypeList.ListItems.Clear();
-                    distTypeList.NickName = nickName;
-                    var item1 = new Grasshopper.Kernel.Special.GH_ValueListItem("Face-Face at least", "0");
-                    var item2 = new Grasshopper.Kernel.Special.GH_ValueListItem("Face-Face at most", "1");
-                    var item3 = new Grasshopper.Kernel.Special.GH_ValueListItem("Face-Face average", "2");
-                    var item4 = new Grasshopper.Kernel.Special.GH_ValueListItem("Vertex-vertex constant", "3");
-
-                    distTypeList.ListItems.Add(item1);
-                    distTypeList.ListItems.Add(item2);
-                    distTypeList.ListItems.Add(item3);
-                    distTypeList.ListItems.Add(item4);
-
-                    distTypeList.ListItems[0].Value.CastTo(out distType);
-                }
-            }
-            catch
-            {
-                // handles anything that is not a value list
-            }
-
-            // __________________ direction type autoList __________________
-
-            // variable for the list
-            Grasshopper.Kernel.Special.GH_ValueList dirTypeList;
-            // tries to cast input as list
-            nickName = "Direction Type";
-            try
-            {
-                // if the list is not the first parameter then change Input[0] to the corresponding value
-                dirTypeList = (Grasshopper.Kernel.Special.GH_ValueList)Params.Input[3].Sources[0];
-
-                if (!dirTypeList.NickName.Equals(nickName))
-                {
-                    dirTypeList.ClearData();
-                    dirTypeList.ListItems.Clear();
-                    dirTypeList.NickName = nickName;
-                    var item1 = new Grasshopper.Kernel.Special.GH_ValueListItem("Average of Face Normals", "0");
-                    var item2 = new Grasshopper.Kernel.Special.GH_ValueListItem("Angle weighted average of Face Normals", "1");
-                    var item3 = new Grasshopper.Kernel.Special.GH_ValueListItem("Angle + area weighted average of Face Normals", "2");
-
-                    dirTypeList.ListItems.Add(item1);
-                    dirTypeList.ListItems.Add(item2);
-                    dirTypeList.ListItems.Add(item3);
-
-                    dirTypeList.ListItems[0].Value.CastTo(out dirType);
-                }
-            }
-            catch
-            {
-                // handles anything that is not a value list
-            }
-
 
             Vector3d[] newNormals = new Vector3d[mesh.Vertices.Count];
             Point3d[] vertices = mesh.Vertices.ToPoint3dArray();

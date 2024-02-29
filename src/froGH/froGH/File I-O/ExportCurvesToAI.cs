@@ -33,7 +33,7 @@ namespace froGH
             pManager.AddBooleanParameter("Preserve Units", "PU", "Preserve Units\nTrue to preserve units, False to export a view snapshot scaled to fit", GH_ParamAccess.item, true);
             pManager.AddBooleanParameter("View Bounds", "VB", "Viewport Bounds\nTrue to draw the viewport bounds rectangle", GH_ParamAccess.item, true);
             pManager.AddBooleanParameter("Color Style", "CS", "Color Style option\nTrue for RGB, False for CMYK", GH_ParamAccess.item, true);
-            pManager.AddBooleanParameter("Solid Hatch", "SH", "Solid Hatch option\nTrue to export Htches as solid fills, False to export them as lines", GH_ParamAccess.item, true);
+            pManager.AddBooleanParameter("Solid Hatch", "SH", "Solid Hatch option\nTrue to export Hatches as solid fills, False to export them as lines", GH_ParamAccess.item, true);
             pManager.AddBooleanParameter("Order Layers", "OL", "Order Layers option\nTrue to export Layers in their display order, False to export them by indices", GH_ParamAccess.item, true);
             pManager.AddTextParameter("File Path", "P", "File Path", GH_ParamAccess.item);
             pManager.AddTextParameter("File Name", "F", "File Name", GH_ParamAccess.item);

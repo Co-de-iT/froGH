@@ -753,6 +753,26 @@ namespace froGH.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap OrientOnGrid_2_GH {
+            get {
+                object obj = ResourceManager.GetObject("OrientOnGrid_2_GH", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap OrientOnGrid_GH {
+            get {
+                object obj = ResourceManager.GetObject("OrientOnGrid_GH", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap PathGen_4_GH {
             get {
                 object obj = ResourceManager.GetObject("PathGen_4_GH", resourceCulture);
