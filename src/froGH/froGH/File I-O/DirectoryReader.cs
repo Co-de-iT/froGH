@@ -63,11 +63,13 @@ namespace froGH
             DataTree<string> filesTree = new DataTree<string>();
 
             GH_Path path = new GH_Path(0);
+
             // if depthLevel is 0, add subdirs to the Dir output
-            if(depthLevel == 0) folderTree.AddRange(Directory.GetDirectories(P).Select(s => s.Remove(0, P.Length)).ToList(), path);
+            if(depthLevel == 0) folderTree.AddRange(ReadDirectories(P), path);
             // else add the root dir
             else folderTree.Add(P, path);
 
+            // scan the folder structure
             TreeDirAndFiles(ref folderTree, ref filesTree, path, P, depthLevel);
 
             DA.SetDataTree(0, folderTree);
@@ -76,12 +78,15 @@ namespace froGH
 
         private void TreeDirAndFiles(ref DataTree<string> folderTree, ref DataTree<string> filesTree, GH_Path path, string currentDir, int level)
         {
-            // Add files in current dir
-            List<string> files = Directory.GetFiles(currentDir).Select(s => s.Remove(0, currentDir.Length)).ToList();
+            // Add files in current dir (or an error message for exceptions)
+            bool dirOK = ReadFiles(currentDir, out List<string> files);
             filesTree.AddRange(files, path);
 
+            // if directory caused an exception return
+            if (!dirOK) return;
+
             // check for subdirs
-            List<string> directories = Directory.GetDirectories(currentDir).ToList();
+            List<string> directories = ReadDirectoriesFullPath(currentDir);
 
             // return condition
             if (directories.Count == 0 || (level != -1 && path.Length > level)) return;
@@ -95,6 +100,54 @@ namespace froGH
                 folderTree.Add(dir.Remove(0, currentDir.Length), tPath);
                 TreeDirAndFiles(ref folderTree, ref filesTree, tPath, directories[i] + "\\", level);
             }
+        }
+
+        public bool ReadFiles(string currentDir, out List<string> files)
+        {
+            files = new List<string>();
+
+            try
+            {
+                files = Directory.GetFiles(currentDir).Select(s => s.Remove(0, currentDir.Length)).ToList();
+                return true;
+            }
+            catch(Exception e)
+            {
+                files.Add("cannot read from this directory - " + e.Message);
+                return false;
+            }
+        }
+
+        public List<string> ReadDirectories(string currentDir)
+        {
+            List<string> directories = new List<string>();
+
+            try
+            {
+                directories = Directory.GetDirectories(currentDir).Select(s => s.Remove(0, currentDir.Length)).ToList();
+            }
+            catch (Exception e)
+            {
+                directories.Add("cannot read from this directory - " + e.Message);
+            }
+
+            return directories;
+        }
+
+        public List<string> ReadDirectoriesFullPath(string currentDir)
+        {
+            List<string> directories = new List<string>();
+
+            try
+            {
+                directories = Directory.GetDirectories(currentDir).ToList();
+            }
+            catch (Exception e)
+            {
+                directories.Add("cannot read from this directory - " + e.Message);
+            }
+
+            return directories;
         }
 
         public override void CreateAttributes()
