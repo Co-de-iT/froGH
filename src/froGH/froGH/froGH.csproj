@@ -72,13 +72,19 @@
     <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\Counter.cs" />
     <Compile Include="Data\CreateRTree.cs" />
     <Compile Include="Data\DataTreeGraph.cs" />
     <Compile Include="Data\Froggle.cs" />
     <Compile Include="Data\Froggle_Attributes.cs" />
     <Compile Include="Data\SelectRhinoObjects.cs" />
-    <Compile Include="File I-O\GHFilePathInfo_Attributres.cs" />
+    <Compile Include="Data\L_SelfOrganizingMapComponent.cs" />
+    <Compile Include="Data\SelfOrganizingMapComponent.cs" />
+    <Compile Include="Data\SelfOrganizingMapFileComponent.cs" />
+    <Compile Include="File I-O\DirectoryReader.cs" />
     <Compile Include="File I-O\DirectoryReader_Attributes.cs" />
+    <Compile Include="File I-O\GHFilePathInfo_Attributres.cs" />
+    <Compile Include="File I-O\L_DirectoryReader_Attributes.cs" />
     <Compile Include="Geometry\ClusterByDistance.cs" />
     <Compile Include="Geometry\GetEulerAnglesZYX.cs" />
     <Compile Include="Geometry\GetEulerAnglesZYZ.cs" />
@@ -91,17 +97,21 @@
     <Compile Include="Geometry\OrientOnGrid.cs" />
     <Compile Include="Geometry\TextToGeometry.cs" />
     <Compile Include="Geometry\AdaptiveFillet.cs" />
+    <Compile Include="Geometry\Trilateration.cs" />
     <Compile Include="Mesh-Create\MeshOffsetExtended.cs" />
     <Compile Include="Mesh-Create\SpaceFillingPolyGen_Task.cs" />
     <Compile Include="Mesh\ExtractMeshEdges.cs" />
-    <Compile Include="Mesh\MeshPointInside.cs" />
+    <Compile Include="Mesh\MeshIsPointInside.cs" />
     <Compile Include="Mesh\MeshReport.cs" />
     <Compile Include="Utils\ClosestPointSearchData.cs" />
     <Compile Include="Utils\Polyhedra.cs" />
+    <Compile Include="Utils\SelfOrganizingMap.cs" />
+    <Compile Include="Utils\SOMNode.cs" />
     <Compile Include="Utils\SphereSearchData.cs" />
     <Compile Include="Utils\enumRTreeType.cs" />
     <Compile Include="Utils\GH_froGHRTree.cs" />
     <Compile Include="Utils\Utilities.cs" />
+    <Compile Include="Utils\VectorNd.cs" />
     <Compile Include="View-Display\CameraControlAndZoom.cs" />
     <Compile Include="Data\L_ListDisplayModes.cs" />
     <Compile Include="View-Display\L_CameraControl.cs" />
@@ -114,11 +124,11 @@
     <Compile Include="File I-O\ExportCurvesToAI.cs" />
     <Compile Include="Mesh\ExtractMeshFace.cs" />
     <Compile Include="Mesh-Create\FastMeshFromPolyline.cs" />
-    <Compile Include="Mesh\MC_EdgeProximityMap.cs" />
+    <Compile Include="Mesh\MC_EdgesProximityMap.cs" />
     <Compile Include="Mesh\MC_EdgeProximitySingle.cs" />
-    <Compile Include="Mesh\MC_FaceProximityMap.cs" />
+    <Compile Include="Mesh\MC_FacesProximityMap.cs" />
     <Compile Include="Mesh\MC_FaceProximitySingle.cs" />
-    <Compile Include="Mesh\MC_VertexProximityMap.cs" />
+    <Compile Include="Mesh\MC_VerticesProximityMap.cs" />
     <Compile Include="Mesh\MC_VertexProximitySingle.cs" />
     <Compile Include="Mesh-Create\MeshBridge.cs" />
     <Compile Include="Mesh\MeshClosestVertexIndex.cs" />
@@ -138,6 +148,7 @@
     <Compile Include="Mesh\MeshVerticesToFacesValues.cs" />
     <Compile Include="View-Display\MeshWiresDisplay.cs" />
     <Compile Include="View-Display\NamedViewsToC4D.cs" />
+    <Compile Include="View-Display\NamedViewsToC4D_Attributes.cs" />
     <Compile Include="View-Display\OrientToCamera.cs" />
     <Compile Include="View-Display\PointCloudDisplay.cs" />
     <Compile Include="Mesh-Create\PolylinesMeshLoft.cs" />
@@ -151,7 +162,7 @@
     <Compile Include="Topology\Clusterizer.cs" />
     <Compile Include="Data\DeconstructBlockFromID.cs" />
     <Compile Include="Data\DeconstructDot.cs" />
-    <Compile Include="File I-O\DirectoryReader.cs" />
+    <Compile Include="File I-O\L_DirectoryReader.cs" />
     <Compile Include="Geometry\DivideCurveByTangentAngle.cs" />
     <Compile Include="Data\Double Shift.cs" />
     <Compile Include="Geometry\FrenetSerretFrame.cs" />
@@ -160,7 +171,7 @@
     <Compile Include="Data\L_FontList.cs" />
     <Compile Include="Geometry\H_FontParser_OLD.cs" />
     <Compile Include="froGHComponent.cs" />
-    <Compile Include="froGHInfo.cs" />
+    <Compile Include="Info.cs" />
     <Compile Include="Data\IndexesFromList.cs" />
     <Compile Include="Data\IndexesFromNumber.cs" />
     <Compile Include="Geometry\IsPolylineClockwise.cs" />
@@ -186,7 +197,7 @@
     <Compile Include="Data\SymmetricDomain.cs" />
     <Compile Include="Topology\Topologizer.cs" />
     <Compile Include="Topology\TopologyInverter.cs" />
-    <Compile Include="Geometry\Trilateration.cs" />
+    <Compile Include="Geometry\L_Trilateration.cs" />
     <Compile Include="Geometry\SignedVectorAngle.cs" />
     <Compile Include="View-Display\SlidersDisplay.cs" />
     <Compile Include="View-Display\Turntable.cs" />
@@ -338,9 +349,6 @@
     <None Include="Resources\Symmetric Domain_GH.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Topologizer_GH.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\Topology Inverter_GH.png" />
   </ItemGroup>
   <ItemGroup>
@@ -384,9 +392,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Centered Domain_GH.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Clusterizer_GH.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\control camera_3_GH.png" />
@@ -440,9 +445,6 @@
     <None Include="Resources\fast mesh_GH.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Flapper_GH.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\font list_GH.png" />
   </ItemGroup>
   <ItemGroup>
@@ -455,19 +457,10 @@
     <None Include="Resources\Toggle Autostop_GH.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Turntable_GH.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\Mesh Offset Weighted_GH.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Sliders Display_GH.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\PointsInSphereRTree_GH.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\RTreeClosestPoint_GH.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Create RTree_GH.png" />
@@ -479,25 +472,7 @@
     <None Include="Resources\froGH_GH.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\ClusterizeByDistance_GH.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\SmallestEnclosingCircle_GH.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\ExtractMeshFaces_GH.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\ExtractMeshEdges_GH.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\LPolylineFromPlane_GH.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\TreeGraph_GH.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Froggle_GH.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Rot_ZYX_GH.png" />
@@ -521,9 +496,6 @@
     <None Include="Resources\Trans_2_ZYX_GH.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\ZZ_placeholder_GH.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\Is Polyline Clockwise 2_GH.png" />
   </ItemGroup>
   <ItemGroup>
@@ -533,13 +505,295 @@
     <None Include="Resources\List Display Modes_GH.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\OrientOnGrid_GH.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\OrientOnGrid_3_GH.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\OrientOnGrid_2_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\IndexesFromList_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\IndexesFromNumber_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\IsPolylineClockwise_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LoadFromWeb_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LPolylineFromPlane_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MassBoolean_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MeshBridge_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MeshDenoising_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MeshIsocurves_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MeshIsPointInside_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MeshOffsetExtended_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MeshPseudoCurvature_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MeshRebuildNormals_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MeshReport_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MeshvalFace2Verts_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MeshvalVerts2Face_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NamedViews2C4D_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ObjectLayer_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OrientOnGrid_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OrientToCam_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PathGenerator_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PlaneFromLPolyline_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PointCloudDisplay_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PointsInSphere_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PointsInSphereRTree_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PolylineMeshLoft_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ReduceMesh_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RotationFromEulerAnglesZYX_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RotationFromEulerAnglesZYZ_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RTreeClosestPoint_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SaveAsString_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SaveGHFile_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SelectRhinoObjects_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SequentialTreeBranch_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SignedVectorAngle_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SlidersDisplay_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SmallestEnclosingCircle_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SortPointsAngle_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SpaceFillingPolyhedra_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SubdivideMeshQuadFace_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SurfaceQuadtreeCurvature_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SurfaceQuadtreeCurve_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SurfaceQuadtreeN_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SymmetricDomain_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TextToGeometry_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Topologizer_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TopologyInverter_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TreeGraph_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Trilateration_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Turntable_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Unlooper_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\VertexProximitySingle_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ViewCapture2File_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WeightedRandomChoice_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WeightedSpheresCloudDisplay_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WriteToCOMPort_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AdaptiveFillet_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BakeObjectEx_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CameraControlZoom2Geometry_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CameraReport_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CenteredDomain_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ClusterizeByDistance_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Clusterizer_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Counter_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CreateRTree_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CustomMaterialPreview_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CustomMeshVertexDisplay_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CustomMeshWiresDisplay_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DeconstructBlockFromID_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DeconstructDot_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DirectoryReader_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DivideCurveByTangent_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DoubleShift_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\EdgeProximitySingle_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\EulerAnglesZYX_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\EulerAnglesZYZ_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ExportCurvesToAI_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ExtractEdgesAngle_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ExtractEdgesAngleMultimesh_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ExtractMeshEdges_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ExtractMeshFace_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FaceProximitySingle_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FastMeshFromPolyline_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Flapper_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FrenetSerretFrame_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\froggle_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GHFilenameAndPath_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ReadSTLFiles_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ZZ_placeholder_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ToggleAutostop_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Mesh2CSSnippet_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\VertexProximityMap_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\EdgesProximityMap_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FacesProximityMap_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MeshClosestVertexIndex_GH.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -59,12 +59,12 @@ namespace froGH
             p.RemapToPlaneSpace((Point3d)V1, out p1);
             p.RemapToPlaneSpace((Point3d)V2, out p2);
 
-            A = angSign((Vector3d)p1, (Vector3d)p2);
+            A = AngleWithSign((Vector3d)p1, (Vector3d)p2);
 
             DA.SetData(0, A);
         }
 
-        double angSign(Vector3d v1, Vector3d v2)
+        private double AngleWithSign(Vector3d v1, Vector3d v2)
         {
             v1.Unitize();
             v2.Unitize();
@@ -80,7 +80,7 @@ namespace froGH
             {
                 //You can add image files to your project resources and access them like this:
                 // return Resources.IconForThisComponent;
-                return Resources.vector_angle_sign_4_GH;
+                return Resources.SignedVectorAngle_GH;
             }
         }
 

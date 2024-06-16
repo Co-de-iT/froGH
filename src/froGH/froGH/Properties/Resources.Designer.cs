@@ -73,6 +73,16 @@ namespace froGH.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap AdaptiveFillet_GH {
+            get {
+                object obj = ResourceManager.GetObject("AdaptiveFillet_GH", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Bake_att____3_1_GH {
             get {
                 object obj = ResourceManager.GetObject("Bake_att____3_1_GH", resourceCulture);
@@ -86,6 +96,16 @@ namespace froGH.Properties {
         internal static System.Drawing.Bitmap Bake_att____4_GH {
             get {
                 object obj = ResourceManager.GetObject("Bake_att____4_GH", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap BakeObjectEx_GH {
+            get {
+                object obj = ResourceManager.GetObject("BakeObjectEx_GH", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -113,9 +133,39 @@ namespace froGH.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap CameraControlZoom2Geometry_GH {
+            get {
+                object obj = ResourceManager.GetObject("CameraControlZoom2Geometry_GH", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap CameraReport_GH {
+            get {
+                object obj = ResourceManager.GetObject("CameraReport_GH", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Centered_Domain_GH {
             get {
                 object obj = ResourceManager.GetObject("Centered_Domain_GH", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap CenteredDomain_GH {
+            get {
+                object obj = ResourceManager.GetObject("CenteredDomain_GH", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -153,9 +203,29 @@ namespace froGH.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Counter_GH {
+            get {
+                object obj = ResourceManager.GetObject("Counter_GH", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Create_RTree_GH {
             get {
                 object obj = ResourceManager.GetObject("Create_RTree_GH", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap CreateRTree_GH {
+            get {
+                object obj = ResourceManager.GetObject("CreateRTree_GH", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -223,6 +293,36 @@ namespace froGH.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap CustomMaterialPreview_GH {
+            get {
+                object obj = ResourceManager.GetObject("CustomMaterialPreview_GH", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap CustomMeshVertexDisplay_GH {
+            get {
+                object obj = ResourceManager.GetObject("CustomMeshVertexDisplay_GH", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap CustomMeshWiresDisplay_GH {
+            get {
+                object obj = ResourceManager.GetObject("CustomMeshWiresDisplay_GH", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Deconstruct_Block_from_ID_GH {
             get {
                 object obj = ResourceManager.GetObject("Deconstruct_Block_from_ID_GH", resourceCulture);
@@ -236,6 +336,36 @@ namespace froGH.Properties {
         internal static System.Drawing.Bitmap Deconstruct_Dot_GH {
             get {
                 object obj = ResourceManager.GetObject("Deconstruct_Dot_GH", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap DeconstructBlockFromID_GH {
+            get {
+                object obj = ResourceManager.GetObject("DeconstructBlockFromID_GH", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap DeconstructDot_GH {
+            get {
+                object obj = ResourceManager.GetObject("DeconstructDot_GH", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap DirectoryReader_GH {
+            get {
+                object obj = ResourceManager.GetObject("DirectoryReader_GH", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -263,6 +393,16 @@ namespace froGH.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap DivideCurveByTangent_GH {
+            get {
+                object obj = ResourceManager.GetObject("DivideCurveByTangent_GH", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap double_shift_red_GH {
             get {
                 object obj = ResourceManager.GetObject("double_shift_red_GH", resourceCulture);
@@ -273,9 +413,69 @@ namespace froGH.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap DoubleShift_GH {
+            get {
+                object obj = ResourceManager.GetObject("DoubleShift_GH", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap EdgeProximitySingle_GH {
+            get {
+                object obj = ResourceManager.GetObject("EdgeProximitySingle_GH", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap EdgesProximityMap_GH {
+            get {
+                object obj = ResourceManager.GetObject("EdgesProximityMap_GH", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap EulerAnglesZYX_GH {
+            get {
+                object obj = ResourceManager.GetObject("EulerAnglesZYX_GH", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap EulerAnglesZYZ_GH {
+            get {
+                object obj = ResourceManager.GetObject("EulerAnglesZYZ_GH", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Export_to_AI_GH {
             get {
                 object obj = ResourceManager.GetObject("Export_to_AI_GH", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ExportCurvesToAI_GH {
+            get {
+                object obj = ResourceManager.GetObject("ExportCurvesToAI_GH", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -313,9 +513,39 @@ namespace froGH.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ExtractEdgesAngle_GH {
+            get {
+                object obj = ResourceManager.GetObject("ExtractEdgesAngle_GH", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ExtractEdgesAngleMultimesh_GH {
+            get {
+                object obj = ResourceManager.GetObject("ExtractEdgesAngleMultimesh_GH", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ExtractMeshEdges_GH {
             get {
                 object obj = ResourceManager.GetObject("ExtractMeshEdges_GH", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ExtractMeshFace_GH {
+            get {
+                object obj = ResourceManager.GetObject("ExtractMeshFace_GH", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -343,9 +573,39 @@ namespace froGH.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap FaceProximitySingle_GH {
+            get {
+                object obj = ResourceManager.GetObject("FaceProximitySingle_GH", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap FacesProximityMap_GH {
+            get {
+                object obj = ResourceManager.GetObject("FacesProximityMap_GH", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap fast_mesh_GH {
             get {
                 object obj = ResourceManager.GetObject("fast_mesh_GH", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap FastMeshFromPolyline_GH {
+            get {
+                object obj = ResourceManager.GetObject("FastMeshFromPolyline_GH", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -376,6 +636,16 @@ namespace froGH.Properties {
         internal static System.Drawing.Bitmap font_parser_2_GH {
             get {
                 object obj = ResourceManager.GetObject("font_parser_2_GH", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap FrenetSerretFrame_GH {
+            get {
+                object obj = ResourceManager.GetObject("FrenetSerretFrame_GH", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -433,6 +703,16 @@ namespace froGH.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap GHFilenameAndPath_GH {
+            get {
+                object obj = ResourceManager.GetObject("GHFilenameAndPath_GH", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Indexes_from_List_2_GH {
             get {
                 object obj = ResourceManager.GetObject("Indexes_from_List_2_GH", resourceCulture);
@@ -453,6 +733,26 @@ namespace froGH.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap IndexesFromList_GH {
+            get {
+                object obj = ResourceManager.GetObject("IndexesFromList_GH", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap IndexesFromNumber_GH {
+            get {
+                object obj = ResourceManager.GetObject("IndexesFromNumber_GH", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Is_Polyline_Clockwise_2_GH {
             get {
                 object obj = ResourceManager.GetObject("Is_Polyline_Clockwise_2_GH", resourceCulture);
@@ -466,6 +766,16 @@ namespace froGH.Properties {
         internal static System.Drawing.Bitmap Is_Polyline_Clockwise_GH {
             get {
                 object obj = ResourceManager.GetObject("Is_Polyline_Clockwise_GH", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap IsPolylineClockwise_GH {
+            get {
+                object obj = ResourceManager.GetObject("IsPolylineClockwise_GH", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -513,6 +823,16 @@ namespace froGH.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap LoadFromWeb_GH {
+            get {
+                object obj = ResourceManager.GetObject("LoadFromWeb_GH", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap LPolylineFromPlane_GH {
             get {
                 object obj = ResourceManager.GetObject("LPolylineFromPlane_GH", resourceCulture);
@@ -526,6 +846,16 @@ namespace froGH.Properties {
         internal static System.Drawing.Bitmap MassBool_2_GH {
             get {
                 object obj = ResourceManager.GetObject("MassBool_2_GH", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MassBoolean_GH {
+            get {
+                object obj = ResourceManager.GetObject("MassBoolean_GH", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -723,6 +1053,146 @@ namespace froGH.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Mesh2CSSnippet_GH {
+            get {
+                object obj = ResourceManager.GetObject("Mesh2CSSnippet_GH", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MeshBridge_GH {
+            get {
+                object obj = ResourceManager.GetObject("MeshBridge_GH", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MeshClosestVertexIndex_GH {
+            get {
+                object obj = ResourceManager.GetObject("MeshClosestVertexIndex_GH", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MeshDenoising_GH {
+            get {
+                object obj = ResourceManager.GetObject("MeshDenoising_GH", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MeshIsocurves_GH {
+            get {
+                object obj = ResourceManager.GetObject("MeshIsocurves_GH", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MeshIsPointInside_GH {
+            get {
+                object obj = ResourceManager.GetObject("MeshIsPointInside_GH", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MeshOffsetExtended_GH {
+            get {
+                object obj = ResourceManager.GetObject("MeshOffsetExtended_GH", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MeshPseudoCurvature_GH {
+            get {
+                object obj = ResourceManager.GetObject("MeshPseudoCurvature_GH", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MeshRebuildNormals_GH {
+            get {
+                object obj = ResourceManager.GetObject("MeshRebuildNormals_GH", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MeshReport_GH {
+            get {
+                object obj = ResourceManager.GetObject("MeshReport_GH", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MeshvalFace2Verts_GH {
+            get {
+                object obj = ResourceManager.GetObject("MeshvalFace2Verts_GH", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MeshvalVerts2Face_GH {
+            get {
+                object obj = ResourceManager.GetObject("MeshvalVerts2Face_GH", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap NamedViews2C4D_GH {
+            get {
+                object obj = ResourceManager.GetObject("NamedViews2C4D_GH", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ObjectLayer_GH {
+            get {
+                object obj = ResourceManager.GetObject("ObjectLayer_GH", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ObjLayer_2_GH {
             get {
                 object obj = ResourceManager.GetObject("ObjLayer_2_GH", resourceCulture);
@@ -773,9 +1243,29 @@ namespace froGH.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap OrientToCam_GH {
+            get {
+                object obj = ResourceManager.GetObject("OrientToCam_GH", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap PathGen_4_GH {
             get {
                 object obj = ResourceManager.GetObject("PathGen_4_GH", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PathGenerator_GH {
+            get {
+                object obj = ResourceManager.GetObject("PathGenerator_GH", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -793,6 +1283,26 @@ namespace froGH.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap PlaneFromLPolyline_GH {
+            get {
+                object obj = ResourceManager.GetObject("PlaneFromLPolyline_GH", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PointCloudDisplay_GH {
+            get {
+                object obj = ResourceManager.GetObject("PointCloudDisplay_GH", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Points_within_sphere_GH {
             get {
                 object obj = ResourceManager.GetObject("Points_within_sphere_GH", resourceCulture);
@@ -803,9 +1313,29 @@ namespace froGH.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap PointsInSphere_GH {
+            get {
+                object obj = ResourceManager.GetObject("PointsInSphere_GH", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap PointsInSphereRTree_GH {
             get {
                 object obj = ResourceManager.GetObject("PointsInSphereRTree_GH", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PolylineMeshLoft_GH {
+            get {
+                object obj = ResourceManager.GetObject("PolylineMeshLoft_GH", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -833,9 +1363,49 @@ namespace froGH.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ReadSTLFiles_GH {
+            get {
+                object obj = ResourceManager.GetObject("ReadSTLFiles_GH", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap reduce_Mesh_1_GH {
             get {
                 object obj = ResourceManager.GetObject("reduce_Mesh_1_GH", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ReduceMesh_GH {
+            get {
+                object obj = ResourceManager.GetObject("ReduceMesh_GH", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap RotationFromEulerAnglesZYX_GH {
+            get {
+                object obj = ResourceManager.GetObject("RotationFromEulerAnglesZYX_GH", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap RotationFromEulerAnglesZYZ_GH {
+            get {
+                object obj = ResourceManager.GetObject("RotationFromEulerAnglesZYZ_GH", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -863,9 +1433,39 @@ namespace froGH.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap SaveAsString_GH {
+            get {
+                object obj = ResourceManager.GetObject("SaveAsString_GH", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SaveGHFile_GH {
+            get {
+                object obj = ResourceManager.GetObject("SaveGHFile_GH", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Select_Objects_from_Rhino_GH {
             get {
                 object obj = ResourceManager.GetObject("Select_Objects_from_Rhino_GH", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SelectRhinoObjects_GH {
+            get {
+                object obj = ResourceManager.GetObject("SelectRhinoObjects_GH", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -883,9 +1483,39 @@ namespace froGH.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap SequentialTreeBranch_GH {
+            get {
+                object obj = ResourceManager.GetObject("SequentialTreeBranch_GH", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SignedVectorAngle_GH {
+            get {
+                object obj = ResourceManager.GetObject("SignedVectorAngle_GH", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Sliders_Display_GH {
             get {
                 object obj = ResourceManager.GetObject("Sliders_Display_GH", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SlidersDisplay_GH {
+            get {
+                object obj = ResourceManager.GetObject("SlidersDisplay_GH", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -913,6 +1543,26 @@ namespace froGH.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap SortPointsAngle_GH {
+            get {
+                object obj = ResourceManager.GetObject("SortPointsAngle_GH", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SpaceFillingPolyhedra_GH {
+            get {
+                object obj = ResourceManager.GetObject("SpaceFillingPolyhedra_GH", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap SPFPolyhedra_GH {
             get {
                 object obj = ResourceManager.GetObject("SPFPolyhedra_GH", resourceCulture);
@@ -933,9 +1583,49 @@ namespace froGH.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap SubdivideMeshQuadFace_GH {
+            get {
+                object obj = ResourceManager.GetObject("SubdivideMeshQuadFace_GH", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Surface_Quadtree_1_GH {
             get {
                 object obj = ResourceManager.GetObject("Surface_Quadtree_1_GH", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SurfaceQuadtreeCurvature_GH {
+            get {
+                object obj = ResourceManager.GetObject("SurfaceQuadtreeCurvature_GH", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SurfaceQuadtreeCurve_GH {
+            get {
+                object obj = ResourceManager.GetObject("SurfaceQuadtreeCurve_GH", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SurfaceQuadtreeN_GH {
+            get {
+                object obj = ResourceManager.GetObject("SurfaceQuadtreeN_GH", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -953,9 +1643,39 @@ namespace froGH.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap SymmetricDomain_GH {
+            get {
+                object obj = ResourceManager.GetObject("SymmetricDomain_GH", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap TextToGeometry_GH {
+            get {
+                object obj = ResourceManager.GetObject("TextToGeometry_GH", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Toggle_Autostop_GH {
             get {
                 object obj = ResourceManager.GetObject("Toggle_Autostop_GH", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ToggleAutostop_GH {
+            get {
+                object obj = ResourceManager.GetObject("ToggleAutostop_GH", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -976,6 +1696,16 @@ namespace froGH.Properties {
         internal static System.Drawing.Bitmap Topology_Inverter_GH {
             get {
                 object obj = ResourceManager.GetObject("Topology_Inverter_GH", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap TopologyInverter_GH {
+            get {
+                object obj = ResourceManager.GetObject("TopologyInverter_GH", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1023,9 +1753,29 @@ namespace froGH.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Trilateration_GH {
+            get {
+                object obj = ResourceManager.GetObject("Trilateration_GH", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Turntable_GH {
             get {
                 object obj = ResourceManager.GetObject("Turntable_GH", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Unlooper_GH {
+            get {
+                object obj = ResourceManager.GetObject("Unlooper_GH", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1063,9 +1813,39 @@ namespace froGH.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap VertexProximityMap_GH {
+            get {
+                object obj = ResourceManager.GetObject("VertexProximityMap_GH", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap VertexProximitySingle_GH {
+            get {
+                object obj = ResourceManager.GetObject("VertexProximitySingle_GH", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap View_Capture_to_File_2_GH {
             get {
                 object obj = ResourceManager.GetObject("View_Capture_to_File_2_GH", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ViewCapture2File_GH {
+            get {
+                object obj = ResourceManager.GetObject("ViewCapture2File_GH", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1083,9 +1863,39 @@ namespace froGH.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap WeightedRandomChoice_GH {
+            get {
+                object obj = ResourceManager.GetObject("WeightedRandomChoice_GH", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap WeightedSpheresCloudDisplay_GH {
+            get {
+                object obj = ResourceManager.GetObject("WeightedSpheresCloudDisplay_GH", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Write_to_COM_port_GH {
             get {
                 object obj = ResourceManager.GetObject("Write_to_COM_port_GH", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap WriteToCOMPort_GH {
+            get {
+                object obj = ResourceManager.GetObject("WriteToCOMPort_GH", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

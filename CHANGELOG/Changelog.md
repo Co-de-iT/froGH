@@ -4,6 +4,27 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
+### Added
+### Changed
+### Deprecated
+### Removed
+### Fixed
+
+---
+## [2.2.11]
+### Added
+- _**Counter**_ component: good, old-fashione counter, attach a trigger and start counting. Not sure why I haven't added this earlier, since I'm using it more times than i can coun... oh, wait
+### Changed
+- _**ICONS**_ got some overdue love! They were improved for a better readability and understanding of each component's purpose, consolidating the color scheme and overall visual consistency
+- _**Directory Reader**_ component: implemented a recursive search behavior to search subfolders, with a parameter for the search depth level
+- _**Trilateration**_ component: inputs are now 3 spheres (instead of 3 points + 3 radiuses), easing the workload on the user
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
 ---
 ## [2.2.10]
 ### Added

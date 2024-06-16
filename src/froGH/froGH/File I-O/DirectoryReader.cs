@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using froGH.Properties;
+using Grasshopper;
 using Grasshopper.Kernel;
+using Grasshopper.Kernel.Data;
 
 namespace froGH
 {
@@ -25,6 +27,9 @@ namespace froGH
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
             pManager.AddTextParameter("Directory Path", "P", "Path to the directory to read", GH_ParamAccess.item);
+            pManager.AddIntegerParameter("Depth Level", "D", "Depth level for search\n0 for current Directory only, -1 for full recursive search", GH_ParamAccess.item, 0);
+
+            pManager[1].Optional = true;
         }
 
         /// <summary>
@@ -32,8 +37,8 @@ namespace froGH
         /// </summary>
         protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)
         {
-            pManager.AddTextParameter("File list", "F", "List of files in the directory", GH_ParamAccess.list);
-            pManager.AddTextParameter("Subdir list", "D", "List of subdirs in the directory", GH_ParamAccess.list);
+            pManager.AddTextParameter("Subdirectories", "D", "Directory tree", GH_ParamAccess.tree);
+            pManager.AddTextParameter("Files", "F", "Files tree", GH_ParamAccess.tree);
         }
 
         /// <summary>
@@ -42,22 +47,54 @@ namespace froGH
         /// <param name="DA">The DA object is used to retrieve from inputs and store in outputs.</param>
         protected override void SolveInstance(IGH_DataAccess DA)
         {
-            string D = null;
-            if (!DA.GetData(0, ref D)) return;
+            string P = null;
+            if (!DA.GetData(0, ref P)) return;
 
-            if (!Directory.Exists(D))
+            if (!Directory.Exists(P))
                 AddRuntimeMessage(GH_RuntimeMessageLevel.Error, "Directory does not exist");
 
+            int depthLevel = 0;
+            DA.GetData(1, ref depthLevel);
+
             // if missing, add the last \ character
-            if (D[D.Length - 1] != '\\') D += '\\';
+            if (P[P.Length - 1] != '\\') P += '\\';
 
-            List<string> F, S;
+            DataTree<string> folderTree = new DataTree<string>();
+            DataTree<string> filesTree = new DataTree<string>();
 
-            F = Directory.GetFiles(D).Select(s => s.Remove(0, D.Length)).ToList();
-            S = Directory.GetDirectories(D).Select(s => s.Remove(0, D.Length)).ToList();
+            GH_Path path = new GH_Path(0);
+            // if depthLevel is 0, add subdirs to the Dir output
+            if(depthLevel == 0) folderTree.AddRange(Directory.GetDirectories(P).Select(s => s.Remove(0, P.Length)).ToList(), path);
+            // else add the root dir
+            else folderTree.Add(P, path);
 
-            DA.SetDataList(0, F);
-            DA.SetDataList(1, S);
+            TreeDirAndFiles(ref folderTree, ref filesTree, path, P, depthLevel);
+
+            DA.SetDataTree(0, folderTree);
+            DA.SetDataTree(1, filesTree);
+        }
+
+        private void TreeDirAndFiles(ref DataTree<string> folderTree, ref DataTree<string> filesTree, GH_Path path, string currentDir, int level)
+        {
+            // Add files in current dir
+            List<string> files = Directory.GetFiles(currentDir).Select(s => s.Remove(0, currentDir.Length)).ToList();
+            filesTree.AddRange(files, path);
+
+            // check for subdirs
+            List<string> directories = Directory.GetDirectories(currentDir).ToList();
+
+            // return condition
+            if (directories.Count == 0 || (level != -1 && path.Length > level)) return;
+
+            GH_Path tPath;
+            for (int i = 0; i < directories.Count; i++)
+            {
+                tPath = path.AppendElement(i);
+                string dir = directories[i];
+
+                folderTree.Add(dir.Remove(0, currentDir.Length), tPath);
+                TreeDirAndFiles(ref folderTree, ref filesTree, tPath, directories[i] + "\\", level);
+            }
         }
 
         public override void CreateAttributes()
@@ -83,7 +120,7 @@ namespace froGH
             {
                 //You can add image files to your project resources and access them like this:
                 // return Resources.IconForThisComponent;
-                return Resources.Read_Dir_GH;
+                return Resources.DirectoryReader_GH;
             }
         }
 
@@ -92,7 +129,7 @@ namespace froGH
         /// </summary>
         public override Guid ComponentGuid
         {
-            get { return new Guid("fd1b969f-7ec2-4609-99e7-936dcc995997"); }
+            get { return new Guid("6B316165-8448-41DF-A7D7-BC2A5EC77116"); }
         }
     }
 }

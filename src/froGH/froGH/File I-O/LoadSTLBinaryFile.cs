@@ -24,7 +24,7 @@ namespace froGH
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
             pManager.AddTextParameter("File Path", "F", "Path to the STL file to read", GH_ParamAccess.item);
-            pManager.AddNumberParameter("Weld Angle", "Wa", "Adjacent faces with angle below this threshold will be welded\nleave empty for maximum welding", GH_ParamAccess.item, Math.PI);
+            pManager.AddNumberParameter("Weld Angle", "W", "Adjacent faces with angle below this threshold will be welded\nleave empty for maximum welding (180°)", GH_ParamAccess.item, Math.PI);
             pManager[1].Optional = true;
         }
 
@@ -122,7 +122,7 @@ namespace froGH
             {
                 //You can add image files to your project resources and access them like this:
                 // return Resources.IconForThisComponent;
-                return Resources.load_binary_STL_GH;
+                return Resources.ReadSTLFiles_GH;
             }
         }
 

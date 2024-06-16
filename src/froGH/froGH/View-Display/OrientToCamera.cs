@@ -65,7 +65,7 @@ namespace froGH
             {
                 //You can add image files to your project resources and access them like this:
                 // return Resources.IconForThisComponent;
-                return Resources.Orient_to_Cam_3_GH;
+                return Resources.OrientToCam_GH;
             }
         }
 

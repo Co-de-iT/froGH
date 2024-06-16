@@ -1,4 +1,6 @@
-﻿using Grasshopper.Kernel;
+﻿using Grasshopper;
+using Grasshopper.Kernel;
+using Grasshopper.Kernel.Data;
 using Rhino;
 using Rhino.Geometry;
 using System.Collections.Generic;
@@ -9,13 +11,13 @@ namespace froGH.Utils
     public static class Utilities
     {
         //LUTs for sin and cos operations
-        static double[] cos = new double[]{
+        static readonly double[] cos = new double[]{
         1, 0.980785, 0.92388, 0.83147, 0.707107, 0.55557, 0.382683, 0.19509,
         0, -0.19509, -0.382683, -0.55557, -0.707107, -0.83147, -0.92388, -0.980785,
         -1, -0.980785, -0.92388, -0.83147, -0.707107, -0.55557, -0.382683, -0.19509,
          0,  0.19509, 0.382683, 0.55557, 0.707107, 0.83147, 0.92388, 0.980785, 1};
 
-        static double[] sin = new double[] {
+        static readonly double[] sin = new double[] {
         0, 0.19509, 0.382683, 0.55557, 0.707107, 0.83147, 0.92388, 0.980785,
         1, 0.980785, 0.92388, 0.83147, 0.707107, 0.55557, 0.382683, 0.19509,
         0, -0.19509, -0.382683, -0.55557, -0.707107, -0.83147, -0.92388, -0.980785,
@@ -179,6 +181,62 @@ namespace froGH.Utils
             }
 
             return isInCluster;
+        }
+
+        public static T[][] ToJaggedArray<T>(DataTree<T> values)
+        {
+            T[][] valuesArray = new T[values.BranchCount][];
+
+            T[] valArray;
+            for (int i = 0; i < values.BranchCount; i++)
+            {
+                valArray = new T[values.Branches[i].Count];
+
+                for (int j = 0; j < values.Branches[i].Count; j++)
+                {
+                    valArray[j] = values.Branches[i][j];
+                }
+                valuesArray[i] = valArray;
+            }
+            return valuesArray;
+        }
+
+        public static DataTree<T> ToDataTree<T>(List<T>[] values)
+        {
+            DataTree<T> valuesTree = new DataTree<T>();
+            for (int i = 0; i < values.Length; i++)
+                valuesTree.AddRange(values[i], new GH_Path(i));
+
+            return valuesTree;
+        }
+
+        public static DataTree<T> ToDataTree<T>(T[][] values)
+        {
+            DataTree<T> valuesTree = new DataTree<T>();
+            for (int i = 0; i < values.Length; i++)
+                    valuesTree.AddRange(values[i], new GH_Path(i));
+
+            return valuesTree;
+        }
+
+        public static DataTree<T> ToDataTree<T>(List<T>[][] values)
+        {
+            DataTree<T> valuesTree = new DataTree<T>();
+            for (int i = 0; i < values.Length; i++)
+                for (int j = 0; j < values[i].Length; j++)
+                    valuesTree.AddRange(values[i][j], new GH_Path(i, j));
+
+            return valuesTree;
+        }
+
+        public static DataTree<T> ToDataTree<T>(T[][][] values)
+        {
+            DataTree<T> valuesTree = new DataTree<T>();
+            for (int i = 0; i < values.Length; i++)
+                for (int j = 0; j < values[i].Length; j++)
+                    valuesTree.AddRange(values[i][j], new GH_Path(i, j));
+
+            return valuesTree;
         }
     }
 }

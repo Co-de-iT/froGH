@@ -3,36 +3,68 @@
   "WorkspaceRootPath": "C:\\Users\\aless\\Documents\\_code\\GH code\\@ froGH\\froGH\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{7627BBBE-1D08-4500-8927-73020C842CEF}|froGH\\froGH.csproj|c:\\users\\aless\\documents\\_code\\gh code\\@ frogh\\frogh\\frogh\\data\\froggle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7627BBBE-1D08-4500-8927-73020C842CEF}|froGH\\froGH.csproj|solutionrelative:frogh\\data\\froggle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7627BBBE-1D08-4500-8927-73020C842CEF}|froGH\\froGH.csproj|c:\\users\\aless\\documents\\_code\\gh code\\@ frogh\\frogh\\frogh\\info.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7627BBBE-1D08-4500-8927-73020C842CEF}|froGH\\froGH.csproj|solutionrelative:frogh\\info.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7627BBBE-1D08-4500-8927-73020C842CEF}|froGH\\froGH.csproj|c:\\users\\aless\\documents\\_code\\gh code\\@ frogh\\frogh\\frogh\\view-display\\viewcapturetofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7627BBBE-1D08-4500-8927-73020C842CEF}|froGH\\froGH.csproj|solutionrelative:frogh\\view-display\\viewcapturetofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7627BBBE-1D08-4500-8927-73020C842CEF}|froGH\\froGH.csproj|c:\\users\\aless\\documents\\_code\\gh code\\@ frogh\\frogh\\frogh\\file i-o\\directoryreader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7627BBBE-1D08-4500-8927-73020C842CEF}|froGH\\froGH.csproj|solutionrelative:frogh\\file i-o\\directoryreader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7627BBBE-1D08-4500-8927-73020C842CEF}|froGH\\froGH.csproj|c:\\users\\aless\\documents\\_code\\gh code\\@ frogh\\frogh\\frogh\\view-display\\cameracontrolandzoom.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7627BBBE-1D08-4500-8927-73020C842CEF}|froGH\\froGH.csproj|solutionrelative:frogh\\view-display\\cameracontrolandzoom.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7627BBBE-1D08-4500-8927-73020C842CEF}|froGH\\froGH.csproj|c:\\users\\aless\\documents\\_code\\gh code\\@ frogh\\frogh\\frogh\\view-display\\weightedspheresdisplay.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7627BBBE-1D08-4500-8927-73020C842CEF}|froGH\\froGH.csproj|solutionrelative:frogh\\view-display\\weightedspheresdisplay.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7627BBBE-1D08-4500-8927-73020C842CEF}|froGH\\froGH.csproj|c:\\users\\aless\\documents\\_code\\gh code\\@ frogh\\frogh\\frogh\\utils\\polyhedra.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7627BBBE-1D08-4500-8927-73020C842CEF}|froGH\\froGH.csproj|solutionrelative:frogh\\utils\\polyhedra.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7627BBBE-1D08-4500-8927-73020C842CEF}|froGH\\froGH.csproj|c:\\users\\aless\\documents\\_code\\gh code\\@ frogh\\frogh\\frogh\\mesh-create\\spacefillingpolygen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7627BBBE-1D08-4500-8927-73020C842CEF}|froGH\\froGH.csproj|solutionrelative:frogh\\mesh-create\\spacefillingpolygen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7627BBBE-1D08-4500-8927-73020C842CEF}|froGH\\froGH.csproj|c:\\users\\aless\\documents\\_code\\gh code\\@ frogh\\frogh\\frogh\\properties\\assemblyinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{7627BBBE-1D08-4500-8927-73020C842CEF}|froGH\\froGH.csproj|C:\\Users\\aless\\Documents\\_code\\GH code\\@ froGH\\froGH\\frogh\\properties\\assemblyinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7627BBBE-1D08-4500-8927-73020C842CEF}|froGH\\froGH.csproj|solutionrelative:frogh\\properties\\assemblyinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7627BBBE-1D08-4500-8927-73020C842CEF}|froGH\\froGH.csproj|c:\\users\\aless\\documents\\_code\\gh code\\@ frogh\\frogh\\frogh\\geometry\\texttogeometry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7627BBBE-1D08-4500-8927-73020C842CEF}|froGH\\froGH.csproj|solutionrelative:frogh\\geometry\\texttogeometry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7627BBBE-1D08-4500-8927-73020C842CEF}|froGH\\froGH.csproj|C:\\Users\\aless\\Documents\\_code\\GH code\\@ froGH\\froGH\\frogh\\view-display\\custommaterial.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7627BBBE-1D08-4500-8927-73020C842CEF}|froGH\\froGH.csproj|solutionrelative:frogh\\view-display\\custommaterial.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7627BBBE-1D08-4500-8927-73020C842CEF}|froGH\\froGH.csproj|C:\\Users\\aless\\Documents\\_code\\GH code\\@ froGH\\froGH\\frogh\\view-display\\turntable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7627BBBE-1D08-4500-8927-73020C842CEF}|froGH\\froGH.csproj|solutionrelative:frogh\\view-display\\turntable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7627BBBE-1D08-4500-8927-73020C842CEF}|froGH\\froGH.csproj|C:\\Users\\aless\\Documents\\_code\\GH code\\@ froGH\\froGH\\frogh\\view-display\\weightedspheresdisplay.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7627BBBE-1D08-4500-8927-73020C842CEF}|froGH\\froGH.csproj|solutionrelative:frogh\\view-display\\weightedspheresdisplay.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7627BBBE-1D08-4500-8927-73020C842CEF}|froGH\\froGH.csproj|C:\\Users\\aless\\Documents\\_code\\GH code\\@ froGH\\froGH\\frogh\\view-display\\viewcapturetofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7627BBBE-1D08-4500-8927-73020C842CEF}|froGH\\froGH.csproj|solutionrelative:frogh\\view-display\\viewcapturetofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7627BBBE-1D08-4500-8927-73020C842CEF}|froGH\\froGH.csproj|C:\\Users\\aless\\Documents\\_code\\GH code\\@ froGH\\froGH\\frogh\\view-display\\slidersdisplay.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7627BBBE-1D08-4500-8927-73020C842CEF}|froGH\\froGH.csproj|solutionrelative:frogh\\view-display\\slidersdisplay.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7627BBBE-1D08-4500-8927-73020C842CEF}|froGH\\froGH.csproj|C:\\Users\\aless\\Documents\\_code\\GH code\\@ froGH\\froGH\\frogh\\view-display\\pointclouddisplay.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7627BBBE-1D08-4500-8927-73020C842CEF}|froGH\\froGH.csproj|solutionrelative:frogh\\view-display\\pointclouddisplay.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7627BBBE-1D08-4500-8927-73020C842CEF}|froGH\\froGH.csproj|C:\\Users\\aless\\Documents\\_code\\GH code\\@ froGH\\froGH\\frogh\\view-display\\orienttocamera.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7627BBBE-1D08-4500-8927-73020C842CEF}|froGH\\froGH.csproj|solutionrelative:frogh\\view-display\\orienttocamera.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7627BBBE-1D08-4500-8927-73020C842CEF}|froGH\\froGH.csproj|C:\\Users\\aless\\Documents\\_code\\GH code\\@ froGH\\froGH\\frogh\\view-display\\namedviewstoc4d.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7627BBBE-1D08-4500-8927-73020C842CEF}|froGH\\froGH.csproj|solutionrelative:frogh\\view-display\\namedviewstoc4d.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7627BBBE-1D08-4500-8927-73020C842CEF}|froGH\\froGH.csproj|C:\\Users\\aless\\Documents\\_code\\GH code\\@ froGH\\froGH\\frogh\\view-display\\meshwiresdisplay.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7627BBBE-1D08-4500-8927-73020C842CEF}|froGH\\froGH.csproj|solutionrelative:frogh\\view-display\\meshwiresdisplay.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7627BBBE-1D08-4500-8927-73020C842CEF}|froGH\\froGH.csproj|C:\\Users\\aless\\Documents\\_code\\GH code\\@ froGH\\froGH\\frogh\\view-display\\custommeshverticesdisplay.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7627BBBE-1D08-4500-8927-73020C842CEF}|froGH\\froGH.csproj|solutionrelative:frogh\\view-display\\custommeshverticesdisplay.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7627BBBE-1D08-4500-8927-73020C842CEF}|froGH\\froGH.csproj|C:\\Users\\aless\\Documents\\_code\\GH code\\@ froGH\\froGH\\frogh\\view-display\\camerareport.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7627BBBE-1D08-4500-8927-73020C842CEF}|froGH\\froGH.csproj|solutionrelative:frogh\\view-display\\camerareport.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7627BBBE-1D08-4500-8927-73020C842CEF}|froGH\\froGH.csproj|C:\\Users\\aless\\Documents\\_code\\GH code\\@ froGH\\froGH\\frogh\\view-display\\cameracontrolandzoom.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7627BBBE-1D08-4500-8927-73020C842CEF}|froGH\\froGH.csproj|solutionrelative:frogh\\view-display\\cameracontrolandzoom.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7627BBBE-1D08-4500-8927-73020C842CEF}|froGH\\froGH.csproj|C:\\Users\\aless\\Documents\\_code\\GH code\\@ froGH\\froGH\\frogh\\topology\\topologyinverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7627BBBE-1D08-4500-8927-73020C842CEF}|froGH\\froGH.csproj|solutionrelative:frogh\\topology\\topologyinverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -41,7 +73,7 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 466,
+          "DockedWidth": 460,
           "SelectedChildIndex": 1,
           "Children": [
             {
@@ -51,105 +83,201 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Froggle.cs",
-              "DocumentMoniker": "C:\\Users\\aless\\Documents\\_code\\GH code\\@ froGH\\froGH\\froGH\\Data\\Froggle.cs",
-              "RelativeDocumentMoniker": "froGH\\Data\\Froggle.cs",
-              "ToolTip": "C:\\Users\\aless\\Documents\\_code\\GH code\\@ froGH\\froGH\\froGH\\Data\\Froggle.cs",
-              "RelativeToolTip": "froGH\\Data\\Froggle.cs",
-              "ViewState": "AQIAACcAAAAAAAAAAAAAADEAAAAhAAAA",
+              "Title": "Info.cs",
+              "DocumentMoniker": "C:\\Users\\aless\\Documents\\_code\\GH code\\@ froGH\\froGH\\froGH\\Info.cs",
+              "RelativeDocumentMoniker": "froGH\\Info.cs",
+              "ToolTip": "C:\\Users\\aless\\Documents\\_code\\GH code\\@ froGH\\froGH\\froGH\\Info.cs",
+              "RelativeToolTip": "froGH\\Info.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-29T14:42:29.22Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ViewCaptureToFile.cs",
-              "DocumentMoniker": "C:\\Users\\aless\\Documents\\_code\\GH code\\@ froGH\\froGH\\froGH\\View-Display\\ViewCaptureToFile.cs",
-              "RelativeDocumentMoniker": "froGH\\View-Display\\ViewCaptureToFile.cs",
-              "ToolTip": "C:\\Users\\aless\\Documents\\_code\\GH code\\@ froGH\\froGH\\froGH\\View-Display\\ViewCaptureToFile.cs",
-              "RelativeToolTip": "froGH\\View-Display\\ViewCaptureToFile.cs",
-              "ViewState": "AQIAAH0AAAAAAAAAAAAUwAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-29T14:34:20.392Z",
+              "WhenOpened": "2024-06-16T13:22:36.128Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "CameraControlAndZoom.cs",
-              "DocumentMoniker": "C:\\Users\\aless\\Documents\\_code\\GH code\\@ froGH\\froGH\\froGH\\View-Display\\CameraControlAndZoom.cs",
-              "RelativeDocumentMoniker": "froGH\\View-Display\\CameraControlAndZoom.cs",
-              "ToolTip": "C:\\Users\\aless\\Documents\\_code\\GH code\\@ froGH\\froGH\\froGH\\View-Display\\CameraControlAndZoom.cs",
-              "RelativeToolTip": "froGH\\View-Display\\CameraControlAndZoom.cs",
-              "ViewState": "AQIAAEIAAAAAAAAAAAAAACkAAABxAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-29T14:31:59.857Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "WeightedSpheresDisplay.cs",
-              "DocumentMoniker": "C:\\Users\\aless\\Documents\\_code\\GH code\\@ froGH\\froGH\\froGH\\View-Display\\WeightedSpheresDisplay.cs",
-              "RelativeDocumentMoniker": "froGH\\View-Display\\WeightedSpheresDisplay.cs",
-              "ToolTip": "C:\\Users\\aless\\Documents\\_code\\GH code\\@ froGH\\froGH\\froGH\\View-Display\\WeightedSpheresDisplay.cs",
-              "RelativeToolTip": "froGH\\View-Display\\WeightedSpheresDisplay.cs",
-              "ViewState": "AQIAADAAAAAAAAAAAAAAABIAAAAaAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-29T12:09:57.063Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Polyhedra.cs",
-              "DocumentMoniker": "C:\\Users\\aless\\Documents\\_code\\GH code\\@ froGH\\froGH\\froGH\\Utils\\Polyhedra.cs",
-              "RelativeDocumentMoniker": "froGH\\Utils\\Polyhedra.cs",
-              "ToolTip": "C:\\Users\\aless\\Documents\\_code\\GH code\\@ froGH\\froGH\\froGH\\Utils\\Polyhedra.cs",
-              "RelativeToolTip": "froGH\\Utils\\Polyhedra.cs",
-              "ViewState": "AQIAAE8AAAAAAAAAAAAewGQAAAAhAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-29T11:06:34.23Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "SpaceFillingPolyGen.cs",
-              "DocumentMoniker": "C:\\Users\\aless\\Documents\\_code\\GH code\\@ froGH\\froGH\\froGH\\Mesh-Create\\SpaceFillingPolyGen.cs",
-              "RelativeDocumentMoniker": "froGH\\Mesh-Create\\SpaceFillingPolyGen.cs",
-              "ToolTip": "C:\\Users\\aless\\Documents\\_code\\GH code\\@ froGH\\froGH\\froGH\\Mesh-Create\\SpaceFillingPolyGen.cs",
-              "RelativeToolTip": "froGH\\Mesh-Create\\SpaceFillingPolyGen.cs",
-              "ViewState": "AQIAAEQAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-29T11:05:36.091Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
               "Title": "AssemblyInfo.cs",
               "DocumentMoniker": "C:\\Users\\aless\\Documents\\_code\\GH code\\@ froGH\\froGH\\froGH\\Properties\\AssemblyInfo.cs",
               "RelativeDocumentMoniker": "froGH\\Properties\\AssemblyInfo.cs",
               "ToolTip": "C:\\Users\\aless\\Documents\\_code\\GH code\\@ froGH\\froGH\\froGH\\Properties\\AssemblyInfo.cs",
               "RelativeToolTip": "froGH\\Properties\\AssemblyInfo.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAACIAAAAsAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAYAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-29T10:59:07.519Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-16T13:22:25.441Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Turntable.cs",
+              "DocumentMoniker": "C:\\Users\\aless\\Documents\\_code\\GH code\\@ froGH\\froGH\\froGH\\View-Display\\Turntable.cs",
+              "RelativeDocumentMoniker": "froGH\\View-Display\\Turntable.cs",
+              "ToolTip": "C:\\Users\\aless\\Documents\\_code\\GH code\\@ froGH\\froGH\\froGH\\View-Display\\Turntable.cs",
+              "RelativeToolTip": "froGH\\View-Display\\Turntable.cs",
+              "ViewState": "AQIAABkAAAAAAAAAAAAkwCwAAAAWAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-16T09:31:16.019Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 7,
-              "Title": "TextToGeometry.cs",
-              "DocumentMoniker": "C:\\Users\\aless\\Documents\\_code\\GH code\\@ froGH\\froGH\\froGH\\Geometry\\TextToGeometry.cs",
-              "RelativeDocumentMoniker": "froGH\\Geometry\\TextToGeometry.cs",
-              "ToolTip": "C:\\Users\\aless\\Documents\\_code\\GH code\\@ froGH\\froGH\\froGH\\Geometry\\TextToGeometry.cs",
-              "RelativeToolTip": "froGH\\Geometry\\TextToGeometry.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAiAAAA",
+              "Title": "SlidersDisplay.cs",
+              "DocumentMoniker": "C:\\Users\\aless\\Documents\\_code\\GH code\\@ froGH\\froGH\\froGH\\View-Display\\SlidersDisplay.cs",
+              "RelativeDocumentMoniker": "froGH\\View-Display\\SlidersDisplay.cs",
+              "ToolTip": "C:\\Users\\aless\\Documents\\_code\\GH code\\@ froGH\\froGH\\froGH\\View-Display\\SlidersDisplay.cs",
+              "RelativeToolTip": "froGH\\View-Display\\SlidersDisplay.cs",
+              "ViewState": "AQIAAAsBAAAAAAAAAAAAABQBAAAoAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-29T09:46:20.896Z",
+              "WhenOpened": "2024-06-16T09:31:07.791Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "PointCloudDisplay.cs",
+              "DocumentMoniker": "C:\\Users\\aless\\Documents\\_code\\GH code\\@ froGH\\froGH\\froGH\\View-Display\\PointCloudDisplay.cs",
+              "RelativeDocumentMoniker": "froGH\\View-Display\\PointCloudDisplay.cs",
+              "ToolTip": "C:\\Users\\aless\\Documents\\_code\\GH code\\@ froGH\\froGH\\froGH\\View-Display\\PointCloudDisplay.cs",
+              "RelativeToolTip": "froGH\\View-Display\\PointCloudDisplay.cs",
+              "ViewState": "AQIAAGkAAAAAAAAAAAAAAHoAAAA2AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-16T09:30:51.659Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "OrientToCamera.cs",
+              "DocumentMoniker": "C:\\Users\\aless\\Documents\\_code\\GH code\\@ froGH\\froGH\\froGH\\View-Display\\OrientToCamera.cs",
+              "RelativeDocumentMoniker": "froGH\\View-Display\\OrientToCamera.cs",
+              "ToolTip": "C:\\Users\\aless\\Documents\\_code\\GH code\\@ froGH\\froGH\\froGH\\View-Display\\OrientToCamera.cs",
+              "RelativeToolTip": "froGH\\View-Display\\OrientToCamera.cs",
+              "ViewState": "AQIAADYAAAAAAAAAAAAAAEMAAAAwAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-16T09:30:37.016Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "NamedViewsToC4D.cs",
+              "DocumentMoniker": "C:\\Users\\aless\\Documents\\_code\\GH code\\@ froGH\\froGH\\froGH\\View-Display\\NamedViewsToC4D.cs",
+              "RelativeDocumentMoniker": "froGH\\View-Display\\NamedViewsToC4D.cs",
+              "ToolTip": "C:\\Users\\aless\\Documents\\_code\\GH code\\@ froGH\\froGH\\froGH\\View-Display\\NamedViewsToC4D.cs",
+              "RelativeToolTip": "froGH\\View-Display\\NamedViewsToC4D.cs",
+              "ViewState": "AQIAAGQAAAAAAAAAAAAzwIAAAAAzAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-16T09:28:23.835Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "CustomMaterial.cs",
+              "DocumentMoniker": "C:\\Users\\aless\\Documents\\_code\\GH code\\@ froGH\\froGH\\froGH\\View-Display\\CustomMaterial.cs",
+              "RelativeDocumentMoniker": "froGH\\View-Display\\CustomMaterial.cs",
+              "ToolTip": "C:\\Users\\aless\\Documents\\_code\\GH code\\@ froGH\\froGH\\froGH\\View-Display\\CustomMaterial.cs",
+              "RelativeToolTip": "froGH\\View-Display\\CustomMaterial.cs",
+              "ViewState": "AQIAAGkAAAAAAAAAAAAAAIMAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-16T09:27:26.052Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ViewCaptureToFile.cs",
+              "DocumentMoniker": "C:\\Users\\aless\\Documents\\_code\\GH code\\@ froGH\\froGH\\froGH\\View-Display\\ViewCaptureToFile.cs",
+              "RelativeDocumentMoniker": "froGH\\View-Display\\ViewCaptureToFile.cs",
+              "ToolTip": "C:\\Users\\aless\\Documents\\_code\\GH code\\@ froGH\\froGH\\froGH\\View-Display\\ViewCaptureToFile.cs",
+              "RelativeToolTip": "froGH\\View-Display\\ViewCaptureToFile.cs",
+              "ViewState": "AQIAALcAAAAAAAAAAAAAAL0AAAA1AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-16T09:31:22.629Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "WeightedSpheresDisplay.cs",
+              "DocumentMoniker": "C:\\Users\\aless\\Documents\\_code\\GH code\\@ froGH\\froGH\\froGH\\View-Display\\WeightedSpheresDisplay.cs",
+              "RelativeDocumentMoniker": "froGH\\View-Display\\WeightedSpheresDisplay.cs",
+              "ToolTip": "C:\\Users\\aless\\Documents\\_code\\GH code\\@ froGH\\froGH\\froGH\\View-Display\\WeightedSpheresDisplay.cs",
+              "RelativeToolTip": "froGH\\View-Display\\WeightedSpheresDisplay.cs",
+              "ViewState": "AQIAAHoAAAAAAAAAAAAAAIUAAAA1AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-16T09:31:36.848Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "MeshWiresDisplay.cs",
+              "DocumentMoniker": "C:\\Users\\aless\\Documents\\_code\\GH code\\@ froGH\\froGH\\froGH\\View-Display\\MeshWiresDisplay.cs",
+              "RelativeDocumentMoniker": "froGH\\View-Display\\MeshWiresDisplay.cs",
+              "ToolTip": "C:\\Users\\aless\\Documents\\_code\\GH code\\@ froGH\\froGH\\froGH\\View-Display\\MeshWiresDisplay.cs",
+              "RelativeToolTip": "froGH\\View-Display\\MeshWiresDisplay.cs",
+              "ViewState": "AQIAAF8AAAAAAAAAAAAAAG8AAAA7AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-16T09:28:05.894Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "CustomMeshVerticesDisplay.cs",
+              "DocumentMoniker": "C:\\Users\\aless\\Documents\\_code\\GH code\\@ froGH\\froGH\\froGH\\View-Display\\CustomMeshVerticesDisplay.cs",
+              "RelativeDocumentMoniker": "froGH\\View-Display\\CustomMeshVerticesDisplay.cs",
+              "ToolTip": "C:\\Users\\aless\\Documents\\_code\\GH code\\@ froGH\\froGH\\froGH\\View-Display\\CustomMeshVerticesDisplay.cs",
+              "RelativeToolTip": "froGH\\View-Display\\CustomMeshVerticesDisplay.cs",
+              "ViewState": "AQIAAF8AAAAAAAAAAAAAAHAAAAA8AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-16T09:27:47.426Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "CameraReport.cs",
+              "DocumentMoniker": "C:\\Users\\aless\\Documents\\_code\\GH code\\@ froGH\\froGH\\froGH\\View-Display\\CameraReport.cs",
+              "RelativeDocumentMoniker": "froGH\\View-Display\\CameraReport.cs",
+              "ToolTip": "C:\\Users\\aless\\Documents\\_code\\GH code\\@ froGH\\froGH\\froGH\\View-Display\\CameraReport.cs",
+              "RelativeToolTip": "froGH\\View-Display\\CameraReport.cs",
+              "ViewState": "AQIAAGcAAAAAAAAAAAAkwG4AAAAxAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-16T09:25:35.949Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "CameraControlAndZoom.cs",
+              "DocumentMoniker": "C:\\Users\\aless\\Documents\\_code\\GH code\\@ froGH\\froGH\\froGH\\View-Display\\CameraControlAndZoom.cs",
+              "RelativeDocumentMoniker": "froGH\\View-Display\\CameraControlAndZoom.cs",
+              "ToolTip": "C:\\Users\\aless\\Documents\\_code\\GH code\\@ froGH\\froGH\\froGH\\View-Display\\CameraControlAndZoom.cs",
+              "RelativeToolTip": "froGH\\View-Display\\CameraControlAndZoom.cs",
+              "ViewState": "AQIAAOoAAAAAAAAAAAAAAPIAAAA/AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-16T09:25:24.134Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "TopologyInverter.cs",
+              "DocumentMoniker": "C:\\Users\\aless\\Documents\\_code\\GH code\\@ froGH\\froGH\\froGH\\Topology\\TopologyInverter.cs",
+              "RelativeDocumentMoniker": "froGH\\Topology\\TopologyInverter.cs",
+              "ToolTip": "C:\\Users\\aless\\Documents\\_code\\GH code\\@ froGH\\froGH\\froGH\\Topology\\TopologyInverter.cs",
+              "RelativeToolTip": "froGH\\Topology\\TopologyInverter.cs",
+              "ViewState": "AQIAADkAAAAAAAAAAAAAAD8AAAApAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-16T09:25:03.305Z"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 460,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "DirectoryReader.cs",
+              "DocumentMoniker": "C:\\Users\\aless\\Documents\\_code\\GH code\\@ froGH\\froGH\\froGH\\File I-O\\DirectoryReader.cs",
+              "RelativeDocumentMoniker": "froGH\\File I-O\\DirectoryReader.cs",
+              "ToolTip": "C:\\Users\\aless\\Documents\\_code\\GH code\\@ froGH\\froGH\\froGH\\File I-O\\DirectoryReader.cs",
+              "RelativeToolTip": "froGH\\File I-O\\DirectoryReader.cs",
+              "ViewState": "AQIAABQAAAAAAAAAAAAkwB0AAAB0AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-16T08:50:14.139Z",
               "EditorCaption": ""
             }
           ]

@@ -97,7 +97,7 @@ namespace froGH
             {
                 //You can add image files to your project resources and access them like this:
                 // return Resources.IconForThisComponent;
-                return Resources.Select_Objects_from_Rhino_GH;
+                return Resources.SelectRhinoObjects_GH;
             }
         }
 

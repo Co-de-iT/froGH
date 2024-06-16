@@ -240,7 +240,7 @@ namespace froGH
             {
                 //You can add image files to your project resources and access them like this:
                 // return Resources.IconForThisComponent;
-                return Resources.control_camera_3_GH;
+                return Resources.CameraControlZoom2Geometry_GH;
             }
         }
 

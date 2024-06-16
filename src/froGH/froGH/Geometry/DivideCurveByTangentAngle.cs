@@ -121,7 +121,7 @@ namespace froGH
             {
                 //You can add image files to your project resources and access them like this:
                 // return Resources.IconForThisComponent;
-                return Resources.Divide_Curve_by_tangent_angle_2_GH;
+                return Resources.DivideCurveByTangent_GH;
             }
         }
 

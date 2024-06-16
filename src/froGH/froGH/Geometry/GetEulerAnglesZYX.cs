@@ -57,9 +57,8 @@ namespace froGH
             {
                 if (transform.RigidType == 0)
                     AddRuntimeMessage(GH_RuntimeMessageLevel.Error, "Transformation is not rigid, can't extract a rotation");
-                Vector3d translation;
                 Transform rotation;
-                transform.DecomposeRigid(out translation, out rotation, RhinoDoc.ActiveDoc.ModelAbsoluteTolerance);
+                _ = transform.DecomposeRigid(out _, out rotation, RhinoDoc.ActiveDoc.ModelAbsoluteTolerance);
                 transform = rotation;
             }
 
@@ -91,7 +90,7 @@ namespace froGH
             {
                 //You can add image files to your project resources and access them like this:
                 // return Resources.IconForThisComponent;
-                return Resources.Trans_2_ZYX_GH;
+                return Resources.EulerAnglesZYX_GH;
             }
         }
 

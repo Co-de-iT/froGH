@@ -66,7 +66,7 @@ namespace froGH
             {
                 //You can add image files to your project resources and access them like this:
                 // return Resources.IconForThisComponent;
-                return Resources.Mesh_Rebuild_Normals_GH;
+                return Resources.MeshRebuildNormals_GH;
             }
         }
 

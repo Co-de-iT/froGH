@@ -54,22 +54,22 @@ namespace froGH
                 if (Curves[i].TryGetPolyline(out pp)) P.Add(pp);
             }
 
-            bool C = false;
+            bool closed = false;
 
-            DA.GetData(1, ref C);
+            DA.GetData(1, ref closed);
 
             if (P.Count < 2) AddRuntimeMessage(GH_RuntimeMessageLevel.Error, "Provide at least 2 Polylines");
 
-            if (P.Count <= 2)
+            if (P.Count <= 2 && closed)
             {
                 AddRuntimeMessage(GH_RuntimeMessageLevel.Warning, "Open Loft - For a closed Loft you need to supply at least 3 Polylines");
-                C = false;
+                closed = false;
             }
 
-            int pCount = C ? P.Count : P.Count - 1;
+            int pCount = closed ? P.Count : P.Count - 1;
             int vCount;
 
-            Mesh m1, m0 = new Mesh();
+            Mesh mFace, mesh = new Mesh();
             Point3d[] pts0, pts1;
 
             for (int i = 0; i < pCount; i++)
@@ -79,19 +79,19 @@ namespace froGH
                 vCount = pts0.Length - 1;
                 for (int j = 0; j < vCount; j++)
                 {
-                    m1 = new Mesh();
-                    m1.Vertices.Add(pts0[j]);
-                    m1.Vertices.Add(pts0[j + 1]);
-                    m1.Vertices.Add(pts1[j + 1]);
-                    m1.Vertices.Add(pts1[j]);
-                    m1.Faces.AddFace(0, 1, 2, 3);
-                    m0.Append(m1);
+                    mFace = new Mesh();
+                    mFace.Vertices.Add(pts0[j]);
+                    mFace.Vertices.Add(pts0[j + 1]);
+                    mFace.Vertices.Add(pts1[j + 1]);
+                    mFace.Vertices.Add(pts1[j]);
+                    mFace.Faces.AddFace(0, 1, 2, 3);
+                    mesh.Append(mFace);
                 }
             }
-            m0.Weld(Math.PI * 0.5);
-            m0.Normals.ComputeNormals();
+            mesh.Weld(Math.PI * 0.5);
+            mesh.Normals.ComputeNormals();
 
-            DA.SetData(0, m0);
+            DA.SetData(0, mesh);
         }
 
         /// <summary>
@@ -112,7 +112,7 @@ namespace froGH
             {
                 //You can add image files to your project resources and access them like this:
                 // return Resources.IconForThisComponent;
-                return Resources.polymesh_loft_GH;
+                return Resources.PolylineMeshLoft_GH;
             }
         }
 

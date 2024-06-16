@@ -148,7 +148,7 @@ namespace froGH
             {
                 //You can add image files to your project resources and access them like this:
                 // return Resources.IconForThisComponent;
-                return Resources.curvature_4tree_GH;
+                return Resources.SurfaceQuadtreeCurvature_GH;
             }
         }
 

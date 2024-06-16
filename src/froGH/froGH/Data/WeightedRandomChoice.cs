@@ -113,7 +113,7 @@ namespace froGH
             {
                 //You can add image files to your project resources and access them like this:
                 // return Resources.IconForThisComponent;
-                return Resources.Weighted_Random_Choice_3_GH;
+                return Resources.WeightedRandomChoice_GH;
             }
         }
 

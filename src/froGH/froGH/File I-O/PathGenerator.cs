@@ -147,7 +147,7 @@ namespace froGH
             {
                 //You can add image files to your project resources and access them like this:
                 // return Resources.IconForThisComponent;
-                return Resources.PathGen_4_GH;
+                return Resources.PathGenerator_GH;
             }
         }
 

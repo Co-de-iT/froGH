@@ -133,7 +133,7 @@ namespace froGH
             {
                 //You can add image files to your project resources and access them like this:
                 // return Resources.IconForThisComponent;
-                return Resources.Adaptive_Fillet_GH;
+                return Resources.AdaptiveFillet_GH;
             }
         }
 

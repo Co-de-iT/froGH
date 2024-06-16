@@ -68,7 +68,7 @@ namespace froGH
             {
                 //You can add image files to your project resources and access them like this:
                 // return Resources.IconForThisComponent;
-                return Resources.ZYZ_2_Trans_GH;
+                return Resources.RotationFromEulerAnglesZYZ_GH;
             }
         }
 

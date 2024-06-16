@@ -60,7 +60,7 @@ namespace froGH
             {
                 //You can add image files to your project resources and access them like this:
                 // return Resources.IconForThisComponent;
-                return Resources.Indexes_from_number_2_GH;
+                return Resources.IndexesFromNumber_GH;
             }
         }
 

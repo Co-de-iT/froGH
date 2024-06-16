@@ -6,7 +6,7 @@ namespace froGH
 {
     class DirectoryReader_Attributes : GH_ComponentAttributes
     {
-        public DirectoryReader_Attributes(DirectoryReader owner): base(owner)
+        public DirectoryReader_Attributes(DirectoryReader owner) : base(owner)
         { }
 
         protected override void Layout()

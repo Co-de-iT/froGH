@@ -73,7 +73,7 @@ namespace froGH
             {
                 //You can add image files to your project resources and access them like this:
                 // return Resources.IconForThisComponent;
-                return Resources.Mesh_Vertex_Proximity_Single_GH;
+                return Resources.VertexProximitySingle_GH;
             }
         }
 

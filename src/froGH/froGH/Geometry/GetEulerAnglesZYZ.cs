@@ -13,7 +13,7 @@ namespace froGH
         /// </summary>
         public GetEulerAnglesZYZ()
           : base("Get Euler Angles ZYZ", "f_EuZYZ",
-              "the Euler angles for a rotation transformation in ZYZ sequence\n" +
+              "the Euler angles for a rotation transformation in ZYZ order\n" +
                 "Most common in robotics",
               "froGH", "Geometry")
         {
@@ -52,14 +52,13 @@ namespace froGH
             if (!transform.IsAffine)
                 AddRuntimeMessage(GH_RuntimeMessageLevel.Error, "Transformation is not affine, can't extract a rotation");
 
-            // if the transformation is affine but NOT a rotation, try to get the rotation part only
+            // if the transformation is affine but NOT a pure rotation, try to get the rotation part only
             if (!transform.IsRotation)
             {
                 if (transform.RigidType == 0)
                     AddRuntimeMessage(GH_RuntimeMessageLevel.Error, "Transformation is not rigid, can't extract a rotation");
-                Vector3d translation;
                 Transform rotation;
-                transform.DecomposeRigid(out translation, out rotation, RhinoDoc.ActiveDoc.ModelAbsoluteTolerance);
+                _ = transform.DecomposeRigid(out _, out rotation, RhinoDoc.ActiveDoc.ModelAbsoluteTolerance);
                 transform = rotation;
             }
 
@@ -91,7 +90,7 @@ namespace froGH
             {
                 //You can add image files to your project resources and access them like this:
                 // return Resources.IconForThisComponent;
-                return Resources.Trans_2_ZYZ_GH;
+                return Resources.EulerAnglesZYZ_GH;
             }
         }
 

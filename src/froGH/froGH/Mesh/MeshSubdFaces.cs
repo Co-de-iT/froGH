@@ -119,7 +119,7 @@ namespace froGH
             {
                 //You can add image files to your project resources and access them like this:
                 // return Resources.IconForThisComponent;
-                return Resources.divide_mesh_quad_face_bn_GH;
+                return Resources.SubdivideMeshQuadFace_GH;
             }
         }
 

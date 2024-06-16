@@ -28,7 +28,7 @@ namespace froGH
         /// </summary>
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
-            pManager.AddBooleanParameter("Button", "B", "A button to start and stop the toggle", GH_ParamAccess.item);
+            pManager.AddBooleanParameter("Button", "B", "A button to switch the status of the toggle", GH_ParamAccess.item);
             pManager[0].Optional = true;
         }
 
@@ -37,7 +37,7 @@ namespace froGH
         /// </summary>
         protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)
         {
-            pManager.AddBooleanParameter("Toggle status", "T", "The toggle status (True or False)", GH_ParamAccess.item);
+            pManager.AddBooleanParameter("Toggle status", "T", "The froggle status (True or False)", GH_ParamAccess.item);
         }
 
         /// <summary>
@@ -50,7 +50,7 @@ namespace froGH
             DA.GetData(0, ref T);
             if (T) result = !result;
 
-            Message= result.ToString();
+            Message = result.ToString();
 
             DA.SetData(0, result);
         }

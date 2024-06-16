@@ -118,8 +118,14 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="AdaptiveFillet_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AdaptiveFillet_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Adaptive_Fillet_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Adaptive Fillet_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BakeObjectEx_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BakeObjectEx_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Bake_att____3_1_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Bake att ++_3-1_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -127,11 +133,20 @@
   <data name="Bake_att____4_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Bake att ++_4_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="CameraControlZoom2Geometry_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CameraControlZoom2Geometry_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CameraReport_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CameraReport_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Camera_report_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Camera report_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Camera_to_C4D_2_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Camera to C4D_2_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CenteredDomain_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CenteredDomain_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Centered_Domain_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Centered Domain_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -145,6 +160,12 @@
   <data name="control_camera_3_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\control camera_3_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Counter_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Counter_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CreateRTree_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CreateRTree_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Create_RTree_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Create RTree_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -153,6 +174,15 @@
   </data>
   <data name="curve_4tree_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\curve 4tree_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CustomMaterialPreview_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CustomMaterialPreview_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CustomMeshVertexDisplay_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CustomMeshVertexDisplay_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CustomMeshWiresDisplay_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CustomMeshWiresDisplay_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Custom_curve_display_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Custom curve display_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -166,11 +196,23 @@
   <data name="Custom_Sphere_Display_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Custom Sphere Display_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="DeconstructBlockFromID_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DeconstructBlockFromID_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DeconstructDot_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DeconstructDot_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Deconstruct_Block_from_ID_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Deconstruct Block from ID_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Deconstruct_Dot_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Deconstruct Dot_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DirectoryReader_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DirectoryReader_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DivideCurveByTangent_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DivideCurveByTangent_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Divide_Curve_by_tangent_angle_2_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Divide Curve by tangent angle_2_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -178,17 +220,44 @@
   <data name="divide_mesh_quad_face_bn_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\divide mesh quad face_bn_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="DoubleShift_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DoubleShift_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="double_shift_red_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\double shift_red_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="EdgeProximitySingle_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\EdgeProximitySingle_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="EdgesProximityMap_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\EdgesProximityMap_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="EulerAnglesZYX_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\EulerAnglesZYX_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="EulerAnglesZYZ_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\EulerAnglesZYZ_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ExportCurvesToAI_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ExportCurvesToAI_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Export_to_AI_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Export to AI_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ExtractEdgesAngleMultimesh_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ExtractEdgesAngleMultimesh_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ExtractEdgesAngle_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ExtractEdgesAngle_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ExtractMeshEdges_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ExtractMeshEdges_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ExtractMeshFaces_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ExtractMeshFaces_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ExtractMeshFace_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ExtractMeshFace_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Extract_mesh_edges_angle_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Extract mesh edges angle_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -202,6 +271,15 @@
   <data name="Extrude_mesh_curve_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Extrude mesh curve_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="FaceProximitySingle_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FaceProximitySingle_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FacesProximityMap_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FacesProximityMap_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FastMeshFromPolyline_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FastMeshFromPolyline_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="fast_mesh_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\fast mesh_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -213,6 +291,9 @@
   </data>
   <data name="font_parser_2_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\font parser_2_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FrenetSerretFrame_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FrenetSerretFrame_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Froggle_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Froggle_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -229,11 +310,23 @@
   <data name="GHFileDir_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\GHFileDir_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="GHFilenameAndPath_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\GHFilenameAndPath_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="IndexesFromList_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\IndexesFromList_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="IndexesFromNumber_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\IndexesFromNumber_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Indexes_from_List_2_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Indexes from List_2_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Indexes_from_number_2_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Indexes from number_2_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="IsPolylineClockwise_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\IsPolylineClockwise_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Is_Polyline_Clockwise_2_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Is Polyline Clockwise 2_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -247,6 +340,9 @@
   <data name="List_Display_Modes_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\List Display Modes_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="LoadFromWeb_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\LoadFromWeb_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="load_binary_STL_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\load binary STL_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -256,8 +352,47 @@
   <data name="LPolylineFromPlane_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\LPolylineFromPlane_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="MassBoolean_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MassBoolean_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="MassBool_2_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MassBool_2_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Mesh2CSSnippet_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Mesh2CSSnippet_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MeshBridge_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MeshBridge_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MeshClosestVertexIndex_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MeshClosestVertexIndex_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MeshDenoising_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MeshDenoising_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MeshIsocurves_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MeshIsocurves_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MeshIsPointInside_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MeshIsPointInside_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MeshOffsetExtended_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MeshOffsetExtended_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MeshPseudoCurvature_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MeshPseudoCurvature_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MeshRebuildNormals_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MeshRebuildNormals_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MeshReport_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MeshReport_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MeshvalFace2Verts_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MeshvalFace2Verts_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MeshvalVerts2Face_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MeshvalVerts2Face_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Mesh_bridge_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Mesh bridge_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -316,6 +451,12 @@
   <data name="Mesh_Wires_Display_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Mesh Wires Display_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="NamedViews2C4D_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\NamedViews2C4D_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ObjectLayer_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ObjectLayer_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="ObjLayer_2_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ObjLayer_2_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -328,29 +469,59 @@
   <data name="OrientOnGrid_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\OrientOnGrid_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="OrientToCam_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\OrientToCam_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Orient_to_Cam_3_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Orient_to_Cam_3_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PathGenerator_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PathGenerator_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PathGen_4_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PathGen_4_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="PlaneFromLPolyline_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PlaneFromLPolyline_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Plane_from_L_Polyline_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Plane from L Polyline_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PointCloudDisplay_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PointCloudDisplay_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PointsInSphereRTree_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PointsInSphereRTree_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="PointsInSphere_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PointsInSphere_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Points_within_sphere_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Points within sphere_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PolylineMeshLoft_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PolylineMeshLoft_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="polymesh_loft_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\polymesh loft_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="ReadSTLFiles_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ReadSTLFiles_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Read_Dir_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Read Dir_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="ReduceMesh_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ReduceMesh_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="reduce_Mesh_1_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\reduce Mesh_1_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="RotationFromEulerAnglesZYX_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\RotationFromEulerAnglesZYX_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="RotationFromEulerAnglesZYZ_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\RotationFromEulerAnglesZYZ_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="RTreeClosestPoint_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\RTreeClosestPoint_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -358,11 +529,29 @@
   <data name="saveAsGH_2_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\saveAsGH_2_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="SaveAsString_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SaveAsString_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SaveGHFile_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SaveGHFile_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SelectRhinoObjects_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SelectRhinoObjects_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Select_Objects_from_Rhino_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Select Objects from Rhino_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="SeqTreeBranch_2_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SeqTreeBranch_2_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SequentialTreeBranch_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SequentialTreeBranch_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SignedVectorAngle_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SignedVectorAngle_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SlidersDisplay_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SlidersDisplay_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Sliders_Display_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Sliders Display_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -370,8 +559,14 @@
   <data name="SmallestEnclosingCircle_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SmallestEnclosingCircle_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="SortPointsAngle_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SortPointsAngle_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Sort_points_by_angle_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Sort points by angle_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SpaceFillingPolyhedra_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SpaceFillingPolyhedra_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="SPFPolyhedra_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SPFPolyhedra_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -379,17 +574,41 @@
   <data name="String2File_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\String2File_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="SubdivideMeshQuadFace_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SubdivideMeshQuadFace_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SurfaceQuadtreeCurvature_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SurfaceQuadtreeCurvature_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SurfaceQuadtreeCurve_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SurfaceQuadtreeCurve_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SurfaceQuadtreeN_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SurfaceQuadtreeN_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Surface_Quadtree_1_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Surface Quadtree_1_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="SymmetricDomain_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SymmetricDomain_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Symmetric_Domain_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Symmetric Domain_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TextToGeometry_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TextToGeometry_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ToggleAutostop_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ToggleAutostop_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Toggle_Autostop_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Toggle Autostop_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Topologizer_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Topologizer_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TopologyInverter_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TopologyInverter_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Topology_Inverter_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Topology Inverter_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -406,8 +625,14 @@
   <data name="Trilateration_3_1_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Trilateration_3.1_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Trilateration_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Trilateration_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Turntable_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Turntable_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Unlooper_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Unlooper_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="vals_f2v_4_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\vals f2v_4_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -418,11 +643,29 @@
   <data name="vector_angle_sign_4_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\vector angle sign_4_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="VertexProximityMap_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\VertexProximityMap_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="VertexProximitySingle_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\VertexProximitySingle_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ViewCapture2File_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ViewCapture2File_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="View_Capture_to_File_2_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\View Capture to File_2_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="WeightedRandomChoice_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\WeightedRandomChoice_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="WeightedSpheresCloudDisplay_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\WeightedSpheresCloudDisplay_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Weighted_Random_Choice_3_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Weighted Random Choice_3_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="WriteToCOMPort_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\WriteToCOMPort_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Write_to_COM_port_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Write to COM port_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

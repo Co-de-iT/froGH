@@ -22,12 +22,9 @@ namespace froGH
         /// </summary>
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
-            pManager.AddPointParameter("Center Point 1", "P1", "Center Point 1", GH_ParamAccess.item);
-            pManager.AddPointParameter("Center Point 2", "P2", "Center Point 2", GH_ParamAccess.item);
-            pManager.AddPointParameter("Center Point 3", "P3", "Center Point 3", GH_ParamAccess.item);
-            pManager.AddNumberParameter("Radius 1", "r1", "Sphere 1 radius", GH_ParamAccess.item);
-            pManager.AddNumberParameter("Radius 2", "r2", "Sphere 2 radius", GH_ParamAccess.item);
-            pManager.AddNumberParameter("Radius 3", "r3", "Sphere 3 radius", GH_ParamAccess.item);
+            pManager.AddSurfaceParameter("Sphere 1", "S1", "First Sphere", GH_ParamAccess.item);
+            pManager.AddSurfaceParameter("Sphere 2", "S2", "Second Sphere", GH_ParamAccess.item);
+            pManager.AddSurfaceParameter("Sphere 3", "S3", "Third Sphere", GH_ParamAccess.item);
         }
 
         /// <summary>
@@ -45,20 +42,88 @@ namespace froGH
         /// <param name="DA">The DA object is used to retrieve from inputs and store in outputs.</param>
         protected override void SolveInstance(IGH_DataAccess DA)
         {
-            Point3d P1 = new Point3d();
-            Point3d P2 = new Point3d();
-            Point3d P3 = new Point3d();
-            if (!DA.GetData(0, ref P1)) return;
-            if (!DA.GetData(1, ref P2)) return;
-            if (!DA.GetData(2, ref P3)) return;
-            double r1 = 0;
-            double r2 = 0;
-            double r3 = 0;
-            if (!DA.GetData(3, ref r1)) return;
-            if (!DA.GetData(4, ref r2)) return;
-            if (!DA.GetData(5, ref r3)) return;
+            Surface surf1 = null;
+            if (!DA.GetData(0, ref surf1)) return;
+            Surface surf2 = null;
+            if (!DA.GetData(1, ref surf2)) return;
+            Surface surf3 = null;
+            if (!DA.GetData(2, ref surf3)) return;
 
-            Point3d Pa, Pb;
+            surf1.TryGetSphere(out Sphere S1);
+            surf2.TryGetSphere(out Sphere S2);
+            surf3.TryGetSphere(out Sphere S3);
+
+            //Point3d Pa, Pb;
+
+            //Point3d P1 = S1.Center;
+            //Point3d P2 = S2.Center;
+            //Point3d P3 = S3.Center;
+
+            //double r1 = S1.Radius;
+            //double r2 = S2.Radius;
+            //double r3 = S3.Radius;
+
+
+            //Vector3d t1, t2, t3, e_x, e_y, e_z;
+            //double i, j, d, tz, x, y, z;
+
+            //t1 = P2 - P1;
+            //t2 = P3 - P1;
+            //d = t1.Length;
+            //e_x = t1 / d; // unitize t1 and assing it to e_x
+            //i = Vector3d.Multiply(e_x, t2);
+            //t3 = t2 - i * e_x;
+            //e_y = t3 / t3.Length; // unitize t3 and assing it to e_y
+            //e_z = Vector3d.CrossProduct(e_x, e_y);
+
+            //j = Vector3d.Multiply(e_y, t2);
+            //x = (r1 * r1 - r2 * r2 + d * d) / (2 * d);
+            //y = (r1 * r1 - r3 * r3 - 2 * i * x + i * i + j * j) / (2 * j);
+
+            //tz = (r1 * r1) - (x * x) - (y * y);
+            //if (Math.Round(tz, 6) == 0)
+            //{
+            //    z = 0;
+            //    Pa = P1 + x * e_x + y * e_y + z * e_z;
+            //    Pb = Pa;
+            //}
+            //else
+            //{
+            //    if (tz < 0)
+            //    {
+            //        AddRuntimeMessage(GH_RuntimeMessageLevel.Warning, "Spheres do not intersect");
+            //    }
+            //    else
+            //    {
+            //        z = Math.Sqrt(tz);
+            //        Pa = P1 + x * e_x + y * e_y + z * e_z;
+            //        Pb = P1 + x * e_x + y * e_y - z * e_z;
+            //        DA.SetData(0, Pa);
+            //        DA.SetData(1, Pb);
+            //    }
+            //}
+
+            if (!Trilaterate(S1, S2, S3, out Point3d Pa, out Point3d Pb))
+                AddRuntimeMessage(GH_RuntimeMessageLevel.Warning, "Spheres do not intersect");
+            else
+            {
+                DA.SetData(0, Pa);
+                DA.SetData(1, Pb);
+            }
+        }
+
+        private bool Trilaterate(Sphere S1, Sphere S2, Sphere S3, out Point3d Pa, out Point3d Pb)
+        {
+            Pa = Point3d.Unset;
+            Pb = Point3d.Unset;
+
+            Point3d P1 = S1.Center;
+            Point3d P2 = S2.Center;
+            Point3d P3 = S3.Center;
+
+            double r1 = S1.Radius;
+            double r2 = S2.Radius;
+            double r3 = S3.Radius;
 
             Vector3d t1, t2, t3, e_x, e_y, e_z;
             double i, j, d, tz, x, y, z;
@@ -77,26 +142,21 @@ namespace froGH
             y = (r1 * r1 - r3 * r3 - 2 * i * x + i * i + j * j) / (2 * j);
 
             tz = (r1 * r1) - (x * x) - (y * y);
+
             if (Math.Round(tz, 6) == 0)
             {
                 z = 0;
                 Pa = P1 + x * e_x + y * e_y + z * e_z;
                 Pb = Pa;
+                return true;
             }
+            else if (tz < 0) return false;
             else
             {
-                if (tz < 0)
-                {
-                    AddRuntimeMessage(GH_RuntimeMessageLevel.Warning, "Spheres do not intersect\nPa and Pb are null");
-                }
-                else
-                {
-                    z = Math.Sqrt(tz);
-                    Pa = P1 + x * e_x + y * e_y + z * e_z;
-                    Pb = P1 + x * e_x + y * e_y - z * e_z;
-                    DA.SetData(0, Pa);
-                    DA.SetData(1, Pb);
-                }
+                z = Math.Sqrt(tz);
+                Pa = P1 + x * e_x + y * e_y + z * e_z;
+                Pb = P1 + x * e_x + y * e_y - z * e_z;
+                return true;
             }
         }
 
@@ -109,7 +169,7 @@ namespace froGH
             {
                 //You can add image files to your project resources and access them like this:
                 // return Resources.IconForThisComponent;
-                return Resources.Trilateration_3_1_GH;
+                return Resources.Trilateration_GH;
             }
         }
 
@@ -118,7 +178,7 @@ namespace froGH
         /// </summary>
         public override Guid ComponentGuid
         {
-            get { return new Guid("c8bc9da2-ef4c-4df6-90df-e9f2547ddab1"); }
+            get { return new Guid("F03D7266-CAB9-426F-A8B6-CE51EF278ECB"); }
         }
     }
 }

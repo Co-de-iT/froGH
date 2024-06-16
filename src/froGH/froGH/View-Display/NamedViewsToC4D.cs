@@ -16,7 +16,7 @@ namespace froGH
         /// </summary>
         public NamedViewsToC4D()
           : base("Named Views To Cinema 4D", "f_NV2C4D",
-              "Translates Named Views Data for Cinema 4D",
+              "Translates Named Views Data for Cinema 4D\nUse the input, Double-click or attach a trigger to update",
               "froGH", "View/Display")
         {
         }
@@ -26,7 +26,7 @@ namespace froGH
         /// </summary>
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
-            pManager.AddBooleanParameter("Update", "U", "Update to get named views data\nUse a button for a one-shot retrieval, a toggle + timer for continuous data", GH_ParamAccess.item, false);
+            pManager.AddBooleanParameter("Update", "U", "Update named views data", GH_ParamAccess.item, false);
             pManager[0].Optional = true;
         }
 
@@ -35,8 +35,8 @@ namespace froGH
         /// </summary>
         protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)
         {
-            pManager.AddTextParameter("C4D Data", "C4D", "Named Views camera data in Cinema 4D format\n" +
-                "View name, lens, X, Y, Z, Heading, Pitch, Bank", GH_ParamAccess.tree);
+            pManager.AddTextParameter("C4D Data", "C4D", "Named Views camera data in Cinema 4D format:\n" +
+                "0 - View name\n1 - lens\n2 - X\n3 - Y\n4 - Z\n5 - Heading\n6 - Pitch\n7 - Bank", GH_ParamAccess.tree);
         }
 
         /// <summary>
@@ -50,7 +50,7 @@ namespace froGH
 
 
             //Extract Named viewports list
-            
+
             Rhino.DocObjects.Tables.NamedViewTable nV = Rhino.RhinoDoc.ActiveDoc.NamedViews;
 
             // return if list is empty
@@ -62,7 +62,7 @@ namespace froGH
             ViewportInfo vp;
             List<String> nVData;
             Vector3d dir, up;
-            double H, P, B;
+            double heading, pitch, bank;
 
             for (int i = 0; i < nV.Count; i++)
             {
@@ -86,21 +86,21 @@ namespace froGH
 
                 // H (Heading) or Yaw
                 Vector3d flatDir = new Vector3d(dir.X, dir.Y, 0);
-                H = Vector3d.VectorAngle(Vector3d.XAxis, flatDir, Plane.WorldXY);
-                H = Math.Round((180 / Math.PI) * H - 90, 3);
-                nVData.Add(Convert.ToString(H));
+                heading = Vector3d.VectorAngle(Vector3d.XAxis, flatDir, Plane.WorldXY);
+                heading = Math.Round((180 / Math.PI) * heading - 90, 3);
+                nVData.Add(Convert.ToString(heading));
 
                 // P (Pitch)
                 Vector3d invDir = new Vector3d(-dir.X, -dir.Y, -dir.Z);
-                P = Vector3d.VectorAngle(invDir, Vector3d.ZAxis);
-                P = Math.Round((180 / Math.PI) * P - 90, 3);
-                nVData.Add(Convert.ToString(P));
+                pitch = Vector3d.VectorAngle(invDir, Vector3d.ZAxis);
+                pitch = Math.Round((180 / Math.PI) * pitch - 90, 3);
+                nVData.Add(Convert.ToString(pitch));
 
                 // B (Bank) or Roll
                 Vector3d flatRot = Vector3d.CrossProduct(Vector3d.ZAxis, dir);
-                B = Vector3d.VectorAngle(up, flatRot);
-                B = Math.Round((180 / Math.PI) * B - 90, 3);
-                nVData.Add(Convert.ToString(B));
+                bank = Vector3d.VectorAngle(up, flatRot);
+                bank = Math.Round((180 / Math.PI) * bank - 90, 3);
+                nVData.Add(Convert.ToString(bank));
 
                 camData.AddRange(nVData, new GH_Path(i));
 
@@ -112,6 +112,11 @@ namespace froGH
             DA.SetDataTree(0, camData);
         }
 
+        public override void CreateAttributes()
+        {
+            m_attributes = new NamedViewsToC4D_Attributes(this);
+        }
+
         /// <summary>
         /// Provides an Icon for the component.
         /// </summary>
@@ -121,7 +126,7 @@ namespace froGH
             {
                 //You can add image files to your project resources and access them like this:
                 // return Resources.IconForThisComponent;
-                return Resources.Camera_to_C4D_2_GH;
+                return Resources.NamedViews2C4D_GH;
             }
         }
 
