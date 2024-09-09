@@ -99,6 +99,7 @@ namespace froGH
         {
             //if (_cloud == null)
             //    return;
+            if (args == null) return;
             args.Display.DrawPointCloud(_cloud, _size);
         }
 

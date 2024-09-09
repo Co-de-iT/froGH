@@ -2,7 +2,7 @@
 
 namespace froGH.Utils
 {
-    public class SphereSearchData
+    public class RTSearchData
     {
 		public List<int> Ids
 		{
@@ -10,7 +10,7 @@ namespace froGH.Utils
 			set;
 		}
 
-		public SphereSearchData()
+		public RTSearchData()
 		{
 			Ids = new List<int>();
 		}

@@ -9,7 +9,17 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ### Deprecated
 ### Removed
 ### Fixed
-
+---
+## [2.2.13]
+### Added
+- _**Points in AABB**_ and _**Points in AABB (RTree)**_components: the analogous to Points in Sphere (with and without RTree respectively), but searching within a given Axis-Aligned Bounding Box
+- _**Mesh Isocurves Scalar**_ component: generates isocurves on a Mesh using a base Mesh and a list of scalar values (one for each Mesh vertex)
+### Changed
+- _**Mesh Isocurves**_ component: now works with both quadrangular and triangular Mesh faces
+- _**Mesh Subdivide Quad Faces**_ component: improved algorithm speed (not really "blazing", but definitely better than the previous version...)
+### Deprecated
+### Removed
+### Fixed
 ---
 ## [2.2.11]
 ### Added

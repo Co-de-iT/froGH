@@ -86,6 +86,7 @@ namespace froGH
         //Draw all wires and points in this method.
         public override void DrawViewportWires(IGH_PreviewArgs args)
         {
+            if (args == null) return;
             //Rhino.Display.PointStyle.Square;
             args.Display.DrawPoints(_points, Rhino.Display.PointStyle.Square, _width, _color);
             //args.Display.DrawMeshVertices(_mesh, _color);

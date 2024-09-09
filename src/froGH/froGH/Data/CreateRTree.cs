@@ -63,12 +63,12 @@ namespace froGH
                     case "Mesh":
                         Mesh m = new Mesh();
                         list[i].CastTo<Mesh>(out m);
-                        froGHtrees.Add(new GH_froGHRTree(new froGHRTree(m)));
+                        froGHtrees.Add(new GH_froGHRTree(new FroGHRTree(m)));
                         break;
                     case "Cloud":
                         PointCloud cloud = new PointCloud();
                         list[i].CastTo<PointCloud>(out cloud);
-                        froGHtrees.Add(new GH_froGHRTree(new froGHRTree(cloud)));
+                        froGHtrees.Add(new GH_froGHRTree(new FroGHRTree(cloud)));
                         break;
 
                     default:
@@ -76,7 +76,7 @@ namespace froGH
                         return;
                 }
 
-            if (points.Count > 0) froGHtrees.Add(new GH_froGHRTree(new froGHRTree(points)));
+            if (points.Count > 0) froGHtrees.Add(new GH_froGHRTree(new FroGHRTree(points)));
 
             DA.SetDataList(0, froGHtrees);
         }

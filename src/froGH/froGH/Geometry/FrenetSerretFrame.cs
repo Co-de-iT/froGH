@@ -6,6 +6,7 @@ using Rhino.Geometry;
 
 namespace froGH
 {
+    // Check this paper for a component update: https://www.microsoft.com/en-us/research/wp-content/uploads/2016/12/Computation-of-rotation-minimizing-frames.pdf
     public class FrenetSerretFrame : GH_Component
     {
         /// <summary>

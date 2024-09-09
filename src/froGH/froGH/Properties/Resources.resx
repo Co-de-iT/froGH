@@ -370,6 +370,9 @@
   <data name="MeshDenoising_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MeshDenoising_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="MeshIsocurvesScalar_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MeshIsocurvesScalar_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="MeshIsocurves_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MeshIsocurves_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -489,6 +492,12 @@
   </data>
   <data name="PointCloudDisplay_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PointCloudDisplay_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PointsInAABBRTree_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PointsInAABBRTree_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PointsInAABB_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PointsInAABB_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PointsInSphereRTree_GH" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PointsInSphereRTree_GH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

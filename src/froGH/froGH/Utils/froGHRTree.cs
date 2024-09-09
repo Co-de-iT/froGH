@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace froGH.Utils
 {
-    public class froGHRTree
+    public class FroGHRTree
     {
         public RTree Tree
         { get; set; }
@@ -15,10 +15,10 @@ namespace froGH.Utils
         public EnumRTreeType Source
         { get; set; }
 
-        public froGHRTree()
+        public FroGHRTree()
         { }
 
-        public froGHRTree(List<Point3d> points)
+        public FroGHRTree(List<Point3d> points)
         {
             Points = new Point3dList();
             Source = EnumRTreeType.Points;
@@ -30,7 +30,7 @@ namespace froGH.Utils
             }
         }
 
-        public froGHRTree(PointCloud cloud)
+        public FroGHRTree(PointCloud cloud)
         {
             Points = new Point3dList(cloud.GetPoints());
             Source = EnumRTreeType.PointCloud;
@@ -38,7 +38,7 @@ namespace froGH.Utils
 
         }
 
-        public froGHRTree(Mesh mesh)
+        public FroGHRTree(Mesh mesh)
         {
             Point3d[] vertices = mesh.Vertices.ToPoint3dArray();
             Points = new Point3dList(vertices);
@@ -74,14 +74,21 @@ namespace froGH.Utils
 
         public List<int> IndicesInSphere(Point3d center, double radius)
         {
-            SphereSearchData distanceSearchData = new SphereSearchData();
-            Tree.Search(new Sphere(center, radius), SphereCallback, distanceSearchData);
+            RTSearchData distanceSearchData = new RTSearchData();
+            Tree.Search(new Sphere(center, radius), SearchCallback, distanceSearchData);
             return distanceSearchData.Ids;
         }
 
-        private static void SphereCallback(object sender, RTreeEventArgs e)
+        public List<int> IndicesInAABB(BoundingBox bb)
         {
-            SphereSearchData distanceSearchData = e.Tag as SphereSearchData;
+            RTSearchData distanceSearchData = new RTSearchData();
+            Tree.Search(bb, SearchCallback, distanceSearchData);
+            return distanceSearchData.Ids;
+        }
+
+        private static void SearchCallback(object sender, RTreeEventArgs e)
+        {
+            RTSearchData distanceSearchData = e.Tag as RTSearchData;
             distanceSearchData.Ids.Add(e.Id);
         }
 

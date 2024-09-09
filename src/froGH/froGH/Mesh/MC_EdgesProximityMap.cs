@@ -1,13 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using froGH.Properties;
+﻿using froGH.Properties;
 using Grasshopper;
 using Grasshopper.Kernel;
 using Grasshopper.Kernel.Data;
 using Grasshopper.Kernel.Types;
 using Rhino.Geometry;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace froGH
 {
@@ -56,7 +56,6 @@ namespace froGH
             int[][] faces = new int[M.TopologyEdges.Count][];
 
             Parallel.For(0, M.TopologyEdges.Count, i =>
-            //for (int i = 0; i < M.TopologyEdges.Count; i++)
             {
                 int[] edgeEndPts = new int[2];
 
@@ -75,12 +74,9 @@ namespace froGH
                 // get connected edges at each endpoint
                 for (int j = 0; j < edgeEndPts.Length; j++)
                 {
-                    //HashSet<int> connV = new HashSet<int>();
                     M.TopologyVertices.SortEdges(edgeEndPts[j]);
                     int[] coEd = M.TopologyVertices.ConnectedEdges(edgeEndPts[j]);
-                    //foreach (int v in coV)
-                    //    connV.Add(v);
-                    //connV.Remove(i);
+
                     List<int> connEdges = new List<int>();
                     List<int> prevConnEdges = new List<int>();
                     bool edgeFound = false;

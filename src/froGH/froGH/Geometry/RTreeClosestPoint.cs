@@ -69,7 +69,7 @@ namespace froGH
                     AddRuntimeMessage(GH_RuntimeMessageLevel.Warning, "Multiple RTrees for branch " + points.Paths[i].ToString() + "to search multiple RTrees place them in individual branches");
                     return;
                 }
-                froGHRTree fRTree = ((GH_froGHRTree)fTreeList[0]).Value;
+                FroGHRTree fRTree = ((GH_froGHRTree)fTreeList[0]).Value;
                 foreach (GH_Point ghP in points.Branches[i])
                 {
                     int ind = fRTree.ClosestPointIndex(ghP.Value);

@@ -59,7 +59,7 @@ namespace froGH
             get
             {
                 //Return a string representing the version.
-                return "2.2.11";
+                return "2.2.13";
             }
         }
 

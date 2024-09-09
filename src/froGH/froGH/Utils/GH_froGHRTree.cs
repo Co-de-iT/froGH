@@ -3,7 +3,7 @@ using Grasshopper.Kernel.Types;
 
 namespace froGH.Utils
 {
-    public class GH_froGHRTree : GH_Goo<froGHRTree>
+    public class GH_froGHRTree : GH_Goo<FroGHRTree>
     {
         public override bool IsValid => Value.Points != null;
 
@@ -14,7 +14,7 @@ namespace froGH.Utils
         public GH_froGHRTree()
         { }
 
-        public GH_froGHRTree(froGHRTree froGHTree)
+        public GH_froGHRTree(FroGHRTree froGHTree)
         {
             Value = froGHTree;
         }

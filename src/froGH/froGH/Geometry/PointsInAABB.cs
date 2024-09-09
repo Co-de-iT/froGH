@@ -1,19 +1,19 @@
-﻿using froGH.Properties;
+﻿using System;
+using System.Collections.Generic;
+using froGH.Properties;
 using Grasshopper.Kernel;
 using Rhino.Geometry;
-using System;
-using System.Collections.Generic;
 
 namespace froGH
 {
-    public class PointsInSphere : GH_Component
+    public class PointsInAABB : GH_Component
     {
         /// <summary>
-        /// Initializes a new instance of the PointsInSphere class.
+        /// Initializes a new instance of the PointsInAABB class.
         /// </summary>
-        public PointsInSphere()
-          : base("Points In Sphere", "f_PtsSph",
-              "Detects Points within a Sphere of given center and radius\nUse this in case of dynamic sets to search\nFor fixed sets, use the RTree version",
+        public PointsInAABB()
+          : base("Points In AABB", "f_PtsAABB",
+              "Detects Points within a Bounding Box\nUse this in case of dynamic sets to search\nFor fixed sets, use the RTree version",
               "froGH", "Geometry")
         {
         }
@@ -23,10 +23,8 @@ namespace froGH
         /// </summary>
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
-            pManager.AddPointParameter("Sphere Center", "P", "Point to search from (needle)", GH_ParamAccess.item);
-            pManager.AddPointParameter("Cloud to Search", "C", "Cloud of Points to search (haystack)", GH_ParamAccess.list);
-            pManager.AddNumberParameter("Search Radius", "R", "Search Radius", GH_ParamAccess.item);
-
+            pManager.AddBoxParameter("Bounding Box", "B", "The World XYZ aligned Bounding Box for Search", GH_ParamAccess.item);
+            pManager.AddPointParameter("Cloud to Search", "C", "Cloud of Points to search", GH_ParamAccess.list);
         }
 
         /// <summary>
@@ -44,16 +42,12 @@ namespace froGH
         /// <param name="DA">The DA object is used to retrieve from inputs and store in outputs.</param>
         protected override void SolveInstance(IGH_DataAccess DA)
         {
-            Point3d center = new Point3d();
-            DA.GetData(0, ref center);
-            if (center == null) return;
+            Box box = Box.Unset;
+            if (!DA.GetData(0, ref box)) return;
 
             List<Point3d> points = new List<Point3d>();
             DA.GetDataList(1, points);
             if (points == null || points.Count == 0) return;
-
-            double radius = 1.0;
-            DA.GetData(2, ref radius);
 
             List<Point3d> pointsIn = new List<Point3d>();
             List<int> indexesIn = new List<int>();
@@ -61,7 +55,7 @@ namespace froGH
             RTree tree = RTree.CreateFromPointArray(points);
 
             // perform search
-            tree.Search(new Sphere(center, radius), (sender, e) =>
+            tree.Search(box.BoundingBox, (sender, e) =>
             {
                 pointsIn.Add(points[e.Id]);
                 indexesIn.Add(e.Id);
@@ -80,7 +74,7 @@ namespace froGH
             {
                 //You can add image files to your project resources and access them like this:
                 // return Resources.IconForThisComponent;
-                return Resources.PointsInSphere_GH;
+                return Resources.PointsInAABB_GH;
             }
         }
 
@@ -89,7 +83,7 @@ namespace froGH
         /// </summary>
         public override Guid ComponentGuid
         {
-            get { return new Guid("8d12577c-d4fe-4d78-8312-dd1eb17111ba"); }
+            get { return new Guid("805CA143-D955-43FE-930B-799A1B46EF07"); }
         }
     }
 }

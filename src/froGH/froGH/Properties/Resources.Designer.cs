@@ -1103,6 +1103,16 @@ namespace froGH.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap MeshIsocurvesScalar_GH {
+            get {
+                object obj = ResourceManager.GetObject("MeshIsocurvesScalar_GH", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap MeshIsPointInside_GH {
             get {
                 object obj = ResourceManager.GetObject("MeshIsPointInside_GH", resourceCulture);
@@ -1306,6 +1316,26 @@ namespace froGH.Properties {
         internal static System.Drawing.Bitmap Points_within_sphere_GH {
             get {
                 object obj = ResourceManager.GetObject("Points_within_sphere_GH", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PointsInAABB_GH {
+            get {
+                object obj = ResourceManager.GetObject("PointsInAABB_GH", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PointsInAABBRTree_GH {
+            get {
+                object obj = ResourceManager.GetObject("PointsInAABBRTree_GH", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
