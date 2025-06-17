@@ -11,8 +11,8 @@ Ah... that should have been "for GH" but we're so lazy that we misspelt and didn
 NOTE: _**no warranty or support is given**_ so use it at your own risk and understanding (but know that we use it too... so it shouldn't explode at least). If you mess things up using **froGH**, you're on your own.  
   
 On the other hand, if you have any ideas on how to improve things (or you found a bug), please let us know at info[at]co-de-it.com - and feel free to improve upon it yourself, but play nice and give proper attribution (see license).
-  
-![froGH panel](https://raw.githubusercontent.com/Co-de-iT/froGH/master/media/froGH%202.0%20panel.png)
+
+![froGH panel](https://raw.githubusercontent.com/Co-de-iT/froGH/master/media/froGH_2.2.14_panel.png)
   
 ## Installation
 ### Rhino 8 & 7
