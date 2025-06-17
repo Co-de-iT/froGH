@@ -47,7 +47,7 @@ namespace froGH
             Point3d tPt = new Point3d();
             if(!DA.GetData(1, ref tPt)) return;
             KDNode nearest = kdTree.FindNearest(new KDNode(tPt));
-            GH_Point cPt = new GH_Point(nearest.pt);
+            GH_Point cPt = new GH_Point(nearest.point);
 
             DA.SetData(0, cPt);
         }

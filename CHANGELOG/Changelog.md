@@ -5,7 +5,17 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 ### Added
+
 ### Changed
+### Deprecated
+### Removed
+### Fixed
+---
+## [2.2.14]
+### Added
+- _**BitmapFromColorTree**_ component: creates a bitmap object from a Data Tree of colors. The Data Tree must (obviously) have the shape of a rectangular matrix (one branch per row, each branch having the same number of items, representing the number of columns). The generated bitmap can be previewed or saved to file using other plugins such as [Bitmap+](https://www.food4rhino.com/en/app/bitmap)
+### Changed
+- _**ViewCaptureToFile**_ component: added option for transparent background and to capture Z-buffer; progressive numbering is now optional: to activate it, include hashes in the filename. Ex: _screencap###.png_ - progressive numbering ON (saves as screencap_000.png, screencap_001.png, etc), _screencap.png_ - progressive numbering OFF (same name files are overwritten)
 ### Deprecated
 ### Removed
 ### Fixed
@@ -23,7 +33,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ---
 ## [2.2.11]
 ### Added
-- _**Counter**_ component: good, old-fashione counter, attach a trigger and start counting. Not sure why I haven't added this earlier, since I'm using it more times than i can coun... oh, wait
+- _**Counter**_ component: good, old-fashioned counter; attach a trigger and start counting. Not sure why I haven't added this earlier, since I'm using it more times than i can coun... oh, wait...
 ### Changed
 - _**ICONS**_ got some overdue love! They were improved for a better readability and understanding of each component's purpose, consolidating the color scheme and overall visual consistency
 - _**Directory Reader**_ component: implemented a recursive search behavior to search subfolders, with a parameter for the search depth level

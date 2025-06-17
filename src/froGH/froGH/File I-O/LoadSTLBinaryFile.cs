@@ -57,16 +57,15 @@ namespace froGH
             if (wA == 0) wA = Math.PI;
 
             byte[] stl = System.IO.File.ReadAllBytes(F);
-            //Print("File length: " + stl.Length + " bytes");
+
             long numtris = BitConverter.ToInt32(stl, 80);
-            //Print("Number of triangles: " + numtris);
+
             int c = 0;
             int pos = 0;
             Mesh tempmesh = new Mesh();
             Vector3f tempvect = default(Vector3f);
             if (!(numtris * 50 + 84 == stl.Length)) AddRuntimeMessage(GH_RuntimeMessageLevel.Error, "STL file length does not match the number of triangle faces");
 
-            //Print("STL file length matches the number of triangle faces");
             for (c = 0; c <= numtris - 1; c++)
             {
                 pos = c * 50 + 84;

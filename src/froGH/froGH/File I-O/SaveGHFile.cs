@@ -34,7 +34,7 @@ namespace froGH
         protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)
         {
             pManager.AddTextParameter("Saved File Path", "P", "Directory and file name that will be saved", GH_ParamAccess.item);
-            pManager.AddBooleanParameter("Saved File status", "S", "True if File was saved successfully", GH_ParamAccess.item);
+            pManager.AddBooleanParameter("Saved File status", "S", "True if file was saved successfully", GH_ParamAccess.item);
         }
 
         /// <summary>

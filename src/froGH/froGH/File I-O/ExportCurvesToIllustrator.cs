@@ -1,21 +1,21 @@
-﻿using System;
+﻿using froGH.Properties;
+using Grasshopper.Kernel;
+using Rhino.Geometry;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
-using froGH.Properties;
-using Grasshopper.Kernel;
-using Rhino.Geometry;
 
 namespace froGH
 {
-    public class ExportCurvesToAI : GH_Component
+    public class ExportCurvesToIllustrator : GH_Component
     {
         private bool pending = false;
 
         /// <summary>
-        /// Initializes a new instance of the ExportCurvesToAI class.
+        /// Initializes a new instance of the ExportCurvesToIllustrator class.
         /// </summary>
-        public ExportCurvesToAI()
+        public ExportCurvesToIllustrator()
           : base("Export Curves to AI", "f_AIexp",
               "Export curves to Adobe Illustrator format, retaining layers",
               "froGH", "File I-O")
@@ -48,6 +48,8 @@ namespace froGH
         /// </summary>
         protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)
         {
+            pManager.AddTextParameter("Exported File Path", "P", "Directory and file name that will be exported", GH_ParamAccess.item);
+            pManager.AddBooleanParameter("Saved File status", "S", "True if file was exported successfully", GH_ParamAccess.item);
         }
 
         /// <summary>
@@ -83,34 +85,59 @@ namespace froGH
 
             bool export = false;
             DA.GetData(10, ref export);
+            bool isToggle = Params.Input[10].Sources[0] is Grasshopper.Kernel.Special.GH_BooleanToggle;
 
-            // NOTE
-            // normally, a button would freeze GH canvas after a RunScript operation, while a Toggle would not;
-            // this fix (use a pending variable) was suggested by Florian Frank here:
-            // https://www.grasshopper3d.com/forum/topics/boolean-button-runscript
-            if (!export && !pending) return;
-            
             // as suggested by Rutten here: https://discourse.mcneel.com/t/rhino-command-export-in-c/63610/4
-            if (Rhino.RhinoDoc.ActiveDoc == null) return;
-
-            if (!pending)
+            if (Rhino.RhinoDoc.ActiveDoc == null)
             {
-                pending = true;
+                AddRuntimeMessage(GH_RuntimeMessageLevel.Warning, "Save the Rhino file first");
                 return;
             }
 
-            pending = false;
+            // if a toggle is connected 
+            if (isToggle)
+            {
+                // ...and it's false, return
+                if (!export) return; 
+            }
+            else // otherwise it's a button
+            {
+                // NOTE
+                // normally, a button would freeze GH canvas after a RunScript operation, while a Toggle would not;
+                // this fix (use a pending variable) was suggested by Florian Frank here:
+                // https://www.grasshopper3d.com/forum/topics/boolean-button-runscript
+                if (!export && !pending) return;
+
+                if (!pending)
+                {
+                    pending = true;
+                    return;
+                }
+
+                pending = false;
+            }
+
             // export options
             string presUn = PreserveUnits ? "Yes" : "No";
             string vBound = ViewBound ? "Yes" : "No";
             string cs = ColStyle ? "RGB" : "CMYK";
             string solHatch = SolidHatch ? "Yes" : "No";
             string ordLay = OrderLayers ? "Yes" : "No";
+            string fileoutput = path + name + ".ai";
 
             //                                         Yes/No                          Yes/No            RGB/CMYK                          Yes/No                      Yes/No
             string scriptOptions = " PreserveUnits=" + presUn + " ViewportBoundary=" + vBound + " Color=" + cs + " HatchesAsSolidFills=" + solHatch + " OrderLayers=" + ordLay;
-            string scriptString = "-_Export " + '"' + path + name + ".ai" + '"' + scriptOptions + " _Enter";
+            string scriptString = "-_Export " + '"' + fileoutput + '"' + scriptOptions + " _Enter";
 
+            bool success = ExportCurves(C, Layer, LColor, scriptString, path);
+
+            DA.SetData(0, fileoutput);
+            DA.SetData(1, success);
+        }
+
+        private bool ExportCurves(List<Curve> C, List<string> Layer, List<Color> LColor, string scriptString, string path)
+        {
+            bool success = false;
             Guid[] id = new Guid[C.Count];
             string[] lay = Layer.ToArray();
             Color[] col = LColor.ToArray();
@@ -155,9 +182,7 @@ namespace froGH
                         {
                             att.LayerIndex = layerIndex;
                             addedLayers.Add(layerIndex); // add index to the newly added layers list
-                                                         //Print("Added new layer to the document at position " + layerIndex + " named " + Layer + ". ");
-                        } //else
-                          //Print("Layer did not add. Try cleaning up your layers."); //This never happened to me.
+                        }
                     }
                     else
                         att.LayerIndex = layerIndex; //We simply add to the existing layer
@@ -173,9 +198,8 @@ namespace froGH
                 if (cInd < col.Length - 1) cInd++;
             }
 
-            Rhino.RhinoApp.RunScript(scriptString, false);
+            success = Rhino.RhinoApp.RunScript(scriptString, false);
             Rhino.RhinoApp.RunScript("_delete", false);
-
 
             // delete only the added layers
             Rhino.DocObjects.Tables.LayerTable layerTableNew = Rhino.RhinoDoc.ActiveDoc.Layers;
@@ -183,6 +207,7 @@ namespace froGH
             foreach (int lInd in addedLayers)
                 layerTableNew.Delete(lInd, true);
 
+            return success;
         }
 
         /// <summary>
@@ -212,7 +237,7 @@ namespace froGH
         /// </summary>
         public override Guid ComponentGuid
         {
-            get { return new Guid("04460d9b-c999-415e-acb0-46d7deadf054"); }
+            get { return new Guid("9C02A8B2-BE91-4825-AFDA-CFC585BF1435"); }
         }
     }
 }

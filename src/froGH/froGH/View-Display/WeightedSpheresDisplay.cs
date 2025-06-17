@@ -11,7 +11,6 @@ using Rhino.DocObjects;
 
 namespace froGH
 {
-
     public class WeightedSpheresDisplay : GH_Component
     {
         private BoundingBox _clip;

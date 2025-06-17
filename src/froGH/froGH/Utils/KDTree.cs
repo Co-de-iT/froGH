@@ -35,11 +35,11 @@ namespace froGH.Utils
 
             List<KDNode> sorted_nodes = new List<KDNode>();
             if (axis == 0)
-                sorted_nodes = nodes.OrderBy(node1 => node1.pt.X).ToList();
+                sorted_nodes = nodes.OrderBy(node1 => node1.point.X).ToList();
             else if (axis == 1)
-                sorted_nodes = nodes.OrderBy(node1 => node1.pt.Y).ToList();
+                sorted_nodes = nodes.OrderBy(node1 => node1.point.Y).ToList();
             else if (axis == 2)
-                sorted_nodes = nodes.OrderBy(node1 => node1.pt.Z).ToList();
+                sorted_nodes = nodes.OrderBy(node1 => node1.point.Z).ToList();
 
 
             // 2. find the median point
@@ -76,7 +76,7 @@ namespace froGH.Utils
         {
             if (root == null) return;
 
-            double d = root.pt.DistanceToSquared(target.pt);
+            double d = root.point.DistanceToSquared(target.point);
 
             if (best_ == null || d < bestDistance_)
             {
@@ -87,11 +87,11 @@ namespace froGH.Utils
 
             double dx = 0;
             if (index == 0)
-                dx = root.pt.X - target.pt.X;
+                dx = root.point.X - target.point.X;
             else if (index == 1)
-                dx = root.pt.Y - target.pt.Y;
+                dx = root.point.Y - target.point.Y;
             else if (index == 2)
-                dx = root.pt.Z - target.pt.Z;
+                dx = root.point.Z - target.point.Z;
 
             index = (index + 1) % k;
 

@@ -77,13 +77,15 @@
     <Compile Include="Data\DataTreeGraph.cs" />
     <Compile Include="Data\Froggle.cs" />
     <Compile Include="Data\Froggle_Attributes.cs" />
-    <Compile Include="Data\KDTreeComponent.cs" />
+    <Compile Include="Data\CreateKDTree.cs" />
     <Compile Include="Data\SelectRhinoObjects.cs" />
     <Compile Include="Data\L_SelfOrganizingMapComponent.cs" />
     <Compile Include="Data\SelfOrganizingMapComponent.cs" />
     <Compile Include="Data\SelfOrganizingMapFileComponent.cs" />
+    <Compile Include="File I-O\BitmapFromColorTree.cs" />
     <Compile Include="File I-O\DirectoryReader.cs" />
     <Compile Include="File I-O\DirectoryReader_Attributes.cs" />
+    <Compile Include="File I-O\ExportCurvesToIllustrator.cs" />
     <Compile Include="File I-O\GHFilePathInfo_Attributres.cs" />
     <Compile Include="File I-O\L_DirectoryReader_Attributes.cs" />
     <Compile Include="Geometry\ClusterByDistance.cs" />
@@ -116,7 +118,7 @@
     <Compile Include="Utils\SelfOrganizingMap.cs" />
     <Compile Include="Utils\SOMNode.cs" />
     <Compile Include="Utils\RTSearchData.cs" />
-    <Compile Include="Utils\enumRTreeType.cs" />
+    <Compile Include="Utils\EnumRTreeType.cs" />
     <Compile Include="Utils\GH_froGHRTree.cs" />
     <Compile Include="Utils\Utilities.cs" />
     <Compile Include="Utils\VectorNd.cs" />
@@ -129,7 +131,7 @@
     <Compile Include="File I-O\COMPortWriter.cs" />
     <Compile Include="View-Display\CustomMaterial.cs" />
     <Compile Include="View-Display\CustomMeshVerticesDisplay.cs" />
-    <Compile Include="File I-O\ExportCurvesToAI.cs" />
+    <Compile Include="File I-O\L_ExportCurvesToAI.cs" />
     <Compile Include="Mesh\ExtractMeshFace.cs" />
     <Compile Include="Mesh-Create\FastMeshFromPolyline.cs" />
     <Compile Include="Mesh\MC_EdgesProximityMap.cs" />
@@ -209,8 +211,9 @@
     <Compile Include="Geometry\SignedVectorAngle.cs" />
     <Compile Include="View-Display\SlidersDisplay.cs" />
     <Compile Include="View-Display\Turntable.cs" />
-    <Compile Include="View-Display\ViewCaptureToFile.cs" />
+    <Compile Include="View-Display\L_ViewCaptureToFile.cs" />
     <Compile Include="Data\WeightedRandomChoice.cs" />
+    <Compile Include="View-Display\ViewCaptureToFile.cs" />
     <Compile Include="View-Display\WeightedSpheresDisplay.cs" />
     <Compile Include="View-Display\L_ZoomToObject.cs" />
     <Compile Include="Utils\FroGHRTree.cs" />
@@ -811,6 +814,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\MeshIsocurvesScalar_GH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BitmapFromColorTree_GH.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

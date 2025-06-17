@@ -9,6 +9,7 @@ using Rhino.Geometry;
 
 namespace froGH
 {
+    // TODO: Update this component ot generalize export (Unity, Unreal, Godot, etc.) choose left/right handed coordinates and if it's Z-up or Y-up (check Freya Holmer's diagram)
     public class NamedViewsToC4D : GH_Component
     {
         /// <summary>

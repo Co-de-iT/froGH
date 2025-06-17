@@ -8,12 +8,12 @@ using System.Linq;
 
 namespace froGH
 {
-    public class KDTreeComponent : GH_Component
+    public class CreateKDTree : GH_Component
     {
         /// <summary>
         /// Initializes a new instance of the KDTreeComponent class.
         /// </summary>
-        public KDTreeComponent()
+        public CreateKDTree()
           : base("KDTreeComponent", "f_KDT",
               "Create a KDTree search structure from a list of Points",
               "froGH", "Data")

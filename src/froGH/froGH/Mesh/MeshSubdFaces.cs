@@ -58,19 +58,19 @@ namespace froGH
 
             U++;
             V++;
-            Mesh newMesh;// = new Mesh();
+            Mesh newMesh;
 
             // DivideUVEqual Method breaks with Weaverbird subdivided meshes
             // moreover, the performance is almost identical to the other method
             //if (U == V && M.Faces.TriangleCount == 0)
             //    newMesh = DivideUVEqual(M, U);
             //else
-                newMesh = DivideUVDifferent(M, U, V);
+            newMesh = DivideUV(M, U, V);
 
             DA.SetData(0, newMesh);
         }
 
-        private Mesh DivideUVDifferent(Mesh M, int Upts, int Vpts)
+        private Mesh DivideUV(Mesh M, int Upts, int Vpts)
         {
             Mesh newMesh = new Mesh();
             // array of new mesh faces
@@ -130,7 +130,6 @@ namespace froGH
             for (int i = 0; i < meshFaces.Length; i++)
                 newMesh.Append(meshFaces[i]);
             newMesh.RebuildNormals();
-            //newMesh.Weld(0.0);
 
             return newMesh;
         }

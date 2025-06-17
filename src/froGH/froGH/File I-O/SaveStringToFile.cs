@@ -8,7 +8,7 @@ namespace froGH
 {
     public class SaveStringToFile : GH_Component
     {
-        private bool pending = false;
+        //private bool pending = false;
 
         /// <summary>
         /// Initializes a new instance of the SaveStringToFile class.
@@ -36,6 +36,7 @@ namespace froGH
         /// </summary>
         protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)
         {
+            pManager.AddBooleanParameter("Saved File status", "S", "True if File was saved successfully", GH_ParamAccess.item);
         }
 
         /// <summary>
@@ -53,27 +54,35 @@ namespace froGH
             bool save = false;
             DA.GetData(3, ref save);
 
-            if (!save && !pending) return;
+            bool result = false;
+            
+            // removed to automate saving multiple files
+            //if (!save && !pending) return;
 
-            if (!pending)
-            {
-                pending = true;
-                return;
-            }
+            //if (!pending)
+            //{
+            //    pending = true;
+            //    return;
+            //}
 
-            pending = false;
+            //pending = false;
+
+            if (!save) return;
 
             if (!Directory.Exists(dir)) Directory.CreateDirectory(dir);
 
             String target = dir + file;
 
-            WriteAllLinesCustom(target, S.ToArray());
+            result = WriteAllLinesCustom(target, S.ToArray());
+            
             //File.WriteAllLines(target, S.ToArray()); // this leaves an empty line at the bottom of the file (expected behaviour but not good for me)
+            DA.SetData(0, result);
         }
 
         // code found at: https://stackoverflow.com/questions/11689337/net-file-writealllines-leaves-empty-line-at-the-end-of-file/42034211
-        void WriteAllLinesCustom(string path, params string[] lines)
+        bool WriteAllLinesCustom(string path, params string[] lines)
         {
+            bool result = false;
             if (path == null)
                 throw new ArgumentNullException("path");
             if (lines == null)
@@ -93,7 +102,10 @@ namespace froGH
                         writer.Write(lines[lines.Length - 1]);
                     }
                 }
+                result = true;
             }
+
+            return result;
         }
 
         /// <summary>

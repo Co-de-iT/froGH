@@ -4,12 +4,12 @@ namespace froGH.Utils
 {
     public class KDNode
     {
-        public Point3d pt;
+        public Point3d point;
         public KDNode left, right;
 
         public KDNode(Point3d point)
         {
-            pt = point;
+            this.point = point;
         }
     }
 }

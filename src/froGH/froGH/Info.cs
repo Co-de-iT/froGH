@@ -2,6 +2,7 @@
 using Grasshopper.Kernel;
 using System;
 using System.Drawing;
+using System.Reflection;
 
 namespace froGH
 {
@@ -56,11 +57,18 @@ namespace froGH
         }
         public override string AssemblyVersion
         {
+            // change it in AssemblyInfo.cs - this should sync it automatically
             get
             {
-                //Return a string representing the version.
-                return "2.2.13";
+                var assembly = Assembly.GetExecutingAssembly();
+                var assemblyName = new AssemblyName(assembly.FullName);
+                return assemblyName.Version.ToString();
             }
+            //get
+            //{
+            //    //Return a string representing the version.
+            //    return "2.2.14"; 
+            //}
         }
 
         public override string Version => AssemblyVersion;
